@@ -14,7 +14,9 @@ document.addEventListener('DOMContentLoaded', function () {
       
       persona.addEventListener('click', function () {
         // Handle persona click event to go to persona detail page
-        alert('Persona clicked: ' + this.querySelector('.name').textContent);
+          console.log('Persona clicked: ' + this.querySelector('.name').textContent);
+        //go to next page£¨overview£©
+          window.location.href = 'overview_page/overview.html';
       });
     });
   });

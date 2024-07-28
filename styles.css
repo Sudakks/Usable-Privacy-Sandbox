@@ -20,7 +20,7 @@ body {
 }
 
 h1 {
-  font-size: 12.8px;
+  font-size: 1.28rem;
   margin: 0;
 }
 
@@ -28,7 +28,7 @@ h1 {
   width: calc(100% - 20px);
   padding: 5px;
   margin: 10px 0;
-  font-size: 14px;
+  font-size: 1.4rem;
 }
 
 #personaList {
@@ -38,6 +38,7 @@ h1 {
   max-height: 240px;
 }
 
+/*单个persona*/
 .persona {
   display: flex;
   align-items: center;
@@ -57,7 +58,7 @@ h1 {
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  margin-right: 10px;
+  margin-right: 1rem;
 }
 
 .persona-info {
@@ -67,16 +68,16 @@ h1 {
 }
 
 .persona-info > span {
-  margin-right: 10px;
+  margin-right: 1rem;
 }
 
 .name {
   font-weight: bold;
-  font-size: 11.2px;
+  font-size: 1rem;
 }
 
 .age, .occupation, .location {
-  font-size: 11.2px;
+  font-size: 1rem;
 }
 
 .activate-btn {
@@ -84,8 +85,8 @@ h1 {
   /*使得内部元素并排*/
   align-items: center;
   margin-left: auto;
-  padding: 5px 10px;
-  font-size: 10px;
+  padding: 5px 5px;
+  font-size: 1rem;
   cursor: pointer;
   border-radius: 4px;
   background-color: white;
@@ -105,4 +106,8 @@ h1 {
 .activate-btn:hover {
   background-color: #cfcfcf; 
 }
-/*将鼠标悬停在 .persona 元素上时，使 .activate-btn 元素的显示模式变为 inline-block，从而使它可见*/  
+/*将鼠标悬停在 .persona 元素上时，使 .activate-btn 元素的显示模式变为 inline-block，从而使它可见*/
+
+html {
+	font-size: 10px;
+}
