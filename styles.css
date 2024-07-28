@@ -1,0 +1,108 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 10px;
+  background-color: #F7F8FA;
+  width: 460px;  /* 400px - 2 * 10px padding */
+  height: 340px; /* 300px - 2 * 10px padding */
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent scrollbars from appearing */
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.logo {
+  height: 27.6px;
+}
+
+h1 {
+  font-size: 12.8px;
+  margin: 0;
+}
+
+#searchInput {
+  width: calc(100% - 20px);
+  padding: 5px;
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+#personaList {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: 240px;
+}
+
+.persona {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+.persona:hover {
+  background-color: #f0f0f0;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.persona-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.persona-info > span {
+  margin-right: 10px;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 11.2px;
+}
+
+.age, .occupation, .location {
+  font-size: 11.2px;
+}
+
+.activate-btn {
+  display: none;
+  /*使得内部元素并排*/
+  align-items: center;
+  margin-left: auto;
+  padding: 5px 10px;
+  font-size: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+  border: 2px solid #000000;
+}
+
+/*控制图标和文本之间的距离*/
+.activate-btn i{
+	margin-right: 1px;
+}
+
+.persona:hover .activate-btn {
+  display: inline-flex;
+}
+/*:hover是一个整体*/
+.activate-btn:hover {
+  background-color: #cfcfcf; 
+}
+/*将鼠标悬停在 .persona 元素上时，使 .activate-btn 元素的显示模式变为 inline-block，从而使它可见*/  
