@@ -78,8 +78,17 @@ input:checked + .slider:before {
 .left-container, .right-container {
     display: flex;
     flex-direction: column;
-    gap: 0px; 
-    padding-top:10px;
+    gap: 0px;
+    padding-top: 10px;
+}
+
+/*根据实际观感调整左右间距*/
+.left-container {
+    flex: 5; 
+}
+.right-container {
+    flex: 5;
+    margin-left:10px;
 }
 
 
@@ -90,15 +99,26 @@ input:checked + .slider:before {
     margin-bottom:14px;
 }
 
+/*各项信息标题*/
 .infoName {
     font-size:1em;
     font-weight:bold;
     margin-bottom:4px;
+    width:100px;
 }
 
+/*可以修改的内容*/
 .infoEdit {
     font-size: 0.8em;
     color: #545050;
+    cursor:pointer;
+    width:150px;
+}
+
+.infoInput {
+    display: none;
+    width: 100px;
+    box-sizing: border-box; /* 包括内边距和边框 */
 }
 
 .singleInfo {

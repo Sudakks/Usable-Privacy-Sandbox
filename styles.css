@@ -81,17 +81,17 @@ h1 {
 }
 
 .activate-btn {
-  display: none;
-  /*使得内部元素并排*/
-  align-items: center;
-  margin-left: auto;
-  padding: 5px 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 4px;
-  background-color: white;
-  color: black;
-  border: 2px solid #000000;
+	display: none;
+	/*使得内部元素并排*/
+	align-items: center;
+	margin-left: auto;
+	padding: 8px 5px;
+	font-size: 0.9rem;
+	cursor: pointer;
+	border-radius: 4px;
+	background-color: white;
+	color: black;
+	border: 1px solid #AFAFAF;
 }
 
 /*控制图标和文本之间的距离*/

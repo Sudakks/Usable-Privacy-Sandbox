@@ -1,0 +1,42 @@
+.otherButton {
+    width: 7.9em;
+    height: 8.8em;
+    padding: 4px;
+    background-color: #F7F8FA;
+    color: #484848;
+    font-weight: bold;
+    font-size: 0.8em;
+    border: 1.6px solid #C7C9CE;
+    border-radius: 12px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    display: inline-block;
+    margin-right: 10px;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+    .otherButton:hover {
+        background-color: #D6D7DC;
+    }
+
+    .otherButton object {
+        margin-bottom: 4px; /* Space between icon and text */
+        margin-top:7px;
+    }
+
+.button-container {
+    display: flex;
+    justify-content: space-between; /*均匀分布*/
+    align-items: flex-start; /*顶部对齐*/
+    padding: 20px;
+    justify-content: center;
+}
+
+.otherComponent {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    flex-direction: column;
+}
