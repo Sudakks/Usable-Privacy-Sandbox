@@ -19,5 +19,31 @@ document.addEventListener('DOMContentLoaded', function () {
           window.location.href = 'overview_page/overview.html';
       });
     });
-  });
+});
+
+
+/*search for all info*/
+document.getElementById('searchInput').addEventListener('input', function () {
+    var input = this.value.toLowerCase();
+    var personas = document.getElementsByClassName('persona');
+
+    Array.from(personas).forEach(function (persona) {
+        var infoSpans = persona.querySelectorAll('.persona-info span');
+        var matches = false;
+
+        infoSpans.forEach(function (span) {
+            if (span.textContent.toLowerCase().includes(input)) {
+                matches = true;
+            }
+        });
+
+        if (matches) {
+            persona.style.display = '';
+        } else {
+            persona.style.display = 'none';
+        }
+    });
+});
+
+
   

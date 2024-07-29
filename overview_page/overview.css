@@ -9,27 +9,33 @@ body {
     overflow: hidden; /* Prevent scrollbars from appearing */
 }
 
+
 .outer-border {
-    /*
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
+    border: 2.5px solid #91CBFF;
+    border-radius: 8px;
+    padding: 10px; /* 内边距 */
     background-color: white;
-    width: 450px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        */
+    width: calc(100% - 2 * 10px); /* 减去左右内边距 */
+    height: 235px;
+    box-sizing: border-box; /* 包括内边距和边框 */
+    margin: 0 auto; /* 居中对齐，自动设置左右外边距 */
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0px; 
-    margin-top: 0px; 
-    font-size: 16px;
+    margin: 0;
+    font-size: 14px;
 }
 
-.back-button {
+    .header h1 {
+        margin-top: 0px; 
+        margin-bottom:15px;
+    }
+
+
+.backButton {
     background-color: transparent;
     border: none;
     color: #53AEFF;
@@ -38,62 +44,161 @@ body {
     display: flex;
     align-items: center;
     margin-top: 10px; 
-    margin-bottom: 0px; 
+    margin-bottom: 15px; 
 }
 
-.back-button i {
+.backButton i {
     margin-right: 2px;
 }
-
-.nav {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 2px;
-    margin-top: 2px;
-}
-
-.nav-button {
-    flex: 1;
-    padding: 8px;
-    margin-right: 5px;
-    border: none;
-    background-color: transparent;
-    color: #868585;
-    cursor: pointer;
-}
-
-    .nav-button:last-child {
-        margin-right: 0; /* 最后一个按钮右侧的间距设置为 0 */
-    }
-    .nav-button i {
-        margin-right:2px;
-    }
-
+  
 .content {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+.imageContainer {
+    display: flex;
+    flex-direction: column; /* 垂直排列子元素 */
+    align-items: center; /* 子元素居中对齐 */
+    float:right;
+    margin-top:-15px;
+    margin-right:0px;
 }
 
-.section {
-    display: none;
+.personaImage {
+    height: 95px;
+    width: 85px;
+    border-radius: 8px;
+    margin-bottom: 10px; /* 图片与按钮之间的间距 */
 }
 
-    .section.active {
-        display: block;
+.generateImage {
+    display: block;
+    width: auto; /* 根据内容调整按钮宽度，或设置具体宽度值 */
+    padding: 5px 5px;
+    background-color: #AFAFAF;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+.activateButton {
+    width: 25%;
+    padding: 7px;
+    background-color: #074FB3;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    margin-top:10px;
+}
+
+
+
+/* nav bar Appearance */
+.links {
+    background-color: #FFFDFD; /* 背景颜色 */
+    /*background-image: linear-gradient(to bottom, #0003, transparent); 渐变背景 */
+    border-bottom: 1px solid #A8A8A8; /*底部边框*/
+    /*box-shadow: 0 0 32px #0003;  阴影效果 */
+    font-size: 14.5px; /* 字体大小 */
+    font-weight: 200; /* 字体粗细 */
+}
+    .links > a {
+        color: #868585; /* 链接文字颜色 */
+        padding: .1em; /* 链接内边距 */
+        text-align: center; /* 文本居中 */
+        text-decoration: none; /* 去掉下划线 */
+        transition: all .5s; /* 平滑过渡效果 */
+    }
+        .links > a:hover {
+            background: #FFFDFD; /* 鼠标悬停时背景色 */
+            color: #53AEFF; /* 鼠标悬停时文字颜色 */
+        }
+    .links > .line {
+        background: #53AEFF; /* 线条颜色 */
+        height: 1.6px; /* 线条高度 */
+        pointer-events: none; /* 不接收鼠标事件 */
+    }
+    .links > a i {
+        margin-right:5px;
+    }
+.links {
+    display: grid; /* 使用网格布局 */
+    grid-template-columns: repeat(var(--items), 1fr); /* 网格列数，根据 --items 变量设置 */
+    position: relative; /* 相对定位 */
+}
+    .links > .line {
+        opacity: 0; /* 初始透明度为 0 */
+        transition: all .4s; /* 平滑过渡效果 */
+        position: absolute; /* 绝对定位 */
+        bottom: 0; /* 位于底部 */
+        left: var(--left, calc(100% / var(--items) * (var(--index) - 1))); /* 动态计算位置 */
+        width: var(--width, calc(100% / var(--items))); /* 动态计算宽度 */
+        --index: 0; /* 默认索引 */
+    }
+    .links > a:hover ~ .line {
+        opacity: 1; /* 鼠标悬停时线条变为可见 */
+    }
+    .links > a:nth-of-type(1):hover ~ .line {
+        --index: 1;
+    }
+    .links > a:nth-of-type(2):hover ~ .line {
+        --index: 2;
+    }
+    .links > a:nth-of-type(3):hover ~ .line {
+        --index: 3;
+    }
+    .links > a:nth-of-type(4):hover ~ .line {
+        --index: 4;
+    }
+    .links > a:last-of-type:hover ~ .line {
+        --index: var(--items);
     }
 
-.persona-image {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-top: 10px;
+.bold {
+    font-weight: bold;
+}
+.briefInfo {
+    /*基本信息摘要*/
+    font-size: 12px;
+    font-style:italic;
+    line-height:8px;
+    margin-bottom:15px;
+    margin-top: 20px;
+}
+.naturalInfo {
+    /*描述*/
+    font-size: 14px;
+    line-height: 18px;
+    color: #413D3D;
+    padding-right:100px;
+}
+.hrLine {
+    border-bottom: 1.5px solid #AFAFAF;
+    width:200px;
 }
 
-.activate-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.tip {
+    font-style: italic;
+    font-size: 6px;
+    float: right;
+    text-align: right;
+    color: #636363;
+}
+
+.logo {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    float: right;
+    margin-top: -30px;
+    margin-right: 0px;
+    height: 27.6px;
 }
