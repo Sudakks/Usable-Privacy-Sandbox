@@ -4,12 +4,12 @@ document.addEventListener('DOMContentLoaded', function () {
     personas.forEach(persona => {
       persona.addEventListener('mouseover', function () {
         this.style.backgroundColor = '#f0f0f0';
-        this.querySelector('.activate').style.display = 'inline-block';
+          this.querySelector('.activate-btn').style.display = 'inline-block';
       });
       
       persona.addEventListener('mouseout', function () {
         this.style.backgroundColor = '#ffffff';
-        this.querySelector('.activate').style.display = 'none';
+          this.querySelector('.activate-btn').style.display = 'none';
       });
       
       persona.addEventListener('click', function () {

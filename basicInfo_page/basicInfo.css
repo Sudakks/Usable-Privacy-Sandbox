@@ -1,0 +1,84 @@
+/*basic size*/
+.switch {
+    margin:10px;
+    position: relative;
+    display: inline-block;
+    width: 33px;
+    height: 16px;
+}
+
+    .switch input {
+        /*使复选框隐藏不见*/
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+/*关闭状态*/
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #BBBBB8;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    /*点击切换的圆形*/
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 12px;
+        width: 12px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+/*设置当滑块被选中的时候的颜色*/
+input:checked + .slider {
+    background-color: #28A9E0;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(17px);/*控制滑块移动*/
+}
+
+/* Rounded sliders */
+/*滑块添加圆角*/
+.slider.round {
+    border-radius: 34px;
+}
+
+/*里边的圆圈添加圆角*/
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+.infoName {
+    font-size:1em;
+    font-weight:bold;
+    margin-bottom:4px;
+}
+
+.infoEdit {
+    font-size: 0.8em;
+    color: #545050;
+}
+
+.singleInfo {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+}
