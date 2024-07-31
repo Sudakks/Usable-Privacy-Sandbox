@@ -1,0 +1,193 @@
+/*basic size*/
+.switch {
+    margin:10px;
+    position: relative;
+    display: inline-block;
+    width: 33px;
+    height: 16px;
+}
+
+    .switch input {
+        /*使复选框隐藏不见*/
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+/*关闭状态*/
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #28A9E0;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+/*点击切换的圆形*/
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+/*设置当滑块被选中的时候的颜色*/
+input:checked + .slider {
+    background-color: #BBBBB8;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(17px);/*控制滑块移动*/
+}
+
+/* Rounded sliders */
+/*滑块添加圆角*/
+.slider.round {
+    border-radius: 34px;
+}
+
+/*里边的圆圈添加圆角*/
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+.container {
+    display: flex;
+    /*flex-wrap: wrap;  Allow components to wrap to the next line if needed */
+    /*gap: 20px;  Space between components */
+    justify-content: space-between; /* 分散左、右容器 */
+    align-items: flex-start; /* 上下对齐 */
+    padding-right:80px;
+}
+
+.left-container, .right-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    padding-top: 10px;
+}
+
+/*根据实际观感调整左右间距*/
+.left-container {
+    flex: 5; 
+}
+.right-container {
+    flex: 5;
+    margin-left:10px;
+}
+
+
+/*每一个info的组件*/
+.component {
+    display: flex;
+    align-items: center;
+    margin-bottom:10px;
+}
+
+/*各项信息标题*/
+.infoName {
+    font-size:1em;
+    font-weight:bold;
+    margin-bottom:4px;
+    width:130px;
+}
+
+/*可以修改的内容*/
+.infoEdit {
+    font-size: 0.8em;
+    color: #545050;
+    cursor:pointer;
+    width:150px;
+}
+
+.infoInput {
+    display: none;
+    width: 100px;
+    box-sizing: border-box; /* 包括内边距和边框 */
+}
+
+.singleInfo {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+}
+
+/*下拉框样式*/
+
+/*下拉框按钮*/
+.dropbtn {
+    background-color: white;
+    border: 0.72px solid #858585;
+    color: #939393;
+    padding: 0px;
+    font-size: 0.8em;
+    cursor: pointer;
+    width: 9em;
+    height: 1.9em;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* 下拉框内容 */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 30px;
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+    z-index: 1;
+}
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: #C1C1C1;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+        /* hover：改变dropdown内容 */
+        .dropdown-content a:hover {
+            background-color: #E9E9E9;
+            color: black;
+        }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #939393;
+}
+
+/*
+使用
+    <div class="dropdown">
+        <button class="dropbtn">Select Gender</button>
+        <div class="dropdown-content">
+            <a>Male</a>
+            <a>Female</a>
+            <a>Other</a>
+        </div>
+    </div>
+*/

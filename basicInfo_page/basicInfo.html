@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Info</title>
+    <link rel="stylesheet" href="../overview_page/overview.css">
+    <link rel="stylesheet" href="basicInfo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <button class="backButton">
+        <i class="fa-solid fa-less-than"></i>Back to Select
+    </button>
+    <div class="logo">
+        <img src="../images/logo.png" alt="Privacy Sandbox" class="logo">
+    </div>
+    <!--body part-->
+    <div class="outer-border">
+        <div class="header">
+            <h1>Persona</h1>
+            <div class="tip">
+                *Set information Chrome can access from you<br>
+                *Edit information if you like
+            </div>
+        </div>
+        <nav class="links" style="--items: 4;">
+            <a href="../overview_page/overview.html"><i class="fa-regular fa-folder"></i>Overview</a>
+            <a href="../basicInfo_page/basicInfo.html"><i class="fa-solid fa-person"></i>Basic Info</a>
+            <a href="../bg_page/bg.html"><i class="fa-regular fa-file"></i>Background</a>
+            <a href="../others_page/others.html"><i class="fa-regular fa-comment"></i>Others</a>
+            <span class="line"></span>
+        </nav>
+
+        <div class="content">
+            <!--TODO-->
+            <!--add toggle switch-->
+            <div class="container">
+                <div class="left-container">
+                    <div class="component">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <div class="singleInfo">
+                            <div class="infoName">Name</div>
+                            <div class="infoEdit">
+                                Mia Rodriguez
+                            </div>
+                            <input type="text" class="infoInput" style="display:none;">
+                        </div>
+                    </div>
+                    <div class="component">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <div class="singleInfo">
+                            <div class="infoName">Date of Birth</div>
+                            <div class="infoEdit">
+                                04/15/1990 (age 34)
+                            </div>
+                            <input type="text" class="infoInput" style="display:none;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-container">
+                    <div class="component">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <div class="singleInfo">
+                            <div class="infoName">Gender</div>
+                            <div class="infoEdit" id="dropdownEdit">
+                                Female
+                            </div>
+                            <select class="infoInput" onchange="updateInfo()" style="display:none;" id="dropdownInput">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="component">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <div class="singleInfo">
+                            <div class="infoName">Race</div>
+                            <div class="infoEdit">
+                                Black
+                            </div>
+                            <input type="text" class="infoInput" style="display:none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="component">
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+                <div class="singleInfo">
+                    <div class="infoName">Address</div>
+                    <div class="infoEdit" style="width: 250px">
+                        100 ABC Street, Los Angelas, CA, 00000
+                    </div>
+                    <input type="text" class="infoInput" style="display:none;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="activateButton">Activate</button>
+    <script src="basicInfo.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+.bgContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-rows: repeat(3, auto); /* 3 rows */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    padding-top:10px;
+}
+.component {
+    display: flex;
+    align-items: center;
+    margin-bottom: -0px;
+}

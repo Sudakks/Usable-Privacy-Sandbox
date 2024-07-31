@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>generateNewPersona</title>
+    <link rel="stylesheet" href="../overview_page/overview.css">
+    <link rel="stylesheet" href="newPersona.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <button class="backButton">
+        <i class="fa-solid fa-less-than"></i>Back to Select
+    </button>
+    <div class="logo">
+        <img src="../images/logo.png" alt="Privacy Sandbox" class="logo">
+    </div>
+    <!--body part-->
+    <div class="boxContainer">
+        <div class="left-container">
+            <div class="header">
+                <h1>Persona Description</h1>
+            </div>
+            <div class="dspFrame" id="dspFrame">
+                <!--一开始有提示内容-->
+                <div id="displayText">Enter a new Persona or click generate description to generate one automatically. After modification, click Confirm to proceed to the next step</div>
+                <input type="text" id="editInput" style="display:none;" autocomplete="off">
+            </div>
+            <div class="btnPair">
+                <button class="newButton" style="background-color: #074FB3; width:15em" id="generateDes">Generate description </button>
+                <button class="newButton" style="width: 7.5em; font-size: 0.7em;" id="Confirm">Confirm</button>
+            </div>
+        </div>
+        <div class="right-container">
+            <div class="header">
+                <h1>Profile Picture</h1>
+            </div>
+            <div class="photoFrame" style="background-image: url('../images/profileImage.png');"></div>
+            <button class="newButton" style="width: 12em; font-size: 0.7em;" id="generateImg">Generate Image</button>
+        </div>
+    </div>
+    <script src="../overview_page/overview.js"></script>
+    <script src="newPersona.js"></script>
+</body>
+</html>

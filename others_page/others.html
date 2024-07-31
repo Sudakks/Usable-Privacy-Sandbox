@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Others</title>
+    <link rel="stylesheet" href="others.css">
+    <link rel="stylesheet" href="../basicInfo_page/basicInfo.css">
+    <link rel="stylesheet" href="../overview_page/overview.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <button class="backButton">
+        <i class="fa-solid fa-less-than"></i>Back to Select
+    </button>
+    <div class="logo">
+        <img src="../images/logo.png" alt="Privacy Sandbox" class="logo">
+    </div>
+    <!--body part-->
+    <div class="outer-border">
+        <div class="header">
+            <h1>Persona</h1>
+            <div class="tip">
+                *Set information Chrome can access from you<br>
+                *Edit information if you like
+            </div>
+        </div>
+        <nav class="links" style="--items: 4;">
+            <a href="../overview_page/overview.html"><i class="fa-regular fa-folder"></i>Overview</a>
+            <a href="../basicInfo_page/basicInfo.html"><i class="fa-solid fa-person"></i>Basic Info</a>
+            <a href="../bg_page/bg.html"><i class="fa-regular fa-file"></i>Background</a>
+            <a href="../others_page/others.html"><i class="fa-regular fa-comment"></i>Others</a>
+            <span class="line"></span>
+        </nav>
+
+        <div class="content">
+            <!--TODO：这个和之前几个不一样，需要用按钮实现-->
+            
+            <div class="button-container">
+                <div class="otherComponent">
+                    <button class="otherButton" id="schedule">
+                        <object data="../images/schedule.svg" type="image/svg+xml" width="35" height="35">
+                            Your browser does not support SVG
+                        </object>
+                        Schedule
+                    </button>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+                <div class="otherComponent">
+                    <button class="otherButton" id="history">
+                        <object data="../images/browser_history.svg" type="image/svg+xml" width="35" height="35" style="margin-bottom: 1px;">
+                            Your browser does not support SVG
+                        </object>
+                        Browser History
+                    </button>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                    <div class="otherComponent">
+                        <button class="otherButton" id="Facebook">
+                            <object data="../images/Facebook.svg" type="image/svg+xml" width="37" height="33">
+                                Your browser does not support SVG
+                            </object>
+                            Facebook Posts
+                        </button>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <div class="otherComponent">
+                        <button class="otherButton" id="Twitter">
+                            <object data="../images/Twitter.svg" type="image/svg+xml" width="35" height="35">
+                                Your browser does not support SVG
+                            </object>
+                            Twitter Posts
+                        </button>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+            </div>
+    </div>
+        </div>
+    <button class="activateButton">Activate</button>
+    <script src="others.js"></script>
+</body>
+</html>
