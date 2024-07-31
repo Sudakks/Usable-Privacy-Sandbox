@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Persona Overview</title>
+    <title>Background</title>
     <link rel="stylesheet" href="../overview_page/overview.css">
-    <link rel="stylesheet" href="bg.css">
     <link rel="stylesheet" href="../basicInfo_page/basicInfo.css">
+    <link rel="stylesheet" href="bg.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -36,95 +36,95 @@
         <div class="content">
             <!--TODO-->
             <!--add toggle switch-->
-            <div class="container">
-                <div class="left-container">
-                    <div class="component">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                        <div class="singleInfo">
-                            <div class="infoName">Education</div>
-                            <div class="infoEdit">
-                                Bachelor in Computer Science
-                            </div>
-                            <input type="text" class="infoInput" style="display:none;">
+            <div class="bgContainer">
+                <div class="component">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <div class="singleInfo">
+                        <div class="infoName">Job</div>
+                        <div class="infoEdit">
+                            Software Engineer
                         </div>
+                        <input type="text" class="infoInput" style="display:none;">
                     </div>
-                    <div class="component">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                        <div class="singleInfo">
-                            <div class="infoName">Job</div>
-                            <div class="infoEdit">
-                                Software Engineer
-                            </div>
-                            <input type="text" class="infoInput" style="display:none;">
+                </div>
+                <div class="component">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <div class="singleInfo">
+                        <div class="infoName">Marrital Status</div>
+                        <div class="infoEdit" id="dropdownEdit">
+                            Married
                         </div>
+                        <select class="infoInput" onchange="updateInfo()" style="display:none;" id="dropdownInput">
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Other">Other</option>
+                        </select>
                     </div>
-                    <div class="component">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                        <div class="singleInfo">
-                            <div class="infoName">Marrital Status</div>
-                            <div class="infoEdit">
-                                Married
-                            </div>
-                            <input type="text" class="infoInput" style="display:none;">
+                </div>
+                <div class="component">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <div class="singleInfo">
+                        <div class="infoName" style="margin-top:1.2em">Education</div>
+                        <div class="infoEdit">
+                            Bachelor in Computer Science
                         </div>
+                        <input type="text" class="infoInput" style="display:none;">
                     </div>
                 </div>
 
-                <div class="right-container">
-                    <div class="component">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                        <div class="singleInfo">
-                            <div class="infoName">Spoken Language</div>
-                            <div class="infoEdit">
-                                English
-                            </div>
-                            <input type="text" class="infoInput" style="display:none;">
+                <div class="component">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <div class="singleInfo">
+                        <div class="infoName">Spoken Language</div>
+                        <div class="infoEdit">
+                            English
                         </div>
+                        <input type="text" class="infoInput" style="display:none;">
                     </div>
-                    <div class="component">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                        <div class="singleInfo">
-                            <div class="infoName">Income</div>
-                            <div class="infoEdit">
-                                450,000
-                            </div>
-                            <input type="text" class="infoInput" style="display:none;">
+                </div>
+                <div class="component">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <div class="singleInfo">
+                        <div class="infoName">Income</div>
+                        <div class="infoEdit">
+                            450,000
                         </div>
+                        <input type="text" class="infoInput" style="display:none;">
                     </div>
-                    <div class="component">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                        <div class="singleInfo">
-                            <div class="infoName">Parental Status</div>
-                            <div class="infoEdit">
-                                Mother of two
-                            </div>
-                            <input type="text" class="infoInput" style="display:none;">
+                </div>
+                <div class="component">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <div class="singleInfo">
+                        <div class="infoName">Parental Status</div>
+                        <div class="infoEdit">
+                            Mother of two
                         </div>
+                        <input type="text" class="infoInput" style="display:none;">
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <button class="activateButton">Activate</button>
-    <script src="bg.js"></script>
     <script src="../basicInfo_page/basicInfo.js"></script>
+    <script src="bg.js"></script>
 </body>
 </html>

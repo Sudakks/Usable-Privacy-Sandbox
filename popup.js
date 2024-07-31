@@ -1,3 +1,4 @@
+/*鼠标hover改变颜色*/
 document.addEventListener('DOMContentLoaded', function () {
     const personas = document.querySelectorAll('.persona');
     
@@ -45,5 +46,8 @@ document.getElementById('searchInput').addEventListener('input', function () {
     });
 });
 
-
-  
+/*add new Persona*/
+var newPersona = document.querySelector(".newPersona");
+newPersona.addEventListener("click", () => {
+    window.location.href = 'newPersona/newPersona.html';
+});

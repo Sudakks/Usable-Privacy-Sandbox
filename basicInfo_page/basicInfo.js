@@ -42,3 +42,29 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }); 
 });
+
+document.getElementById('dropdownEdit').addEventListener('click', function () {
+    var dropdownEdit = document.getElementById("dropdownEdit");
+    var dropdownInput = document.getElementById("dropdownInput");
+
+    if (dropdownInput) { // 确保元素存在
+        if (dropdownInput.style.display === 'none' || dropdownInput.style.display === '') {
+            dropdownInput.style.display = 'block';
+            infoEdit.style.display = 'none';
+        } else {
+            dropdownInput.style.display = 'none';
+            infoEdit.style.display = 'block';
+        }
+    }
+});
+
+
+function updateInfo() {
+    var dropdownEdit = document.getElementById("dropdownEdit");
+    var dropdownInput = document.getElementById("dropdownInput");
+    var selectedValue = dropdownInput.options[dropdownInput.selectedIndex].textContent;
+
+    dropdownEdit.textContent = selectedValue;
+    dropdownInput.style.display = 'none';
+    dropdownEdit.style.display = 'block';
+}

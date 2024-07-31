@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: inter, sans-serif;
   margin: 0;
   padding: 10px;
   background-color: #F7F8FA;
@@ -20,7 +20,7 @@ body {
 }
 
 h1 {
-  font-size: 1.28rem;
+  font-size: 2.0rem;
   margin: 0;
 }
 
@@ -68,7 +68,7 @@ h1 {
 }
 
 .persona-info > span {
-  margin-right: 1rem;
+  margin-right: 0.8rem;
 }
 
 .name {
@@ -85,8 +85,8 @@ h1 {
 	/*使得内部元素并排*/
 	align-items: center;
 	margin-left: auto;
-	padding: 8px 5px;
-	font-size: 0.9rem;
+	padding: 8px 2px;
+	font-size: 1px;
 	cursor: pointer;
 	border-radius: 4px;
 	background-color: white;
@@ -96,7 +96,7 @@ h1 {
 
 /*控制图标和文本之间的距离*/
 .activate-btn i{
-	margin-right: 1px;
+	margin-right: 0px;
 }
 
 .persona:hover .activate-btn {
@@ -111,3 +111,41 @@ h1 {
 html {
 	font-size: 10px;
 }
+
+.newPersona {
+	display: flex;
+	align-items: center;
+	padding: 5px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	margin-bottom: 5px;
+	cursor: pointer;
+	position: relative;
+}
+
+	.newPersona:hover {
+		background-color: #f0f0f0;
+	}
+
+.text {
+	display: flex;
+	align-items: center;
+	justify-content: center; 
+	text-align: center; 
+	flex-grow: 1; 
+}
+
+.textItem {
+	font-size: 1.5em;
+	font-weight: bold;
+	white-space: nowrap;
+	display: inline-block; /* 文本项不换行 */
+}
+
+	.textItem:first-child {
+		margin-right: 3px; 
+	}
+
+	.textItem:last-child {
+		color: #0078C8;
+	}
