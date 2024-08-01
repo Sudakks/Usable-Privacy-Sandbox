@@ -50,10 +50,10 @@ document.getElementById('dropdownEdit').addEventListener('click', function () {
     if (dropdownInput) { // 确保元素存在
         if (dropdownInput.style.display === 'none' || dropdownInput.style.display === '') {
             dropdownInput.style.display = 'block';
-            infoEdit.style.display = 'none';
+            dropdownEdit.style.display = 'none';
         } else {
             dropdownInput.style.display = 'none';
-            infoEdit.style.display = 'block';
+            dropdownEdit.style.display = 'block';
         }
     }
 });

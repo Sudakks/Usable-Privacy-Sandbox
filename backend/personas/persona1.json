@@ -3035,7 +3035,7 @@
         ],
         "first_name": "John",
         "last_name": "Smith",
-        "profileImgUrl": "./persona-image/persona1.png",
+        "profileImgUrl": "personas/persona-image/persona1.png",
         "age": "18",
         "gender": "male",
         "race": "White",

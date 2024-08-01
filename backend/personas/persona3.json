@@ -3359,7 +3359,7 @@
         ],
         "first_name": "Michael",
         "last_name": "Johnson",
-        "profileImgUrl": "./persona-image/persona3.png",
+        "profileImgUrl": "personas/persona-image/persona3.png",
         "age": "42",
         "gender": "male",
         "race": "African American",
