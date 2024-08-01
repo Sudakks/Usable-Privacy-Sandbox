@@ -32,54 +32,71 @@ h1 {
 }
 
 #personaList {
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  max-height: 240px;
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
+	max-height: 240px;
 }
 
-/*单个persona*/
+/* 单个persona */
 .persona {
-  display: flex;
-  align-items: center;
-  padding: 5px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-bottom: 5px;
-  cursor: pointer;
-  position: relative;
+	display: flex;
+	align-items: center;
+	padding: 5px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	position: relative;
 }
 
-.persona:hover {
-  background-color: #f0f0f0;
-}
-
+	.persona:hover {
+		background-color: #f0f0f0;
+	}
 
 .avatar {
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  margin-right: 1rem;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	margin-right: 1rem; /* 调整图片与其他信息之间的间距 */
 }
 
 .persona-info {
-  display: flex;
-  align-items: center;
-  flex: 1;
+	display: flex;
+	align-items: center;
+	flex: 1;
+	justify-content: space-between;
 }
 
-.persona-info > span {
-  margin-right: 0.8rem;
-}
+	.persona-info > span {
+		margin-right: 0.1rem; 
+		flex: 1;
+		text-align: left;
+	}
 
 .name {
-  font-weight: bold;
-  font-size: 1rem;
+	font-weight: bold;
+	font-size: 1rem;
+	margin-right: 1rem;
 }
 
-.age, .occupation, .location {
-  font-size: 1rem;
+.age {
+	font-size: 1rem;
+	margin-right: 0.1rem;
 }
+
+.occupation {
+	font-size: 1rem;
+	margin-right: 1rem;
+	flex-basis: 10px; /* 控制occupation所占的宽度 */
+	margin-left: 1px;
+}
+
+.location {
+	font-size: 1rem;
+	flex-basis: 0px; /* 控制location所占的宽度 */
+}
+
 
 .activate-btn {
 	display: none;
