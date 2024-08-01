@@ -1,6 +1,6 @@
-/*basic size*/
+ï»¿/*basic size*/
 .switch {
-    margin:10px;
+    margin: 10px;
     position: relative;
     display: inline-block;
     width: 33px;
@@ -8,13 +8,12 @@
 }
 
     .switch input {
-        /*Ê¹¸´Ñ¡¿òÒþ²Ø²»¼û*/
         opacity: 0;
         width: 0;
         height: 0;
     }
 
-/*¹Ø±Õ×´Ì¬*/
+
 .slider {
     position: absolute;
     cursor: pointer;
@@ -27,20 +26,20 @@
     transition: .4s;
 }
 
-/*µã»÷ÇÐ»»µÄÔ²ÐÎ*/
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 12px;
-    width: 12px;
-    left: 2px;
-    bottom: 2px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
 
-/*ÉèÖÃµ±»¬¿é±»Ñ¡ÖÐµÄÊ±ºòµÄÑÕÉ«*/
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 12px;
+        width: 12px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+
 input:checked + .slider {
     background-color: #BBBBB8;
 }
@@ -52,16 +51,15 @@ input:focus + .slider {
 input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
-    transform: translateX(17px);/*¿ØÖÆ»¬¿éÒÆ¶¯*/
+    transform: translateX(17px); 
 }
 
 /* Rounded sliders */
-/*»¬¿éÌí¼ÓÔ²½Ç*/
 .slider.round {
     border-radius: 34px;
 }
 
-/*Àï±ßµÄÔ²È¦Ìí¼ÓÔ²½Ç*/
+    /*ï¿½ï¿½ßµï¿½Ô²È¦ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½*/
     .slider.round:before {
         border-radius: 50%;
     }
@@ -70,9 +68,9 @@ input:checked + .slider:before {
     display: flex;
     /*flex-wrap: wrap;  Allow components to wrap to the next line if needed */
     /*gap: 20px;  Space between components */
-    justify-content: space-between; /* ·ÖÉ¢×ó¡¢ÓÒÈÝÆ÷ */
-    align-items: flex-start; /* ÉÏÏÂ¶ÔÆë */
-    padding-right:80px;
+    justify-content: space-between; 
+    align-items: flex-start; 
+    padding-right: 80px;
 }
 
 .left-container, .right-container {
@@ -82,43 +80,44 @@ input:checked + .slider:before {
     padding-top: 10px;
 }
 
-/*¸ù¾ÝÊµ¼Ê¹Û¸Ðµ÷Õû×óÓÒ¼ä¾à*/
+
 .left-container {
-    flex: 5; 
+    flex: 5;
 }
+
 .right-container {
     flex: 5;
-    margin-left:10px;
+    margin-left: 10px;
 }
 
 
-/*Ã¿Ò»¸öinfoµÄ×é¼þ*/
+
 .component {
     display: flex;
     align-items: center;
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }
 
-/*¸÷ÏîÐÅÏ¢±êÌâ*/
+
 .infoName {
-    font-size:1em;
-    font-weight:bold;
-    margin-bottom:4px;
-    width:130px;
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 4px;
+    width: 130px;
 }
 
-/*¿ÉÒÔÐÞ¸ÄµÄÄÚÈÝ*/
+
 .infoEdit {
     font-size: 0.8em;
     color: #545050;
-    cursor:pointer;
-    width:150px;
+    cursor: pointer;
+    width: 150px;
 }
 
 .infoInput {
     display: none;
     width: 100px;
-    box-sizing: border-box; /* °üÀ¨ÄÚ±ß¾àºÍ±ß¿ò */
+    box-sizing: border-box; 
 }
 
 .singleInfo {
@@ -127,9 +126,8 @@ input:checked + .slider:before {
     flex-direction: column;
 }
 
-/*ÏÂÀ­¿òÑùÊ½*/
 
-/*ÏÂÀ­¿ò°´Å¥*/
+
 .dropbtn {
     background-color: white;
     border: 0.72px solid #858585;
@@ -147,7 +145,7 @@ input:checked + .slider:before {
     display: inline-block;
 }
 
-/* ÏÂÀ­¿òÄÚÈÝ */
+
 .dropdown-content {
     display: none;
     position: absolute;
@@ -165,7 +163,7 @@ input:checked + .slider:before {
         display: block;
     }
 
-        /* hover£º¸Ä±ädropdownÄÚÈÝ */
+        /* hover: dropdown */
         .dropdown-content a:hover {
             background-color: #E9E9E9;
             color: black;
@@ -179,15 +177,3 @@ input:checked + .slider:before {
 .dropdown:hover .dropbtn {
     background-color: #939393;
 }
-
-/*
-Ê¹ÓÃ
-    <div class="dropdown">
-        <button class="dropbtn">Select Gender</button>
-        <div class="dropdown-content">
-            <a>Male</a>
-            <a>Female</a>
-            <a>Other</a>
-        </div>
-    </div>
-*/
