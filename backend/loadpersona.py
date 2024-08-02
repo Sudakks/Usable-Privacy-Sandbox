@@ -1,17 +1,41 @@
-from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi import HTTPException
 from pydantic import BaseModel
+from fastapi import APIRouter
+
 import os
 import json
+from datetime import datetime, date
 
-app = FastAPI()
+router = APIRouter()
 
 class Persona(BaseModel):
-    profileImgUrl: str
+    userId: int
+    first_name: str
+    last_name: str
     name: str
+    profileImgUrl: str
     age: str
-    job: str
+    gender: str
+    race: str
+    street: str
     city: str
+    state: str
+    zip_code: str
+    address: str
+    spoken_language: str
+    education_background: str
+    birthday: date
+    job: str
+    income: str
+    marital_status: str
+    parental_status: str
+    online_behavior: str
+    profile: str
+    browser: str
+    device: str
+    industry: str
+    employer_size: str
+    homeownership: str
 
 # 文件夹路径
 persona_folder_path = "./personas"
@@ -26,35 +50,44 @@ def load_personas_from_folder(folder_path: str):
                 data = json.load(f)
                 persona_info = data["data"]
                 name = f"{persona_info['first_name']} {persona_info['last_name']}"
+                birthday = datetime.strptime(persona_info['birthday'], "%m/%d/%Y").date()
+                address = f"{persona_info['street']}, {persona_info['city']}, {persona_info['state']}, {persona_info['zip_code']}"
                 persona = Persona(
-                    profileImgUrl="../backend/" + persona_info.get("profileImgUrl", ""),
+                    userId=persona_info.get("userId", 0),
+                    first_name=persona_info.get("first_name", ""),
+                    last_name=persona_info.get("last_name", ""),
                     name=name,
+                    profileImgUrl="../backend/" + persona_info.get("profileImgUrl", ""),
                     age=persona_info.get("age", ""),
+                    gender=persona_info.get("gender", ""),
+                    race=persona_info.get("race", ""),
+                    street=persona_info.get("street", ""),
+                    city=persona_info.get("city", ""),
+                    state=persona_info.get("state", ""),
+                    zip_code=persona_info.get("zip_code", ""),
+                    address=address,
+                    spoken_language=persona_info.get("spoken_language", ""),
+                    education_background=persona_info.get("education_background", ""),
+                    birthday=birthday,
                     job=persona_info.get("job", ""),
-                    city=persona_info.get("city", "")
+                    income=persona_info.get("income", ""),
+                    marital_status=persona_info.get("marital_status", ""),
+                    parental_status=persona_info.get("parental_status", ""),
+                    online_behavior=persona_info.get("online_behavior", ""),
+                    profile=persona_info.get("profile", ""),
+                    browser=persona_info.get("browser", ""),
+                    device=persona_info.get("device", ""),
+                    industry=persona_info.get("industry", ""),
+                    employer_size=persona_info.get("employer_size", ""),
+                    homeownership=persona_info.get("homeownership", "")
                 )
                 personas.append(persona)
     return personas
 
-# 允许来自任意来源的请求（仅用于开发环境，生产环境应限制来源）
-origins = ["*"]
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-@app.get("/loadpersona", response_model=list[Persona])
+@router.get("/loadpersona", response_model=list[Persona])
 async def load_persona():
     try:
         personas = load_personas_from_folder(persona_folder_path)
         return personas
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-
-if __name__ == '__main__':
-    import uvicorn
-    uvicorn.run(app, host='0.0.0.0', port=8000)
