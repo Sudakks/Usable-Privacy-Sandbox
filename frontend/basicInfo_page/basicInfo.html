@@ -57,10 +57,10 @@
                         </label>
                         <div class="singleInfo">
                             <div class="infoName">Date of Birth</div>
-                            <div class="infoEdit">
-                                04/15/1990 (age 34)
+                            <div class="infoEdit dateDisplay">
+                                1980-01-14 (age 44)
                             </div>
-                            <input type="text" class="infoInput" style="display:none;">
+                            <input type="date" class="infoInput dateInput" style="display:none;" />
                         </div>
                     </div>
                 </div>
@@ -73,10 +73,11 @@
                         </label>
                         <div class="singleInfo">
                             <div class="infoName">Gender</div>
-                            <div class="infoEdit" id="dropdownEdit">
+                            <div class="infoEdit genderDisplay">
                                 Female
                             </div>
-                            <select class="infoInput" onchange="updateInfo()" style="display:none;" id="dropdownInput">
+                            <!--it has two class-->
+                            <select class="infoInput genderInput" style="display:none;">
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                                 <option value="Other">Other</option>
