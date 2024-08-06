@@ -37,15 +37,10 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('selectedPersona', JSON.stringify(persona));
     }
 
-    let modifiedFields = {}; // 用于记录修改的字段
-
     document.body.addEventListener('click', function (event) {
         if (event.target.classList.contains('infoEdit')) {
             var infoDiv = event.target;
             var input = infoDiv.nextElementSibling;
-
-            // 记录修改前的值
-            modifiedFields[infoDiv.className] = infoDiv.textContent.trim();
 
             // 获取并设置日期值
             var dateText = infoDiv.textContent.trim();
@@ -66,32 +61,13 @@ document.addEventListener('DOMContentLoaded', function () {
             var newValue = input.value.trim();
 
             if (newValue !== "") {
-                var persona = JSON.parse(localStorage.getItem('selectedPersona'));
-                modifiedFields[infoDiv.className] = newValue;
                 if (input.type === 'date') {
                     // 处理日期输入
                     var age = calculateAge(newValue);
                     infoDiv.textContent = `${newValue} (age ${age})`;
-                    persona.birthday = newValue;
-                    persona.age = age;
                 } else {
                     infoDiv.textContent = newValue;
-                    if (infoDiv.classList.contains('nameDisplay')) {
-                        persona.name = newValue;
-                    } else if (infoDiv.classList.contains('genderDisplay')) {
-                        persona.gender = newValue;
-                    } else if (infoDiv.classList.contains('raceDisplay')) {
-                        persona.race = newValue;
-                    } else if (infoDiv.classList.contains('addressDisplay')) {
-                        persona.address = newValue;
-                    }
                 }
-
-                // 更新 localStorage
-                updateLocalStorage(persona);
-
-                // 发送到服务器
-                submitChanges(persona, modifiedFields);
             }
 
             infoDiv.style.display = 'inline';
@@ -122,30 +98,13 @@ document.addEventListener('DOMContentLoaded', function () {
             var newValue = this.value.trim();
 
             if (newValue !== "") {
-                var persona = JSON.parse(localStorage.getItem('selectedPersona'));
                 if (this.type === 'date') {
+                    // 处理日期输入
                     var age = calculateAge(newValue);
                     infoDiv.textContent = `${newValue} (age ${age})`;
-                    persona.birthday = newValue;
-                    persona.age = age;
                 } else {
                     infoDiv.textContent = newValue;
-                    if (infoDiv.classList.contains('nameDisplay')) {
-                        persona.name = newValue;
-                    } else if (infoDiv.classList.contains('genderDisplay')) {
-                        persona.gender = newValue;
-                    } else if (infoDiv.classList.contains('raceDisplay')) {
-                        persona.race = newValue;
-                    } else if (infoDiv.classList.contains('addressDisplay')) {
-                        persona.address = newValue;
-                    }
                 }
-
-                // 更新 localStorage
-                updateLocalStorage(persona);
-
-                // 发送到服务器
-                submitChanges(persona, modifiedFields);
             }
             this.style.display = 'none';
             infoDiv.style.display = 'block';
@@ -164,23 +123,4 @@ function calculateAge(birthDate) {
     }
 
     return age;
-}
-
-// 提交修改到后端
-function submitChanges(persona, modifiedFields) {
-    console.log('Submitting Changes...');
-    console.log("id:" + persona.userId);
-    console.log("changes:" + modifiedFields);
-    fetch('http://localhost:8000/changepersonainfo', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            id: persona.userId, // 传递 persona ID
-            changes: modifiedFields, // 只发送变更的字段
-        }),
-    }).then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error('Error:', error));
 }

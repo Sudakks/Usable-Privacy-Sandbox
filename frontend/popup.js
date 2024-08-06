@@ -32,8 +32,7 @@ async function loadPersonas() {
         personas.forEach((persona, index) => {
             // Create a div for each persona
             const personaDiv = document.createElement('div');
-            //personaDiv.id = `persona${index + 1}`;
-            personaDiv.id = persona.id;
+            personaDiv.id = `persona${index + 1}`;
 
             // Add persona content
             personaDiv.innerHTML = `
@@ -52,8 +51,8 @@ async function loadPersonas() {
             // Add click event listener for persona
             personaDiv.addEventListener('click', function () {
                 // Handle persona click event to go to persona detail page
-                //console.log('Persona clicked: ' + persona.name);
-                //store the persona
+                console.log('Persona clicked: ' + persona.name);
+                // Save the selected persona to local storage
                 localStorage.setItem('selectedPersona', JSON.stringify(persona));
                 // Go to the next page (overview)
                 window.location.href = 'overview_page/overview.html';

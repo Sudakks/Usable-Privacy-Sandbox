@@ -2223,8 +2223,7 @@
                 "time": "2023-07-11 06:05:21",
                 "content": "Starting the day with a refreshing shower and getting ready for a productive day ahead. #MorningRoutine #Productivity",
                 "address": "Wake up and get ready for the day - 132 Oak St, San Francisco, CA 94102",
-                "imgs": [
-                ]
+                "imgs": []
             },
             {
                 "id": "6",
@@ -3035,7 +3034,7 @@
         ],
         "first_name": "John",
         "last_name": "Smith",
-        "profileImgUrl": "personas/persona-image/persona1.png",
+        "profileImgUrl": "/backend/personas/persona-image/persona1.png",
         "age": "18",
         "gender": "male",
         "race": "White",
@@ -3056,6 +3055,7 @@
         "device": "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:70.0) Gecko/20100101 Firefox/70.0",
         "industry": "hospitality",
         "employer_size": "small employer (1-249 employees)",
-        "homeownership": "renters"
+        "homeownership": "renters",
+        "date_of_birth": "09/14/2005"
     }
 }

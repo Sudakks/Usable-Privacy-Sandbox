@@ -3615,7 +3615,7 @@
         ],
         "first_name": "Carlos",
         "last_name": "Rodriguez",
-        "profileImgUrl": "personas/persona-image/persona2.png",
+        "profileImgUrl": "/backend/personas/persona-image/persona2.png",
         "age": "30",
         "gender": "male",
         "race": "Hispanic",
