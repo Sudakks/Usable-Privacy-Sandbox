@@ -3,11 +3,13 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
 from loadpersona import router as loadpersona_router
+from changepersonainfo import router as changepersonainfo_router
 
 app = FastAPI()
 
 # 添加路由
 app.include_router(loadpersona_router)
+app.include_router(changepersonainfo_router)
 
 # 允许来自任意来源的请求（仅用于开发环境，生产环境应限制来源）
 origins = ["*"]
