@@ -52,6 +52,8 @@ async function loadPersonas() {
             personaDiv.addEventListener('click', function () {
                 // Handle persona click event to go to persona detail page
                 console.log('Persona clicked: ' + persona.name);
+                // Save the selected persona to local storage
+                localStorage.setItem('selectedPersona', JSON.stringify(persona));
                 // Go to the next page (overview)
                 window.location.href = 'overview_page/overview.html';
             });

@@ -57,7 +57,7 @@ def load_personas_from_folder(folder_path: str):
                     first_name=persona_info.get("first_name", ""),
                     last_name=persona_info.get("last_name", ""),
                     name=name,
-                    profileImgUrl="../backend/" + persona_info.get("profileImgUrl", ""),
+                    profileImgUrl=".." + persona_info.get("profileImgUrl", ""),
                     age=persona_info.get("age", ""),
                     gender=persona_info.get("gender", ""),
                     race=persona_info.get("race", ""),
