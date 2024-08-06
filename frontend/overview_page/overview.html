@@ -33,24 +33,41 @@
         </nav>
 
         <div class="content">
-
             <div class="imageContainer">
-                <img src="../images/image.png" class="personaImage">
+                <img id="persona-img"  class="personaImage" alt="PersonaImage">
                 <button class="generateImage">Generate<br>Image</button>
             </div>
 
+
             <div class="briefInfo">
-                <p><span class="bold">Mia Rodriguez </span>&middot 34</p>
-                <p>Software Engineer &middot Los Angeles</p>
+                <p><span id="persona-name" class="bold"></span> &middot <span id="persona-age"></span></p>
+                <p><span id="persona-job"></span> &middot <span id="persona-city"></span></p>
             </div>
 
             <div class="hrLine"></div>
 
             <div class="naturalInfo">
-                <p>Mia Rodriguez, a Black woman, earns $450,000 annually. Married to Carlo with two children.</p>
+                <p id="persona-online_behavior"></p>
             </div>
-            <!-- Other sections can be added here -->
+            <!--
+    <div class="imageContainer">
+        <img src="../images/image.png" class="personaImage">
+        <button class="generateImage">Generate<br>Image</button>
+    </div>
+
+    <div class="briefInfo">
+        <p><span class="bold">Mia Rodriguez </span>&middot 34</p>
+        <p>Software Engineer &middot Los Angeles</p>
+    </div>
+
+    <div class="hrLine"></div>
+
+    <div class="naturalInfo">
+        <p>Mia Rodriguez, a Black woman, earns $450,000 annually. Married to Carlo with two children.</p>
+    </div>->
+    <!-- Other sections can be added here -->
         </div>
+
     </div>
     <button class="activateButton">Activate</button>
     <script src="overview.js"></script>

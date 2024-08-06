@@ -2,11 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\backend",
+    "\\backend\\personas",
     "\\backend\\personas\\persona-image",
     "\\frontend",
     "\\frontend\\basicInfo_page",
-    "\\frontend\\bg_page"
+    "\\frontend\\bg_page",
+    "\\frontend\\overview_page"
   ],
-  "SelectedNode": "\\frontend\\basicInfo_page\\basicInfo.js",
+  "SelectedNode": "\\frontend\\popup.js",
   "PreviewInSolutionExplorer": false
 }

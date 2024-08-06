@@ -1,9 +1,10 @@
 .bgContainer {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    grid-template-rows: repeat(3, auto); /* 3 rows */
+    grid-template-rows: repeat(3, 50px); /* 每行高度为 50px */
+
     box-sizing: border-box; /* Include padding and border in element's total width and height */
-    padding-top:10px;
+    padding-top: 0px;
 }
 .component {
     display: flex;

@@ -59,27 +59,27 @@ input:checked + .slider:before {
     border-radius: 34px;
 }
 
-    /*��ߵ�ԲȦ����Բ��*/
     .slider.round:before {
         border-radius: 50%;
     }
 
 .container {
-    display: flex;
+    display: grid;
     /*flex-wrap: wrap;  Allow components to wrap to the next line if needed */
     /*gap: 20px;  Space between components */
-    justify-content: space-between; 
-    align-items: flex-start; 
+    justify-content: space-between;
+    align-items: flex-start;
     padding-right: 80px;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-rows: repeat(2, 50px); /* 每行高度为 50px */
 }
 
 .left-container, .right-container {
-    display: flex;
+    display: grid;
     flex-direction: column;
     gap: 0px;
     padding-top: 10px;
 }
-
 
 .left-container {
     flex: 5;
@@ -90,14 +90,12 @@ input:checked + .slider:before {
     margin-left: 10px;
 }
 
-
-
 .component {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    position: relative; /* Ensure correct positioning of child elements */
 }
-
 
 .infoName {
     font-size: 1em;
@@ -106,25 +104,31 @@ input:checked + .slider:before {
     width: 130px;
 }
 
-
 .infoEdit {
     font-size: 0.8em;
     color: #545050;
     cursor: pointer;
     width: 150px;
+    box-sizing: border-box; /* Ensure padding and borders are included in width */
 }
 
 .infoInput {
-    display: none;
+    display: block; /* Make sure input does not change layout */
     width: 100px;
-    box-sizing: border-box; 
+    box-sizing: border-box;
+    font-size: 0.8em;
+    /*position: absolute; 可以使得位置不变，但是会隐藏infoName*/
+    z-index: 1; /* Ensure input is on top */
 }
+
 
 .singleInfo {
     align-items: flex-start;
-    display: flex;
+    display: flex; /* Changed from grid to flex for better alignment */
     flex-direction: column;
+    position: relative; /* Ensure correct positioning */
 }
+
 
 
 
