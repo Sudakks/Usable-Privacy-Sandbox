@@ -3,12 +3,10 @@
     "",
     "\\backend",
     "\\backend\\personas",
-    "\\backend\\personas\\persona-image",
     "\\frontend",
     "\\frontend\\basicInfo_page",
-    "\\frontend\\bg_page",
     "\\frontend\\overview_page"
   ],
-  "SelectedNode": "\\frontend\\popup.js",
+  "SelectedNode": "\\backend\\personas\\persona1.json",
   "PreviewInSolutionExplorer": false
 }

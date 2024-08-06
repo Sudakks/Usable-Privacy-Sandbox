@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <p><span class="bold">${persona.name}</span>&middot ${persona.age}</p>
             <p>${persona.job} &middot ${persona.city}</p>
         `;
+       
         const onlineBehavior = persona.online_behavior;
         const onlineBehaviorPresent = onlineBehavior.split(' ').slice(0, 20).join(' ') + "...";
         naturalInfo.innerHTML = `

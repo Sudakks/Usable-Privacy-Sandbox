@@ -108,7 +108,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
-
+    /*
+     * 这一段应该不需要，因为blur之后已经更新了？
     document.querySelectorAll('.infoInput').forEach(item => {
         item.addEventListener('change', function () {
             var infoDiv = this.previousElementSibling;
@@ -139,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
             this.style.display = 'none';
             infoDiv.style.display = 'block';
         });
-    });
+    });*/
 });
 
 // 提交修改到后端

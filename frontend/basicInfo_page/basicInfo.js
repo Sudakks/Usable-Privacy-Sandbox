@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
-
+    /*
     document.querySelectorAll('.infoInput').forEach(item => {
         item.addEventListener('change', function () {
             var infoDiv = this.previousElementSibling;
@@ -151,6 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
             infoDiv.style.display = 'block';
         });
     });
+    */
 });
 
 function calculateAge(birthDate) {
@@ -162,7 +163,7 @@ function calculateAge(birthDate) {
     if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birth.getDate())) {
         age--;
     }
-
+    
     return age;
 }
 
@@ -184,3 +185,12 @@ function submitChanges(persona, modifiedFields) {
       .then(data => console.log(data))
       .catch(error => console.error('Error:', error));
 }
+/* 限制不能选择今天之后的日期 */
+// 获取当前日期
+const today = new Date();
+// 格式化日期为 YYYY-MM-DD
+const formattedDate = today.toISOString().split('T')[0];
+// 获取日期输入框元素
+const dateInput = document.querySelector('.dateInput');
+// 设置最大日期
+dateInput.max = formattedDate;
