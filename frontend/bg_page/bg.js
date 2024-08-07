@@ -1,3 +1,17 @@
+var languageMap = {
+    "en": "English",
+    "es": "Spanish",
+    "zh": "Chinese",
+    "hi": "Hindi",
+    "ar": "Arabic",
+    "pt": "Portuguese",
+    "bn": "Bengali",
+    "ru": "Russian",
+    "ja": "Japanese",
+    "de": "German",
+    "other": "Other"
+};
+
 document.addEventListener("DOMContentLoaded", function () {
     var backButton = document.querySelector(".backButton");
     backButton.addEventListener("click", function () {
@@ -41,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let modifiedFields = {}; // 用于记录修改的字段
 
-    // �¼�ί�У�����infoEdit����¼�
     document.body.addEventListener('click', function (event) {
         if (event.target.classList.contains('infoEdit')) {
             var infoDiv = event.target;
@@ -59,36 +72,54 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.addEventListener('blur', function (event) {
         if (event.target.classList.contains('infoInput')) {
             var input = event.target;
-            var infoDiv = input.previousElementSibling;
+            var infoDiv = input.closest('.singleInfo').querySelector('.infoEdit');
             var newValue = input.value.trim();
+            var persona = JSON.parse(localStorage.getItem('selectedPersona')) || {};
+            var modifiedFields = {};
 
             if (newValue !== "") {
-                var persona = JSON.parse(localStorage.getItem('selectedPersona'));
-                modifiedFields[infoDiv.className] = newValue;
-                infoDiv.textContent = newValue;
-                if (infoDiv.classList.contains('jobDisplay')) {
-                    persona.job = newValue;
-                } else if (infoDiv.classList.contains('educationDisplay')) {
-                    persona.education_background = newValue;
-                } else if (infoDiv.classList.contains('incomeDisplay')) {
-                    persona.income = newValue;
-                } else if (infoDiv.classList.contains('spokenLanguageDisplay')) {
-                    persona.spoken_language = newValue;
-                } else if (infoDiv.classList.contains('maritalStatusDisplay')) {
-                    persona.marital_status = newValue;
-                } else if (infoDiv.classList.contains('parentalStatusDisplay')) {
-                    persona.parental_status = newValue;
+                if (infoDiv) {
+                    if (infoDiv.classList.contains('educationDisplay')) {
+                        var educationValue = document.querySelector('.educationInput').value;
+                        var majorInput = document.querySelector('.majorInput').value.trim();
+                        newValue = educationValue + (majorInput ? " in " + majorInput : "");
+                    }
+                    else if (infoDiv.classList.contains('spokenLanguageDisplay')) {
+                        var selectedLanguageCode = document.querySelector('.spokenLanguageInput').value;
+                        newValue = languageMap[selectedLanguageCode] || newValue; // 将代码转换为名称
+                        persona.spoken_language = newValue;
+                    }
+                    infoDiv.textContent = newValue;
+                    modifiedFields[infoDiv.className] = newValue;
+
+                    if (infoDiv.classList.contains('educationDisplay')) {
+                        persona.education_background = newValue;
+                    } else if (infoDiv.classList.contains('jobDisplay')) {
+                        persona.job = newValue;
+                    } else if (infoDiv.classList.contains('incomeDisplay')) {
+                        persona.income = newValue;
+                    }  else if (infoDiv.classList.contains('maritalStatusDisplay')) {
+                        persona.marital_status = newValue;
+                    } else if (infoDiv.classList.contains('parentalStatusDisplay')) {
+                        persona.parental_status = newValue;
+                    }
+
+                    // 更新 localStorage
+                    updateLocalStorage(persona);
+
+                    // 发送到服务器
+                    submitChanges(persona, modifiedFields);
                 }
-
-                // 更新 localStorage
-                updateLocalStorage(persona);
-
-                // 发送到服务器
-                submitChanges(persona, modifiedFields);
             }
 
-            infoDiv.style.display = 'inline';
+            if (infoDiv) {
+                infoDiv.style.display = 'inline';
+            }
             input.style.display = 'none';
+            if (event.target.classList.contains('majorInput')) {
+                var inMajorSpan = document.querySelector('.inMajor');
+                inMajorSpan.style.display = 'none';
+            }
         }
     }, true);
 
@@ -161,3 +192,53 @@ function submitChanges(persona, modifiedFields) {
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    var educationSelect = document.querySelector('.educationInput');
+    educationSelect.addEventListener('change', function () {
+        handleEducationChange(educationSelect);
+    });
+});
+
+function handleEducationChange(selectElement) {
+    var inMajorSpan = document.querySelector('.inMajor');
+    var majorInput = document.querySelector('.majorInput');
+    if (selectElement.value === "Bachelor's degree" || selectElement.value === "Advanced degree" || selectElement.value === "Attending college") {
+        inMajorSpan.style.display = 'inline-block';
+    } else {
+        inMajorSpan.style.display = 'none';
+        majorInput.value = '';  // Clear the input field if it's hidden
+    }
+}
+
+
+// Language Selector
+$(document).ready(function () {
+    // 加载语言数据
+    $.ajax({
+        url: 'languages.json', // JSON文件路径
+        dataType: 'json',
+        success: function (data) {
+            var $languageSelect = $('#language');
+            var $customLanguageInput = $('#customLanguage');
+
+            // 清空现有选项
+            $languageSelect.empty();
+
+            // 添加默认选项
+            $languageSelect.append('<option value="">Select a language</option>');
+
+            // 创建一个映射，用于将语言代码映射到语言名称
+            var languageMap = {};
+            data.forEach(function (lang) {
+                $languageSelect.append('<option value="' + lang.code + '">' + lang.nativeName + '</option>');
+                languageMap[lang.code] = lang.name; // 语言代码到名称的映射
+            });
+ 
+            
+        },
+        error: function (xhr, status, error) {
+            console.error('Failed to load language data:', error);
+        }
+    });
+});

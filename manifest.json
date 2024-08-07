@@ -3,16 +3,22 @@
     "name": "Persona Selector",
     "version": "1.0",
     "description": "A Chrome extension to select and activate a persona.",
-    "permissions": ["activeTab", "scripting"],
-    "action": {
-      "default_popup": "/frontend/popup.html",
-      "default_icon": {
-        "16": "frontend/images/icon16.png",
-        "48": "frontend/images/icon48.png",
-        "128": "frontend/images/icon128.png"
-      },
-      "default_popup_width": 480,
-      "default_popup_height": 360
-    }
+    "permissions": ["activeTab", "scripting", "storage"],
+  "action": {
+    "default_popup": "/frontend/popup.html",
+    "default_icon": {
+      "16": "frontend/images/icon16.png",
+      "48": "frontend/images/icon48.png",
+      "128": "frontend/images/icon128.png"
+    },
+    "content_security_policy": {
+      "extension_pages": "script-src 'self' https://unpkg.com; object-src 'self';"
+    },
+    "permissions": [
+      "storage"
+    ],
+    "default_popup_width": 480,
+    "default_popup_height": 360
+  }
   }
   

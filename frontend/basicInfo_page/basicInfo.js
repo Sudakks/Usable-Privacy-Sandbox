@@ -194,3 +194,16 @@ const formattedDate = today.toISOString().split('T')[0];
 const dateInput = document.querySelector('.dateInput');
 // 设置最大日期
 dateInput.max = formattedDate;
+
+
+//Address autocomplete
+let autocomplete;
+function initAutoComplete() {
+    autocomplete = new google.maps.places.autocomplete(
+        document.getElementById('autocomplete'), {
+            types: ['establishment'],
+            componentRestrictions: { 'country': ['AU'] },
+            fields:['place_id', 'geometry', 'name']
+        }
+    );
+};

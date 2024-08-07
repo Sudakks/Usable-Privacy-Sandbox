@@ -11,3 +11,7 @@
     align-items: center;
     margin-bottom: -0px;
 }
+
+.select2-container--default .select2-selection--single {
+    height: 34px; /* 使下拉框高度一致 */
+}

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../basicInfo_page/basicInfo.css">
     <link rel="stylesheet" href="bg.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="lib/select2.min.css" rel="stylesheet" />
 </head>
 <body>
     <button class="backButton">
@@ -63,7 +64,7 @@
                         <select class="infoInput" onchange="updateInfo()" style="display:none;" id="dropdownInput">
                             <option value="single">single</option>
                             <option value="married">married</option>
-                            <option value="other">other</option>
+                            <option value="in a relationship">in a relationship</option>
                         </select>
                     </div>
                 </div>
@@ -77,7 +78,14 @@
                         <div class="infoEdit educationDisplay">
                             <!-- Placeholder content, will be replaced by JS -->
                         </div>
-                        <input type="text" class="infoInput" style="display:none;">
+                        <select class="infoInput educationInput" style="display:none;">
+                            <option value="high school diploma">high school diploma</option>
+                            <option value="attending college">attending college</option>
+                            <option value="bachelor's degree">bachelor's degree</option>
+                            <option value="advanced degree">advanced degree</option>
+                            <option value="others">others</option>
+                        </select>
+                        <span class="inMajor" style="display:none;">in <input type="text" class="infoInput majorInput" placeholder="Enter your major" style="display:inline-block;"></span>
                     </div>
                 </div>
 
@@ -91,7 +99,9 @@
                         <div class="infoEdit spokenLanguageDisplay">
                             <!-- Placeholder content, will be replaced by JS -->
                         </div>
-                        <input type="text" class="infoInput" style="display:none;">
+                        <select id="language" class="infoInput spokenLanguageInput" style="display: none;">
+                            <!-- 语言选项将在 JavaScript 中填充 -->
+                        </select>
                     </div>
                 </div>
                 <div class="component">
@@ -117,14 +127,22 @@
                         <div class="infoEdit parentalStatusDisplay">
                             <!-- Placeholder content, will be replaced by JS -->
                         </div>
-                        <input type="text" class="infoInput" style="display:none;">
+                        <select class="infoInput parentalInput" style="display:none;">
+                            <option value="not parents">not parents</option>
+                            <option value="parents of infants">parents of infants</option>
+                            <option value="parents of toddlers">parents of toddlers</option>
+                            <option value="parents of preschoolers">parents of preschoolers</option>
+                            <option value="parents of grade schoolers">parents of grade schoolers</option>
+                            <option value="parents of teenagers">parents of teenagers</option>
+                        </select>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <button class="activateButton">Activate</button>
-    <!--<script src="../basicInfo_page/basicInfo.js"></script>-->
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/select2.min.js"></script>
     <script src="bg.js"></script>
 </body>
 </html>

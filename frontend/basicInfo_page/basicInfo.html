@@ -94,7 +94,13 @@
                             <div class="infoEdit raceDisplay">
                                 <!-- Placeholder content, will be replaced by JS -->
                             </div>
-                            <input type="text" class="infoInput" style="display:none;">
+                            <select class="infoInput raceInput" style="display:none;">
+                                <option value="White">White</option>
+                                <option value="Black">Black</option>
+                                <option value="Alaska Native">Alaska Native</option>
+                                <option value="Asian">Asian</option>
+                                <option value="Native Hawaiian">Native Hawaiian</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -109,12 +115,30 @@
                     <div class="infoEdit addressDisplay" style="width: 250px">
                         <!-- Placeholder content, will be replaced by JS -->
                     </div>
+                    <input id="autocomplete" placeholder="Enter a place" type="text" />
                     <input type="text" class="infoInput" style="display:none;">
                 </div>
             </div>
         </div>
+        <!---
+        <gmpx-api-loader key="AIzaSyDiqK618KoQKegwotCTIP2g6GZJNi74OI8" solution-channel="GMP_GE_placepicker_v1">
+        </gmpx-api-loader>
+        <div id="place-picker-box">
+            <div id="place-picker-container">
+                <gmpx-place-picker placeholder="Enter an address"></gmpx-place-picker>
+            </div>
+        </div>
+            -->
     </div>
     <button class="activateButton">Activate</button>
     <script src="basicInfo.js"></script>
+    <!--
+    <script async
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiqK618KoQKegwotCTIP2g6GZJNi74OI8&callback=console.debug&libraries=maps,marker&v=beta">
+    </script>
+         <script type="module" src="https://unpkg.com/@googlemaps/extended-component-library@0.6">
+    </script>
+        -->
+
 </body>
 </html>
