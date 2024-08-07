@@ -1,0 +1,170 @@
+{
+    "profile": [
+        {"persona":"Abigail Patel is a 32-year-old Asian American female living in 325 Main St, Newark, NJ 07102. She speaks English and her education background includes a bachelor's degree in Marketing. Abigail's date of birth is 05/26/1991. She works in the finance industry, and has a large employer (250-10,000 employees). She is currently working as a marketing manager, with an annual income of $85,000. She is a homeowner. Abigail is married and has two children. She enjoys browsing social media and streaming movies on her mobile phone during her free time. When using her computer, she prefers using a wireless mouse and keyboard for easy navigation. On the internet, she likes to shop for clothes and read reviews before making a purchase."},
+        {"persona":"Daniel Chan is a 30-year-old Asian man living in 1020 Marion St, Seattle, Washington with zip code 98101. He speaks English and his has a master's degree in Management. His date of birth is 10/12/1993. He works in the technology industry and has a very large employer (more than 10,000 employees). He is a project manager, and the annual income is around one hundred and twenty thousand USD. He is a renter. He lives alone in a studio apartment and likes to keep his space clean and organized. In his free time, he enjoys playing video games and reading books on his Kindle. He also likes to use social media platforms such as Twitter and Reddit to keep up with the latest news and trends."}
+    ],
+    "profile_variant":[
+        {
+            "persona":"Abigail Patel is a 32-year-old Asian American female living in 325 Main St, Newark, NJ 07102. She speaks English and her education background includes a bachelor's degree in Marketing. Abigail's date of birth is 05/26/1991. She works in the finance industry, and has a large employer (250-10,000 employees). She is currently working as a marketing manager, with an annual income of $85,000. She is a homeowner. Abigail is married and has two children. She enjoys browsing social media and streaming movies on her mobile phone during her free time. When using her computer, she prefers using a wireless mouse and keyboard for easy navigation. On the internet, she likes to shop for clothes and read reviews before making a purchase.",
+            "version":"old",
+            "variant":"Abigail Patel is a 62-year-old Asian American female living in 325 Main St, Newark, NJ 07102. She speaks English and her education background includes a master's degree in Marketing. Abigail's date of birth is 05/26/1961. She is retired from the finance industry, where she had a long career, culminating as a senior marketing director, with a final annual income of $120,000 before retirement. She is a homeowner. Abigail is widowed and has three grown children and four grandchildren. She enjoys reading newspapers and watching classic movies on her television during her free time. When using her computer, she prefers using a wired mouse and keyboard for reliability. On the internet, she likes to shop for books and kitchen gadgets and reads reviews before making any purchases."
+        },
+        {
+            "persona":"Daniel Chan is a 30-year-old Asian man living in 1020 Marion St, Seattle, Washington with zip code 98101. He speaks English and his has a master's degree in Management. His date of birth is 10/12/1993. He works in the technology industry and has a very large employer (more than 10,000 employees). He is a project manager, and the annual income is around one hundred and twenty thousand USD. He is a renter. He lives alone in a studio apartment and likes to keep his space clean and organized. In his free time, he enjoys playing video games and reading books on his Kindle. He also likes to use social media platforms such as Twitter and Reddit to keep up with the latest news and trends.",
+            "version":"rural",
+            "variant":"Daniel Chan is a 30-year-old Asian man living at 5678 Maplewood Drive, Ellensburg, Washington, zip code 98926. He speaks English fluently and holds a master's degree in Management, born on 10/12/1993. Daniel works as a project manager in the agricultural technology industry for a mid-sized company with around 500 employees, earning approximately $90,000 annually. He is a homeowner residing alone in a charming farmhouse with a large garden. In his free time, Daniel enjoys outdoor activities such as hiking, gardening, and fishing. He loves reading books on his Kindle while relaxing on his porch, playing video games during rainy days, and staying updated with the latest agricultural trends on social media platforms like Twitter and Reddit. He values a clean and organized living space and appreciates the tranquility, natural beauty, and close-knit community of the countryside."
+        }
+    ],
+    "attributes":[
+        {
+            "persona":"Abigail Patel is a 32-year-old Asian American female living in 325 Main St, Newark, NJ 07102. She speaks English and her education background includes a bachelor's degree in Marketing. Abigail's date of birth is 05/26/1991. She works in the finance industry, and has a large employer (250-10,000 employees). She is currently working as a marketing manager, with an annual income of $85,000. She is a homeowner. Abigail is married and has two children. She enjoys browsing social media and streaming movies on her mobile phone during her free time. When using her computer, she prefers using a wireless mouse and keyboard for easy navigation. On the internet, she likes to shop for clothes and read reviews before making a purchase.", 
+            "attributes_example":{
+                "first_name": "Abigail",
+                "last_name": "Patel",
+                "age": "32",
+                "gender": "female",
+                "race": "Asian American",
+                "street": "325 Main St",
+                "city": "Newark",
+                "state": "NJ",
+                "zip_code": "07102",
+                "spoken_language": "English",
+                "education_background": "Bachelor's degree in Marketing",
+                "education_level": "bachelor's degree",
+                "birthday": "05/26/1991",
+                "job": "Marketing Manager",
+                "income": "85,000",
+                "income_level": "moderate high income",
+                "marital_status": "married",
+                "parental_status": "parents of toddlers",
+                "online_behavior": "Enjoys browsing social media and streaming movies on mobile phone, uses a wireless mouse and keyboard for computer navigation, likes to shop for clothes online and reads reviews before making a purchase",
+                "industry": "finance",
+                "employer_size": "large employer (250-10,000 employees)",
+                "homeownership": "homeowner",
+                "short_profile": "Abigail Patel, 32, is a married marketing manager in finance from Newark, NJ, with two children and an $85,000 salary.",
+                "age_type": "mid-aged",
+                "gender_type": "female",
+                "location_type": "urban",
+                "income_type": "medium",
+                "edu_type": "medium"
+            }
+        },
+        {
+            "persona":"Daniel Chan is a 30-year-old Asian man living in 1020 Marion St, Seattle, Washington with zip code 98101. He speaks English and his has a master's degree in Management. His date of birth is 10/12/1993. He works in the technology industry and has a very large employer (more than 10,000 employees). He is a project manager, and the annual income is around one hundred and twenty thousand USD. He is a renter. He lives alone in a studio apartment and likes to keep his space clean and organized. In his free time, he enjoys playing video games and reading books on his Kindle. He also likes to use social media platforms such as Twitter and Reddit to keep up with the latest news and trends.",
+            "attributes_example":{
+                "first_name": "Daniel",
+                "last_name": "Chen",
+                "age": "30",
+                "gender": "male",
+                "race": "Asian American",
+                "street": "1020 Marion St",
+                "city": "Seattle",
+                "state": "WA",
+                "zip_code": "98101",
+                "spoken_language": "English",
+                "education_background": "Master's degree in management",
+                "education_level": "advanced degree",
+                "birthday": "10/12/1993",
+                "job": "Project Manager",
+                "income": "120,000",
+                "income_level": "high income",
+                "marital_status": "single",
+                "parental_status": "not parents",
+                "online_behavior": "Uses social media platforms such as Twitter and Reddit to keep up with news and trends; enjoys playing video games and reading books on Kindle in free time.",
+                "industry": " technology",
+                "employer_size": "very large employer (more than 10,000 employees)",
+                "homeownership": "renter",
+                "short_profile": "Daniel Chan, 30, Seattle-based tech project manager, earns $120k, enjoys gaming, reading, and social media. Lives alone, rents a studio.",
+                "age_type": "mid-aged",
+                "gender_type": "male",
+                "location_type": "urban",
+                "income_type": "high",
+                "edu_type": "high"
+            }
+        }
+    ],
+    "event":[
+        {
+            "persona":"Daniel Chan is a 30-year-old Asian man living in Seattle, Washington with zip code 98101. He is a project manager, and the annual income is around one hundred and twenty thousand USD. He lives alone in a studio apartment and likes to keep his space clean and organized. In his free time, he enjoys playing video games and reading books on his Kindle. He also likes to use social media platforms such as Twitter and Reddit to keep up with the latest news and trends.",
+            "event_example":["Home", "Golds Gym", "Starbucks", "Breakfast at home","Work at Amazon HQ", "Lunch at The Pink Door", "Lunch at Food Court", "Play video game", "Grocery shopping at Whole Foods", "Read books on Kindle", "Visit hospital", "Drink at a bar"]
+        },
+        {
+            "persona":"Julio Torres is a 26-year-old Hispanic man living in Los Angeles, California, with a zip code of 90022. He is a software developer, and the annual income is around seventy thousand USD. He lives with his parents and younger sister. Julio enjoys using social media platforms such as Twitter and Reddit to keep up with the latest tech news and share his thoughts with his followers. He also frequently uses streaming services like Netflix and Spotify to unwind after a long day of work.",
+            "event_example":["Stay at Home", "Gym", "Dinner at Bonefish Grill", "Breakfast at home", "Tech Office", "Lunch Spot", "Lunch at Chichen-fill-A", "Browse Twitter at home", "Browse Reddit at home", "Read books", "Visit his friends"]
+        }
+    ],
+    "schedule":[
+        {
+            "persona":"Daniel Chan is a 30-year-old Asian man living in 1020 Marion St, Seattle, Washington with zip code 98101. He speaks English and his has a master's degree in Management. His date of birth is 10/12/1993. He works in the technology industry and has a very large employer (more than 10,000 employees). He is a project manager, and the annual income is around one hundred and twenty thousand USD. He is a renter. He lives alone in a studio apartment and likes to keep his space clean and organized. In his free time, he enjoys playing video games and reading books on his Kindle. He also likes to use social media platforms such as Twitter and Reddit to keep up with the latest news and trends.",
+            "event_example":["Home", "Golds Gym", "Starbucks", "Breakfast at home","Work at Amazon HQ", "Lunch at The Pink Door", "Lunch at Food Court", "Play video game", "Grocery shopping at Whole Foods", "Read books on Kindle", "Visit hospital", "Drink at a bar"],
+            "schedule_example":[
+                {"start_time": "2023-06-05 00:00:00", "end_time": "2023-06-05 07:00:00", "event": "Home", "address":"1420 5th Ave, Seattle, WA 98101", "latitude":47.6101, "longitude":-122.3351},
+                {"start_time": "2023-06-05 07:00:00", "end_time": "2023-06-05 08:30:00", "event": "Golds Gym", "address":"1220 Howell St, Seattle, WA 98101", "latitude":47.6168, "longitude":-122.3368},
+                {"start_time": "2023-06-05 08:30:00", "end_time": "2023-06-05 09:00:00", "event": "Starbucks", "address":"1125 4th Ave, Seattle, WA 98101", "latitude":47.6069, "longitude":-122.3330},
+                {"start_time": "2023-06-05 09:00:00", "end_time": "2023-06-05 12:30:00", "event": "Work at Amazon HQ", "address":"410 Terry Ave N, Seattle, WA 98109", "latitude":47.6223, "longitude":-122.3366},
+                {"start_time": "2023-06-05 12:30:00", "end_time": "2023-06-05 13:30:00", "event": "Lunch at The Pink Door", "address":"1919 Post Alley, Seattle, WA 98101", "latitude":47.6101, "longitude":-122.3426},
+                {"start_time": "2023-06-05 13:30:00", "end_time": "2023-06-05 18:00:00", "event": "Work at Amazon HQ","address": "410 Terry Ave N, Seattle, WA 98109", "latitude":47.6223, "longitude":-122.3366},
+                {"start_time": "2023-06-05 18:00:00", "end_time": "2023-06-05 19:00:00", "event": "Grocery shopping at Whole Foods", "address":"2210 Westlake Ave, Seattle, WA 98121", "latitude":47.6175, "longitude":-122.3372},
+                {"start_time": "2023-06-05 19:00:00", "end_time": "2023-06-05 20:00:00", "event": "Dinner at home", "address":"1420 5th Ave, Seattle, WA 98101", "latitude":47.6101, "longitude":-122.3351},
+                {"start_time": "2023-06-05 20:00:00", "end_time": "2023-06-05 21:30:00", "event": "Read books on Kindle", "address":"1420 5th Ave, Seattle, WA 98101", "latitude":47.6101, "longitude":-122.3351},
+                {"start_time": "2023-06-05 21:30:00", "end_time": "2023-06-06 23:59:59", "event": "Home", "address":"1420 5th Ave, Seattle, WA 98101", "latitude":47.6101, "longitude":-122.3351},
+                {"start_time": "2023-06-06 00:00:00", "end_time": "2023-06-06 07:00:00", "event": "Home", "address":"1420 5th Ave, Seattle, WA 98101", "latitude":47.6101, "longitude":-122.3351},
+                {"start_time": "2023-06-06 07:00:00", "end_time": "2023-06-06 08:30:00", "event": "Breakfast at home", "address":"1420 5th Ave, Seattle, WA 98101", "latitude":47.6101, "longitude":-122.3351},
+                {"start_time": "2023-06-05 08:30:00", "end_time": "2023-06-05 09:30:00", "event": "Golds Gym", "address":"1220 Howell St, Seattle, WA 98101", "latitude":47.6168, "longitude":-122.3368},
+                {"start_time": "2023-06-06 09:00:00", "end_time": "2023-06-06 12:30:00", "event": "Work at Amazon HQ", "address":"410 Terry Ave N, Seattle, WA 98109", "latitude":47.6223, "longitude":-122.3366},
+                {"start_time": "2023-06-06 12:30:00", "end_time": "2023-06-06 13:30:00", "event": "Lunch at Food Court", "address":"1030 Post Alley, Seattle, WA 98101", "latitude":47.6102, "longitude":-122.3426},
+                {"start_time": "2023-06-06 13:30:00", "end_time": "2023-06-06 18:00:00", "event": "Work at Amazon HQ","address": "410 Terry Ave N, Seattle, WA 98109", "latitude":47.6223, "longitude":-122.3366},
+                {"start_time": "2023-06-06 18:00:00", "end_time": "2023-06-06 20:00:00", "event": "Home", "address":"1420 5th Ave, Seattle, WA 98101", "latitude":47.6101, "longitude":-122.3351},
+                {"start_time": "2023-06-05 20:00:00", "end_time": "2023-06-05 22:00:00", "event": "Play video game", "address":"1420 5th Ave, Seattle, WA 98101", "latitude":47.6101, "longitude":-122.3351},
+                {"start_time": "2023-06-06 22:00:00", "end_time": "2023-06-06 23:59:59", "event": "Read books on Kindle", "address":"1420 5th Ave, Seattle, WA 98101", "latitude":47.6101, "longitude":-122.3351}
+            ]
+        },
+        {
+            "persona":"Julio Torres is a 26-year-old Hispanic man living in Los Angeles, California, with a zip code of 90022. He is a software developer, and the annual income is around seventy thousand USD. He lives with his parents and younger sister. Julio enjoys using social media platforms such as Twitter and Reddit to keep up with the latest tech news and share his thoughts with his followers. He also frequently uses streaming services like Netflix and Spotify to unwind after a long day of work.",
+            "event_example":["Stay at Home", "Gym", "Dinner at Bonefish Grill", "Breakfast at home", "Tech Office", "Lunch Spot", "Lunch at Chichen-fill-A", "Browse Twitter at home", "Browse Reddit at home", "Read books", "Visit his friends"],
+            "schedule_example":[
+                {"start_time": "2023-06-06 00:00:00", "end_time": "2023-06-06 07:30:00", "event": "Stay at Home", "address":"123 Main St, Los Angeles, CA 90022", "latitude":34.0224, "longitude":-118.1676},
+                {"start_time": "2023-06-06 07:30:00", "end_time": "2023-06-06 08:15:00", "event": "Starbucks", "address":"5353 E Olympic Blvd, Los Angeles, CA 90022", "latitude":34.0152, "longitude":-118.1503},
+                {"start_time": "2023-06-06 08:15:00", "end_time": "2023-06-06 12:00:00", "event": "Tech Office", "address":"3000 E 1st St, Los Angeles, CA 90063", "latitude":34.0336, "longitude":-118.1675},
+                {"start_time": "2023-06-06 12:00:00", "end_time": "2023-06-06 12:45:00", "event": "Lunch Spot", "address":"3000 E 1st St, Los Angeles, CA 90063", "latitude":34.0337, "longitude":-118.1674},
+                {"start_time": "2023-06-06 12:45:00", "end_time": "2023-06-06 17:30:00", "event": "Tech Office", "address":"3000 E 1st St, Los Angeles, CA 90063", "latitude":34.0336, "longitude":-118.1675},
+                {"start_time": "2023-06-06 17:30:00", "end_time": "2023-06-06 19:00:00", "event": "Gym", "address":"1234 Whittier Blvd, Los Angeles, CA 90022", "latitude":34.0194, "longitude":-118.1557},
+                {"start_time": "2023-06-06 19:00:00", "end_time": "2023-06-06 19:45:00", "event": "Dinner at Bonefish Grill", "address":"534 Main St, Los Angeles, CA 90022", "latitude":34.0195, "longitude":-118.1534},
+                {"start_time": "2023-06-06 19:45:00", "end_time": "2023-06-06 21:00:00", "event": "Browse Reddit at home", "address":"123 Main St, Los Angeles, CA 90022", "latitude":34.0224, "longitude":-118.1676},
+                {"start_time": "2023-06-06 21:00:00", "end_time": "2023-06-06 23:59:59", "event": "Home", "address":"123 Main St, Los Angeles, CA 90022", "latitude":34.0224, "longitude":-118.1676},
+                {"start_time": "2023-06-10 00:00:00", "end_time": "2023-06-10 07:30:00", "event": "Stay at Home", "address":"123 Main St, Los Angeles, CA 90022", "latitude":34.0224, "longitude":-118.1676},
+                {"start_time": "2023-06-10 07:30:00", "end_time": "2023-06-10 08:00:00", "event": "Starbucks", "address":"5353 E Olympic Blvd, Los Angeles, CA 90022", "latitude":34.0152, "longitude":-118.1503},
+                {"start_time": "2023-06-10 08:00:00", "end_time": "2023-06-10 12:00:00", "event": "Tech Office", "address":"3000 E 1st St, Los Angeles, CA 90063", "latitude":34.0336, "longitude":-118.1675},
+                {"start_time": "2023-06-10 12:00:00", "end_time": "2023-06-10 12:35:00", "event": "Lunch at Chichen-fill-A", "address":"5222 E 1st St, Los Angeles, CA 90063", "latitude":34.0153, "longitude":-118.1574},
+                {"start_time": "2023-06-10 12:35:00", "end_time": "2023-06-10 18:00:00", "event": "Tech Office", "address":"3000 E 1st St, Los Angeles, CA 90063", "latitude":34.0336, "longitude":-118.1675},
+                {"start_time": "2023-06-10 18:00:00", "end_time": "2023-06-10 19:45:00", "event": "Dinner at home", "address":"123 Main St, Los Angeles, CA 90022", "latitude":34.0224, "longitude":-118.1676},
+                {"start_time": "2023-06-10 19:45:00", "end_time": "2023-06-10 21:00:00", "event": "Browse Twitter at home", "address":"123 Main St, Los Angeles, CA 90022", "latitude":34.0224, "longitude":-118.1676},
+                {"start_time": "2023-06-10 21:00:00", "end_time": "2023-06-10 23:59:59", "event": "Home", "address":"123 Main St, Los Angeles, CA 90022", "latitude":34.0224, "longitude":-118.1676}
+            ]
+        }
+    ],
+    "browsing_history":[
+        {
+            "persona": "John Smith is a 25-year-old Caucasian male living in 123 Park Ave, New York, NY 10001. He speaks English and his education background includes studying Computer Science and Data Analysis. John's date of birth is 09/15/1998. He is currently a student, and his annual income is $0. John is single and does not have any children. He enjoys coding and exploring new technologies on his computer. On his mobile phone, he prefers using apps for productivity and staying up to date with the latest tech news. When using the Internet, he enjoys participating in online coding forums and watching tutorial videos to enhance his skills.",
+            "schedule": [
+                {"start_time": "2023-07-10 15:00:00", "end_time":"2023-07-10 17:00:00", "event": "Study Data Analysis", "address":"321 Canal St, New York, NY 10013", "latitude":40.72102, "longitude":-74.005361}
+            ],
+            "browsing_history_example":[
+                {"time": "2023-07-10 15:20:39", "title": "Data analytics in everyday life", "url": "https://www.coursera.org/learn/foundations-data/home/welcome"},
+                {"time": "2023-07-10 15:19:10", "title": "Optional: Your diagnostic quiz score and what it means", "url": "https://www.coursera.org/learn/foundations-data/supplement/V13Ie/optional-your-diagnostic-quiz-score-and-what-it-means"},
+                {"time": "2023-07-10 15:29:40", "title": "Investment Opportunities with High Returns - Google Search", "url": "https://www.google.com/search?q=investment-opportunities-high-returns"}
+            ]
+        },
+        {
+            "persona": "Shane Johnson is an 18-year-old Caucasian male living in 123 Oak St, South Bend, IN 46601. He speaks English and his education background is currently pursuing a high school diploma. Shane's date of birth is 06/15/2005. He is currently working part-time as a delivery driver, with an annual income of $15,000. Shane is single and does not have any children. He recently developed an interest in biking and is looking to buy a bike for his transportation needs. When using his computer and mobile phone, Shane enjoys playing video games and watching sports highlights. On the internet, he likes to browse online marketplaces for bike deals and read customer reviews before making a purchase.",
+            "schedule": [
+                {"start_time": "2023-06-10 09:00:00", "end_time":"2023-06-10 10:00:00", "event": "Reading Customer Reviews", "address":"456 Elm St, South Bend, IN 46601", "latitude":41.6742, "longitude":-86.2486}
+            ],
+            "browsing_history_example":[
+                {"time": "2023-06-10 09:15:39", "title": "Best Mattresses of 2024 - Consumer Reports", "url": "https://www.consumerreports.org/"},
+                {"time": "2023-06-10 09:21:40", "title": "Product Reviews and Ratings - Consumer Reports", "url": "https://www.consumerreports.org/mattresses/best-mattresses-of-the-year-a1093119971/"},
+                {"time": "2023-06-10 09:54:24", "title": "5 Examples of Customer Reviews That Can Help Your Business", "url": "https://monkeylearn.com/blog/customer-reviews-examples/"}
+            ]
+        }
+    ]
+}

@@ -1,12 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\backend",
-    "\\backend\\personas",
     "\\frontend",
-    "\\frontend\\basicInfo_page",
-    "\\frontend\\overview_page"
+    "\\frontend\\newPersona"
   ],
-  "SelectedNode": "\\backend\\personas\\persona1.json",
+  "SelectedNode": "\\frontend\\newPersona\\generate.py",
   "PreviewInSolutionExplorer": false
 }

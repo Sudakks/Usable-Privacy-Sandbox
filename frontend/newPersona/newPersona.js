@@ -44,3 +44,26 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const generateDesBtn = document.getElementById('generateDes');
+    const editInput = document.getElementById('editInput');
+    const displayText = document.getElementById('displayText');
+
+    generateDesBtn.addEventListener('click', function () {
+        var guidance = displayText.textContent.trim(); // 获取 displayText 的内容作为 guidance
+
+        if (guidance) {
+            // 发送消息给后台脚本，获取生成的描述
+            chrome.runtime.sendMessage({ action: 'generateDescription', guidance: guidance }, function (response) {
+                //alert("test  " + response);
+                if (response && response.description) {
+                    displayText.textContent = response.description;
+                    editInput.style.display = 'none';
+                    displayText.style.display = 'block';
+                }
+            });
+        } else {
+            alert('Please enter some guidance in the input field.');
+        }
+    });
+});
