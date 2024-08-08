@@ -83,12 +83,13 @@
     border-radius: 6.5px;
     padding: 10px; /* 内边距 */
     background-color: white;
-    width: 240px; /* 减去左右内边距 */
-    height: 160px;
+    width: 270px; /* 减去左右内边距 */
+    height: 180px;
     box-sizing: border-box; /* 包括内边距和边框 */
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     cursor: pointer;
     position: relative;
+    overflow: auto; /* 启用滚动条 */
 }
 
 #displayText,

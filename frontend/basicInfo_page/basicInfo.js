@@ -207,3 +207,11 @@ function initAutoComplete() {
         }
     );
 };
+
+$(document).ready(function () {
+    $('.genderInput').prepend('<option value="" selected>Select gender</option>');
+});
+
+$(document).ready(function () {
+    $('.raceInput').prepend('<option value="" selected>Select race</option>');
+});

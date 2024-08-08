@@ -33,25 +33,6 @@
         </nav>
 
         <div class="content">
-
-            <!--
-            <div class="imageContainer">
-                <img src="../images/image.png" class="personaImage">
-                <button class="generateImage">Generate<br>Image</button>
-            </div>
-
-            <div class="briefInfo">
-                <p><span class="bold">Mia Rodriguez </span>&middot 34</p>
-                <p>Software Engineer &middot Los Angeles</p>
-            </div>
-
-            <div class="hrLine"></div>
-
-            <div class="naturalInfo">
-                <p>Mia Rodriguez, a Black woman, earns $450,000 annually. Married to Carlo with two children.</p>
-            </div>
-            -->
-
             <div class="imageContainer">
                 <!-- Ensure this class name matches JS selector -->
                 <img src="" class="personaImage" alt="Persona Image">
@@ -70,7 +51,34 @@
             <!-- Other sections can be added here -->
         </div>
     </div>
-    <button class="activateButton">Activate</button>
+    <div class="button-container">
+        <button class="saveButton" style="margin-right: -15px; margin-left:10px;">Save</button>
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <a class="close" href="#">&times;</a>
+                <h1>
+                    Update related info<br>
+                    according to your changes?
+                </h1>
+                <h3>
+                    Some Information like Online Behavior and Browser<br>
+                    History might change according to your changes.
+                </h3>
+                <h2>
+                    Your Changes:
+                </h2>
+                <!--TODO列举-->
+                <div class="changesList">TODO</div>
+                <div class="popupBtn-Container">
+                <div id="saveUpdate" class="popupBtn">Save & Update</div>
+                <div id="saveNoUpdate" class="popupBtn" style="background-color: #868585">Only Save Changes</div>
+            </div>
+                </div>
+            </div>
+            <button class="discardButton">Discard</button>
+            <button class="activateButton">Activate</button>
+        </div>
     <script src="overview.js"></script>
 </body>
 </html>

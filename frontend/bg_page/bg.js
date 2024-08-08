@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function handleEducationChange(selectElement) {
     var inMajorSpan = document.querySelector('.inMajor');
     var majorInput = document.querySelector('.majorInput');
-    if (selectElement.value === "Bachelor's degree" || selectElement.value === "Advanced degree" || selectElement.value === "Attending college") {
+    if (selectElement.value === "bachelor's degree" || selectElement.value === "advanced degree" || selectElement.value === "attending college") {
         inMajorSpan.style.display = 'inline-block';
     } else {
         inMajorSpan.style.display = 'none';
@@ -242,3 +242,17 @@ $(document).ready(function () {
         }
     });
 });
+
+$(document).ready(function () {
+    $('.educationInput').prepend('<option value="" selected>Select education</option>');
+});
+
+$(document).ready(function () {
+    $('.maritalStatusInput').prepend('<option value="" selected>Select marital status</option>');
+});
+
+$(document).ready(function () {
+    $('.parentalInput').prepend('<option value="" selected>Select parental status</option>');
+});
+
+

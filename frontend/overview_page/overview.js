@@ -35,4 +35,16 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         console.error('No persona data found in localStorage');
     }
+
+    var modal = document.getElementById("myModal");
+    var saveBtn = document.querySelector(".saveButton");
+    var close = document.querySelector(".close");
+
+    saveBtn.onclick = function () {
+        modal.style.display = "block";
+    }
+    close.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
 });
+

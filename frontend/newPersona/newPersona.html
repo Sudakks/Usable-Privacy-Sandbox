@@ -23,7 +23,7 @@
             </div>
             <div class="dspFrame" id="dspFrame">
                 <!--一开始有提示内容-->
-                <div id="displayText">Give a brief profile and generate a new Persona description.</div>
+                <div id="displayText" style="overflow:auto;">Give a brief profile and generate a new Persona description.</div>
                 <input type="text" id="editInput" style="display:none;" autocomplete="off"><!--用来放user输入的内容-->
             </div>
             <div class="btnPair">
@@ -35,7 +35,7 @@
             <div class="header">
                 <h1>Profile Picture</h1>
             </div>
-            <div class="photoFrame" style="background-image: url('../images/profileImage.png');"></div>
+            <div class="photoFrame" style="background-image: url('../images/profileImage.png');" id="photoFrame"></div>
             <button class="newButton" style="width: 12em; font-size: 0.7em;" id="generateImg">Generate Image</button>
         </div>
     </div>

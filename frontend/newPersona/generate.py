@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os
 import configparser
 import openai
@@ -9,6 +11,9 @@ from langchain.prompts import PromptTemplate, FewShotPromptTemplate
 from langchain_openai import ChatOpenAI
 from pydantic import BaseModel, Field
 from langchain.output_parsers import PydanticOutputParser
+from dalle3 import Dalle
+from openai import OpenAI
+
 
 import json
 from datetime import datetime
@@ -71,6 +76,7 @@ class PrivacyAttributes(BaseModel):
     location_type: str = Field(description='Rate this persona location as urban, suburb, or countryside')
     income_type: str = Field(description='Rate this persona income as low, medium, or high')
     edu_type: str = Field(description='Rate this persona educational level as low, medium, high')
+    #profileImgUrl : str = Filed(description='The image of this persona')
 
 class EventSet(BaseModel):
     event: list[str] = Field(description='A list of calendar event content')
@@ -102,47 +108,8 @@ class Generator:
         self._event_sets = None
         self.schedule = None
         self.browsing_history = []
+        self.profileImgUrl = None
 
-    """
-def get_persona_profile(self, guidance, max_length=200) -> str:
-    '''
-    Generate the persona description from LLM with length limit
-
-    Parameters:
-        guidance (str): The text briefly describes a persona.
-        max_length (int): Maximum number of characters for the persona description.
-
-    Return:
-        str: Persona description
-    '''
-    examples = fewshot_examples['profile']
-
-    example_prompt = PromptTemplate(
-        input_variables=['persona'],
-        template=prompts["profile"]["prompt"]
-    )
-
-    few_shot_prompt = FewShotPromptTemplate(
-        examples=examples,
-        example_prompt=example_prompt,
-        prefix=prompts["profile"]["prefix"],
-        suffix=prompts["profile"]["suffix"],
-        input_variables=['guidance', "template"],
-        example_separator="\n\n"
-    )
-
-    chain = LLMChain(llm=ChatOpenAI(model_name='gpt-4o', temperature=0.9),
-                     prompt=few_shot_prompt)
-    persona_profile = chain.invoke(input={'guidance': guidance, "template": prompts["profile"]["template"]})
-    self.persona_profile = persona_profile["text"]
-
-    # Truncate the persona profile if it exceeds the max_length
-    if len(self.persona_profile) > max_length:
-        self.persona_profile = self.persona_profile[:max_length] + '...'
-
-    return self.persona_profile
-
-    """
     def get_persona_profile(self, guidance) -> str:
         '''
         Generate the persona description from LLM
@@ -174,11 +141,44 @@ def get_persona_profile(self, guidance, max_length=200) -> str:
         persona_profile = chain.invoke(input={'guidance':guidance, "template":prompts["profile"]["template"]})
         self.persona_profile = persona_profile["text"]
 
-        # Truncate the persona profile if it exceeds the max_length
-        if len(self.persona_profile) > 50:
-            self.persona_profile = self.persona_profile[:50] + '...'
-
         return self.persona_profile
+
+    def generate_image(self, guidance):
+        client = OpenAI()  # will use environment variable "OPENAI_API_KEY"
+
+        prompt = (
+        "Subject: ballet dancers posing on a beam. "  # use the space at end
+        "Style: romantic impressionist painting."     # this is implicit line continuation
+        )
+
+        image_params = {
+        "model": "dall-e-3",  # Defaults to dall-e-2
+        "n": 1,               # Between 2 and 10 is only for DALL-E 2
+        "size": "256x256",  # 256x256, 512x512 only for DALL-E 2 - not much cheaper
+        "prompt": prompt,     # DALL-E 3: max 4000 characters, DALL-E 2: max 1000
+        "user": "myName",     # pass a customer ID to OpenAI for abuse monitoring
+            }
+
+        # ---- START
+        # here's the actual request to API and lots of error catching
+        try:
+            images_response = client.images.generate(**image_params)
+        except openai.APIConnectionError as e:
+            print("Server connection error: {e.__cause__}")  # from httpx.
+            raise
+        except openai.RateLimitError as e:
+            print(f"OpenAI RATE LIMIT error {e.status_code}: (e.response)")
+            raise
+        except openai.APIStatusError as e:
+            print(f"OpenAI STATUS error {e.status_code}: (e.response)")
+            raise
+        except openai.BadRequestError as e:
+            print(f"OpenAI BAD REQUEST error {e.status_code}: (e.response)")
+            raise
+        except Exception as e:
+            print(f"An unexpected error occurred: {e}")
+            raise
+        
     
 
     def _process_attribute(self, v, attr_type, profile, whole_attr, gen_persona_variant, get_attributes):
@@ -265,6 +265,8 @@ def get_persona_profile(self, guidance, max_length=200) -> str:
                 res.append(future.result())
 
         return res
+
+
         
 
     def get_attributes(self, profile: str) -> dict:
@@ -500,5 +502,3 @@ def get_persona_profile(self, guidance, max_length=200) -> str:
             self.browsing_history.extend(self._get_one_day_browsing_history(persona, date, events_by_day[date]))
 
         return self.browsing_history
-
-
