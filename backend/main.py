@@ -4,14 +4,16 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from loadpersona import router as loadpersona_router
 from changepersonainfo import router as changepersonainfo_router
+from changeswitch import router as changeswitch_router
 
 app = FastAPI()
 
-# 添加路由
+# 锟斤拷锟斤拷路锟斤拷
 app.include_router(loadpersona_router)
 app.include_router(changepersonainfo_router)
+app.include_router(changeswitch_router)
 
-# 允许来自任意来源的请求（仅用于开发环境，生产环境应限制来源）
+# 锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷源锟斤拷锟斤拷锟襟（斤拷锟斤拷锟节匡拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷应锟斤拷锟斤拷锟斤拷源锟斤拷
 origins = ["*"]
 
 app.add_middleware(
