@@ -3380,6 +3380,23 @@
         "device": "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:70.0) Gecko/20100101 Firefox/70.0",
         "industry": "finance",
         "employer_size": "large employer (250-10,000 employees)",
-        "homeownership": "homeowners"
+        "homeownership": "homeowners",
+        "switch":{
+            "name": true,
+            "gender": true,
+            "birthday": true,
+            "race": true,
+            "address": true,
+            "job": true,
+            "income": true,
+            "education": true,
+            "spoken_language": true,
+            "marital_status": true,
+            "parental_status": true,
+            "schedule": true,
+            "browser_history": true,
+            "facebook_posts": true,
+            "twitter_posts": true
+        }
     }
 }
