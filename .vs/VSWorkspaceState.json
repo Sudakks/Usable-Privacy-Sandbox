@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\frontend",
-    "\\frontend\\newPersona"
+    "\\frontend\\basicInfo_page",
+    "\\frontend\\bg_page"
   ],
-  "SelectedNode": "\\frontend\\newPersona",
+  "SelectedNode": "\\frontend",
   "PreviewInSolutionExplorer": false
 }
