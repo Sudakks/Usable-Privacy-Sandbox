@@ -15,7 +15,8 @@ var languageMap = {
 document.addEventListener("DOMContentLoaded", function () {
     var backButton = document.querySelector(".backButton");
     backButton.addEventListener("click", function () {
-        window.location.href = "../popup.html";
+        //window.location.href = "../popup.html";
+        backModal.style.display = "block";
     });
 
     // 从 localStorage 中获取 persona 数据
@@ -46,6 +47,35 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         console.error('No persona data found in localStorage');
     }
+
+    var saveModal = document.getElementById("saveModal");
+    var saveBtn = document.querySelector(".saveButton");
+    var close = document.querySelectorAll(".close");
+    var discardBtn = document.querySelector(".discardButton");
+    var discardModal = document.getElementById("discardModal");
+
+    saveBtn.addEventListener("click", function () {
+        saveModal.style.display = "block";
+    });
+    discardBtn.addEventListener("click", function () {
+        discardModal.style.display = "block";
+    });
+    close.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            if (discardModal.contains(btn)) {
+                discardModal.style.display = "none";
+            }
+            else if (saveModal.contains(btn)) {
+                saveModal.style.display = "none";
+            }
+            else if (backModal.contains(btn)) {
+                backModal.style.display = "none";
+            }
+            else {
+                console.error('Couldn\'t find close button');
+            }
+        });
+    });
 });
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -139,39 +169,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
-    /*
-     * 这一段应该不需要，因为blur之后已经更新了？
-    document.querySelectorAll('.infoInput').forEach(item => {
-        item.addEventListener('change', function () {
-            var infoDiv = this.previousElementSibling;
-            var newValue = this.value.trim();
-            if (newValue !== "") {
-                var persona = JSON.parse(localStorage.getItem('selectedPersona'));
-                infoDiv.textContent = newValue;
-                if (infoDiv.classList.contains('jobDisplay')) {
-                    persona.job = newValue;
-                } else if (infoDiv.classList.contains('educationDisplay')) {
-                    persona.education_background = newValue;
-                } else if (infoDiv.classList.contains('incomeDisplay')) {
-                    persona.income = newValue;
-                } else if (infoDiv.classList.contains('spokenLanguageDisplay')) {
-                    persona.spoken_language = newValue;
-                } else if (infoDiv.classList.contains('maritalStatusDisplay')) {
-                    persona.marital_status = newValue;
-                } else if (infoDiv.classList.contains('parentalStatusDisplay')) {
-                    persona.parental_status = newValue;
-                }
-
-                // 更新 localStorage
-                updateLocalStorage(persona);
-
-                // 发送到服务器
-                submitChanges(persona, modifiedFields);
-            }
-            this.style.display = 'none';
-            infoDiv.style.display = 'block';
-        });
-    });*/
 });
 
 // 提交修改到后端
@@ -256,3 +253,78 @@ $(document).ready(function () {
 });
 
 
+$(document).ready(function () {
+    function showPopupMessage(message) {
+        $('#popupMessage').text(message).fadeIn();
+
+        setTimeout(function () {
+            $('#popupMessage').fadeOut();
+            $('#saveModal').fadeOut();
+        }, 1000); // Message shows for 1.5 seconds
+    }
+
+    function showPopupMessageAndBack(message) {
+        $('#popupMessage').text(message).fadeIn();
+
+        setTimeout(function () {
+            $('#popupMessage').fadeOut();
+            $('#backModal').fadeOut();
+
+            // 在popupMessage展示后0s立即跳转popup.html
+            setTimeout(function () {
+                window.location.href = "../popup.html";
+            }, 0);
+
+        }, 1000);  // 显示 #popupMessage 的1s时间
+    }
+
+
+    function onlyExit() {
+        $('#discardModal').fadeOut();
+    }
+
+    $('#saveUpdate').click(function () {
+        showPopupMessage('Save & Update Successful!');
+    });
+
+    $('#saveNoUpdate').click(function () {
+        showPopupMessage('Only Saved Changes!');
+    });
+
+    $('#Cancel').click(function () {
+        onlyExit();
+    });
+
+    $('#Confirm').click(function () {
+        onlyExit();
+    });
+
+    /*
+    $('.close').click(function () {
+        $('#saveModal').fadeOut();
+    });
+    */
+
+    /* process checkbox */
+    var confirmBack = document.getElementById("confirmBack");
+    confirmBack.addEventListener("click", () => {
+        var operation = null;
+        var obj = document.getElementsByName("backOption")
+        for (var i = 0; i < obj.length; i++) { //遍历Radio 
+            if (obj[i].checked) {
+                operation = obj[i].value;
+                break;
+            }
+        }
+        if (operation === "save-only") {
+            showPopupMessageAndBack('Only Saved Changes!');
+        }
+        else if (operation === "save-update") {
+            showPopupMessageAndBack('Save & Update Successful!');
+        }
+        else if (operation === "discard") {
+            //onlyExit();
+            window.location.href = "../popup.html";
+        }
+    });
+});

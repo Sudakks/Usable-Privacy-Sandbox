@@ -13,6 +13,43 @@
     <button class="backButton">
         <i class="fa-solid fa-less-than"></i>Back to Select
     </button>
+    <div id="backModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <a class="close" href="#">&times;</a>
+            <h1>
+                Save your changes?
+            </h1>
+            <h2>
+                Your Changes:
+            </h2>
+            <!--TODO列举-->
+            <div class="changesList">TODO</div>
+            <!--The attribute 'name' is the same making them exclusive
+                each has unique value to identify itself
+            -->
+            <form>
+                <label>
+                    <input type="radio" name="backOption" value="save-update">
+                    Save and Update related info according to my changes.
+                </label>
+                <br>
+                <span style="display: block; margin-left: 25px; font-size: 0.9em; color: #4D4D4D;">
+                    *Some Information like Online Behavior and Browser History might change according to your changes.
+                </span>
+                <label>
+                    <input type="radio" name="backOption" value="save-only">
+                    Save only my changes.
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="backOption" value="discard">
+                    Discard all changes.
+                </label>
+            </form>
+            <div id="confirmBack" class="popupBtn" style="width:auto;">Confirm</div>
+        </div>
+    </div>
     <div class="logo">
         <img src="../images/logo.png" alt="Privacy Sandbox" class="logo">
     </div>
@@ -92,9 +129,51 @@
     </div>
     <div class="button-container">
         <button class="saveButton" style="margin-right: -15px; margin-left:10px;">Save</button>
+        <div id="saveModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <a class="close" href="#">&times;</a>
+                <h1>
+                    Update related info<br>
+                    according to your changes?
+                </h1>
+                <h3>
+                    Some Information like Online Behavior and Browser<br>
+                    History might change according to your changes.
+                </h3>
+                <h2>
+                    Your Changes:
+                </h2>
+                <!--TODO列举-->
+                <div class="changesList">TODO</div>
+                <div class="popupBtn-Container">
+                    <div id="saveUpdate" class="popupBtn">Save & Update</div>
+                    <div id="saveNoUpdate" class="popupBtn" style="background-color: #868585">Only Save Changes</div>
+                </div>
+            </div>
+        </div>
         <button class="discardButton">Discard</button>
+        <div id="discardModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content" style="margin: 20% auto;">
+                <a class="close" href="#">&times;</a>
+                <h1>
+                    Are you sure you want to discard all changes?
+                </h1>
+                <h3>
+                    All your changes will be LOST.
+                </h3>
+                <div class="popupBtn-Container">
+                    <div id="Confirm" class="popupBtn">Confirm</div>
+                    <div id="Cancel" class="popupBtn" style="background-color: #868585">Cancel</div>
+                </div>
+            </div>
+        </div>
         <button class="activateButton">Activate</button>
     </div>
+    <div id="popupMessage" class="popup-message"></div>
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/select2.min.js"></script>
     <script src="others.js"></script>
 </body>
 </html>
