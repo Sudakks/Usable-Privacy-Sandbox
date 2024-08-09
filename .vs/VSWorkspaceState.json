@@ -2,9 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\frontend",
-    "\\frontend\\basicInfo_page",
-    "\\frontend\\bg_page"
+    "\\frontend\\others_page"
   ],
-  "SelectedNode": "\\frontend",
+  "SelectedNode": "\\frontend\\others_page\\others.js",
   "PreviewInSolutionExplorer": false
 }
