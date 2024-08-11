@@ -121,7 +121,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 updateLocalStorage(persona);
 
                 // 发送到服务器
-                submitChanges(persona, modifiedFields);
+                saveBasicInfoChanges(persona, modifiedFields);
+                /*
+                function updateBasicInfoLocalJs(persona, modifiedFields) {
+                    alert("in loca");
+                    submitChanges(persona, modifiedFields);
+                };
+                */
             }
 
             infoDiv.style.display = 'inline';
@@ -147,6 +153,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+function saveBasicInfoChanges(persona, modifiedFields) {
+    sessionStorage.setItem('basicInfoModified', JSON.stringify(modifiedFields));
+    sessionStorage.setItem('selectedPersona', JSON.stringify(persona));
+}
+
 function calculateAge(birthDate) {
     const today = new Date();
     const birth = new Date(birthDate);
@@ -161,7 +172,9 @@ function calculateAge(birthDate) {
 }
 
 // 提交修改到后端
+/*
 function submitChanges(persona, modifiedFields) {
+
     console.log('Submitting Changes...');
     console.log("id:" + persona.userId);
     console.log("changes:" + modifiedFields);
@@ -177,16 +190,21 @@ function submitChanges(persona, modifiedFields) {
     }).then(response => response.json())
       .then(data => console.log(data))
       .catch(error => console.error('Error:', error));
-}
-/* 限制不能选择今天之后的日期 */
-// 获取当前日期
-const today = new Date();
-// 格式化日期为 YYYY-MM-DD
-const formattedDate = today.toISOString().split('T')[0];
-// 获取日期输入框元素
-const dateInput = document.querySelector('.dateInput');
-// 设置最大日期
-dateInput.max = formattedDate;
+}*/
+document.addEventListener('DOMContentLoaded', function () {
+    /* 限制不能选择今天之后的日期 */
+    // 获取当前日期
+    const today = new Date();
+    // 格式化日期为 YYYY-MM-DD
+    const formattedDate = today.toISOString().split('T')[0];
+    // 获取日期输入框元素
+    const dateInput = document.querySelector('.dateInput');
+    // 设置最大日期
+    dateInput.max = formattedDate;
+});
+
+
+
 
 
 //Address autocomplete
@@ -279,4 +297,3 @@ $(document).ready(function () {
         }
     });
 });
-

@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="bg.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="../lib/select2.min.css" rel="stylesheet" />
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../globalVar.js"></script>
+    <script src="bg.js"></script>
+    <!--
+        <script src="../test/test.js"></script>
+    <script src="../globalSave/globalSave.js"></script>
+    -->
 </head>
 <body>
     <button class="backButton">
@@ -197,8 +204,8 @@
                 <!--TODO列举-->
                 <div class="changesList">TODO</div>
                 <div class="popupBtn-Container">
-                    <div id="saveUpdate" class="popupBtn">Save & Update</div>
-                    <div id="saveNoUpdate" class="popupBtn" style="background-color: #868585">Only Save Changes</div>
+                    <div id="saveUpdate" class="saveUpdate">Save & Update</div>
+                    <div id="saveNoUpdate" class="saveNoUpdate">Only Save Changes</div>
                 </div>
             </div>
         </div>
@@ -222,9 +229,6 @@
         <button class="activateButton">Activate</button>
     </div>
     <div id="popupMessage" class="popup-message"></div>
-    <script src="../lib/jquery.min.js"></script>
     <script src="../lib/select2.min.js"></script>
-    <script src="../overview_page/overview.js"></script>
-    <script src="bg.js"></script>
 </body>
 </html>

@@ -3,7 +3,8 @@
   "name": "Persona Selector",
   "version": "1.0",
   "background": {
-    "service_worker": "frontend/newPersona/background.js"
+    "service_worker": "frontend/newPersona/background.js",
+    "type": "module"
   },
   "description": "A Chrome extension to select and activate a persona.",
   "permissions": [ "activeTab", "scripting", "storage" ],

@@ -138,7 +138,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     updateLocalStorage(persona);
 
                     // 发送到服务器
-                    submitChanges(persona, modifiedFields);
+                    //submitChanges(persona, modifiedFields);
+                    saveBgChanges(persona, modifiedFields);
                 }
             }
 
@@ -171,8 +172,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+function saveBgChanges(persona, modifiedFields) {
+    sessionStorage.setItem('bgModified', JSON.stringify(modifiedFields));
+    sessionStorage.setItem('selectedPersona', JSON.stringify(persona));
+}
+
 // 提交修改到后端
+/*
 function submitChanges(persona, modifiedFields) {
+    if (!persona)
+        return;
     console.log('Submitting Changes...');
     console.log("id:" + persona.userId);
     console.log("changes:" + modifiedFields);
@@ -188,7 +197,7 @@ function submitChanges(persona, modifiedFields) {
     }).then(response => response.json())
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
-}
+}*/
 
 document.addEventListener('DOMContentLoaded', function () {
     var educationSelect = document.querySelector('.educationInput');
@@ -298,12 +307,6 @@ $(document).ready(function () {
     $('#Confirm').click(function () {
         onlyExit();
     });
-
-    /*
-    $('.close').click(function () {
-        $('#saveModal').fadeOut();
-    });
-    */
 
     /* process checkbox */
     var confirmBack = document.getElementById("confirmBack");

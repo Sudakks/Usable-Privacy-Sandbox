@@ -1,9 +1,12 @@
 {
   "ExpandedNodes": [
     "",
+    "\\backend",
     "\\frontend",
-    "\\frontend\\others_page"
+    "\\frontend\\bg_page",
+    "\\frontend\\others_page",
+    "\\frontend\\overview_page"
   ],
-  "SelectedNode": "\\frontend\\others_page\\others.js",
+  "SelectedNode": "\\frontend\\bg_page\\bg.css",
   "PreviewInSolutionExplorer": false
 }

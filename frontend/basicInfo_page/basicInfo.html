@@ -8,6 +8,17 @@
     <link rel="stylesheet" href="basicInfo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="../lib/select2.min.css" rel="stylesheet" />
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/select2.min.js"></script>
+    <script src="../globalVar.js"></script>
+    <script src="basicInfo.js"></script>
+    <!--
+
+    <script src="../globalSave/globalSave.js"></script>
+    <script src="../test/test.js"></script>
+        -->
+
+
 </head>
 <body>
     <button class="backButton">
@@ -190,8 +201,8 @@
                 <!--TODO列举-->
                 <div class="changesList">TODO</div>
                 <div class="popupBtn-Container">
-                    <div id="saveUpdate" class="popupBtn">Save & Update</div>
-                    <div id="saveNoUpdate" class="popupBtn" style="background-color: #868585">Only Save Changes</div>
+                    <div id="saveUpdate" class="saveUpdate">Save & Update</div>
+                    <div id="saveNoUpdate" class="saveNoUpdate">Only Save Changes</div>
                 </div>
             </div>
         </div>
@@ -216,10 +227,7 @@
     </div>
     <div id="popupMessage" class="popup-message"></div>
     <!--put it to the top-->
-    <script src="../lib/jquery.min.js"></script>
-    <script src="basicInfo.js"></script>
-    
-    <script src="../lib/select2.min.js"></script>
+
     <!--
     <script async
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiqK618KoQKegwotCTIP2g6GZJNi74OI8&callback=console.debug&libraries=maps,marker&v=beta">

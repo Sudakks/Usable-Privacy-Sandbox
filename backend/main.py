@@ -13,7 +13,6 @@ app.include_router(loadpersona_router)
 app.include_router(changepersonainfo_router)
 app.include_router(changeswitch_router)
 
-# ��������������Դ�����󣨽����ڿ�����������������Ӧ������Դ��
 origins = ["*"]
 
 app.add_middleware(

@@ -226,6 +226,32 @@ h2 {
     margin-top:10px;
 }
 
+.saveUpdate {
+    width: 35%;
+    padding: 7px;
+    background-color: #074FB3;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.saveNoUpdate {
+    width: 35%;
+    padding: 7px;
+    background-color: #868585;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
 /*make 2 btns in the same row and center*/
 .popupBtn-Container {
     display: flex;
