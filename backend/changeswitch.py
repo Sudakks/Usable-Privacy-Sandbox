@@ -6,13 +6,6 @@ import json,os
 
 router = APIRouter()
 
-key_dict = {
-    "dateSwitch": "birthday",
-    "spokenLanguage": "spoken_language",
-    "maritalStatus": "marital_status",
-    "parentalStatus": "parental_status"
-}
-
 @router.post("/changeswitch")
 async def change_switch(request: Request):
     try:
@@ -36,11 +29,6 @@ async def change_switch(request: Request):
             switch_field = data_field.get('switch')
         
         # 更新 switch 字段
-        words = info.split(" ")
-        info = words[1]
-        info = info[:-6]  # 去掉 "Switch" 后缀
-        if info in key_dict:
-            info = key_dict[info]
         if info in switch_field:
             switch_field[info] = not switch_field[info]
         else:
@@ -50,7 +38,7 @@ async def change_switch(request: Request):
         with open(persona_file_path, 'w') as file:
             json.dump(persona_data, file, indent=4)
 
-        return {"message": "Switch status changed successfully"}
+        return {"message": "Switch status of '{}' info changed".format(info)}
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

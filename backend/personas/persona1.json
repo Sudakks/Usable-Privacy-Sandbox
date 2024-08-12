@@ -3037,7 +3037,7 @@
         "profileImgUrl": "/backend/personas/persona-image/persona1.png",
         "age": "19",
         "gender": "male",
-        "race": "Alaska Native",
+        "race": "White",
         "street": "123 Oak St",
         "city": "San Francisco",
         "state": "CA",
@@ -3047,7 +3047,7 @@
         "birthday": "06/08/2005",
         "job": "engineering",
         "income": "20,000",
-        "marital_status": "single",
+        "marital_status": "in a relationship",
         "parental_status": "not parents",
         "online_behavior": "He enjoys playing video games and watching YouTube videos on his computer. On his mobile phone, he spends most of his time scrolling through social media and texting his friends. When using the internet, he likes to research the latest technology gadgets and watch streaming services.",
         "profile": "John Smith is an 18-year-old White male living in 123 Oak St, San Francisco, CA 94102. He speaks English and his education background is a high school diploma. John's date of birth is 09/15/2005. He is currently working as a cashier, with an annual income of $20,000. John is single and does not have any children. He enjoys playing video games and watching YouTube videos on his computer. On his mobile phone, he spends most of his time scrolling through social media and texting his friends. When using the internet, he likes to research the latest technology gadgets and watch streaming services.",
@@ -3057,9 +3057,9 @@
         "employer_size": "small employer (1-249 employees)",
         "homeownership": "renters",
         "switch": {
-            "name": true,
+            "name": false,
             "gender": true,
-            "birthday": true,
+            "birthday": false,
             "race": true,
             "address": true,
             "job": true,
@@ -3069,7 +3069,7 @@
             "marital_status": true,
             "parental_status": true,
             "schedule": true,
-            "browser_history": true,
+            "browser_history": false,
             "facebook_posts": true,
             "twitter_posts": true
         }

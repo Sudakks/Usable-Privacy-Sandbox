@@ -36,6 +36,7 @@ class Persona(BaseModel):
     industry: str
     employer_size: str
     homeownership: str
+    switch: dict
 
 # 文件夹路径
 persona_folder_path = "./personas"
@@ -79,7 +80,8 @@ def load_personas_from_folder(folder_path: str):
                     device=persona_info.get("device", ""),
                     industry=persona_info.get("industry", ""),
                     employer_size=persona_info.get("employer_size", ""),
-                    homeownership=persona_info.get("homeownership", "")
+                    homeownership=persona_info.get("homeownership", ""),
+                    switch=persona_info.get("switch", [])
                 )
                 personas.append(persona)
     return personas
