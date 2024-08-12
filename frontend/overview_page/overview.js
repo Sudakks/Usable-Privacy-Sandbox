@@ -6,8 +6,17 @@ document.addEventListener("DOMContentLoaded", function () {
     var backButton = document.querySelector(".backButton");
     var backModal = document.getElementById("backModal");
     backButton.addEventListener("click", function () {
-        backModal.style.display = "block";
-        //window.location.href = "../popup.html";
+        async function getResult() {
+            let result = await getChangedList();
+            if (result === false) {
+                //empty
+                window.location.href = "../popup.html"
+            }
+            else {
+                backModal.style.display = "block";
+            }
+        }
+        getResult();
     });
 
     // 从 localStorage 中获取 persona 数据
@@ -102,6 +111,10 @@ $(document).ready(function () {
         $('#discardModal').fadeOut();
     }
 
+    function backToSelect() {
+        window.location.href = "../popup.html";
+    }
+
     $('#saveUpdate').click(function () {
         showPopupMessage('Save & Update Successful!');
     });
@@ -118,34 +131,16 @@ $(document).ready(function () {
         onlyExit();
     });
 
-    /*
-    $('.close').click(function () {
-        $('#saveModal').fadeOut();
+    $('#saveUpdateBack').click(function () {
+        showPopupMessageAndBack('Save & Update Successful!');
     });
-    */
 
-    /* process checkbox */
-    var confirmBack = document.getElementById("confirmBack");
-    confirmBack.addEventListener("click", () => {
-        var operation = null;
-        var obj = document.getElementsByName("backOption")
-        for (var i = 0; i < obj.length; i++) { //遍历Radio 
-            if (obj[i].checked) {
-                operation = obj[i].value;
-                break;
-            }
-        }
+    $('#saveBack').click(function () {
+        showPopupMessageAndBack('Only Saved Changes!');
+    });
 
-        if (operation === "save-only") {
-            showPopupMessageAndBack('Only Saved Changes!');
-        }
-        else if (operation === "save-update") {
-            showPopupMessageAndBack('Save & Update Successful!');
-        }
-        else if (operation === "discard") {
-            //onlyExit();
-            window.location.href = "../popup.html";
-        }
-    });   
+    $('#discardBack').click(function () {
+        backToSelect();
+    });
 });
 

@@ -24,6 +24,9 @@
     <div id="backModal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
+            <div align="center">
+                <img src="../images/question.png" width="65" height="65" style="margin-bottom:-0.6em; margin-top:1em;" />
+            </div>
             <a class="close" href="#">&times;</a>
             <h1>
                 Save your changes?
@@ -32,29 +35,11 @@
                 Your Changes:
             </h2>
             <div class="listOfChanges"></div>
-            <!--The attribute 'name' is the same making them exclusive
-                each has unique value to identify itself
-            -->
-            <form>
-                <label>
-                    <input type="radio" name="backOption" value="save-update">
-                    Save and Update related info according to my changes.
-                </label>
-                <br>
-                <span style="display: block; margin-left: 25px; font-size: 0.9em; color: #4D4D4D;">
-                    *Some Information like Online Behavior and Browser History might change according to your changes.
-                </span>
-                <label>
-                    <input type="radio" name="backOption" value="save-only">
-                    Save only my changes.
-                </label>
-                <br>
-                <label>
-                    <input type="radio" name="backOption" value="discard">
-                    Discard all changes.
-                </label>
-            </form>
-            <div id="confirmBack" class="popupBtn" style="width:auto;">Confirm</div>
+            <div class="popupBtn-Container" style="margin-top: 1em;">
+                <div id="saveUpdateBack" class="saveUpdate" style="width: 30%; background-color: #074FB3; color:white">Save & Update</div>
+                <div id="saveBack" class="saveNoUpdate" style="background-color: #4DA9FC; color: white ">Apply Changes Only</div>
+                <div id="discardBack" class="confirmDiscard" style="width: 12%; background-color: #E7F1FB; color: #40A5FF">Discard</div>
+            </div>
         </div>
     </div>
     <div class="logo">
@@ -202,8 +187,8 @@
                 </h2>
                 <div class="listOfChanges"></div>
                 <div class="popupBtn-Container">
-                    <div id="saveUpdate" class="saveUpdate">Save & Update</div>
-                    <div id="saveNoUpdate" class="saveNoUpdate">Only Save Changes</div>
+                    <div id="saveUpdate" class="saveUpdate">Update Related Info</div>
+                    <div id="saveNoUpdate" class="saveNoUpdate">Apply Changes Only</div>
                 </div>
             </div>
         </div>

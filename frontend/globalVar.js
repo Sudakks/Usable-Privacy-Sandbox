@@ -1,8 +1,3 @@
-/*
- ���ڲ�ͬ��ҳ����ж�����ִ��������
- globalVar.js �е�ȫ�ֱ�����ҳ����תʱ���ᱣ����ֵ!!!!
- ��������localStorage
- */
 function submitChanges(persona, modifiedFields) {
     console.log('Submitting Changes...');
     if (!persona)
@@ -15,8 +10,8 @@ function submitChanges(persona, modifiedFields) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            id: persona.userId, // ���� persona ID
-            changes: modifiedFields, // ֻ���ͱ�����ֶ�
+            id: persona.userId, 
+            changes: modifiedFields, 
         }),
     }).then(response => response.json())
         .then(data => console.log(data))
@@ -46,49 +41,14 @@ async function discardChanges(){
     const restored_persona = await response.json();
     console.log(restored_persona);
     localStorage.setItem('selectedPersona', JSON.stringify(restored_persona));
-
-    // // 重新加载页面
-    // current_page = sessionStorage.getItem('currentPage');
-    // currentPageUrl = current_page + '_page/' + current_page + '.html';
-    // console.log(currentPageUrl);
-    // window.location.href = 'globalSave.html';
-
-    
-    // // 获取 DOM 元素并设置 persona 数据
-    // const nameDisplay = document.querySelector('.nameDisplay');
-    // const dateDisplay = document.querySelector('.dateDisplay');
-    // const genderDisplay = document.querySelector('.genderDisplay');
-    // const raceDisplay = document.querySelector('.raceDisplay');
-    // const addressDisplay = document.querySelector('.addressDisplay');
-    // const jobDisplay = document.querySelector('.jobDisplay');
-    // const educationDisplay = document.querySelector('.educationDisplay');
-    // const incomeDisplay = document.querySelector('.incomeDisplay');
-    // const spokenLanguageDisplay = document.querySelector('.spokenLanguageDisplay');
-    // const maritalStatusDisplay = document.querySelector('.maritalStatusDisplay');
-    // const parentalStatusDisplay = document.querySelector('.parentalStatusDisplay');
-
-    // // 设置 persona 数据
-    // nameDisplay.textContent = persona.name;
-    // dateDisplay.textContent = `${persona.birthday} (age ${persona.age})`;
-    // genderDisplay.textContent = persona.gender;
-    // raceDisplay.textContent = persona.race;
-    // addressDisplay.textContent = persona.address;
-    // jobDisplay.textContent = persona.job;
-    // educationDisplay.textContent = persona.education_background;
-    // incomeDisplay.textContent = persona.income;
-    // spokenLanguageDisplay.textContent = persona.spoken_language;
-    // maritalStatusDisplay.textContent = persona.marital_status;
-    // parentalStatusDisplay.textContent = persona.parental_status;
 }
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    // ѡ�����о��� 'saveNoUpdate' class �İ�ť
     const saveButtons = document.querySelectorAll('.saveNoUpdate');
     const saveUpdateButtons = document.querySelectorAll('.saveUpdate');
-    const confirmDiscardButtons = document.querySelectorAll('.confirmDiscard');
+    //const confirmDiscardButtons = document.querySelectorAll('.confirmDiscard');
 
-    // �������а�ť�������� click �¼�������
     saveButtons.forEach(button => {
         button.addEventListener('click', function () {
             saveAllFiled();
@@ -97,108 +57,173 @@ document.addEventListener('DOMContentLoaded', function () {
 
     saveUpdateButtons.forEach(button => {
         button.addEventListener('click', function () {
-            /* TODO��Ҫ���� */
+            /* TODO Update */
             saveAllFiled();
         });
     });
 
-    var confirmBack = document.getElementById("confirmBack");
-    confirmBack.addEventListener("click", () => {
-        const selectedOption = document.querySelector('input[name="backOption"]:checked');
-
-        if (selectedOption) {
-            // ��ȡѡ�е�ֵ
-            const selectedValue = selectedOption.value;
-            //console.log('ѡ�е�ֵ��:', selectedValue);
-            switch (selectedValue) {
-                case "save-update":
-                    /* TODO��Ҫ���� */
-                    saveAllFiled();
-                    break;
-                case "save-only":
-                    saveAllFiled();
-                    break;
-                case "discard":
-                    discardChanges();
-                    break;
-                default:
-                    console.error("No matched selectedValue");
-            }
-        } else {
-            console.log('û��ѡ���κ�ѡ��');
-        }
-    });
-        
-    
-    confirmDiscardButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            /*
-             * TODO
-             * ����˰���֮�������еĸ���
-             * ������
-             * 1. ֱ�Ӵ�json�ļ��е���
-             * 2. ��ס�޸ĵ����ݣ�ֻretrieve�޸ĵ������������̫���㣩
-             */
-            discardChanges();
-            //window.location.href = "overview.html";
-        });
-    });
 });
+
+function fetchChangedList() {
+    let selectedPersona = JSON.parse(localStorage.getItem('selectedPersona'));
+
+    return fetch('http://localhost:8000/identifychange', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Cache-Control': 'no-cache'
+        },
+        body: JSON.stringify(selectedPersona),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json(); // 解析 JSON 并返回解析后的数据
+        });
+}
+
+async function getChangedList() {
+    try {
+        let changeDict = await fetchChangedList(); // 等待 fetchChangedList 完成并返回结果
+        let listOfChangesElements = document.querySelectorAll(".listOfChanges");
+        if (Object.keys(changeDict).length === 0) {
+            //No update
+            return false;
+            listOfChangesElements.forEach(listOfChanges => {
+                listOfChanges.textContent = 'No changes';
+                listOfChanges.style.display = "flex";
+
+                listOfChanges.style.justifyContent = "center";
+                listOfChanges.style.textAlign = "center";
+                listOfChanges.style.fontSize = "1.3em";
+                listOfChanges.style.color = "#868585";
+            });
+            return false;
+        }
+        listOfChangesElements.forEach(listOfChanges => {
+            // Clear existing content in each listOfChanges element
+            listOfChanges.innerHTML = '';
+
+            // Append new items to each listOfChanges element
+            Object.entries(changeDict).forEach(([key, value]) => {
+                //alert("key = " + key + ", value = " + value);
+                const containerDiv = document.createElement('div');
+                containerDiv.classList.add('changeItem');
+
+                const keyDiv = document.createElement('div');
+                keyDiv.classList.add('changeKey');
+                keyDiv.textContent = key;
+
+                const valueDiv = document.createElement('div');
+                valueDiv.classList.add('changeValue');
+                valueDiv.textContent = value;
+
+                containerDiv.appendChild(keyDiv);
+                containerDiv.appendChild(valueDiv);
+
+                listOfChanges.appendChild(containerDiv);
+            });
+        });
+        return true;
+    } catch (error) {
+        console.error('Error fetching changed list:', error);
+    }
+}
+
+/*
+function getChangedList() {
+    let changeDict = fetchChangedList();
+    
+
+    
+    let selectedPersona = JSON.parse(localStorage.getItem('selectedPersona'));
+
+    fetch('http://localhost:8000/identifychange', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Cache-Control': 'no-cache'
+        },
+        body: JSON.stringify(selectedPersona),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(changeDict => {
+            let listOfChangesElements = document.querySelectorAll(".listOfChanges");
+            if (Object.keys(changeDict).length === 0) {
+                //No update
+                listOfChangesElements.forEach(listOfChanges => {
+                    listOfChanges.textContent = 'No changes';
+                    listOfChanges.style.display = "flex";
+
+                    listOfChanges.style.justifyContent = "center";
+                    listOfChanges.style.textAlign = "center";
+                    listOfChanges.style.fontSize = "1.3em";
+                    listOfChanges.style.color = "#868585";
+                });
+                return;
+            }
+            listOfChangesElements.forEach(listOfChanges => {
+                // Clear existing content in each listOfChanges element
+                listOfChanges.innerHTML = '';
+
+                // Append new items to each listOfChanges element
+                Object.entries(changeDict).forEach(([key, value]) => {
+                    //alert("key = " + key + ", value = " + value);
+                    const containerDiv = document.createElement('div');
+                    containerDiv.classList.add('changeItem');
+
+                    const keyDiv = document.createElement('div');
+                    keyDiv.classList.add('changeKey');
+                    keyDiv.textContent = key;
+
+                    const valueDiv = document.createElement('div');
+                    valueDiv.classList.add('changeValue');
+                    valueDiv.textContent = value;
+
+                    containerDiv.appendChild(keyDiv);
+                    containerDiv.appendChild(valueDiv);
+
+                    listOfChanges.appendChild(containerDiv);
+                });
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Failed to fetch changes. Please try again.');
+        });
+        
+}*/
 
 
 document.addEventListener('DOMContentLoaded', function () {
     let saveButtons = document.querySelectorAll(".saveButton");
+    let backButtons = document.querySelectorAll(".backButton");
 
     saveButtons.forEach(button => {
         button.addEventListener('click', function () {
-            let selectedPersona = JSON.parse(localStorage.getItem('selectedPersona'));
+            getChangedList();
+        });
+    });
 
-            fetch('http://localhost:8000/identifychange', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Cache-Control': 'no-cache'
-                },
-                body: JSON.stringify(selectedPersona),
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(changeDict => {
-                    let listOfChangesElements = document.querySelectorAll(".listOfChanges");
-
-                    listOfChangesElements.forEach(listOfChanges => {
-                        // Clear existing content in each listOfChanges element
-                        listOfChanges.innerHTML = '';
-
-                        // Append new items to each listOfChanges element
-                        Object.entries(changeDict).forEach(([key, value]) => {
-                            alert("key = " + key + ", value = " + value);
-                            const containerDiv = document.createElement('div');
-                            containerDiv.classList.add('changeItem');
-
-                            const keyDiv = document.createElement('div');
-                            keyDiv.classList.add('changeKey');
-                            keyDiv.textContent = key;
-
-                            const valueDiv = document.createElement('div');
-                            valueDiv.classList.add('changeValue');
-                            valueDiv.textContent = value;
-
-                            containerDiv.appendChild(keyDiv);
-                            containerDiv.appendChild(valueDiv);
-
-                            listOfChanges.appendChild(containerDiv);
-                        });
-                    });
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Failed to fetch changes. Please try again.');
-                });
+    backButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            async function getResult() {
+                let result = await getChangedList();
+                if (result === false) {
+                    //empty
+                    /*
+                    $('#popupMessage').fadeOut();
+                    $('#backModal').fadeOut();
+                    window.location.href = "../popup.html";*/
+                }
+            }
+            getResult();
         });
     });
 });

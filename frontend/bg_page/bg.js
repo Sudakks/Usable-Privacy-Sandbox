@@ -19,9 +19,19 @@ document.addEventListener("DOMContentLoaded", function () {
     let persona = localStorage.getItem("selectedPersona");
 
     var backButton = document.querySelector(".backButton");
+    var backModal = document.getElementById("backModal");
     backButton.addEventListener("click", function () {
-        //window.location.href = "../popup.html";
-        backModal.style.display = "block";
+        async function getResult() {
+            let result = await getChangedList();
+            if (result === false) {
+                //empty
+                window.location.href = "../popup.html"
+            }
+            else {
+                backModal.style.display = "block";
+            }
+        }
+        getResult();
     });
 
     // 从 localStorage 中获取 persona 数据
@@ -230,27 +240,6 @@ function saveBgChanges(persona, modifiedFields) {
     sessionStorage.setItem('selectedPersona', JSON.stringify(persona));
 }
 
-// 提交修改到后端
-/*
-function submitChanges(persona, modifiedFields) {
-    if (!persona)
-        return;
-    console.log('Submitting Changes...');
-    console.log("id:" + persona.userId);
-    console.log("changes:" + modifiedFields);
-    fetch('http://localhost:8000/changepersonainfo', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            id: persona.userId, // 传递 persona ID
-            changes: modifiedFields, // 只发送变更的字段
-        }),
-    }).then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error('Error:', error));
-}*/
 
 document.addEventListener('DOMContentLoaded', function () {
     var educationSelect = document.querySelector('.educationInput');
@@ -345,6 +334,10 @@ $(document).ready(function () {
         $('#discardModal').fadeOut();
     }
 
+    function backToSelect() {
+        window.location.href = "../popup.html";
+    }
+
     $('#saveUpdate').click(function () {
         showPopupMessage('Save & Update Successful!');
     });
@@ -361,26 +354,15 @@ $(document).ready(function () {
         onlyExit();
     });
 
-    /* process checkbox */
-    var confirmBack = document.getElementById("confirmBack");
-    confirmBack.addEventListener("click", () => {
-        var operation = null;
-        var obj = document.getElementsByName("backOption")
-        for (var i = 0; i < obj.length; i++) { //遍历Radio 
-            if (obj[i].checked) {
-                operation = obj[i].value;
-                break;
-            }
-        }
-        if (operation === "save-only") {
-            showPopupMessageAndBack('Only Saved Changes!');
-        }
-        else if (operation === "save-update") {
-            showPopupMessageAndBack('Save & Update Successful!');
-        }
-        else if (operation === "discard") {
-            //onlyExit();
-            window.location.href = "../popup.html";
-        }
+    $('#saveUpdateBack').click(function () {
+        showPopupMessageAndBack('Save & Update Successful!');
+    });
+
+    $('#saveBack').click(function () {
+        showPopupMessageAndBack('Only Saved Changes!');
+    });
+
+    $('#discardBack').click(function () {
+        backToSelect();
     });
 });
