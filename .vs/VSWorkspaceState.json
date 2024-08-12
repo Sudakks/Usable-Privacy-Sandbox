@@ -3,10 +3,10 @@
     "",
     "\\backend",
     "\\frontend",
+    "\\frontend\\basicInfo_page",
     "\\frontend\\bg_page",
-    "\\frontend\\others_page",
     "\\frontend\\overview_page"
   ],
-  "SelectedNode": "\\frontend\\bg_page\\bg.css",
+  "SelectedNode": "\\frontend\\overview_page\\overview.js",
   "PreviewInSolutionExplorer": false
 }

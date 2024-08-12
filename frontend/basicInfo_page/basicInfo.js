@@ -94,7 +94,6 @@ document.addEventListener('DOMContentLoaded', function () {
             var input = event.target;
             var infoDiv = input.previousElementSibling;
             var newValue = input.value.trim();
-
             if (newValue !== "") {
                 var persona = JSON.parse(localStorage.getItem('selectedPersona'));
                 modifiedFields[infoDiv.className] = newValue;
@@ -122,12 +121,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // 发送到服务器
                 saveBasicInfoChanges(persona, modifiedFields);
-                /*
-                function updateBasicInfoLocalJs(persona, modifiedFields) {
-                    alert("in loca");
-                    submitChanges(persona, modifiedFields);
-                };
-                */
             }
 
             infoDiv.style.display = 'inline';
@@ -297,3 +290,4 @@ $(document).ready(function () {
         }
     });
 });
+
