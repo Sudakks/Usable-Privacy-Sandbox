@@ -199,19 +199,48 @@ h2 {
     margin: 5px 0;
     padding-left:29px;
 }
-
-/*List changes*/
-.changesList {
-    width: 80%; /* Adjust width as needed */
+/*
+.listOfChanges {
+    width: 80%;
     height: auto;
-    overflow: auto; /* Enable scroll if needed */
     border: 0.5px solid #484848;
-    border-radius: 8px;
     padding: 5px;
     margin: 0 auto;
-    position: relative;
+    border-radius: 8px;
     text-align: center;
+    overflow: auto;
+}*/
+
+
+.listOfChanges {
+    display: grid;
+    grid-template-columns: auto 1fr; /* Adjust the columns as needed */
+    gap: 7px; /* Space between key and value */
+    width: 90%;
+    height: auto;
+    border: 0.5px solid #484848;
+    /*padding: 5px;*/
+    margin: 1px 1px;
+    border-radius: 8px;
+    margin-left:20px;
 }
+
+.changeItem {
+    display: contents; 
+}
+
+.changeKey {
+    font-weight: bold; 
+    text-align: left;
+    margin-right:40px;
+    margin-left:5px;
+}
+
+.changeValue {
+    text-align: left; 
+    margin-right:5px;
+}
+
 
 .popupBtn {
     width: 35%;
