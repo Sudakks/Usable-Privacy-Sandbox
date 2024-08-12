@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         persona.spoken_language = newValue;
                     }
                     infoDiv.textContent = newValue;
-                    modifiedFields[infoDiv.className] = newValue;
+                    //modifiedFields[infoDiv.className] = newValue;
 
                     if (infoDiv.classList.contains('educationDisplay')) {
                         persona.education_background = newValue;
@@ -146,7 +146,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     } else if (infoDiv.classList.contains('parentalStatusDisplay')) {
                         persona.parental_status = newValue;
                     }
-
+                    //alert("class = " + infoDiv.className + ", newValue = " + newValue);
+                    modifiedFields[infoDiv.className] = newValue;
                     // 更新 localStorage
                     updateLocalStorage(persona);
 
@@ -236,7 +237,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function saveBgChanges(persona, modifiedFields) {
+    
     sessionStorage.setItem('bgModified', JSON.stringify(modifiedFields));
+    let bgModified = JSON.parse(sessionStorage.getItem('bgModified')) || {};
+    Object.entries(bgModified).forEach(([key, value]) => {
+        alert("key is " + key + ", value is " + value);
+    });
     sessionStorage.setItem('selectedPersona', JSON.stringify(persona));
 }
 
