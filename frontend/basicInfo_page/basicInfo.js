@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // 存储当前所处界面信息
+    sessionStorage.setItem("currentPage", "basicInfo");
+
     let persona = null; // 声明 persona 变量
 
     var backButton = document.querySelector(".backButton");

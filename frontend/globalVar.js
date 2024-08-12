@@ -1,7 +1,7 @@
 /*
- ÓÉÓÚ²»Í¬µÄÒ³Ãæ»áÓÐ¶ÀÁ¢µÄÖ´ÐÐÉÏÏÂÎÄ
- globalVar.js ÖÐµÄÈ«¾Ö±äÁ¿ÔÚÒ³ÃæÌø×ªÊ±²»»á±£³ÖÆäÖµ!!!!
- ËùÒÔÀûÓÃlocalStorage
+ ï¿½ï¿½ï¿½Ú²ï¿½Í¬ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ globalVar.js ï¿½Ðµï¿½È«ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½×ªÊ±ï¿½ï¿½ï¿½á±£ï¿½ï¿½ï¿½ï¿½Öµ!!!!
+ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½localStorage
  */
 function submitChanges(persona, modifiedFields) {
     console.log('Submitting Changes...');
@@ -15,8 +15,8 @@ function submitChanges(persona, modifiedFields) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            id: persona.userId, // ´«µÝ persona ID
-            changes: modifiedFields, // Ö»·¢ËÍ±ä¸üµÄ×Ö¶Î
+            id: persona.userId, // ï¿½ï¿½ï¿½ï¿½ persona ID
+            changes: modifiedFields, // Ö»ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½
         }),
     }).then(response => response.json())
         .then(data => console.log(data))
@@ -31,14 +31,64 @@ function saveAllFiled() {
     submitChanges(selectedPersona, basicInfoModified);
 }
 
+async function discardChanges(){
+    console.log("Discarding changes...");
+    localStorageDisplay = JSON.stringify(localStorage);
+    selected_persona = JSON.parse(localStorage.getItem('selectedPersona'));
+    console.log(selected_persona);
+    const response = await fetch('http://localhost:8000/restorelocalstorage', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(selected_persona),
+    });
+    const restored_persona = await response.json();
+    console.log(restored_persona);
+    localStorage.setItem('selectedPersona', JSON.stringify(restored_persona));
+
+    // // é‡æ–°åŠ è½½é¡µé¢
+    // current_page = sessionStorage.getItem('currentPage');
+    // currentPageUrl = current_page + '_page/' + current_page + '.html';
+    // console.log(currentPageUrl);
+    // window.location.href = 'globalSave.html';
+
+    
+    // // èŽ·å– DOM å…ƒç´ å¹¶è®¾ç½® persona æ•°æ®
+    // const nameDisplay = document.querySelector('.nameDisplay');
+    // const dateDisplay = document.querySelector('.dateDisplay');
+    // const genderDisplay = document.querySelector('.genderDisplay');
+    // const raceDisplay = document.querySelector('.raceDisplay');
+    // const addressDisplay = document.querySelector('.addressDisplay');
+    // const jobDisplay = document.querySelector('.jobDisplay');
+    // const educationDisplay = document.querySelector('.educationDisplay');
+    // const incomeDisplay = document.querySelector('.incomeDisplay');
+    // const spokenLanguageDisplay = document.querySelector('.spokenLanguageDisplay');
+    // const maritalStatusDisplay = document.querySelector('.maritalStatusDisplay');
+    // const parentalStatusDisplay = document.querySelector('.parentalStatusDisplay');
+
+    // // è®¾ç½® persona æ•°æ®
+    // nameDisplay.textContent = persona.name;
+    // dateDisplay.textContent = `${persona.birthday} (age ${persona.age})`;
+    // genderDisplay.textContent = persona.gender;
+    // raceDisplay.textContent = persona.race;
+    // addressDisplay.textContent = persona.address;
+    // jobDisplay.textContent = persona.job;
+    // educationDisplay.textContent = persona.education_background;
+    // incomeDisplay.textContent = persona.income;
+    // spokenLanguageDisplay.textContent = persona.spoken_language;
+    // maritalStatusDisplay.textContent = persona.marital_status;
+    // parentalStatusDisplay.textContent = persona.parental_status;
+}
+
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Ñ¡ÔñËùÓÐ¾ßÓÐ 'saveNoUpdate' class µÄ°´Å¥
+    // Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½Ð¾ï¿½ï¿½ï¿½ 'saveNoUpdate' class ï¿½Ä°ï¿½Å¥
     const saveButtons = document.querySelectorAll('.saveNoUpdate');
     const saveUpdateButtons = document.querySelectorAll('.saveUpdate');
     const confirmDiscardButtons = document.querySelectorAll('.confirmDiscard');
 
-    // ±éÀúËùÓÐ°´Å¥£¬²¢Ìí¼Ó click ÊÂ¼þ¼àÌýÆ÷
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð°ï¿½Å¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ click ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     saveButtons.forEach(button => {
         button.addEventListener('click', function () {
             saveAllFiled();
@@ -47,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     saveUpdateButtons.forEach(button => {
         button.addEventListener('click', function () {
-            /* TODOÐèÒª¸üÐÂ */
+            /* TODOï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ */
             saveAllFiled();
         });
     });
@@ -57,25 +107,25 @@ document.addEventListener('DOMContentLoaded', function () {
         const selectedOption = document.querySelector('input[name="backOption"]:checked');
 
         if (selectedOption) {
-            // »ñÈ¡Ñ¡ÖÐµÄÖµ
+            // ï¿½ï¿½È¡Ñ¡ï¿½Ðµï¿½Öµ
             const selectedValue = selectedOption.value;
-            //console.log('Ñ¡ÖÐµÄÖµÊÇ:', selectedValue);
+            //console.log('Ñ¡ï¿½Ðµï¿½Öµï¿½ï¿½:', selectedValue);
             switch (selectedValue) {
                 case "save-update":
-                    /* TODOÐèÒª¸üÐÂ */
+                    /* TODOï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ */
                     saveAllFiled();
                     break;
                 case "save-only":
                     saveAllFiled();
                     break;
                 case "discard":
-                    //TODO
+                    discardChanges();
                     break;
                 default:
                     console.error("No matched selectedValue");
             }
         } else {
-            console.log('Ã»ÓÐÑ¡ÖÐÈÎºÎÑ¡Ïî');
+            console.log('Ã»ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Îºï¿½Ñ¡ï¿½ï¿½');
         }
     });
         
@@ -84,11 +134,13 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function () {
             /*
              * TODO
-             * µã»÷´Ë°´¼üÖ®ºó¶ªÆúËùÓÐµÄ¸ü¸Ä
-             * ·½°¸£º
-             * 1. Ö±½Ó´ÓjsonÎÄ¼þÖÐµ¼Èë
-             * 2. ¼Ç×¡ÐÞ¸ÄµÄÄÚÈÝ£¬Ö»retrieveÐÞ¸ÄµÄÏî£¨²Ù×÷ÆðÀ´²»Ì«·½±ã£©
+             * ï¿½ï¿½ï¿½ï¿½Ë°ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ¸ï¿½ï¿½ï¿½
+             * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+             * 1. Ö±ï¿½Ó´ï¿½jsonï¿½Ä¼ï¿½ï¿½Ðµï¿½ï¿½ï¿½
+             * 2. ï¿½ï¿½×¡ï¿½Þ¸Äµï¿½ï¿½ï¿½ï¿½Ý£ï¿½Ö»retrieveï¿½Þ¸Äµï¿½ï¿½î£¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì«ï¿½ï¿½ï¿½ã£©
              */
+            discardChanges();
+            //window.location.href = "overview.html";
         });
     });
 });
