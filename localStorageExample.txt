@@ -1,30 +1,30 @@
 {
-    "address": "123 Oak St, San Francisco, CA, 94102"
-    "age": "19"
-    "birthday": "2005-06-08"
-    "browser": "Firefox - Windows"
-    "city": "San Francisco"
-    "device": "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:70.0) Gecko/20100101 Firefox/70.0"
-    "education_background": "advanced degree"
-    "employer_size: "small employer (1-249 employees)"
-    "first_name: "John"
-    "gender: "male"
-    "homeownership: "renters"
-    "income: "20000"
-    "industry: "hospitality"
-    "job: "cashier"
-    "last_name: "Lee"
-    "marital_status: "single"
-    "name: "John Lee"
-    "online_behavior: "He enjoys playing video games and watching YouTube videos on his computer. On his mobile phone, he spends most of his time scrolling through social media and texting his friends. When using the internet, he likes to research the latest technology gadgets and watch streaming services."
-    "parental_status: "not parents"
-    "profile: "John Smith is an 18-year-old White male living in 123 Oak St, San Francisco, CA 94102. He speaks English and his education background is a high school diploma. John's date of birth is 09/15/2005. He is currently working as a cashier, with an annual income of $20,000. John is single and does not have any children. He enjoys playing video games and watching YouTube videos on his computer. On his mobile phone, he spends most of his time scrolling through social media and texting his friends. When using the internet, he likes to research the latest technology gadgets and watch streaming services."
-    "profileImgUrl: "../backend/personas/persona-image/persona1.png"
-    "race: "White"
-    "spoken_language: "Chinese"
-    "state: "CA"
-    "street: "123 Oak St"
-    "switch: {name: true, gender: true, birthday: true, race: true, address: true, …}
-    "userId: 1
-    "zip_code: "94102"
+    "address": "124 Oak St, San Francisco, CA, 94102",
+    "age": "19",
+    "birthday": "2005-06-08",
+    "browser": "Firefox - Windows",
+    "city": "San Francisco",
+    "device": "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:70.0) Gecko/20100101 Firefox/70.0",
+    "education_background": "advanced degree",
+    "employer_size": "small employer (1-249 employees)",
+    "first_name": "John",
+    "gender": "male",
+    "homeownership": "renters",
+    "income": "40000",
+    "industry": "hospitality",
+    "job": "cashier",
+    "last_name": "Lee",
+    "marital_status": "single",
+    "name": "Xiaoming Lee",
+    "online_behavior": "He enjoys playing video games and watching YouTube videos on his computer. On his mobile phone, he spends most of his time scrolling through social media and texting his friends. When using the internet, he likes to research the latest technology gadgets and watch streaming services.",
+    "parental_status": "father of two",
+    "profile": "John Smith is an 18-year-old White male living in 123 Oak St, San Francisco, CA 94102. He speaks English and his education background is a high school diploma. John's date of birth is 09/15/2005. He is currently working as a cashier, with an annual income of $20,000. John is single and does not have any children. He enjoys playing video games and watching YouTube videos on his computer. On his mobile phone, he spends most of his time scrolling through social media and texting his friends. When using the internet, he likes to research the latest technology gadgets and watch streaming services.",
+    "profileImgUrl": "../backend/personas/persona-image/persona1.png",
+    "race": "Asian",
+    "spoken_language": "Chinese",
+    "state": "CA",
+    "street": "123 Oak St",
+    "switch": {name: true, gender: true, birthday: true, race: true, address: true, …},
+    "userId": 1,
+    "zip_code": "94102"
 }

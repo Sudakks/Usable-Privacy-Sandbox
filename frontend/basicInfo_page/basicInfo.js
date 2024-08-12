@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // 存储当前所处界面信息
+    sessionStorage.setItem("currentPage", "basicInfo");
+
     let persona = null; // 声明 persona 变量
 
     var backButton = document.querySelector(".backButton");
@@ -345,3 +348,43 @@ $(document).ready(function () {
         }
     });
 });
+
+/*
+document.addEventListener('DOMContentLoaded', function () {
+    let saveButton = document.querySelector(".saveButton");
+    let selected_persona = JSON.parse(localStorage.getItem('selectedPersona'));
+    var listOfChanges = document.querySelector(".listOfChanges");
+
+    saveButton.addEventListener('click', function () {
+        fetch('http://localhost:8000/identifychange', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Cache-Control': 'no-cache'
+            },
+            body: JSON.stringify(selected_persona),
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(changeDict => {
+                // 清空 changesList 中的内容
+                listOfChanges.innerHTML = '';
+
+                // 遍历 change_dict 并添加到 changesList 中
+                Object.entries(changeDict).forEach(([key, value]) => {
+                    const changeItem = document.createElement('div');
+                    changeItem.textContent = `${key}: ${value}`;
+                    listOfChanges.appendChild(changeItem);
+                    //alert("value is " + changeItem.textContent)
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to fetch changes. Please try again.');
+            });
+    });
+});*/
