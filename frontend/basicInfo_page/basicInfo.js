@@ -212,8 +212,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
-
 function saveBasicInfoChanges(persona, modifiedFields) {
     sessionStorage.setItem('basicInfoModified', JSON.stringify(modifiedFields));
     sessionStorage.setItem('selectedPersona', JSON.stringify(persona));

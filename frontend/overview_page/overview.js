@@ -39,10 +39,14 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
        
         const onlineBehavior = persona.online_behavior;
+        /*
         const onlineBehaviorPresent = onlineBehavior.split(' ').slice(0, 20).join(' ') + "...";
         naturalInfo.innerHTML = `
             <p>${onlineBehaviorPresent}</p>
-        `;
+        `;*/
+        naturalInfo.innerHTML = `
+            <p class = "onlineBehaviorPresent">${onlineBehavior}</p>`;
+
 
         // 清除 persona 数据以避免在刷新后重复使用
         //localStorage.removeItem('selectedPersona');

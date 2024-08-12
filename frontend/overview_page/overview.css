@@ -83,6 +83,13 @@ body {
     cursor: pointer;
 }
 
+.onlineBehaviorPresent{
+    max-height:75.3px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
 
 .activateButton {
     width: 25%;
@@ -96,8 +103,8 @@ body {
     cursor: pointer;
     display: block;
     margin: 0 auto;
-    margin-top:10px;
-    margin-right:11px;
+    margin-top: 10px;
+    margin-right: 11px;
 }
 
 .saveButton {
