@@ -20,13 +20,13 @@ function submitChanges(persona, modifiedFields) {
 
 function saveAllFiled() {
     let bgModified = JSON.parse(sessionStorage.getItem('bgModified')) || {};
-    Object.entries(bgModified).forEach(([key, value]) => {
-        alert("key is " + key + ", value is " + value);
-    });
     let basicInfoModified = JSON.parse(sessionStorage.getItem('basicInfoModified')) || {};
     let selectedPersona = JSON.parse(sessionStorage.getItem('selectedPersona')) || {};
     submitChanges(selectedPersona, bgModified);
     submitChanges(selectedPersona, basicInfoModified);
+    sessionStorage.setItem('basicInfoModified', {});
+    sessionStorage.setItem('bgModified', {});
+
 }
 
 async function discardChanges(){

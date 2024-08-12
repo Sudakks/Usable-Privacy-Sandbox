@@ -107,10 +107,10 @@ document.addEventListener("DOMContentLoaded", function () {
             var input = event.target;
             var infoDiv = input.previousElementSibling;
             var newValue = input.value.trim();
+            var basicInfoModified = JSON.parse(sessionStorage.getItem('basicInfoModified')) || {}; // 从 sessionStorage 中读取之前的值
 
             if (newValue !== "") {
                 //var persona = JSON.parse(localStorage.getItem('selectedPersona'));
-                modifiedFields[infoDiv.className] = newValue;
                 if (input.type === 'date') {
                     // 处理日期输入
                     var age = calculateAge(newValue);
@@ -129,12 +129,14 @@ document.addEventListener("DOMContentLoaded", function () {
                         persona.address = newValue;
                     }
                 }
+                basicInfoModified[infoDiv.className] = newValue;
+
 
                 // 更新 localStorage
                 updateLocalStorage(persona);
 
                 // 发送到服务器
-                saveBasicInfoChanges(persona, modifiedFields);
+                saveBasicInfoChanges(persona, basicInfoModified);
             }
 
             infoDiv.style.display = 'inline';

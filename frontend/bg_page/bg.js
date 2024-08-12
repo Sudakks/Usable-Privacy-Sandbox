@@ -117,8 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var input = event.target;
             var infoDiv = input.closest('.singleInfo').querySelector('.infoEdit');
             var newValue = input.value.trim();
-            //var persona = JSON.parse(localStorage.getItem('selectedPersona')) || {};
-            var modifiedFields = {};
+            var bgModified = JSON.parse(sessionStorage.getItem('bgModified')) || {}; // 从 sessionStorage 中读取之前的值
 
             if (newValue !== "") {
                 if (infoDiv) {
@@ -133,7 +132,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         persona.spoken_language = newValue;
                     }
                     infoDiv.textContent = newValue;
-                    //modifiedFields[infoDiv.className] = newValue;
 
                     if (infoDiv.classList.contains('educationDisplay')) {
                         persona.education_background = newValue;
@@ -141,18 +139,19 @@ document.addEventListener("DOMContentLoaded", function () {
                         persona.job = newValue;
                     } else if (infoDiv.classList.contains('incomeDisplay')) {
                         persona.income = newValue;
-                    }  else if (infoDiv.classList.contains('maritalStatusDisplay')) {
+                    } else if (infoDiv.classList.contains('maritalStatusDisplay')) {
                         persona.marital_status = newValue;
                     } else if (infoDiv.classList.contains('parentalStatusDisplay')) {
                         persona.parental_status = newValue;
                     }
-                    //alert("class = " + infoDiv.className + ", newValue = " + newValue);
-                    modifiedFields[infoDiv.className] = newValue;
+
+                    bgModified[infoDiv.className] = newValue;
+
                     // 更新 localStorage
                     updateLocalStorage(persona);
 
                     // 发送到服务器
-                    saveBgChanges(persona, modifiedFields);
+                    saveBgChanges(persona, bgModified);
                 }
             }
 
@@ -237,12 +236,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function saveBgChanges(persona, modifiedFields) {
-    
     sessionStorage.setItem('bgModified', JSON.stringify(modifiedFields));
-    let bgModified = JSON.parse(sessionStorage.getItem('bgModified')) || {};
-    Object.entries(bgModified).forEach(([key, value]) => {
-        alert("key is " + key + ", value is " + value);
-    });
     sessionStorage.setItem('selectedPersona', JSON.stringify(persona));
 }
 
