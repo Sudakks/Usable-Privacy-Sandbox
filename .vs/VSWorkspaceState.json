@@ -2,12 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\backend",
-    "\\backend\\personas",
     "\\frontend",
     "\\frontend\\basicInfo_page",
     "\\frontend\\bg_page",
+    "\\frontend\\others_page",
     "\\frontend\\overview_page"
   ],
-  "SelectedNode": "\\frontend\\globalVar.js",
+  "SelectedNode": "\\frontend\\overview_page\\overview.css",
   "PreviewInSolutionExplorer": false
 }
