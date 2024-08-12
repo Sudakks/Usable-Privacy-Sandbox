@@ -13,6 +13,9 @@ var languageMap = {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
+    // 存储当前所处界面信息
+    sessionStorage.setItem("currentPage", "bg");
+
     let persona = localStorage.getItem("selectedPersona");
 
     var backButton = document.querySelector(".backButton");

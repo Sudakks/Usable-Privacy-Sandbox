@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // 存储当前所处界面信息
+    sessionStorage.setItem("currentPage", "overview");
+
     // 处理返回按钮的点击事件
     var backButton = document.querySelector(".backButton");
     var backModal = document.getElementById("backModal");
