@@ -5,6 +5,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from loadpersona import router as loadpersona_router
 from changepersonainfo import router as changepersonainfo_router
 from changeswitch import router as changeswitch_router
+from identifychange import router as identifychange_router
+from restorelocalstorage import router as restorelocalstorage_router
 
 app = FastAPI()
 
@@ -12,6 +14,8 @@ app = FastAPI()
 app.include_router(loadpersona_router)
 app.include_router(changepersonainfo_router)
 app.include_router(changeswitch_router)
+app.include_router(identifychange_router)
+app.include_router(restorelocalstorage_router)
 
 origins = ["*"]
 
