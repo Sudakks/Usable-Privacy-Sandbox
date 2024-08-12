@@ -21,9 +21,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #28A9E0;
+    background: linear-gradient(to right,#D1D1D1, #939393);
     -webkit-transition: .4s;
     transition: .4s;
+    box-shadow: 0px 2.4px 2.4px #D1D1D1;
 }
 
 
@@ -41,11 +42,12 @@
 
 
 input:checked + .slider {
-    background-color: #BBBBB8;
+    background: linear-gradient(to right, #C6E0F9, #28A9E0);
+    box-shadow: 0px 2.4px 2.4px #D1D1D1;
 }
 
 input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0px 2.4px 2.4px #D1D1D1;
 }
 
 input:checked + .slider:before {

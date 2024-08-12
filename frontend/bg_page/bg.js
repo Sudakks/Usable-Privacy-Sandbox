@@ -13,6 +13,8 @@ var languageMap = {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
+    let persona = localStorage.getItem("selectedPersona");
+
     var backButton = document.querySelector(".backButton");
     backButton.addEventListener("click", function () {
         //window.location.href = "../popup.html";
@@ -24,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (personaData) {
         // 解析 persona 数据
-        const persona = JSON.parse(personaData);
+        persona = JSON.parse(personaData);
 
         // 获取 DOM 元素并设置persona数据
         const jobDisplay = document.querySelector('.jobDisplay');
@@ -76,9 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
-});
 
-document.addEventListener('DOMContentLoaded', function () {
     function updateLocalStorage(persona) {
         localStorage.setItem('selectedPersona', JSON.stringify(persona));
     }
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var input = event.target;
             var infoDiv = input.closest('.singleInfo').querySelector('.infoEdit');
             var newValue = input.value.trim();
-            var persona = JSON.parse(localStorage.getItem('selectedPersona')) || {};
+            //var persona = JSON.parse(localStorage.getItem('selectedPersona')) || {};
             var modifiedFields = {};
 
             if (newValue !== "") {
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     updateLocalStorage(persona);
 
                     // 发送到服务器
-                    submitChanges(persona, modifiedFields);
+                    //submitChanges(persona, modifiedFields);
                 }
             }
 
@@ -169,6 +169,57 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    // 自动保存 switch 修改
+    // 选择所有的 switch 元素
+    const switches = persona.switch
+    const switchElements = document.querySelectorAll('.switch input[type="checkbox"]');
+
+    switchElements.forEach(switchElement => {
+        const switchClassName = switchElement.parentElement.classList[1]; // 获取开关的类名，例如 nameSwitch
+        switchClass = switchClassName.replace('Switch', ''); // 去掉 Switch 后缀，得到属性名，例如 name
+
+        // 根据 localStorage 中的数据设置 switch 状态
+        if (switches[switchClass] !== undefined) {
+            switchElement.checked = switches[switchClass];
+        }
+    });
+
+    switchElements.forEach(switchElement => {
+        switchElement.addEventListener('change', function () {
+            const switchChangedName = this.parentElement.classList[1]; // 获取开关的类名，例如 nameSwitch
+            const switchChanged = switchChangedName.replace('Switch', ''); // 去掉 Switch 后缀，得到属性名，例如 name
+            
+            // 在 localStorage 中更新 switch 状态
+            switches[switchChanged] = this.checked;
+
+            // 保存 localStorage
+            updateLocalStorage(persona);
+                 
+            // 调用函数将状态发送到后端
+            changeSwitch(persona, switchChanged);
+        });
+    });
+
+    function changeSwitch(persona, switchChanged) {
+        fetch('http://localhost:8000/changeswitch', { 
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: persona.userId,
+                info: switchChanged,
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Switch state updated successfully:', data);
+        })
+        .catch(error => {
+            console.error('Error updating switch state:', error);
+        });
+    }
 });
 
 // 提交修改到后端
