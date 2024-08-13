@@ -29,7 +29,7 @@ function saveAllFiled() {
 
 }
 
-async function discardChanges(PageUrl){
+async function discardChanges(){
     console.log("Discarding changes...");
     localStorageDisplay = JSON.stringify(localStorage);
     selected_persona = JSON.parse(localStorage.getItem('selectedPersona'));
@@ -45,7 +45,10 @@ async function discardChanges(PageUrl){
     console.log(restored_persona);
     localStorage.setItem('selectedPersona', JSON.stringify(restored_persona));
 
-    
+    // 重新加载当前界面
+    current_page = sessionStorage.getItem('currentPage');
+    currentPageUrl = current_page + '.html';
+    window.location.href = currentPageUrl;
 }
 
 
@@ -72,11 +75,8 @@ document.addEventListener('DOMContentLoaded', function () {
     discardButtons.forEach(button => {
         button.addEventListener('click', function () {
             discardChanges();
-            //window.location.href = "overview.html";
         });
     });
-});
-
 });
 
 function fetchChangedList() {
