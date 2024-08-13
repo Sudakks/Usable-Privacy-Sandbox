@@ -59,8 +59,8 @@ body {
     flex-direction: column; /* 垂直排列子元素 */
     align-items: center; /* 子元素居中对齐 */
     float:right;
-    margin-top:-15px;
-    margin-right:0px;
+    margin-top:-10px;
+    margin-right:10px;
 }
 
 .personaImage {
@@ -81,13 +81,6 @@ body {
     border: none;
     border-radius: 6px;
     cursor: pointer;
-}
-
-.onlineBehaviorPresent{
-    max-height:75.3px;
-    overflow:hidden;
-    text-overflow:ellipsis;
-    white-space:nowrap;
 }
 
 
@@ -422,15 +415,48 @@ h2 {
     margin-top: 20px;
     margin-left:10px;
 }
+
 .naturalInfo {
-    /*描述*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 18px;
+    color: #413D3D;
+    margin-left: 10px;
+    margin-top: -6px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* 显示行数 = max-height / line-height */
+    -webkit-box-orient: vertical;
+}
+
+    .naturalInfo:hover::after {
+        content: attr(title);
+        position: absolute;
+        left: 0;
+        top: 100%;
+        background-color: #fff;
+        color: #000;
+        padding: 5px;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        white-space: normal;
+        z-index: 10;
+        word-wrap: break-word;
+
+    }
+
+    /*
+.naturalInfo {
     font-size: 14px;
     line-height: 18px;
     color: #413D3D;
     padding-right: 100px;
     margin-left: 10px;
     margin-top:-6px;
-}
+}*/
 .hrLine {
     border-bottom: 1.5px solid #AFAFAF;
     width: 200px;

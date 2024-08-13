@@ -49,12 +49,13 @@ async function discardChanges(){
 
 document.addEventListener('DOMContentLoaded', function () {
     const saveButtons = document.querySelectorAll('.saveNoUpdate');
-    const saveUpdateButtons = document.querySelectorAll('.saveUpdate');
+    const saveUpdateButtons = document.querySelectorAll('.saveUpdate'); 
+    const discardButtons = document.querySelectorAll('.discardButton');
+
     //const confirmDiscardButtons = document.querySelectorAll('.confirmDiscard');
 
     saveButtons.forEach(button => {
         button.addEventListener('click', function () {
-            //alert("yes!!!");
             saveAllFiled();
         });
     });
@@ -63,6 +64,12 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function () {
             /* TODO Update */
             saveAllFiled();
+        });
+    });
+
+    discardButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            discardChanges();
         });
     });
 
@@ -134,100 +141,3 @@ async function getChangedList() {
         console.error('Error fetching changed list:', error);
     }
 }
-
-/*
-function getChangedList() {
-    let changeDict = fetchChangedList();
-    
-
-    
-    let selectedPersona = JSON.parse(localStorage.getItem('selectedPersona'));
-
-    fetch('http://localhost:8000/identifychange', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Cache-Control': 'no-cache'
-        },
-        body: JSON.stringify(selectedPersona),
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(changeDict => {
-            let listOfChangesElements = document.querySelectorAll(".listOfChanges");
-            if (Object.keys(changeDict).length === 0) {
-                //No update
-                listOfChangesElements.forEach(listOfChanges => {
-                    listOfChanges.textContent = 'No changes';
-                    listOfChanges.style.display = "flex";
-
-                    listOfChanges.style.justifyContent = "center";
-                    listOfChanges.style.textAlign = "center";
-                    listOfChanges.style.fontSize = "1.3em";
-                    listOfChanges.style.color = "#868585";
-                });
-                return;
-            }
-            listOfChangesElements.forEach(listOfChanges => {
-                // Clear existing content in each listOfChanges element
-                listOfChanges.innerHTML = '';
-
-                // Append new items to each listOfChanges element
-                Object.entries(changeDict).forEach(([key, value]) => {
-                    //alert("key = " + key + ", value = " + value);
-                    const containerDiv = document.createElement('div');
-                    containerDiv.classList.add('changeItem');
-
-                    const keyDiv = document.createElement('div');
-                    keyDiv.classList.add('changeKey');
-                    keyDiv.textContent = key;
-
-                    const valueDiv = document.createElement('div');
-                    valueDiv.classList.add('changeValue');
-                    valueDiv.textContent = value;
-
-                    containerDiv.appendChild(keyDiv);
-                    containerDiv.appendChild(valueDiv);
-
-                    listOfChanges.appendChild(containerDiv);
-                });
-            });
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Failed to fetch changes. Please try again.');
-        });
-        
-}*/
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    let saveButtons = document.querySelectorAll(".saveButton");
-    let backButtons = document.querySelectorAll(".backButton");
-
-    saveButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            getChangedList();
-        });
-    });
-
-    backButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            async function getResult() {
-                let result = await getChangedList();
-                if (result === false) {
-                    //empty
-                    /*
-                    $('#popupMessage').fadeOut();
-                    $('#backModal').fadeOut();
-                    window.location.href = "../popup.html";*/
-                }
-            }
-            getResult();
-        });
-    });
-});

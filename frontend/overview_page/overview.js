@@ -38,14 +38,16 @@ document.addEventListener("DOMContentLoaded", function () {
             <p>${persona.job} &middot ${persona.city}</p>
         `;
        
-        const onlineBehavior = persona.online_behavior;
         /*
         const onlineBehaviorPresent = onlineBehavior.split(' ').slice(0, 20).join(' ') + "...";
         naturalInfo.innerHTML = `
             <p>${onlineBehaviorPresent}</p>
         `;*/
+        const onlineBehavior = persona.online_behavior;
+
         naturalInfo.innerHTML = `
-            <p class = "onlineBehaviorPresent">${onlineBehavior}</p>`;
+    <p title="${onlineBehavior}">${onlineBehavior}</p>`;
+
 
 
         // 清除 persona 数据以避免在刷新后重复使用
