@@ -77,7 +77,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-});
 
 function fetchChangedList() {
     let selectedPersona = JSON.parse(localStorage.getItem('selectedPersona'));
