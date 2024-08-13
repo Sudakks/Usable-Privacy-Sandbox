@@ -29,7 +29,7 @@ function saveAllFiled() {
 
 }
 
-async function discardChanges(){
+async function discardChanges(PageUrl){
     console.log("Discarding changes...");
     localStorageDisplay = JSON.stringify(localStorage);
     selected_persona = JSON.parse(localStorage.getItem('selectedPersona'));
@@ -44,6 +44,8 @@ async function discardChanges(){
     const restored_persona = await response.json();
     console.log(restored_persona);
     localStorage.setItem('selectedPersona', JSON.stringify(restored_persona));
+
+    
 }
 
 
@@ -70,8 +72,10 @@ document.addEventListener('DOMContentLoaded', function () {
     discardButtons.forEach(button => {
         button.addEventListener('click', function () {
             discardChanges();
+            //window.location.href = "overview.html";
         });
     });
+});
 
 });
 
