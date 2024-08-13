@@ -29,7 +29,7 @@ function saveAllFiled() {
 
 }
 
-async function discardChanges(PageUrl) {
+async function discardChanges() {
     console.log("Discarding changes...");
     localStorageDisplay = JSON.stringify(localStorage);
     selected_persona = JSON.parse(localStorage.getItem('selectedPersona'));
@@ -44,15 +44,19 @@ async function discardChanges(PageUrl) {
     const restored_persona = await response.json();
     console.log(restored_persona);
     localStorage.setItem('selectedPersona', JSON.stringify(restored_persona));
-    window.location.href = PageUrl;
 
+    // 重新加载当前界面
+    current_page = sessionStorage.getItem('currentPage');
+    currentPageUrl = current_page + '.html';
+    window.location.href = currentPageUrl;
 }
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
     const saveButtons = document.querySelectorAll('.saveNoUpdate');
     const saveUpdateButtons = document.querySelectorAll('.saveUpdate'); 
-    const discardButtons = document.querySelectorAll('.discardButton');
+    const confirmDiscardButtons = document.querySelectorAll('.confirmDiscard');
 
     saveButtons.forEach(button => {
         button.addEventListener('click', function () {
@@ -67,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    discardButtons.forEach(button => {
+    confirmDiscardButtons.forEach(button => {
         button.addEventListener('click', function () {
             discardChanges();
         });
