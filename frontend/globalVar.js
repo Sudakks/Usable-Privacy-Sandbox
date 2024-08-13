@@ -117,3 +117,59 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    let saveButtons = document.querySelectorAll(".saveButton");
+
+    saveButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            let selectedPersona = JSON.parse(localStorage.getItem('selectedPersona'));
+
+            fetch('http://localhost:8000/identifychange', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Cache-Control': 'no-cache'
+                },
+                body: JSON.stringify(selectedPersona),
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(changeDict => {
+                    let listOfChangesElements = document.querySelectorAll(".listOfChanges");
+
+                    listOfChangesElements.forEach(listOfChanges => {
+                        // Clear existing content in each listOfChanges element
+                        listOfChanges.innerHTML = '';
+
+                        // Append new items to each listOfChanges element
+                        Object.entries(changeDict).forEach(([key, value]) => {
+                            alert("key = " + key + ", value = " + value);
+                            const containerDiv = document.createElement('div');
+                            containerDiv.classList.add('changeItem');
+
+                            const keyDiv = document.createElement('div');
+                            keyDiv.classList.add('changeKey');
+                            keyDiv.textContent = key;
+
+                            const valueDiv = document.createElement('div');
+                            valueDiv.classList.add('changeValue');
+                            valueDiv.textContent = value;
+
+                            containerDiv.appendChild(keyDiv);
+                            containerDiv.appendChild(valueDiv);
+
+                            listOfChanges.appendChild(containerDiv);
+                        });
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to fetch changes. Please try again.');
+                });
+        });
+    });
+});

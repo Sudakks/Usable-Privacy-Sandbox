@@ -14,7 +14,7 @@ async def identify_change(request: Request):
     try:
         localStorage_data = await request.json()
         userId = localStorage_data.get('userId')
-
+        
         if not userId:
             raise HTTPException(status_code=400, detail="Invalid data")
 
