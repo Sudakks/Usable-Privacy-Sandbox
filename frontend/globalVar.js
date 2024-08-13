@@ -29,7 +29,7 @@ function saveAllFiled() {
 
 }
 
-async function discardChanges(){
+async function discardChanges(PageUrl) {
     console.log("Discarding changes...");
     localStorageDisplay = JSON.stringify(localStorage);
     selected_persona = JSON.parse(localStorage.getItem('selectedPersona'));
@@ -44,6 +44,8 @@ async function discardChanges(){
     const restored_persona = await response.json();
     console.log(restored_persona);
     localStorage.setItem('selectedPersona', JSON.stringify(restored_persona));
+    window.location.href = PageUrl;
+
 }
 
 
@@ -51,8 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const saveButtons = document.querySelectorAll('.saveNoUpdate');
     const saveUpdateButtons = document.querySelectorAll('.saveUpdate'); 
     const discardButtons = document.querySelectorAll('.discardButton');
-
-    //const confirmDiscardButtons = document.querySelectorAll('.confirmDiscard');
 
     saveButtons.forEach(button => {
         button.addEventListener('click', function () {
