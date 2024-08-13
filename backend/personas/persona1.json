@@ -3036,13 +3036,21 @@
         "last_name": "Lee",
         "profileImgUrl": "/backend/personas/persona-image/persona1.png",
         "age": "19",
+<<<<<<< HEAD
         "gender": "male",
+=======
+        "gender": "other",
+>>>>>>> master
         "race": "Alaska Native",
         "street": "123 Oak St",
         "city": "San Francisco",
         "state": "CA",
         "zip_code": "94102",
+<<<<<<< HEAD
         "spoken_language": "Arabic",
+=======
+        "spoken_language": "Bengali",
+>>>>>>> master
         "education_background": "attending college in CS",
         "birthday": "06/21/2005",
         "job": "student",
