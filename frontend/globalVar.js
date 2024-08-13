@@ -31,7 +31,7 @@ function saveAllFiled() {
     submitChanges(selectedPersona, basicInfoModified);
 }
 
-async function discardChanges(){
+async function discardChanges(PageUrl){
     console.log("Discarding changes...");
     localStorageDisplay = JSON.stringify(localStorage);
     selected_persona = JSON.parse(localStorage.getItem('selectedPersona'));
@@ -49,36 +49,8 @@ async function discardChanges(){
 
     // // 重新加载页面
     // current_page = sessionStorage.getItem('currentPage');
-    // currentPageUrl = current_page + '_page/' + current_page + '.html';
-    // console.log(currentPageUrl);
-    // window.location.href = 'globalSave.html';
-
-    
-    // // 获取 DOM 元素并设置 persona 数据
-    // const nameDisplay = document.querySelector('.nameDisplay');
-    // const dateDisplay = document.querySelector('.dateDisplay');
-    // const genderDisplay = document.querySelector('.genderDisplay');
-    // const raceDisplay = document.querySelector('.raceDisplay');
-    // const addressDisplay = document.querySelector('.addressDisplay');
-    // const jobDisplay = document.querySelector('.jobDisplay');
-    // const educationDisplay = document.querySelector('.educationDisplay');
-    // const incomeDisplay = document.querySelector('.incomeDisplay');
-    // const spokenLanguageDisplay = document.querySelector('.spokenLanguageDisplay');
-    // const maritalStatusDisplay = document.querySelector('.maritalStatusDisplay');
-    // const parentalStatusDisplay = document.querySelector('.parentalStatusDisplay');
-
-    // // 设置 persona 数据
-    // nameDisplay.textContent = persona.name;
-    // dateDisplay.textContent = `${persona.birthday} (age ${persona.age})`;
-    // genderDisplay.textContent = persona.gender;
-    // raceDisplay.textContent = persona.race;
-    // addressDisplay.textContent = persona.address;
-    // jobDisplay.textContent = persona.job;
-    // educationDisplay.textContent = persona.education_background;
-    // incomeDisplay.textContent = persona.income;
-    // spokenLanguageDisplay.textContent = persona.spoken_language;
-    // maritalStatusDisplay.textContent = persona.marital_status;
-    // parentalStatusDisplay.textContent = persona.parental_status;
+    // currentPageUrl = current_page + '.html';
+    window.location.href = PageUrl;
 }
 
 
@@ -140,7 +112,6 @@ document.addEventListener('DOMContentLoaded', function () {
              * 2. ��ס�޸ĵ����ݣ�ֻretrieve�޸ĵ������������̫���㣩
              */
             discardChanges();
-            //window.location.href = "overview.html";
         });
     });
 });

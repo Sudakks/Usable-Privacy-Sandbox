@@ -254,6 +254,52 @@ document.addEventListener('DOMContentLoaded', function () {
     dateInput.max = formattedDate;
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const input = document.getElementById('addressInput');
+    const resultsContainer = document.getElementById('autocompleteResults');
+
+    input.addEventListener('input', function() {
+        const query = input.value;
+        if (query.length > 2) { // Trigger search after 3 characters
+            fetch(`https://nominatim.openstreetmap.org/search?q=${query}&format=json&countrycodes=US&accept-languages=en`)
+                .then(response => response.json())
+                .then(data => {
+                    resultsContainer.innerHTML = '';
+                    if (data.length > 0) {
+                        resultsContainer.style.display = 'block';
+                        data.forEach(item => {
+                            console.log(item.getItem('display_name'));
+                            const div = document.createElement('div');
+                            div.classList.add('autocomplete-item');
+                            div.textContent = item.display_name;
+                            div.addEventListener('click', () => {
+                                input.value = item.display_name;
+                                console.log(item.display_name);
+                                resultsContainer.style.display = 'none';
+                            });
+                            resultsContainer.appendChild(div);
+                        });
+                    } else {
+                        resultsContainer.style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                    resultsContainer.style.display = 'none';
+                });
+        } else {
+            resultsContainer.style.display = 'none';
+        }
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!resultsContainer.contains(event.target) && event.target !== input) {
+            resultsContainer.style.display = 'none';
+        }
+    });
+
+});
+
 
 
 
