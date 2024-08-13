@@ -29,7 +29,7 @@ function saveAllFiled() {
 
 }
 
-async function discardChanges(){
+async function discardChanges() {
     console.log("Discarding changes...");
     localStorageDisplay = JSON.stringify(localStorage);
     selected_persona = JSON.parse(localStorage.getItem('selectedPersona'));
@@ -52,12 +52,11 @@ async function discardChanges(){
 }
 
 
+
 document.addEventListener('DOMContentLoaded', function () {
     const saveButtons = document.querySelectorAll('.saveNoUpdate');
     const saveUpdateButtons = document.querySelectorAll('.saveUpdate'); 
-    const discardButtons = document.querySelectorAll('.discardButton');
-
-    //const confirmDiscardButtons = document.querySelectorAll('.confirmDiscard');
+    const confirmDiscardButtons = document.querySelectorAll('.confirmDiscard');
 
     saveButtons.forEach(button => {
         button.addEventListener('click', function () {
@@ -72,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    discardButtons.forEach(button => {
+    confirmDiscardButtons.forEach(button => {
         button.addEventListener('click', function () {
             discardChanges();
         });
