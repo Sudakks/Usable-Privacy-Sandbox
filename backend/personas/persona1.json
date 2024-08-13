@@ -3033,20 +3033,28 @@
             }
         ],
         "first_name": "John",
-        "last_name": "Smith",
+        "last_name": "Lee",
         "profileImgUrl": "/backend/personas/persona-image/persona1.png",
         "age": "19",
+<<<<<<< HEAD
+        "gender": "male",
+=======
         "gender": "other",
+>>>>>>> master
         "race": "Alaska Native",
         "street": "123 Oak St",
         "city": "San Francisco",
         "state": "CA",
         "zip_code": "94102",
+<<<<<<< HEAD
+        "spoken_language": "Arabic",
+=======
         "spoken_language": "Bengali",
+>>>>>>> master
         "education_background": "attending college in CS",
         "birthday": "06/21/2005",
-        "job": "engineering",
-        "income": "20,000",
+        "job": "student",
+        "income": "0",
         "marital_status": "single",
         "parental_status": "not parents",
         "online_behavior": "He enjoys playing video games and watching YouTube videos on his computer. On his mobile phone, he spends most of his time scrolling through social media and texting his friends. When using the internet, he likes to research the latest technology gadgets and watch streaming services.",

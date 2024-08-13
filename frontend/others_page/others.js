@@ -5,9 +5,19 @@ document.addEventListener("DOMContentLoaded", function () {
     let persona = null; // 声明 persona 变量
 
     var backButton = document.querySelector(".backButton");
+    var backModal = document.getElementById("backModal");
     backButton.addEventListener("click", function () {
-        //window.location.href = "../popup.html";
-        backModal.style.display = "block";
+        async function getResult() {
+            let result = await getChangedList();
+            if (result === false) {
+                //empty
+                window.location.href = "../popup.html"
+            }
+            else {
+                backModal.style.display = "block";
+            }
+        }
+        getResult();
     });
 
     // 从 localStorage 中获取 persona 数据
@@ -130,12 +140,16 @@ $(document).ready(function () {
                 window.location.href = "../popup.html";
             }, 0);
 
-        }, 1000);  // ��ʾ #popupMessage ��1sʱ��
+        }, 1000);  
     }
 
 
     function onlyExit() {
         $('#discardModal').fadeOut();
+    }
+
+    function backToSelect() {
+        window.location.href = "../popup.html";
     }
 
     $('#saveUpdate').click(function () {
@@ -154,26 +168,15 @@ $(document).ready(function () {
         onlyExit();
     });
 
-    /* process checkbox */
-    var confirmBack = document.getElementById("confirmBack");
-    confirmBack.addEventListener("click", () => {
-        var operation = null;
-        var obj = document.getElementsByName("backOption")
-        for (var i = 0; i < obj.length; i++) { //����Radio 
-            if (obj[i].checked) {
-                operation = obj[i].value;
-                break;
-            }
-        }
+    $('#saveUpdateBack').click(function () {
+        showPopupMessageAndBack('Save & Update Successful!');
+    });
 
-        if (operation === "save-only") {
-            showPopupMessageAndBack('Only Saved Changes!');
-        }
-        else if (operation === "save-update") {
-            showPopupMessageAndBack('Save & Update Successful!');
-        }
-        else if (operation === "discard") {
-            window.location.href = "../popup.html";
-        }
+    $('#saveBack').click(function () {
+        showPopupMessageAndBack('Only Saved Changes!');
+    });
+
+    $('#discardBack').click(function () {
+        backToSelect();
     });
 });

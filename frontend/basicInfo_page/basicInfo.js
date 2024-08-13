@@ -5,9 +5,19 @@ document.addEventListener("DOMContentLoaded", function () {
     let persona = null; // 声明 persona 变量
 
     var backButton = document.querySelector(".backButton");
+    var backModal = document.getElementById("backModal");
     backButton.addEventListener("click", function () {
-        //window.location.href = "../popup.html";
-        backModal.style.display = "block";
+        async function getResult() {
+            let result = await getChangedList();
+            if (result === false) {
+                //empty
+                window.location.href = "../popup.html"
+            }
+            else {
+                backModal.style.display = "block";
+            }
+        }
+        getResult();
     });
 
     // 从 localStorage 中获取 persona 数据
@@ -97,10 +107,10 @@ document.addEventListener("DOMContentLoaded", function () {
             var input = event.target;
             var infoDiv = input.previousElementSibling;
             var newValue = input.value.trim();
+            var basicInfoModified = JSON.parse(sessionStorage.getItem('basicInfoModified')) || {}; // 从 sessionStorage 中读取之前的值
 
             if (newValue !== "") {
                 //var persona = JSON.parse(localStorage.getItem('selectedPersona'));
-                modifiedFields[infoDiv.className] = newValue;
                 if (input.type === 'date') {
                     // 处理日期输入
                     var age = calculateAge(newValue);
@@ -119,12 +129,14 @@ document.addEventListener("DOMContentLoaded", function () {
                         persona.address = newValue;
                     }
                 }
+                basicInfoModified[infoDiv.className] = newValue;
+
 
                 // 更新 localStorage
                 updateLocalStorage(persona);
 
                 // 发送到服务器
-                saveBasicInfoChanges(persona, modifiedFields);
+                saveBasicInfoChanges(persona, basicInfoModified);
             }
 
             infoDiv.style.display = 'inline';
@@ -202,8 +214,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
-
 function saveBasicInfoChanges(persona, modifiedFields) {
     sessionStorage.setItem('basicInfoModified', JSON.stringify(modifiedFields));
     sessionStorage.setItem('selectedPersona', JSON.stringify(persona));
@@ -222,26 +232,6 @@ function calculateAge(birthDate) {
     return age;
 }
 
-// 提交修改到后端
-/*
-function submitChanges(persona, modifiedFields) {
-
-    console.log('Submitting Changes...');
-    console.log("id:" + persona.userId);
-    console.log("changes:" + modifiedFields);
-    fetch('http://localhost:8000/changepersonainfo', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            id: persona.userId, // 传递 persona ID
-            changes: modifiedFields, // 只发送变更的字段
-        }),
-    }).then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error('Error:', error));
-}*/
 document.addEventListener('DOMContentLoaded', function () {
     /* 限制不能选择今天之后的日期 */
     // 获取当前日期
@@ -304,17 +294,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-//Address autocomplete
-let autocomplete;
-function initAutoComplete() {
-    autocomplete = new google.maps.places.autocomplete(
-        document.getElementById('autocomplete'), {
-        types: ['establishment'],
-        componentRestrictions: { 'country': ['AU'] },
-        fields: ['place_id', 'geometry', 'name']
-    }
-    );
-};
+
 
 $(document).ready(function () {
     $('.genderInput').prepend('<option value="" selected>Select gender</option>');
@@ -353,6 +333,9 @@ $(document).ready(function () {
     function onlyExit() {
         $('#discardModal').fadeOut();
     }
+    function backToSelect() {
+        window.location.href = "../popup.html";
+    }
 
     $('#saveUpdate').click(function () {
         showPopupMessage('Save & Update Successful!');
@@ -370,67 +353,16 @@ $(document).ready(function () {
         onlyExit();
     });
 
-    /* process checkbox */
-    var confirmBack = document.getElementById("confirmBack");
-    confirmBack.addEventListener("click", () => {
-        var operation = null;
-        var obj = document.getElementsByName("backOption")
-        for (var i = 0; i < obj.length; i++) { //遍历Radio 
-            if (obj[i].checked) {
-                operation = obj[i].value;
-                break;
-            }
-        }
+    $('#saveUpdateBack').click(function () {
+        showPopupMessageAndBack('Save & Update Successful!');
+    });
 
-        if (operation === "save-only") {
-            showPopupMessageAndBack('Only Saved Changes!');
-        }
-        else if (operation === "save-update") {
-            showPopupMessageAndBack('Save & Update Successful!');
-        }
-        else if (operation === "discard") {
-            //onlyExit();
-            window.location.href = "../popup.html";
-        }
+    $('#saveBack').click(function () {
+        showPopupMessageAndBack('Only Saved Changes!');
+    });
+
+    $('#discardBack').click(function () {
+        backToSelect();
     });
 });
 
-/*
-document.addEventListener('DOMContentLoaded', function () {
-    let saveButton = document.querySelector(".saveButton");
-    let selected_persona = JSON.parse(localStorage.getItem('selectedPersona'));
-    var listOfChanges = document.querySelector(".listOfChanges");
-
-    saveButton.addEventListener('click', function () {
-        fetch('http://localhost:8000/identifychange', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Cache-Control': 'no-cache'
-            },
-            body: JSON.stringify(selected_persona),
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(changeDict => {
-                // 清空 changesList 中的内容
-                listOfChanges.innerHTML = '';
-
-                // 遍历 change_dict 并添加到 changesList 中
-                Object.entries(changeDict).forEach(([key, value]) => {
-                    const changeItem = document.createElement('div');
-                    changeItem.textContent = `${key}: ${value}`;
-                    listOfChanges.appendChild(changeItem);
-                    //alert("value is " + changeItem.textContent)
-                });
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Failed to fetch changes. Please try again.');
-            });
-    });
-});*/
