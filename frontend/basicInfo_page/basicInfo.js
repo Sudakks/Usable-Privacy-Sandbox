@@ -244,6 +244,8 @@ document.addEventListener('DOMContentLoaded', function () {
     dateInput.max = formattedDate;
 });
 
+
+/*
 document.addEventListener('DOMContentLoaded', function () {
     const input = document.getElementById('addressInput');
     const resultsContainer = document.getElementById('autocompleteResults');

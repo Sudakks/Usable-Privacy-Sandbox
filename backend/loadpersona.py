@@ -39,7 +39,8 @@ class Persona(BaseModel):
     switch: dict
 
 # 文件夹路径
-persona_folder_path = "./personas"
+normal_persona_folder = "./personas"
+favourite_persona_folder = "./favourites"
 
 # 读取 persona 文件夹中的所有 JSON 文件
 def load_personas_from_folder(folder_path: str):
@@ -86,10 +87,12 @@ def load_personas_from_folder(folder_path: str):
                 personas.append(persona)
     return personas
 
-@router.get("/loadpersona", response_model=list[Persona])
+@router.get("/loadpersona")
 async def load_persona():
     try:
-        personas = load_personas_from_folder(persona_folder_path)
-        return personas
+        normal_personas = load_personas_from_folder(normal_persona_folder)
+        favourite_personas = load_personas_from_folder(favourite_persona_folder)
+        return favourite_personas, normal_personas
+    
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
