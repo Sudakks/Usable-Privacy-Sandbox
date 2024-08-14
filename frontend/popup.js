@@ -21,17 +21,14 @@ document.getElementById('searchInput').addEventListener('input', function () {
     });
 });
 
+
 async function loadPersonas() {
     try {
         const response = await fetch('http://localhost:8000/loadpersona');
         const personas = await response.json();
-        favourite_personas = personas[0];
-        normal_personas = personas[1];
-
         const personaList = document.getElementById('personaList');
         personaList.innerHTML = ''; // Clear any existing personas
-
-        //load all personas
+        
         personas.forEach((persona, index) => {
             // Create a div for each persona
             const personaDiv = document.createElement('div');
@@ -51,6 +48,7 @@ async function loadPersonas() {
                 </div>
             `;
 
+
             // Add click event listener for persona
             personaDiv.addEventListener('click', function () {
                 // Handle persona click event to go to persona detail page
@@ -61,11 +59,28 @@ async function loadPersonas() {
                 // Go to the next page (overview)
                 window.location.href = 'overview_page/overview.html';
             });
+            if (persona.favourite === true) {
+                const contextMenu = document.createElement('div');
+                contextMenu.className = 'context-menu';
+                contextMenu.innerHTML = `
+                <div id="unFavourite" class="context-item"><i class="fa-solid fa-star" style="color: #FFD43B; margin-right:0.5em"></i>Unfavourite</div>
+                <div id="Delete" class="context-item"><i class="fa-solid fa-trash" style="margin-right:0.5em"></i>Delete</div>
+            `;
 
-            personaDiv.addEventListener('contextmenu', function (e) {
-                e.preventDefault();
+                // Position the menu at the mouse location
+                contextMenu.style.top = `${e.clientY}px`;
+                contextMenu.style.left = `${e.clientX}px`;
 
-                // Create the context menu element
+                document.body.appendChild(contextMenu);
+
+                // Remove the menu when clicking anywhere else
+                document.addEventListener('click', function () {
+                    contextMenu.remove();
+                }, { once: true });
+                personaList.prepend(personaDiv);
+                
+            }
+            else if (persona.favourite === false) {
                 const contextMenu = document.createElement('div');
                 contextMenu.className = 'context-menu';
                 contextMenu.innerHTML = `
@@ -83,18 +98,20 @@ async function loadPersonas() {
                 document.addEventListener('click', function () {
                     contextMenu.remove();
                 }, { once: true });
-                /*后续操作
-                contextMenu.querySelector('#Favourite').addEventListener('click', () => handleContextMenuAction('Favourite', persona));
-                contextMenu.querySelector('#Delete').addEventListener('click', () => handleContextMenuAction('Delete', persona))
-                ;
-                */
-            });
 
-            // Append to the persona list
-            personaList.appendChild(personaDiv);
+                /*后续操作
+contextMenu.querySelector('#Favourite').addEventListener('click', () => handleContextMenuAction('Favourite', persona));
+contextMenu.querySelector('#Delete').addEventListener('click', () => handleContextMenuAction('Delete', persona))
+;
+*/
+                personaList.appendChild(personaDiv);
+
+            }
         });
 
+        
         // Add a "Create New Persona" component
+        
         const newPersonaDiv = document.createElement('div');
         newPersonaDiv.className = 'newPersona';
         newPersonaDiv.id = 'addNewPersona';
@@ -110,7 +127,7 @@ async function loadPersonas() {
         });
 
         personaList.appendChild(newPersonaDiv);
-
+        
     } catch (error) {
         console.error('Error loading personas:', error);
     }
