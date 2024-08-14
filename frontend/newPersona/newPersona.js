@@ -13,17 +13,19 @@ document.getElementById('generateImg').addEventListener('click', function () {
     /*TODO*/
 });
 
-/*descriptionµÄÊäÈë*/
+/*descriptionï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 document.addEventListener('DOMContentLoaded', function () {
     var dspFrame = document.getElementById('dspFrame');
     var displayText = document.getElementById('displayText');
     var editInput = document.getElementById('editInput');
 
     dspFrame.addEventListener('click', () => {
+        //if (document.activeElement !== editInput) { // ä»…åœ¨è¾“å…¥æ¡†æœªè·å¾—ç„¦ç‚¹æ—¶æ‰§è¡Œ
         displayText.style.display = 'none';
-        editInput.value = ""; // Çå¿ÕÊäÈë¿òµÄÖµ
+            //editInput.value = ""; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
         editInput.style.display = 'block';
         editInput.focus();
+        //}
     });
 
     editInput.addEventListener('blur', () => {
@@ -36,11 +38,21 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // function updateDisplayText() {
+    //     displayText.textContent = editInput.value.trim();
+    //     editInput.style.display = 'none';
+    //     displayText.style.display = 'block';
+    //     editInput.value = ""; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+    // }
+
     function updateDisplayText() {
-        displayText.textContent = editInput.value.trim();
+        const trimmedValue = editInput.value.trim();
+        if (trimmedValue) {
+            displayText.textContent = trimmedValue;
+        }
         editInput.style.display = 'none';
         displayText.style.display = 'block';
-        editInput.value = ""; // Çå¿ÕÊäÈë¿òµÄÖµ
+        // ä¿æŒè¾“å…¥æ¡†å€¼ä»¥ä¾›ä¸‹æ¬¡ä½¿ç”¨
     }
 });
 
@@ -48,13 +60,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const generateDesBtn = document.getElementById('generateDes');
     const editInput = document.getElementById('editInput');
     const displayText = document.getElementById('displayText');
+    const confirmBtn = document.getElementById('Confirm');
     const generateImg = document.getElementById('generateImg');
 
     generateDesBtn.addEventListener('click', function () {
-        var guidance = displayText.textContent.trim(); // »ñÈ¡ displayText µÄÄÚÈİ×÷Îª guidance
+        var guidance = displayText.textContent.trim(); // ï¿½ï¿½È¡ displayText ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª guidance
         generateDes.textContent = "Loading...";
         if (guidance) {
-            // ·¢ËÍÏûÏ¢¸øºóÌ¨½Å±¾£¬»ñÈ¡Éú³ÉµÄÃèÊö
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½Ì¨ï¿½Å±ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½
             chrome.runtime.sendMessage({ action: 'generateDescription', guidance: guidance }, function (response) {
                 if (response && response.description) {
                     //process response further
@@ -70,27 +83,31 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    confirmBtn.addEventListener('click', function () {
+
+    });
+
     generateImg.addEventListener("click", function () {
         generateImg.textContent = "Loading...";
         const imageGuidance = displayText.textContent;
         if (imageGuidance) {
-            // ·¢ËÍÏûÏ¢¸øºóÌ¨½Å±¾£¬»ñÈ¡Éú³ÉµÄÍ¼Ïñ
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½Ì¨ï¿½Å±ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½Éµï¿½Í¼ï¿½ï¿½
             chrome.runtime.sendMessage({ action: 'generateImage', guidance: imageGuidance }, function (response) {
                 if (response && response.imageUrl) {
-                    // ´¦ÀíÏìÓ¦£¬¸üĞÂÍ¼Æ¬
+                    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
                     const imageUrl = response.imageUrl;
                     document.getElementById("photoFrame").style.backgroundImage = `url(${imageUrl})`;
-                    alert("Image URL: " + imageUrl); // ¿ÉÑ¡£ºÏÔÊ¾ URL »òÆäËûĞÅÏ¢
-                    generateImg.textContent = "Generate Image"; // »Ö¸´°´Å¥ÎÄ±¾
+                    alert("Image URL: " + imageUrl); // ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Ê¾ URL ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+                    generateImg.textContent = "Generate Image"; // ï¿½Ö¸ï¿½ï¿½ï¿½Å¥ï¿½Ä±ï¿½
                 } else {
-                    // ´¦Àí´íÎóÇé¿ö
+                    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     alert('Failed to generate image.');
-                    generateImg.textContent = "Generate Image"; // »Ö¸´°´Å¥ÎÄ±¾
+                    generateImg.textContent = "Generate Image"; // ï¿½Ö¸ï¿½ï¿½ï¿½Å¥ï¿½Ä±ï¿½
                 }
             });
         } else {
-            alert('Please enter some guidance in the input field.'); // ÌáÊ¾ÓÃ»§ÊäÈëÖ¸µ¼ĞÅÏ¢
-            generateImg.textContent = "Generate Image"; // »Ö¸´°´Å¥ÎÄ±¾
+            alert('Please enter some guidance in the input field.'); // ï¿½ï¿½Ê¾ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Ï¢
+            generateImg.textContent = "Generate Image"; // ï¿½Ö¸ï¿½ï¿½ï¿½Å¥ï¿½Ä±ï¿½
         }
     });
 

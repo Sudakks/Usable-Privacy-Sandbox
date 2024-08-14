@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, request, jsonify
-from generate import Generator  # È·±£ generator.py ÔÚÍ¬Ò»Ä¿Â¼ÏÂ
+from generate import Generator  
 
 app = Flask(__name__)
 generator = Generator()
@@ -16,6 +16,16 @@ def generate():
     persona_profile = generator.get_persona_profile(guidance)
     return jsonify({'description': persona_profile})
 
+@app.route('/generate_persona', methods=['POST'])
+def generate_persona():
+    data = request.json
+    guidance = data.get('guidance')
+
+    if not guidance:
+        return jsonify({'error': 'No guidance provided'}), 400
+    
+    persona_json = generator.get_attributes(guidance)
+
 @app.route('/generate_image', methods=['POST'])
 def generate_image():
     data = request.json
@@ -28,4 +38,4 @@ def generate_image():
     return jsonify({'image_url': image_url})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)  # ¼àÌıËùÓĞÍøÂç½Ó¿Ú
+    app.run(host='0.0.0.0', port=5000)  # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½
