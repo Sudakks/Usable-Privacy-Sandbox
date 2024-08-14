@@ -244,6 +244,7 @@ document.addEventListener('DOMContentLoaded', function () {
     dateInput.max = formattedDate;
 });
 
+
 /*
 document.addEventListener('DOMContentLoaded', function () {
     const input = document.getElementById('addressInput');
@@ -289,7 +290,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-});*/
+});
+*/
 
 
 $(document).ready(function () {

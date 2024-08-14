@@ -1,4 +1,4 @@
-/*search for all info*/
+﻿/*search for all info*/
 document.getElementById('searchInput').addEventListener('input', function () {
     var input = this.value.toLowerCase();
     var personas = document.getElementsByClassName('persona');
@@ -60,6 +60,34 @@ async function loadPersonas() {
                 window.location.href = 'overview_page/overview.html';
             });
 
+            personaDiv.addEventListener('contextmenu', function (e) {
+                e.preventDefault();
+
+                // Create the context menu element
+                const contextMenu = document.createElement('div');
+                contextMenu.className = 'context-menu';
+                contextMenu.innerHTML = `
+                <div id="Favourite" class="context-item"><i class="fa-solid fa-star" style="color: #FFD43B; margin-right:0.5em"></i>Favourite</div>
+                <div id="Delete" class="context-item"><i class="fa-solid fa-trash" style="margin-right:0.5em"></i>Delete</div>
+            `;
+
+                // Position the menu at the mouse location
+                contextMenu.style.top = `${e.clientY}px`;
+                contextMenu.style.left = `${e.clientX}px`;
+
+                document.body.appendChild(contextMenu);
+
+                // Remove the menu when clicking anywhere else
+                document.addEventListener('click', function () {
+                    contextMenu.remove();
+                }, { once: true });
+                /*后续操作
+                contextMenu.querySelector('#Favourite').addEventListener('click', () => handleContextMenuAction('Favourite', persona));
+                contextMenu.querySelector('#Delete').addEventListener('click', () => handleContextMenuAction('Delete', persona))
+                ;
+                */
+            });
+
             // Append to the persona list
             personaList.appendChild(personaDiv);
         });
@@ -78,6 +106,7 @@ async function loadPersonas() {
         newPersonaDiv.addEventListener("click", () => {
             window.location.href = 'newPersona/newPersona.html';
         });
+
         personaList.appendChild(newPersonaDiv);
 
     } catch (error) {

@@ -167,3 +167,22 @@ html {
 	.textItem:last-child {
 		color: #0078C8;
 	}
+
+
+.context-menu {
+	position: absolute;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 5px 5px 10px #E9E9E9;
+	z-index: 1000;
+	width: 100px;
+}
+
+.context-item {
+	padding: 7px;
+	cursor: pointer;
+}
+
+	.context-item:hover {
+		background-color: #f0f0f0;
+	}
