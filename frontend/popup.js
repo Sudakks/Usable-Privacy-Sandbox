@@ -25,6 +25,8 @@ async function loadPersonas() {
     try {
         const response = await fetch('http://localhost:8000/loadpersona');
         const personas = await response.json();
+        favourite_personas = personas[0];
+        normal_personas = personas[1];
 
         const personaList = document.getElementById('personaList');
         personaList.innerHTML = ''; // Clear any existing personas
