@@ -3381,6 +3381,7 @@
         "industry": "finance",
         "employer_size": "large employer (250-10,000 employees)",
         "homeownership": "homeowners",
+        "favourite": true,
         "switch":{
             "name": true,
             "gender": true,

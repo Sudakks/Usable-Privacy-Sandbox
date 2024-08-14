@@ -25,6 +25,7 @@ def generate_persona():
         return jsonify({'error': 'No guidance provided'}), 400
     
     persona_json = generator.get_attributes(guidance)
+    return jsonify({'persona_json': persona_json})
 
 @app.route('/generate_image', methods=['POST'])
 def generate_image():
