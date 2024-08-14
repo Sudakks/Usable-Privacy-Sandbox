@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const displayText = document.getElementById('displayText');
     const confirmBtn = document.getElementById('Confirm');
     const generateImg = document.getElementById('generateImg');
+    var persona_profile = ''
 
     generateDesBtn.addEventListener('click', function () {
         var guidance = displayText.textContent.trim(); // ��ȡ displayText ��������Ϊ guidance
@@ -71,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
             chrome.runtime.sendMessage({ action: 'generateDescription', guidance: guidance }, function (response) {
                 if (response && response.description) {
                     //process response further
+                    persona_profile = response.description; // 存储生成的描述
                     displayText.textContent = response.description;
                     editInput.style.display = 'none';
                     displayText.style.display = 'block';
@@ -84,7 +86,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     confirmBtn.addEventListener('click', function () {
-
+        var guidance = persona_profile;
+        if (guidance) {
+            chrome.runtime.sendMessage({ action: 'confirm', guidance: guidance }, function (response) {
+                if (response) {
+                    
+                }
+        }
     });
 
     generateImg.addEventListener("click", function () {
