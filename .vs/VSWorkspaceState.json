@@ -3,12 +3,13 @@
     "",
     "\\backend",
     "\\backend\\personas",
+    "\\backend\\personas\\persona-image",
     "\\frontend",
     "\\frontend\\basicInfo_page",
     "\\frontend\\bg_page",
     "\\frontend\\others_page",
     "\\frontend\\overview_page"
   ],
-  "SelectedNode": "\\backend\\loadpersona.py",
+  "SelectedNode": "\\backend\\personas\\persona4.json",
   "PreviewInSolutionExplorer": false
 }

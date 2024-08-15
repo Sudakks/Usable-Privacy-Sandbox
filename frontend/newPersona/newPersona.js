@@ -90,8 +90,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (guidance) {
             chrome.runtime.sendMessage({ action: 'confirm', guidance: guidance }, function (response) {
                 if (response) {
-                    
+                    //TODO
                 }
+            });
         }
     });
 

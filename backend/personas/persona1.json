@@ -3056,7 +3056,7 @@
         "industry": "hospitality",
         "employer_size": "small employer (1-249 employees)",
         "homeownership": "renters",
-        "favourite": false,
+        "favourite": true,
         "switch": {
             "name": true,
             "gender": false,
