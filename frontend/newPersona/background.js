@@ -11,17 +11,66 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         })
             .then(response => response.json())
             .then(data => {
-                // ·µ»ØÉú³ÉµÄÃèÊö
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½
                 sendResponse({ description: data.description });
             })
             .catch(error => {
                 console.error('Error:', error);
-                // ·µ»Ø´íÎóÏûÏ¢
+                // ï¿½ï¿½ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
                 sendResponse({ description: 'Error generating description.' });
             });
 
-        return true; // ±£³ÖÏûÏ¢Í¨µÀ´ò¿ª£¬Ö±µ½ sendResponse ±»µ÷ÓÃ
+        return true; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Í¨ï¿½ï¿½ï¿½ò¿ª£ï¿½Ö±ï¿½ï¿½ sendResponse ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     }
+
+    if (message.action === 'confirmPersona') {
+        const profile = message.profile;
+
+        fetch('http://localhost:5000/generate_persona', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'text/plain'
+            },
+            body: profile
+        })
+            .then(response => response.json())
+            .then(data => {
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½
+                sendResponse({ persona_json: data.persona_json });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // ï¿½ï¿½ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+                sendResponse({ persona_json: 'Error generating persona.' });
+            });
+        
+        return true; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Í¨ï¿½ï¿½ï¿½ò¿ª£ï¿½Ö±ï¿½ï¿½ sendResponse
+    }
+
+    if (message.action === 'savePersona') {
+        const persona_json = message.persona_json;
+
+        fetch('http://localhost:5000/save_persona', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ persona_json: persona_json })
+        })
+            .then(response => response.json())
+            .then(data => {
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½
+                sendResponse({ message: data.message });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // ï¿½ï¿½ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+                sendResponse({ message: 'Error saving persona.' });
+            });
+
+        return true; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Í¨ï¿½ï¿½ï¿½ò¿ª£ï¿½Ö±ï¿½ï¿½ sendResponse
+    }
+
 
     if (message.action === 'generateImage') {
         const imageGuidance = message.guidance;
@@ -35,15 +84,15 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         })
             .then(response => response.json())
             .then(data => {
-                // ·µ»ØÉú³ÉµÄÍ¼Ïñ URL
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½Í¼ï¿½ï¿½ URL
                 sendResponse({ imageUrl: data.imageUrl });
             })
             .catch(error => {
                 console.error('Error:', error);
-                // ·µ»Ø´íÎóÏûÏ¢
+                // ï¿½ï¿½ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
                 sendResponse({ imageUrl: 'Error generating image.' });
             });
 
-        return true; // ±£³ÖÏûÏ¢Í¨µÀ´ò¿ª£¬Ö±µ½ sendResponse ±»µ÷ÓÃ
+        return true; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Í¨ï¿½ï¿½ï¿½ò¿ª£ï¿½Ö±ï¿½ï¿½ sendResponse ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     }
 });

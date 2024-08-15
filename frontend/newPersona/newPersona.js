@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var dspFrame = document.getElementById('dspFrame');
     var displayText = document.getElementById('displayText');
     var editInput = document.getElementById('editInput');
+    var persona_file = '';
 
     dspFrame.addEventListener('click', () => {
         //if (document.activeElement !== editInput) { // 仅在输入框未获得焦点时执行
@@ -35,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
     editInput.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
             updateDisplayText();
+
         }
     });
 
@@ -54,15 +56,12 @@ document.addEventListener('DOMContentLoaded', function () {
         displayText.style.display = 'block';
         // 保持输入框值以供下次使用
     }
-});
 
-document.addEventListener('DOMContentLoaded', function () {
     const generateDesBtn = document.getElementById('generateDes');
     const editInput = document.getElementById('editInput');
     const displayText = document.getElementById('displayText');
     const confirmBtn = document.getElementById('Confirm');
     const generateImg = document.getElementById('generateImg');
-    var persona_profile = ''
 
     generateDesBtn.addEventListener('click', function () {
         var guidance = displayText.textContent.trim(); // ��ȡ displayText ��������Ϊ guidance
@@ -86,12 +85,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     confirmBtn.addEventListener('click', function () {
-        var guidance = persona_profile;
-        if (guidance) {
-            chrome.runtime.sendMessage({ action: 'confirm', guidance: guidance }, function (response) {
+        var profile = persona_profile;
+        if (profile) {
+            chrome.runtime.sendMessage({ action: 'confirmPersona', profile: profile }, function (response) {
                 if (response) {
-                    
+                    persona_json = response.persona_json;
+                    chrome.runtime.sendMessage({ action: 'savePersona', persona_json: persona_json }, function (response) {});
+                } else {
+                    alert('Failed to confirm persona.');
                 }
+            });
+        } else {
+            alert('Please generate a description first.');
         }
     });
 
