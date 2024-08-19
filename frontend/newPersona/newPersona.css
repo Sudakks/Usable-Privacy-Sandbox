@@ -106,6 +106,8 @@
 
 #displayText {
     display: block;
+    word-wrap: break-word;  /* 当单词过长时自动换行 */
+    white-space: normal;    /* 允许文本换行 */
 }
 
 #editInput {
