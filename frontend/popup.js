@@ -78,7 +78,7 @@ function setRightClick(HTML, personaDiv, persona) {
         // Create the context menu element
         const contextMenu = document.createElement('div');
         contextMenu.className = 'context-menu';
-        contextMenu.innerHTML = HTML; 
+        contextMenu.innerHTML = HTML;
 
         // Position the menu at the mouse location
         contextMenu.style.top = `${e.clientY}px`;
@@ -111,7 +111,7 @@ async function loadPersonas() {
         const personaList = document.getElementById('personaList');
         personaList.innerHTML = ''; // Clear any existing personas
         var flag = false; // to separate normal and favourite persona
-        
+
 
         personas.forEach((persona, index) => {
             // Create a div for each persona
@@ -169,7 +169,7 @@ async function loadPersonas() {
                 <div id="Delete" class="context-item"><i class="fa-solid fa-trash" style="margin-right:0.5em"></i>Delete</div>
             `, personaDiv, persona);
                 personaList.prepend(personaDiv);
-                
+
             }
             else if (persona.favourite === false) {
                 setRightClick(`
@@ -180,7 +180,7 @@ async function loadPersonas() {
             }
         });
         // Add a "Create New Persona" component
-        
+
         const newPersonaDiv = document.createElement('div');
         newPersonaDiv.className = 'newPersona';
         newPersonaDiv.id = 'addNewPersona';
@@ -196,7 +196,7 @@ async function loadPersonas() {
         });
 
         personaList.appendChild(newPersonaDiv);
-        
+
     } catch (error) {
         console.error('Error loading personas:', error);
     }
@@ -204,3 +204,16 @@ async function loadPersonas() {
 
 // Call loadPersonas when the page loads
 document.addEventListener('DOMContentLoaded', loadPersonas);
+
+document.addEventListener("DOMContentLoaded", () => {
+    /*
+    sessionStorage.setItem('saveButtonVisible', false);
+    sessionStorage.setItem('discardButtonVisible', false);
+    sessionStorage.setItem('activateButtonDisabled', true);
+    */
+});
+
+
+
+
+

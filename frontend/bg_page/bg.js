@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // 存储当前所处界面信息
     sessionStorage.setItem("currentPage", "bg");
 
+    setButtonVisibility();
+
+
     let persona = localStorage.getItem("selectedPersona");
 
     var backButton = document.querySelector(".backButton");
@@ -32,6 +35,11 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
         getResult();
+    });
+
+    var saveButton = document.querySelector(".saveButton");
+    saveButton.addEventListener("click", () => {
+        getChangedList();
     });
 
     // 从 localStorage 中获取 persona 数据

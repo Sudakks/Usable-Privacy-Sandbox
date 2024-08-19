@@ -61,6 +61,8 @@ document.addEventListener('DOMContentLoaded', function () {
     saveButtons.forEach(button => {
         button.addEventListener('click', function () {
             saveAllFiled();
+            setButtonStatus(false);
+            setButtonVisibility();
         });
     });
 
@@ -68,15 +70,118 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function () {
             /* TODO Update */
             saveAllFiled();
+            setButtonStatus(false);
+            setButtonVisibility();
         });
     });
 
     confirmDiscardButtons.forEach(button => {
         button.addEventListener('click', function () {
             discardChanges();
+            setButtonStatus(false);
+            setButtonVisibility();
         });
     });
+
+    
+    // 等待页面加载完成
+    window.addEventListener('load', () => {
+        // 选择所有的 infoEdit 元素
+        const infoEdits = document.querySelectorAll('.infoEdit');
+
+        // 创建一个回调函数，当观察到的元素发生变化时会调用该函数
+        const callback = (mutationsList, observer) => {
+            for (let mutation of mutationsList) {
+                if (mutation.type === 'childList') {
+                    //要看是否需要改变，即changeList是否为空
+                    whetherChangeButtonStatus(true);
+                }
+            }
+        }
+
+        // 为每个 infoEdit 创建一个 MutationObserver 实例
+        const observers = [];
+        infoEdits.forEach(infoEdit => {
+            const observer = new MutationObserver(callback);
+
+            // 配置观察选项
+            const config = {
+                childList: true,  // 监听子节点的更改
+                subtree: true,    // 监听整个子树中的节点变化
+            };
+
+
+            observers.push({ observer, infoEdit, config });
+        });
+
+        // 初始化完成后再启用观察器
+        observers.forEach(({ observer, infoEdit, config }) => {
+            observer.observe(infoEdit, config);
+        });
+    });
+    function whetherChangeButtonStatus(flag) {
+        //to see something has been changed or not
+
+        async function getResult() {
+            let result = await getChangedList();
+            if (result === true) {
+                setButtonStatus(flag);
+                setButtonVisibility();
+            }
+        }
+        getResult();
+    }
+
 });
+
+function setButtonVisibility() {
+    const saveButtons = document.querySelectorAll('.saveButton');
+    const discardButtons = document.querySelectorAll('.discardButton');
+    const activateButtons = document.querySelectorAll('.activateButton');
+
+    const saveButtonVisible = sessionStorage.getItem('saveButtonVisible');
+    const discardButtonVisible = sessionStorage.getItem('discardButtonVisible');
+    const activateButtonDisabled = sessionStorage.getItem('activateButtonDisabled');
+
+    // 控制 saveButtons 的显示状态
+    saveButtons.forEach(button => {
+        button.style.display = saveButtonVisible === 'true' ? 'block' : 'none';
+    });
+
+    // 控制 discardButtons 的显示状态
+    discardButtons.forEach(button => {
+        button.style.display = discardButtonVisible === 'true' ? 'block' : 'none';
+    });
+
+    // 控制 activateButtons 的显示状态
+    activateButtons.forEach(button => {
+        if (activateButtonDisabled === 'true') {
+            button.style.display = 'block'; 
+            button.disabled = true;
+            button.style.backgroundColor = '#ccc'; 
+            button.style.cursor = 'not-allowed'; 
+            button.style.opacity = '0.6'; 
+        }
+        else if (activateButtonDisabled === 'false'){
+            button.style.display = 'block'; 
+            button.disabled = false; 
+            button.style.backgroundColor = ''; 
+            button.style.cursor = '';
+            button.style.opacity = ''; 
+        }
+    });
+}
+
+function setButtonStatus(flag) {
+    sessionStorage.setItem('saveButtonVisible', flag);
+    sessionStorage.setItem('discardButtonVisible', flag);
+    sessionStorage.setItem('activateButtonDisabled', flag);
+}
+
+
+
+
+
 
 function fetchChangedList() {
     let selectedPersona = JSON.parse(localStorage.getItem('selectedPersona'));
