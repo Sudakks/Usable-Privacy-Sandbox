@@ -1,29 +1,16 @@
-/*generate description*/
-document.getElementById('generateDes').addEventListener('click', function () {
-    /*TODO*/
-});
-
-/*Confirm, go to overview page*/
-document.getElementById('Confirm').addEventListener('click', function () {
-    window.location.href = "../overview_page/overview.html";
-});
-
-/*generate img*/
-document.getElementById('generateImg').addEventListener('click', function () {
-    /*TODO*/
-});
-
-/*descriptionµÄÊäÈë*/
 document.addEventListener('DOMContentLoaded', function () {
     var dspFrame = document.getElementById('dspFrame');
     var displayText = document.getElementById('displayText');
     var editInput = document.getElementById('editInput');
+    var persona_profile = '';
 
     dspFrame.addEventListener('click', () => {
-        displayText.style.display = 'none';
-        editInput.value = ""; // Çå¿ÕÊäÈë¿òµÄÖµ
-        editInput.style.display = 'block';
-        editInput.focus();
+        if (document.activeElement !== editInput) { // ä»…åœ¨è¾“å…¥æ¡†æœªè·å¾—ç„¦ç‚¹æ—¶æ‰§è¡Œ
+            displayText.style.display = 'none';
+            //editInput.value = "";
+            editInput.style.display = 'block';
+            editInput.focus();
+        }
     });
 
     editInput.addEventListener('blur', () => {
@@ -33,69 +20,90 @@ document.addEventListener('DOMContentLoaded', function () {
     editInput.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
             updateDisplayText();
+
         }
     });
 
     function updateDisplayText() {
-        displayText.textContent = editInput.value.trim();
+        const trimmedValue = editInput.value.trim();
+        if (trimmedValue) {
+            displayText.textContent = trimmedValue;
+        }
         editInput.style.display = 'none';
         displayText.style.display = 'block';
-        editInput.value = ""; // Çå¿ÕÊäÈë¿òµÄÖµ
     }
-});
 
-document.addEventListener('DOMContentLoaded', function () {
     const generateDesBtn = document.getElementById('generateDes');
-    const editInput = document.getElementById('editInput');
-    const displayText = document.getElementById('displayText');
-    const generateImg = document.getElementById('generateImg');
+    const confirmBtn = document.getElementById('Confirm');
+    const generateImgBtn = document.getElementById('generateImg');
 
     generateDesBtn.addEventListener('click', function () {
-        var guidance = displayText.textContent.trim(); // »ñÈ¡ displayText µÄÄÚÈİ×÷Îª guidance
-        generateDes.textContent = "Loading...";
+        var guidance = displayText.textContent.trim();
+        generateDesBtn.textContent = "Loading...";
         if (guidance) {
-            // ·¢ËÍÏûÏ¢¸øºóÌ¨½Å±¾£¬»ñÈ¡Éú³ÉµÄÃèÊö
             chrome.runtime.sendMessage({ action: 'generateDescription', guidance: guidance }, function (response) {
                 if (response && response.description) {
-                    //process response further
+                    editInput.value = response.description;
+                    persona_profile = response.description;
                     displayText.textContent = response.description;
                     editInput.style.display = 'none';
                     displayText.style.display = 'block';
-                    const generateDes = document.getElementById('generateDes');
-                    generateDes.textContent = "Generate description";
+                    generateDesBtn.textContent = "Generate description";
                 }
             });
         } else {
             alert('Please enter some guidance in the input field.');
+            generateDesBtn.textContent = "Generate description"; // ç¡®ä¿åœ¨æ²¡æœ‰ guidance çš„æƒ…å†µä¸‹ä¹Ÿèƒ½æ¢å¤æŒ‰é’®æ–‡å­—
         }
     });
 
-    generateImg.addEventListener("click", function () {
-        generateImg.textContent = "Loading...";
-        const imageGuidance = displayText.textContent;
-        if (imageGuidance) {
-            // ·¢ËÍÏûÏ¢¸øºóÌ¨½Å±¾£¬»ñÈ¡Éú³ÉµÄÍ¼Ïñ
-            chrome.runtime.sendMessage({ action: 'generateImage', guidance: imageGuidance }, function (response) {
-                if (response && response.imageUrl) {
-                    // ´¦ÀíÏìÓ¦£¬¸üĞÂÍ¼Æ¬
-                    const imageUrl = response.imageUrl;
-                    document.getElementById("photoFrame").style.backgroundImage = `url(${imageUrl})`;
-                    alert("Image URL: " + imageUrl); // ¿ÉÑ¡£ºÏÔÊ¾ URL »òÆäËûĞÅÏ¢
-                    generateImg.textContent = "Generate Image"; // »Ö¸´°´Å¥ÎÄ±¾
+    confirmBtn.addEventListener('click', function () {
+        var profile = editInput.value;
+        console.log(profile);
+        if (profile) {
+            chrome.runtime.sendMessage({ action: 'confirmPersona', profile: profile }, function (response) {
+                if (response) {
+                    var persona_json = response.persona_json;
+                    console.log(persona_json);
+                    if (persona_json === "Error generating persona."){
+                        alert('Fail to generate persona. Please try again.');
+                    }
+                    else{
+                        chrome.runtime.sendMessage({ action: 'savePersona', persona_json: persona_json }, function (response) {});
+                        //window.location.href = "../overview_page/overview.html";
+                    }
                 } else {
-                    // ´¦Àí´íÎóÇé¿ö
-                    alert('Failed to generate image.');
-                    generateImg.textContent = "Generate Image"; // »Ö¸´°´Å¥ÎÄ±¾
+                    alert('Failed to confirm persona.');
                 }
             });
         } else {
-            alert('Please enter some guidance in the input field.'); // ÌáÊ¾ÓÃ»§ÊäÈëÖ¸µ¼ĞÅÏ¢
-            generateImg.textContent = "Generate Image"; // »Ö¸´°´Å¥ÎÄ±¾
+            alert('Please generate a description first.');
+        }
+    });
+
+    generateImgBtn.addEventListener("click", function () {
+        generateImgBtn.textContent = "Loading...";
+        const imageGuidance = displayText.textContent;
+        if (imageGuidance) {
+            chrome.runtime.sendMessage({ action: 'generateImage', guidance: imageGuidance }, function (response) {
+                if (response && response.imageUrl) {
+                    const imageUrl = response.imageUrl;
+                    document.getElementById("photoFrame").style.backgroundImage = `url(${imageUrl})`;
+                    alert("Image URL: " + imageUrl);
+                    generateImgBtn.textContent = "Generate Image";
+                } else {
+                    alert('Failed to generate image.');
+                    generateImgBtn.textContent = "Generate Image";
+                }
+            });
+        } else {
+            alert('Please enter some guidance in the input field.');
+            generateImgBtn.textContent = "Generate Image";
         }
     });
 
     var backButton = document.querySelector(".backButton");
     backButton.addEventListener("click", function () {
-        window.location.href = "../popup.html"
+        window.location.href = "../popup.html";
     });
 });

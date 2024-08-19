@@ -2,7 +2,7 @@
     "success": true,
     "code": 200,
     "data": {
-        "userId": 3,
+        "userId": 4,
         "browsingHistoryList": [
             {
                 "id": 1,
@@ -3357,8 +3357,8 @@
                 "address": "Social Media and Video Watching - 789 Pine Street, Atlanta, GA 30303"
             }
         ],
-        "first_name": "Michael",
-        "last_name": "Johnson",
+        "first_name": "FOR",
+        "last_name": "TEST",
         "profileImgUrl": "/backend/personas/persona-image/persona3.png",
         "age": "42",
         "gender": "male",
@@ -3381,7 +3381,7 @@
         "industry": "finance",
         "employer_size": "large employer (250-10,000 employees)",
         "homeownership": "homeowners",
-        "favourite": true,
+        "favourite": false,
         "switch": {
             "name": true,
             "gender": true,

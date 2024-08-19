@@ -3042,11 +3042,7 @@
         "city": "San Francisco",
         "state": "CA",
         "zip_code": "94102",
-<<<<<<< HEAD
-        "spoken_language": "Arabic",
-=======
         "spoken_language": "Bengali",
->>>>>>> master
         "education_background": "attending college in CS",
         "birthday": "06/21/2005",
         "job": "student",
@@ -3060,6 +3056,7 @@
         "industry": "hospitality",
         "employer_size": "small employer (1-249 employees)",
         "homeownership": "renters",
+        "favourite": true,
         "switch": {
             "name": true,
             "gender": false,

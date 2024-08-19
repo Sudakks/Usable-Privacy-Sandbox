@@ -74,11 +74,9 @@ document.addEventListener('DOMContentLoaded', function () {
     confirmDiscardButtons.forEach(button => {
         button.addEventListener('click', function () {
             discardChanges();
-            //window.location.href = "overview.html";
         });
     });
 });
-
 
 function fetchChangedList() {
     let selectedPersona = JSON.parse(localStorage.getItem('selectedPersona'));

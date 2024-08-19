@@ -13,7 +13,7 @@
 
 
 
-/*×óÓÒÁ½¸öÌîÈëĞÅÏ¢µÄbox*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½box*/
 .boxContainer {
     display: flex;
     justify-content: space-between; 
@@ -30,9 +30,9 @@
     margin-left:1em;
 }
 .right-container {
-    justify-content: center; /* ´¹Ö±¾ÓÖĞ¶ÔÆë */
-    align-items: center; /* Ë®Æ½¾ÓÖĞ¶ÔÆë */
-    gap: 15px; /* ÉèÖÃ×ÓÔªËØÖ®¼äµÄÕı¼ä¾à */
+    justify-content: center; /* ï¿½ï¿½Ö±ï¿½ï¿½ï¿½Ğ¶ï¿½ï¿½ï¿½ */
+    align-items: center; /* Ë®Æ½ï¿½ï¿½ï¿½Ğ¶ï¿½ï¿½ï¿½ */
+    gap: 15px; /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     padding-top: 10px;
     height: 100%;
     box-sizing: border-box; 
@@ -47,9 +47,9 @@
     width: 100px;
     box-sizing: border-box;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    background-size: cover; /* ÈÃ±³¾°Í¼Ïñ³äÂúÈİÆ÷ */
-    background-position: center; /* ¾ÓÖĞ¶ÔÆë±³¾°Í¼Ïñ */
-    background-repeat: no-repeat; /* ²»ÖØ¸´±³¾°Í¼Ïñ */
+    background-size: cover; /* ï¿½Ã±ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+    background-position: center; /* ï¿½ï¿½ï¿½Ğ¶ï¿½ï¿½ë±³ï¿½ï¿½Í¼ï¿½ï¿½ */
+    background-repeat: no-repeat; /* ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ */
 }
 
 
@@ -77,24 +77,25 @@
     align-items: flex-start;
 }
 
-/*descriptionµÄ±ß¿ò*/
+/*descriptionï¿½Ä±ß¿ï¿½*/
 .dspFrame {
     border: none;
     border-radius: 6.5px;
-    padding: 10px; /* ÄÚ±ß¾à */
+    padding: 10px; /* ï¿½Ú±ß¾ï¿½ */
     background-color: white;
-    width: 270px; /* ¼õÈ¥×óÓÒÄÚ±ß¾à */
+    width: 270px; /* ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½Ú±ß¾ï¿½ */
     height: 180px;
-    box-sizing: border-box; /* °üÀ¨ÄÚ±ß¾àºÍ±ß¿ò */
+    box-sizing: border-box; /* ï¿½ï¿½ï¿½ï¿½ï¿½Ú±ß¾ï¿½Í±ß¿ï¿½ */
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     cursor: pointer;
     position: relative;
-    overflow: auto; /* ÆôÓÃ¹ö¶¯Ìõ */
+    overflow: auto; /* ï¿½ï¿½ï¿½Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½ */
 }
 
 #displayText,
 #editInput {
     width: 100%;
+    height: 100%;
     border: none;
     padding: 0;
     margin: 0;
@@ -105,14 +106,16 @@
 
 #displayText {
     display: block;
+    word-wrap: break-word;  /* å½“å•è¯è¿‡é•¿æ—¶è‡ªåŠ¨æ¢è¡Œ */
+    white-space: normal;    /* å…è®¸æ–‡æœ¬æ¢è¡Œ */
 }
 
 #editInput {
-    display: none;
-    position: absolute;
+    display: block;
+    position: static;
     top: 0;
     left: 0;
     padding: 5px;
     box-sizing: border-box;
-    outline: none; /* È¥³ı½¹µã±ß¿ò!!! */
+    outline: none; /* È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½!!! */
 }

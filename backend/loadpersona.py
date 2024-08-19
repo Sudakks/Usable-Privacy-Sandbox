@@ -36,6 +36,7 @@ class Persona(BaseModel):
     industry: str
     employer_size: str
     homeownership: str
+    favourite: bool
     switch: dict
 
 # 文件夹路径
@@ -81,15 +82,17 @@ def load_personas_from_folder(folder_path: str):
                     industry=persona_info.get("industry", ""),
                     employer_size=persona_info.get("employer_size", ""),
                     homeownership=persona_info.get("homeownership", ""),
+                    favourite=persona_info.get("favourite", False),
                     switch=persona_info.get("switch", [])
                 )
                 personas.append(persona)
     return personas
 
-@router.get("/loadpersona", response_model=list[Persona])
+@router.get("/loadpersona")
 async def load_persona():
     try:
         personas = load_personas_from_folder(persona_folder_path)
         return personas
+    
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
