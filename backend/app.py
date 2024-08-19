@@ -20,8 +20,7 @@ def generate():
 
 @app.route('/generate_persona', methods=['POST'])
 def generate_persona():
-    data = request.json
-    profile = data.get('profile')
+    profile = request.data.decode('utf-8')  # 将字节流解码为字符串
 
     if not profile:
         return jsonify({'error': 'No guidance provided'}), 400
@@ -42,7 +41,7 @@ def save_persona():
     with open(config_file_path, 'w') as f:
         json.dump(config, f, indent=4)
     # 保存 persona_json 到后端
-    save_path = "../personas/persona" + str(userId) + ".json"
+    save_path = "./personas/persona" + str(userId) + ".json"
     with open(save_path, 'w') as f:
         json.dump(data['persona_json'], f, indent=4)
     return jsonify({'message': 'Persona saved successfully'})
