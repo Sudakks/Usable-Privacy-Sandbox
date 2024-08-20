@@ -68,11 +68,11 @@ def save_persona():
 def newpersona_localstorage():
     userId = request.data.decode('utf-8')  # 将字节流解码为字符串
 
-    try:
-        newpersona = load_single_persona(userId)
-        return newpersona
-    except Exception as e:
-        return jsonify({'message': 'Failed to load new persona.'}), 400
+    # try:
+    newpersona = load_single_persona(userId)
+    return jsonify(newpersona)
+    # except Exception as e:
+    #     return jsonify({'message': 'Failed to load new persona.'}), 400
 
 @app.route('/generate_image', methods=['POST'])
 def generate_image():

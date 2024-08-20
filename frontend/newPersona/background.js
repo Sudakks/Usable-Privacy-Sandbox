@@ -74,20 +74,25 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === 'savetolocalstorage') {
         const userId = message.userId;
 
-        fetch('http://localhost:5000/newpersona_localstorage', {
+        fetch('http://localhost:8000/newpersonalocalstorage', {
             method: 'POST',
             headers: {
-                'Content-Type': 'text/plain'
+                'Content-Type': 'application/json'
             },
-            body: userId
+            body: JSON.stringify({ userId: userId })
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json(); // 解析 JSON 并返回解析后的数据
-        });
-        //return true; // ������Ϣͨ���򿪣�ֱ�� sendResponse
+            .then(response => response.json())
+            .then(data => {
+                // �������ɵ�����
+                sendResponse({ newpersona: data });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // ���ش�����Ϣ
+                sendResponse({ newpersona: 'Error saving persona.' });
+            });
+        
+        return true; // ������Ϣͨ���򿪣�ֱ�� sendResponse
     }
 
 

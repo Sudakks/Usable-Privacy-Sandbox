@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var profile = editInput.value;
         if (profile) {
             chrome.runtime.sendMessage({ action: 'confirmPersona', profile: profile }, function (response) {
+                console.log('Confirming...');
                 if (response) {
                     var persona_json = response.persona_json;
                     if (persona_json === "Error generating persona."){
@@ -71,14 +72,22 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log('Persona json saved successfully'); 
                         var userId = persona_json['data']['userId'];
                         console.log(userId)              
-                        chrome.runtime.sendMessage({ action: 'savetolocalstorage', userId: userId }, function (response) {
-                            if (response) {
-                                var newpersona = response;
-                                console.log(newpersona);
-                                localStorage.setItem('selectedPersona', newpersona);
-                            }
-                        });                     
-                        
+                        fetch('http://localhost:8000/newpersonalocalstorage', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ userId: userId }) 
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                const newpersona = JSON.stringify(data);
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                            });
+                        console.log(newpersona);
+                        localStorage.setItem('selectedPersona', JSON.stringify(newpersona));                       
                     }
                 } else {
                     alert('Failed to confirm persona.');
