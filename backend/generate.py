@@ -26,7 +26,7 @@ import concurrent.futures
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-# ºöÂÔ FutureWarning
+# ï¿½ï¿½ï¿½ï¿½ FutureWarning
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
@@ -59,23 +59,23 @@ class PrivacyAttributes(BaseModel):
     zip_code: str = Field(description='The zipcode of the persona living address')
     spoken_language: str = Field(description='The spoken language of the persona')
     education_background: str = Field(description='The education background of the persona')
-    education_level: str = Field(description="The most suitable education level of the persona, four options: high school diploma, attending college, bachelor's degree, advanced degree")
+    #education_level: str = Field(description="The most suitable education level of the persona, four options: high school diploma, attending college, bachelor's degree, advanced degree")
     birthday: str = Field(description='The birthday of the persona')
     job: str = Field(description='The job of the persona')
     income: str = Field(description='The annual income of the persona')
-    income_level: str = Field(description='The most suitable income level of the persona, three options: high income, moderate high income, average or lower income')
+    #income_level: str = Field(description='The most suitable income level of the persona, three options: high income, moderate high income, average or lower income')
     marital_status: str = Field(description='The most suitable marital status of the persona, three options: single, married, in a relationship')
     parental_status: str = Field(description='The most suitable parental status of the persona, six options: not parents, parents of infants, parents of toddlers, parents of preschoolers, parents of grade schoolers, parents of teenagers')
     online_behavior: str = Field(description='The online behavior of the persona')
-    industry: str = Field(description='The most suitable industry of the persona, eight options: construction, education, finance, healthcare, hospitality, manufacturing, real estate, technology')
-    employer_size: str = Field(description='The most suitable employer size of the persona, three options: small employer (1-249 employees), large employer (250-10,000 employees), very large employer (more than 10,000 employees)')
-    homeownership: str = Field(description='The most suitable homeownership status of the persona, either renter of homeowner')
+    #industry: str = Field(description='The most suitable industry of the persona, eight options: construction, education, finance, healthcare, hospitality, manufacturing, real estate, technology')
+    #employer_size: str = Field(description='The most suitable employer size of the persona, three options: small employer (1-249 employees), large employer (250-10,000 employees), very large employer (more than 10,000 employees)')
+    #homeownership: str = Field(description='The most suitable homeownership status of the persona, either renter of homeowner')
     short_profile: str = Field(description='A short verstion of the profile')
-    age_type: str = Field(description='Rate this persona age as young, mid-aged, or old')
-    gender_type: str = Field(description='Rate this persona gender as male, female, or non-binary')
-    location_type: str = Field(description='Rate this persona location as urban, suburb, or countryside')
-    income_type: str = Field(description='Rate this persona income as low, medium, or high')
-    edu_type: str = Field(description='Rate this persona educational level as low, medium, high')
+    #age_type: str = Field(description='Rate this persona age as young, mid-aged, or old')
+    #gender_type: str = Field(description='Rate this persona gender as male, female, or non-binary')
+    #location_type: str = Field(description='Rate this persona location as urban, suburb, or countryside')
+    #income_type: str = Field(description='Rate this persona income as low, medium, or high')
+    #edu_type: str = Field(description='Rate this persona educational level as low, medium, high')
     #profileImgUrl : str = Filed(description='The image of this persona')
 
 class EventSet(BaseModel):
@@ -357,7 +357,7 @@ class Generator:
             list: the persona's schedule
         '''
        
-        # We need to add .replace("{", "{{").replace("}", "}}") after serialising as JSON so that the curly brackets in the JSON won¡¯t be mistaken for prompt variables by LangChain
+        # We need to add .replace("{", "{{").replace("}", "}}") after serialising as JSON so that the curly brackets in the JSON wonï¿½ï¿½t be mistaken for prompt variables by LangChain
         curated_examples = []
         for i,v in enumerate(fewshot_examples['schedule']):
             curated_examples.append({"persona": v["persona"], 
@@ -502,3 +502,105 @@ class Generator:
             self.browsing_history.extend(self._get_one_day_browsing_history(persona, date, events_by_day[date]))
 
         return self.browsing_history
+    
+    def generate_persona_data(self, profile, userId):
+        """Generates a common structure of persona data."""
+        data = {"success": True, "code": 200}
+        persona_attributes = self.get_attributes(profile)
+
+        data["data"] = persona_attributes
+        data["data"]["userId"] = str(userId)
+        data["data"]["profile"] = profile
+        data["data"]["browser"] = "Firefox - Windows"
+        data["data"]["device"] = "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:70.0) Gecko/20100101 Firefox/70.0"
+
+        return data
+
+    def create_persona(self, start_date, end_date, profile, userId):
+        """Shared logic for creating persona data."""
+        data = self.generate_persona_data(profile, userId)
+        schedule = self.get_schedule(profile, start_date, end_date)
+        data["data"]["schedule"] = schedule
+        for i, d in enumerate(data["data"]["schedule"]):
+            d['id'] = i
+        browsing_history = self.get_browsing_history(profile, schedule, start_date, end_date)
+        data["data"]["browsing_history"] = browsing_history
+        for i, d in enumerate(data["data"]["browsing_history"]):
+            d['id'] = i
+
+        return data
+    
+# def write_persona_data(persona_id, data, varient):
+#     """Writes persona data to a JSON file."""
+#     with open(f'{persona_id}_{varient}.json', 'w') as f:
+#         json.dump(data, f)
+
+# def generate_persona_data(persona, persona_id):
+#     """Generates a common structure of persona data."""
+#     data = {"success": True, "code": 200}
+#     persona_attributes = gen.get_attributes(profile=persona)
+
+#     data["data"] = persona_attributes
+#     data["data"]["userId"] = str(persona_id)
+#     data["data"]["profile"] = persona
+#     data["data"]["browser"] = "Firefox - Windows"
+#     data["data"]["device"] = "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:70.0) Gecko/20100101 Firefox/70.0"
+
+#     return data
+
+# def create_persona_common(start_date, end_date, persona, persona_id, varient):
+#     """Shared logic for creating persona data."""
+#     data = generate_persona_data(persona, persona_id)
+
+#     schedule = gen.get_schedule(persona, start_date, end_date)
+#     data["data"]["schedule"] = schedule
+
+#     for i, d in enumerate(data["data"]["schedule"]):
+#         d['id'] = i
+
+#     browsing_history = gen.get_browsing_history(persona, schedule, start_date, end_date)
+#     data["data"]["browsing_history"] = browsing_history
+
+#     for i, d in enumerate(data["data"]["browsing_history"]):
+#         d['id'] = i
+
+#     write_persona_data(persona_id, data, varient)
+
+#     return data
+
+# def create_persona(persona_id, start_date, end_date, guidance):
+#     # persona_id = uuid.uuid4()
+#     persona = gen.get_persona_profile(guidance=guidance)
+#     print(persona)
+#     persona_data = create_persona_common(start_date, end_date, persona, persona_id, varient="")
+#     return persona_data
+
+# def create_persona_variant(persona_id, start_date, end_date, variant_attribute, base_persona):
+#     varient_id = uuid.uuid4()
+#     persona_variant = gen.get_persona_variant(profile=base_persona, attr=variant_attribute)
+#     print(persona_variant)
+#     persona_data = create_persona_common(start_date, end_date, persona_variant, persona_id, varient=varient_id)
+#     return persona_data
+
+# ä½¿ç”¨ç¤ºä¾‹
+# if __name__=="__main__":
+#     gen = Generator()
+
+#     # start_date = "2024-01-05"
+#     # end_date = "2024-01-08"
+
+#     guidance="a 25-year old male, the living address is in urban area"
+#     profile = gen.get_persona_profile(guidance)
+#     print(profile)
+    # persona_id = uuid.uuid4()
+
+    # base_persona = create_persona(persona_id, start_date, end_date, guidance)
+    # variant_attribute="the street is in a different suburb area"
+    # create_persona_variant(persona_id, start_date, end_date, variant_attribute, base_persona=base_persona['data']['profile'])
+    
+    # # persona_id = "5f27e23f-f012-4c0d-9448-1738d071d771"
+    # # with open('./5f27e23f-f012-4c0d-9448-1738d071d771/base.json') as jsonFile:
+    # #     base_persona = json.load(jsonFile)
+
+    # variant_attribute="the street is in a different countryside area"
+    # create_persona_variant(persona_id, start_date, end_date, variant_attribute, base_persona=base_persona['data']['profile'])

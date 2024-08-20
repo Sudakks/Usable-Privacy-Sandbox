@@ -58,18 +58,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     confirmBtn.addEventListener('click', function () {
         var profile = editInput.value;
-        console.log(profile);
         if (profile) {
             chrome.runtime.sendMessage({ action: 'confirmPersona', profile: profile }, function (response) {
                 if (response) {
                     var persona_json = response.persona_json;
-                    console.log(persona_json);
                     if (persona_json === "Error generating persona."){
                         alert('Fail to generate persona. Please try again.');
                     }
                     else{
                         chrome.runtime.sendMessage({ action: 'savePersona', persona_json: persona_json }, function (response) {});
-                        //window.location.href = "../overview_page/overview.html";
+                        console.log('Persona json saved successfully');
+                        
                     }
                 } else {
                     alert('Failed to confirm persona.');
@@ -106,3 +105,18 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = "../popup.html";
     });
 });
+
+// async function loadPersona() {
+//     try {
+//         const response = await fetch('http://localhost:8000/loadpersona');
+//         const personas = await response.json(); // 等待解析为 JSON
+//         console.log(personas.length);
+//         const newPersona = personas[personas.length - 1];
+//         userId = newPersona.get('userId');
+//         console.log(userId);
+//         localStorage.setItem('selectedPersona', JSON.stringify(newPersona));
+//         //window.location.href = "../overview_page/overview.html";
+//     } catch (error) {
+//         console.error('Error loading persona:', error);
+//     }
+// }

@@ -1,0 +1,725 @@
+{
+    "code": 200,
+    "data": {
+        "age": "25",
+        "birthday": "04/17/1999",
+        "browser": "Firefox - Windows",
+        "browsing_history": [
+            {
+                "id": 0,
+                "time": "2024-07-08 07:15:23",
+                "title": "How to Prepare Fishing Gear - YouTube",
+                "url": "https://www.youtube.com/watch?v=example1"
+            },
+            {
+                "id": 1,
+                "time": "2024-07-08 08:05:47",
+                "title": "Honolulu Weather Updates - Google Search",
+                "url": "https://www.google.com/search?q=honolulu+weather+updates"
+            },
+            {
+                "id": 2,
+                "time": "2024-07-08 08:22:19",
+                "title": "Fishing Weather Forecasts - Weather.com",
+                "url": "https://www.weather.com/fishing-forecasts"
+            },
+            {
+                "id": 3,
+                "time": "2024-07-08 09:10:34",
+                "title": "Fishing Industry Meeting Tips - Google Search",
+                "url": "https://www.google.com/search?q=fishing+industry+meeting+tips"
+            },
+            {
+                "id": 4,
+                "time": "2024-07-08 12:15:55",
+                "title": "Best Local Seafood Markets - Google Search",
+                "url": "https://www.google.com/search?q=best+local+seafood+markets"
+            },
+            {
+                "id": 5,
+                "time": "2024-07-08 13:25:11",
+                "title": "How to Maintain a Fishing Boat - YouTube",
+                "url": "https://www.youtube.com/watch?v=example2"
+            },
+            {
+                "id": 6,
+                "time": "2024-07-08 19:10:48",
+                "title": "Fishing Techniques for Beginners - YouTube",
+                "url": "https://www.youtube.com/watch?v=example3"
+            },
+            {
+                "id": 7,
+                "time": "2024-07-08 20:15:37",
+                "title": "Best Fishing Forums - Google Search",
+                "url": "https://www.google.com/search?q=best+fishing+forums"
+            },
+            {
+                "id": 8,
+                "time": "2024-07-08 21:05:29",
+                "title": "Fishing Mentor Video Call Tips - Google Search",
+                "url": "https://www.google.com/search?q=fishing+mentor+video+call+tips"
+            },
+            {
+                "id": 9,
+                "time": "2024-07-08 22:10:45",
+                "title": "Top Fishing Magazines - Google Search",
+                "url": "https://www.google.com/search?q=top+fishing+magazines"
+            },
+            {
+                "id": 10,
+                "time": "2024-07-08 08:15:32",
+                "title": "How to organize work emails - Google Search",
+                "url": "https://www.google.com/search?q=how+to+organize+work+emails"
+            },
+            {
+                "id": 11,
+                "time": "2024-07-08 08:45:21",
+                "title": "Best email management tools - Google Search",
+                "url": "https://www.google.com/search?q=best+email+management+tools"
+            },
+            {
+                "id": 12,
+                "time": "2024-07-08 09:45:53",
+                "title": "Effective crew meeting strategies - Google Search",
+                "url": "https://www.google.com/search?q=effective+crew+meeting+strategies"
+            },
+            {
+                "id": 13,
+                "time": "2024-07-08 10:15:47",
+                "title": "Boat maintenance checklist",
+                "url": "https://www.boatus.com/expert-advice/boat-maintenance-checklist"
+            },
+            {
+                "id": 14,
+                "time": "2024-07-08 12:30:19",
+                "title": "How to sell fish at a market - Google Search",
+                "url": "https://www.google.com/search?q=how+to+sell+fish+at+a+market"
+            },
+            {
+                "id": 15,
+                "time": "2024-07-08 13:15:36",
+                "title": "Best fishing net supplies - Google Search",
+                "url": "https://www.google.com/search?q=best+fishing+net+supplies"
+            },
+            {
+                "id": 16,
+                "time": "2024-07-08 14:30:41",
+                "title": "How to clean a fishing boat",
+                "url": "https://www.fishingmonthly.com.au/how-to-clean-a-fishing-boat"
+            },
+            {
+                "id": 17,
+                "time": "2024-07-08 19:15:28",
+                "title": "Top fishing forums - Google Search",
+                "url": "https://www.google.com/search?q=top+fishing+forums"
+            },
+            {
+                "id": 18,
+                "time": "2024-07-08 20:30:14",
+                "title": "Best fishing tutorial videos",
+                "url": "https://www.youtube.com/results?search_query=best+fishing+tutorial+videos"
+            },
+            {
+                "id": 19,
+                "time": "2024-07-08 21:45:52",
+                "title": "Fishing equipment reviews - Google Search",
+                "url": "https://www.google.com/search?q=fishing+equipment+reviews"
+            },
+            {
+                "id": 20,
+                "time": "2024-07-08 07:15:45",
+                "title": "How to Create Effective Presentations - Google Search",
+                "url": "https://www.google.com/search?q=how+to+create+effective+presentations"
+            },
+            {
+                "id": 21,
+                "time": "2024-07-08 07:45:32",
+                "title": "Effective Presentation Tips for Psychologists",
+                "url": "https://www.psychologytoday.com/us/blog/the-psychology-presentation/202307/effective-presentation-tips-for-psychologists"
+            },
+            {
+                "id": 22,
+                "time": "2024-07-08 08:30:27",
+                "title": "Healthy Breakfast Recipes - Google Search",
+                "url": "https://www.google.com/search?q=healthy+breakfast+recipes"
+            },
+            {
+                "id": 23,
+                "time": "2024-07-08 08:45:53",
+                "title": "10 Easy Breakfast Recipes for Families",
+                "url": "https://www.foodnetwork.com/recipes/photos/easy-breakfast-recipes-for-families"
+            },
+            {
+                "id": 24,
+                "time": "2024-07-08 12:15:38",
+                "title": "Latest Issue of Journal of Clinical Psychology",
+                "url": "https://onlinelibrary.wiley.com/journal/10974679"
+            },
+            {
+                "id": 25,
+                "time": "2024-07-08 12:45:12",
+                "title": "Current Trends in Clinical Psychology - Google Search",
+                "url": "https://www.google.com/search?q=current+trends+in+clinical+psychology"
+            },
+            {
+                "id": 26,
+                "time": "2024-07-08 17:15:59",
+                "title": "Weekly Meal Prep Grocery List - Google Search",
+                "url": "https://www.google.com/search?q=weekly+meal+prep+grocery+list"
+            },
+            {
+                "id": 27,
+                "time": "2024-07-08 18:45:43",
+                "title": "New Dinner Recipes to Try - Google Search",
+                "url": "https://www.google.com/search?q=new+dinner+recipes+to+try"
+            },
+            {
+                "id": 28,
+                "time": "2024-07-08 19:45:21",
+                "title": "Top Home D\u00e9cor Trends of 2024 - Google Search",
+                "url": "https://www.google.com/search?q=top+home+d\u00e9cor+trends+of+2024"
+            },
+            {
+                "id": 29,
+                "time": "2024-07-08 21:45:37",
+                "title": "Mindfulness Techniques Workshop - Google Search",
+                "url": "https://www.google.com/search?q=mindfulness+techniques+workshop"
+            },
+            {
+                "id": 30,
+                "time": "2024-07-08 07:15:32",
+                "title": "Outdoor play ideas for kids - Google Search",
+                "url": "https://www.google.com/search?q=outdoor+play+ideas+for+kids"
+            },
+            {
+                "id": 31,
+                "time": "2024-07-08 08:10:47",
+                "title": "Kindergarten art class activities - Google Search",
+                "url": "https://www.google.com/search?q=kindergarten+art+class+activities"
+            },
+            {
+                "id": 32,
+                "time": "2024-07-08 09:05:21",
+                "title": "How to make friends in kindergarten - Google Search",
+                "url": "https://www.google.com/search?q=how+to+make+friends+in+kindergarten"
+            },
+            {
+                "id": 33,
+                "time": "2024-07-08 10:15:38",
+                "title": "Healthy snacks for kids",
+                "url": "https://www.parents.com/recipes/nutrition/kids/healthy-snacks-for-kids/"
+            },
+            {
+                "id": 34,
+                "time": "2024-07-08 11:05:14",
+                "title": "Drawing with crayons - Google Search",
+                "url": "https://www.google.com/search?q=drawing+with+crayons"
+            },
+            {
+                "id": 35,
+                "time": "2024-07-08 12:10:55",
+                "title": "Easy lunch ideas for kids - Google Search",
+                "url": "https://www.google.com/search?q=easy+lunch+ideas+for+kids"
+            },
+            {
+                "id": 36,
+                "time": "2024-07-08 13:15:22",
+                "title": "Best LEGO sets for 5 year olds",
+                "url": "https://www.lego.com/en-us/categories/boys-5-years-old"
+            },
+            {
+                "id": 37,
+                "time": "2024-07-08 15:10:43",
+                "title": "Educational games for kids",
+                "url": "https://www.education.com/games/"
+            },
+            {
+                "id": 38,
+                "time": "2024-07-08 18:15:37",
+                "title": "Benefits of evening walks for kids - Google Search",
+                "url": "https://www.google.com/search?q=benefits+of+evening+walks+for+kids"
+            },
+            {
+                "id": 39,
+                "time": "2024-07-08 19:45:19",
+                "title": "Best bedtime stories for kids",
+                "url": "https://www.goodhousekeeping.com/childrens-books/best-bedtime-stories/"
+            },
+            {
+                "id": 40,
+                "time": "2024-07-08 08:15:23",
+                "title": "Watch morning cartoons - YouTube",
+                "url": "https://www.youtube.com/watch?v=examplecartoon"
+            },
+            {
+                "id": 41,
+                "time": "2024-07-08 11:05:37",
+                "title": "Best playgrounds for kids - Google Search",
+                "url": "https://www.google.com/search?q=best+playgrounds+for+kids"
+            },
+            {
+                "id": 42,
+                "time": "2024-07-08 11:25:42",
+                "title": "Fun playground games for children - Google Search",
+                "url": "https://www.google.com/search?q=fun+playground+games+for+children"
+            },
+            {
+                "id": 43,
+                "time": "2024-07-08 13:05:18",
+                "title": "Educational classroom activities for kindergarten - Google Search",
+                "url": "https://www.google.com/search?q=educational+classroom+activities+for+kindergarten"
+            },
+            {
+                "id": 44,
+                "time": "2024-07-08 13:15:49",
+                "title": "Best storybooks for kindergarten - Google Search",
+                "url": "https://www.google.com/search?q=best+storybooks+for+kindergarten"
+            },
+            {
+                "id": 45,
+                "time": "2024-07-08 14:15:36",
+                "title": "Toy cars for kids - Amazon",
+                "url": "https://www.amazon.com/s?k=toy+cars+for+kids"
+            },
+            {
+                "id": 46,
+                "time": "2024-07-08 15:15:47",
+                "title": "Building LEGO towers - YouTube",
+                "url": "https://www.youtube.com/watch?v=examplelegotower"
+            },
+            {
+                "id": 47,
+                "time": "2024-07-08 16:15:28",
+                "title": "Best puzzles for 5-year-olds - Google Search",
+                "url": "https://www.google.com/search?q=best+puzzles+for+5-year-olds"
+            },
+            {
+                "id": 48,
+                "time": "2024-07-08 17:15:55",
+                "title": "Educational games for kids - App Store",
+                "url": "https://apps.apple.com/us/app/educational-games-for-kids/id123456789"
+            },
+            {
+                "id": 49,
+                "time": "2024-07-08 18:45:33",
+                "title": "Educational videos for children - YouTube",
+                "url": "https://www.youtube.com/watch?v=exampleeducationalvideo"
+            },
+            {
+                "id": 50,
+                "time": "2024-07-08 09:15:34",
+                "title": "Understanding Machine Learning Basics - Google Search",
+                "url": "https://www.google.com/search?q=understanding+machine+learning+basics"
+            },
+            {
+                "id": 51,
+                "time": "2024-07-08 10:45:22",
+                "title": "Human-Computer Interaction Study Group Resources",
+                "url": "https://www.hci-studygroup.org/resources"
+            },
+            {
+                "id": 52,
+                "time": "2024-07-08 11:15:47",
+                "title": "Latest Research Papers on Interaction Design - Google Search",
+                "url": "https://www.google.com/search?q=latest+research+papers+on+interaction+design"
+            },
+            {
+                "id": 53,
+                "time": "2024-07-08 13:15:38",
+                "title": "Best Practices for User Interface Design",
+                "url": "https://www.uibestpractices.com/articles/best-practices-for-user-interface-design"
+            },
+            {
+                "id": 54,
+                "time": "2024-07-08 14:45:52",
+                "title": "Effective Group Project Collaboration Tools - Google Search",
+                "url": "https://www.google.com/search?q=effective+group+project+collaboration+tools"
+            },
+            {
+                "id": 55,
+                "time": "2024-07-08 15:45:13",
+                "title": "Feedback on HCI Projects from Professors",
+                "url": "https://www.hci-feedback.com/professors-feedback"
+            },
+            {
+                "id": 56,
+                "time": "2024-07-08 16:15:29",
+                "title": "Downloading Research Papers on Interaction Design",
+                "url": "https://www.researchgate.net/download-papers/interaction-design"
+            },
+            {
+                "id": 57,
+                "time": "2024-07-08 17:15:41",
+                "title": "Innovations in Human-Computer Interaction Forums",
+                "url": "https://www.hci-forums.com/innovations"
+            },
+            {
+                "id": 58,
+                "time": "2024-07-08 19:45:36",
+                "title": "Artificial Intelligence Documentaries - Google Search",
+                "url": "https://www.google.com/search?q=artificial+intelligence+documentaries"
+            },
+            {
+                "id": 59,
+                "time": "2024-07-08 21:15:18",
+                "title": "Effective Email Communication with Classmates",
+                "url": "https://www.studentcommunication.com/effective-email"
+            },
+            {
+                "id": 60,
+                "time": "2024-07-08 07:45:12",
+                "title": "Healthy Breakfast Ideas for Families - Google Search",
+                "url": "https://www.google.com/search?q=healthy+breakfast+ideas+for+families"
+            },
+            {
+                "id": 61,
+                "time": "2024-07-08 08:15:37",
+                "title": "Top Homework Help Websites for Kids - Google Search",
+                "url": "https://www.google.com/search?q=top+homework+help+websites+for+kids"
+            },
+            {
+                "id": 62,
+                "time": "2024-07-08 09:10:24",
+                "title": "Effective Stand-Up Meetings - Google Search",
+                "url": "https://www.google.com/search?q=effective+stand-up+meetings"
+            },
+            {
+                "id": 63,
+                "time": "2024-07-08 09:35:51",
+                "title": "Brainstorming Techniques for Product Development",
+                "url": "https://www.techblog.com/brainstorming-techniques-for-product-development"
+            },
+            {
+                "id": 64,
+                "time": "2024-07-08 11:05:43",
+                "title": "Best Practices for Virtual Meetings - Google Search",
+                "url": "https://www.google.com/search?q=best+practices+for+virtual+meetings"
+            },
+            {
+                "id": 65,
+                "time": "2024-07-08 12:15:29",
+                "title": "Quarterly Product Roadmap Review",
+                "url": "https://www.productmanagement.com/quarterly-product-roadmap-review"
+            },
+            {
+                "id": 66,
+                "time": "2024-07-08 13:05:18",
+                "title": "Local Cafes for Lunch in Minneapolis - Google Search",
+                "url": "https://www.google.com/search?q=local+cafes+for+lunch+in+Minneapolis"
+            },
+            {
+                "id": 67,
+                "time": "2024-07-08 14:15:42",
+                "title": "Marketing Campaign Strategies for Tech Products",
+                "url": "https://www.marketingblog.com/marketing-campaign-strategies-for-tech-products"
+            },
+            {
+                "id": 68,
+                "time": "2024-07-08 17:05:36",
+                "title": "Best Productivity Apps 2024 - Google Search",
+                "url": "https://www.google.com/search?q=best+productivity+apps+2024"
+            },
+            {
+                "id": 69,
+                "time": "2024-07-08 20:15:57",
+                "title": "Top Online Tech Forums for Product Managers",
+                "url": "https://www.techforums.com/top-online-tech-forums-for-product-managers"
+            },
+            {
+                "id": 70,
+                "time": "2024-07-08 08:15:23",
+                "title": "How to Manage Emails Effectively - Google Search",
+                "url": "https://www.google.com/search?q=how+to+manage+emails+effectively"
+            },
+            {
+                "id": 71,
+                "time": "2024-07-08 09:10:45",
+                "title": "Zoom Meeting Best Practices - Google Search",
+                "url": "https://www.google.com/search?q=zoom+meeting+best+practices"
+            },
+            {
+                "id": 72,
+                "time": "2024-07-08 10:15:38",
+                "title": "Best Mobile App Development Frameworks 2024 - Google Search",
+                "url": "https://www.google.com/search?q=best+mobile+app+development+frameworks+2024"
+            },
+            {
+                "id": 73,
+                "time": "2024-07-08 10:45:12",
+                "title": "How to Create a User-Friendly Mobile App",
+                "url": "https://www.udacity.com/course/how-to-create-a-user-friendly-mobile-app"
+            },
+            {
+                "id": 74,
+                "time": "2024-07-08 13:20:47",
+                "title": "Common Software Bugs and How to Fix Them - Google Search",
+                "url": "https://www.google.com/search?q=common+software+bugs+and+how+to+fix+them"
+            },
+            {
+                "id": 75,
+                "time": "2024-07-08 15:10:29",
+                "title": "Top Tech Podcasts in 2024 - Google Search",
+                "url": "https://www.google.com/search?q=top+tech+podcasts+in+2024"
+            },
+            {
+                "id": 76,
+                "time": "2024-07-08 15:35:55",
+                "title": "Best Practices for Code Reviews - Google Search",
+                "url": "https://www.google.com/search?q=best+practices+for+code+reviews"
+            },
+            {
+                "id": 77,
+                "time": "2024-07-08 17:20:13",
+                "title": "Weekly Grocery Shopping List",
+                "url": "https://www.realsimple.com/food-recipes/shopping-storing/weekly-grocery-shopping-list"
+            },
+            {
+                "id": 78,
+                "time": "2024-07-08 20:30:34",
+                "title": "Top Documentaries on Technology - Google Search",
+                "url": "https://www.google.com/search?q=top+documentaries+on+technology"
+            },
+            {
+                "id": 79,
+                "time": "2024-07-08 21:15:42",
+                "title": "Mindfulness Meditation Techniques - Google Search",
+                "url": "https://www.google.com/search?q=mindfulness+meditation+techniques"
+            },
+            {
+                "id": 80,
+                "time": "2024-07-08 07:15:23",
+                "title": "Latest Tech News - TechCrunch",
+                "url": "https://techcrunch.com/latest-tech-news"
+            },
+            {
+                "id": 81,
+                "time": "2024-07-08 07:45:12",
+                "title": "New Programming Languages in 2024 - Google Search",
+                "url": "https://www.google.com/search?q=new+programming+languages+in+2024"
+            },
+            {
+                "id": 82,
+                "time": "2024-07-08 08:30:45",
+                "title": "Healthy Breakfast Recipes - AllRecipes",
+                "url": "https://www.allrecipes.com/healthy-breakfast-recipes"
+            },
+            {
+                "id": 83,
+                "time": "2024-07-08 09:45:33",
+                "title": "Effective Team Meetings - Harvard Business Review",
+                "url": "https://hbr.org/effective-team-meetings"
+            },
+            {
+                "id": 84,
+                "time": "2024-07-08 10:30:27",
+                "title": "How to Develop Software Features - Google Search",
+                "url": "https://www.google.com/search?q=how+to+develop+software+features"
+            },
+            {
+                "id": 85,
+                "time": "2024-07-08 12:15:14",
+                "title": "Top Lunch Spots in Oakland - Yelp",
+                "url": "https://www.yelp.com/top-lunch-spots-in-oakland"
+            },
+            {
+                "id": 86,
+                "time": "2024-07-08 13:45:59",
+                "title": "Project Management Tips - Google Search",
+                "url": "https://www.google.com/search?q=project+management+tips"
+            },
+            {
+                "id": 87,
+                "time": "2024-07-08 15:30:21",
+                "title": "Brainstorming Techniques for Developers - Medium",
+                "url": "https://medium.com/brainstorming-techniques-for-developers"
+            },
+            {
+                "id": 88,
+                "time": "2024-07-08 17:45:38",
+                "title": "Best Workout Routines for Software Engineers - Google Search",
+                "url": "https://www.google.com/search?q=best+workout+routines+for+software+engineers"
+            },
+            {
+                "id": 89,
+                "time": "2024-07-08 20:15:52",
+                "title": "Top Coding Challenges 2024 - HackerRank",
+                "url": "https://www.hackerrank.com/top-coding-challenges-2024"
+            }
+        ],
+        "city": "Oakland",
+        "device": "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:70.0) Gecko/20100101 Firefox/70.0",
+        "education_background": "Bachelor's degree in Computer Science",
+        "first_name": "Makabaka",
+        "gender": "female",
+        "income": "95,000",
+        "job": "Software Engineer",
+        "last_name": "Williams",
+        "marital_status": "single",
+        "online_behavior": "Enjoys coding and developing personal projects on laptop; stays updated on tech news and participates in online coding challenges via mobile phone; prefers using forums like StackOverflow for troubleshooting and GitHub for version control and collaboration.",
+        "parental_status": "not parents",
+        "profile": "Makabaka Williams is a 25-year-old African American female living in 1420 Franklin St, Oakland, CA 94612. She speaks English and her education background includes a bachelor's degree in Computer Science. Makabaka's date of birth is 04/17/1999. She works in the technology industry and has a very large employer (more than 10,000 employees). She is currently working as a software engineer, with an annual income of $95,000. She is a renter. Makabaka is single and does not have children. She enjoys coding and developing personal projects on her laptop. When using her mobile phone, she likes to stay updated on tech news and participate in online coding challenges. On the internet, she prefers using forums like StackOverflow for troubleshooting and GitHub for version control and collaboration.",
+        "race": "African American",
+        "schedule": [
+            {
+                "address": "1420 Franklin St, Oakland, CA 94612",
+                "end_time": "2024-07-08 07:00:00",
+                "event": "Yoga session at home",
+                "id": 0,
+                "latitude": 37.8044,
+                "longitude": -122.2711,
+                "start_time": "2024-07-08 06:00:00"
+            },
+            {
+                "address": "1420 Franklin St, Oakland, CA 94612",
+                "end_time": "2024-07-08 08:00:00",
+                "event": "Read tech news on mobile phone",
+                "id": 1,
+                "latitude": 37.8044,
+                "longitude": -122.2711,
+                "start_time": "2024-07-08 07:00:00"
+            },
+            {
+                "address": "1420 Franklin St, Oakland, CA 94612",
+                "end_time": "2024-07-08 09:00:00",
+                "event": "Cook breakfast",
+                "id": 2,
+                "latitude": 37.8044,
+                "longitude": -122.2711,
+                "start_time": "2024-07-08 08:00:00"
+            },
+            {
+                "address": "123 Tech Park, Oakland, CA 94607",
+                "end_time": "2024-07-08 10:00:00",
+                "event": "Team meeting at the workplace",
+                "id": 3,
+                "latitude": 37.8,
+                "longitude": -122.27,
+                "start_time": "2024-07-08 09:00:00"
+            },
+            {
+                "address": "123 Tech Park, Oakland, CA 94607",
+                "end_time": "2024-07-08 12:00:00",
+                "event": "Work on a new software feature",
+                "id": 4,
+                "latitude": 37.8,
+                "longitude": -122.27,
+                "start_time": "2024-07-08 10:00:00"
+            },
+            {
+                "address": "456 Market St, Oakland, CA 94607",
+                "end_time": "2024-07-08 13:00:00",
+                "event": "Lunch with a colleague",
+                "id": 5,
+                "latitude": 37.795,
+                "longitude": -122.275,
+                "start_time": "2024-07-08 12:00:00"
+            },
+            {
+                "address": "123 Tech Park, Oakland, CA 94607",
+                "end_time": "2024-07-08 15:00:00",
+                "event": "Weekly sync with the project manager",
+                "id": 6,
+                "latitude": 37.8,
+                "longitude": -122.27,
+                "start_time": "2024-07-08 13:00:00"
+            },
+            {
+                "address": "123 Tech Park, Oakland, CA 94607",
+                "end_time": "2024-07-08 17:00:00",
+                "event": "Brainstorming session with the development team",
+                "id": 7,
+                "latitude": 37.8,
+                "longitude": -122.27,
+                "start_time": "2024-07-08 15:00:00"
+            },
+            {
+                "address": "789 Fitness Ave, Oakland, CA 94612",
+                "end_time": "2024-07-08 18:00:00",
+                "event": "Workout at the gym",
+                "id": 8,
+                "latitude": 37.81,
+                "longitude": -122.265,
+                "start_time": "2024-07-08 17:00:00"
+            },
+            {
+                "address": "101 Grocery St, Oakland, CA 94612",
+                "end_time": "2024-07-08 19:00:00",
+                "event": "Grocery shopping",
+                "id": 9,
+                "latitude": 37.815,
+                "longitude": -122.26,
+                "start_time": "2024-07-08 18:00:00"
+            },
+            {
+                "address": "1420 Franklin St, Oakland, CA 94612",
+                "end_time": "2024-07-08 20:00:00",
+                "event": "Cook dinner",
+                "id": 10,
+                "latitude": 37.8044,
+                "longitude": -122.2711,
+                "start_time": "2024-07-08 19:00:00"
+            },
+            {
+                "address": "1420 Franklin St, Oakland, CA 94612",
+                "end_time": "2024-07-08 21:00:00",
+                "event": "Participate in an online coding challenge",
+                "id": 11,
+                "latitude": 37.8044,
+                "longitude": -122.2711,
+                "start_time": "2024-07-08 20:00:00"
+            },
+            {
+                "address": "1420 Franklin St, Oakland, CA 94612",
+                "end_time": "2024-07-08 22:00:00",
+                "event": "Watch a movie on streaming service",
+                "id": 12,
+                "latitude": 37.8044,
+                "longitude": -122.2711,
+                "start_time": "2024-07-08 21:00:00"
+            },
+            {
+                "address": "1420 Franklin St, Oakland, CA 94612",
+                "end_time": "2024-07-08 23:00:00",
+                "event": "Read a book on software development",
+                "id": 13,
+                "latitude": 37.8044,
+                "longitude": -122.2711,
+                "start_time": "2024-07-08 22:00:00"
+            },
+            {
+                "address": "123 Park Lane, Oakland, CA 94612",
+                "end_time": "2024-07-08 23:59:59",
+                "event": "Relax at a local park",
+                "id": 14,
+                "latitude": 37.82,
+                "longitude": -122.25,
+                "start_time": "2024-07-08 23:00:00"
+            }
+        ],
+        "short_profile": "Makabaka Williams, 25, Oakland-based software engineer in tech industry, earns $95k. Enjoys coding, tech news, and online challenges. Rents, single.",
+        "spoken_language": "English",
+        "state": "CA",
+        "street": "1420 Franklin St",
+        "userId": "9",
+        "zip_code": "94612",
+        "favourite": true,
+        "switch": {
+            "name": true,
+            "gender": true,
+            "birthday": true,
+            "race": true,
+            "address": true,
+            "job": true,
+            "income": true,
+            "education": true,
+            "spoken_language": true,
+            "marital_status": true,
+            "parental_status": true,
+            "schedule": true,
+            "browser_history": true,
+            "facebook_posts": true,
+            "twitter_posts": true
+        }
+    },
+    "success": true
+}

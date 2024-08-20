@@ -1,0 +1,545 @@
+{
+    "code": 200,
+    "data": {
+        "age": "21",
+        "birthday": "12/29/2002",
+        "browser": "Firefox - Windows",
+        "browsing_history": [
+            {
+                "id": 0,
+                "time": "2024-07-08 07:15:23",
+                "title": "How to Prepare Fishing Gear - YouTube",
+                "url": "https://www.youtube.com/watch?v=example1"
+            },
+            {
+                "id": 1,
+                "time": "2024-07-08 08:05:47",
+                "title": "Honolulu Weather Updates - Google Search",
+                "url": "https://www.google.com/search?q=honolulu+weather+updates"
+            },
+            {
+                "id": 2,
+                "time": "2024-07-08 08:22:19",
+                "title": "Fishing Weather Forecasts - Weather.com",
+                "url": "https://www.weather.com/fishing-forecasts"
+            },
+            {
+                "id": 3,
+                "time": "2024-07-08 09:10:34",
+                "title": "Fishing Industry Meeting Tips - Google Search",
+                "url": "https://www.google.com/search?q=fishing+industry+meeting+tips"
+            },
+            {
+                "id": 4,
+                "time": "2024-07-08 12:15:55",
+                "title": "Best Local Seafood Markets - Google Search",
+                "url": "https://www.google.com/search?q=best+local+seafood+markets"
+            },
+            {
+                "id": 5,
+                "time": "2024-07-08 13:25:11",
+                "title": "How to Maintain a Fishing Boat - YouTube",
+                "url": "https://www.youtube.com/watch?v=example2"
+            },
+            {
+                "id": 6,
+                "time": "2024-07-08 19:10:48",
+                "title": "Fishing Techniques for Beginners - YouTube",
+                "url": "https://www.youtube.com/watch?v=example3"
+            },
+            {
+                "id": 7,
+                "time": "2024-07-08 20:15:37",
+                "title": "Best Fishing Forums - Google Search",
+                "url": "https://www.google.com/search?q=best+fishing+forums"
+            },
+            {
+                "id": 8,
+                "time": "2024-07-08 21:05:29",
+                "title": "Fishing Mentor Video Call Tips - Google Search",
+                "url": "https://www.google.com/search?q=fishing+mentor+video+call+tips"
+            },
+            {
+                "id": 9,
+                "time": "2024-07-08 22:10:45",
+                "title": "Top Fishing Magazines - Google Search",
+                "url": "https://www.google.com/search?q=top+fishing+magazines"
+            },
+            {
+                "id": 10,
+                "time": "2024-07-08 08:15:32",
+                "title": "How to organize work emails - Google Search",
+                "url": "https://www.google.com/search?q=how+to+organize+work+emails"
+            },
+            {
+                "id": 11,
+                "time": "2024-07-08 08:45:21",
+                "title": "Best email management tools - Google Search",
+                "url": "https://www.google.com/search?q=best+email+management+tools"
+            },
+            {
+                "id": 12,
+                "time": "2024-07-08 09:45:53",
+                "title": "Effective crew meeting strategies - Google Search",
+                "url": "https://www.google.com/search?q=effective+crew+meeting+strategies"
+            },
+            {
+                "id": 13,
+                "time": "2024-07-08 10:15:47",
+                "title": "Boat maintenance checklist",
+                "url": "https://www.boatus.com/expert-advice/boat-maintenance-checklist"
+            },
+            {
+                "id": 14,
+                "time": "2024-07-08 12:30:19",
+                "title": "How to sell fish at a market - Google Search",
+                "url": "https://www.google.com/search?q=how+to+sell+fish+at+a+market"
+            },
+            {
+                "id": 15,
+                "time": "2024-07-08 13:15:36",
+                "title": "Best fishing net supplies - Google Search",
+                "url": "https://www.google.com/search?q=best+fishing+net+supplies"
+            },
+            {
+                "id": 16,
+                "time": "2024-07-08 14:30:41",
+                "title": "How to clean a fishing boat",
+                "url": "https://www.fishingmonthly.com.au/how-to-clean-a-fishing-boat"
+            },
+            {
+                "id": 17,
+                "time": "2024-07-08 19:15:28",
+                "title": "Top fishing forums - Google Search",
+                "url": "https://www.google.com/search?q=top+fishing+forums"
+            },
+            {
+                "id": 18,
+                "time": "2024-07-08 20:30:14",
+                "title": "Best fishing tutorial videos",
+                "url": "https://www.youtube.com/results?search_query=best+fishing+tutorial+videos"
+            },
+            {
+                "id": 19,
+                "time": "2024-07-08 21:45:52",
+                "title": "Fishing equipment reviews - Google Search",
+                "url": "https://www.google.com/search?q=fishing+equipment+reviews"
+            },
+            {
+                "id": 20,
+                "time": "2024-07-08 07:15:45",
+                "title": "How to Create Effective Presentations - Google Search",
+                "url": "https://www.google.com/search?q=how+to+create+effective+presentations"
+            },
+            {
+                "id": 21,
+                "time": "2024-07-08 07:45:32",
+                "title": "Effective Presentation Tips for Psychologists",
+                "url": "https://www.psychologytoday.com/us/blog/the-psychology-presentation/202307/effective-presentation-tips-for-psychologists"
+            },
+            {
+                "id": 22,
+                "time": "2024-07-08 08:30:27",
+                "title": "Healthy Breakfast Recipes - Google Search",
+                "url": "https://www.google.com/search?q=healthy+breakfast+recipes"
+            },
+            {
+                "id": 23,
+                "time": "2024-07-08 08:45:53",
+                "title": "10 Easy Breakfast Recipes for Families",
+                "url": "https://www.foodnetwork.com/recipes/photos/easy-breakfast-recipes-for-families"
+            },
+            {
+                "id": 24,
+                "time": "2024-07-08 12:15:38",
+                "title": "Latest Issue of Journal of Clinical Psychology",
+                "url": "https://onlinelibrary.wiley.com/journal/10974679"
+            },
+            {
+                "id": 25,
+                "time": "2024-07-08 12:45:12",
+                "title": "Current Trends in Clinical Psychology - Google Search",
+                "url": "https://www.google.com/search?q=current+trends+in+clinical+psychology"
+            },
+            {
+                "id": 26,
+                "time": "2024-07-08 17:15:59",
+                "title": "Weekly Meal Prep Grocery List - Google Search",
+                "url": "https://www.google.com/search?q=weekly+meal+prep+grocery+list"
+            },
+            {
+                "id": 27,
+                "time": "2024-07-08 18:45:43",
+                "title": "New Dinner Recipes to Try - Google Search",
+                "url": "https://www.google.com/search?q=new+dinner+recipes+to+try"
+            },
+            {
+                "id": 28,
+                "time": "2024-07-08 19:45:21",
+                "title": "Top Home D\u00e9cor Trends of 2024 - Google Search",
+                "url": "https://www.google.com/search?q=top+home+d\u00e9cor+trends+of+2024"
+            },
+            {
+                "id": 29,
+                "time": "2024-07-08 21:45:37",
+                "title": "Mindfulness Techniques Workshop - Google Search",
+                "url": "https://www.google.com/search?q=mindfulness+techniques+workshop"
+            },
+            {
+                "id": 30,
+                "time": "2024-07-08 07:15:32",
+                "title": "Outdoor play ideas for kids - Google Search",
+                "url": "https://www.google.com/search?q=outdoor+play+ideas+for+kids"
+            },
+            {
+                "id": 31,
+                "time": "2024-07-08 08:10:47",
+                "title": "Kindergarten art class activities - Google Search",
+                "url": "https://www.google.com/search?q=kindergarten+art+class+activities"
+            },
+            {
+                "id": 32,
+                "time": "2024-07-08 09:05:21",
+                "title": "How to make friends in kindergarten - Google Search",
+                "url": "https://www.google.com/search?q=how+to+make+friends+in+kindergarten"
+            },
+            {
+                "id": 33,
+                "time": "2024-07-08 10:15:38",
+                "title": "Healthy snacks for kids",
+                "url": "https://www.parents.com/recipes/nutrition/kids/healthy-snacks-for-kids/"
+            },
+            {
+                "id": 34,
+                "time": "2024-07-08 11:05:14",
+                "title": "Drawing with crayons - Google Search",
+                "url": "https://www.google.com/search?q=drawing+with+crayons"
+            },
+            {
+                "id": 35,
+                "time": "2024-07-08 12:10:55",
+                "title": "Easy lunch ideas for kids - Google Search",
+                "url": "https://www.google.com/search?q=easy+lunch+ideas+for+kids"
+            },
+            {
+                "id": 36,
+                "time": "2024-07-08 13:15:22",
+                "title": "Best LEGO sets for 5 year olds",
+                "url": "https://www.lego.com/en-us/categories/boys-5-years-old"
+            },
+            {
+                "id": 37,
+                "time": "2024-07-08 15:10:43",
+                "title": "Educational games for kids",
+                "url": "https://www.education.com/games/"
+            },
+            {
+                "id": 38,
+                "time": "2024-07-08 18:15:37",
+                "title": "Benefits of evening walks for kids - Google Search",
+                "url": "https://www.google.com/search?q=benefits+of+evening+walks+for+kids"
+            },
+            {
+                "id": 39,
+                "time": "2024-07-08 19:45:19",
+                "title": "Best bedtime stories for kids",
+                "url": "https://www.goodhousekeeping.com/childrens-books/best-bedtime-stories/"
+            },
+            {
+                "id": 40,
+                "time": "2024-07-08 08:15:23",
+                "title": "Watch morning cartoons - YouTube",
+                "url": "https://www.youtube.com/watch?v=examplecartoon"
+            },
+            {
+                "id": 41,
+                "time": "2024-07-08 11:05:37",
+                "title": "Best playgrounds for kids - Google Search",
+                "url": "https://www.google.com/search?q=best+playgrounds+for+kids"
+            },
+            {
+                "id": 42,
+                "time": "2024-07-08 11:25:42",
+                "title": "Fun playground games for children - Google Search",
+                "url": "https://www.google.com/search?q=fun+playground+games+for+children"
+            },
+            {
+                "id": 43,
+                "time": "2024-07-08 13:05:18",
+                "title": "Educational classroom activities for kindergarten - Google Search",
+                "url": "https://www.google.com/search?q=educational+classroom+activities+for+kindergarten"
+            },
+            {
+                "id": 44,
+                "time": "2024-07-08 13:15:49",
+                "title": "Best storybooks for kindergarten - Google Search",
+                "url": "https://www.google.com/search?q=best+storybooks+for+kindergarten"
+            },
+            {
+                "id": 45,
+                "time": "2024-07-08 14:15:36",
+                "title": "Toy cars for kids - Amazon",
+                "url": "https://www.amazon.com/s?k=toy+cars+for+kids"
+            },
+            {
+                "id": 46,
+                "time": "2024-07-08 15:15:47",
+                "title": "Building LEGO towers - YouTube",
+                "url": "https://www.youtube.com/watch?v=examplelegotower"
+            },
+            {
+                "id": 47,
+                "time": "2024-07-08 16:15:28",
+                "title": "Best puzzles for 5-year-olds - Google Search",
+                "url": "https://www.google.com/search?q=best+puzzles+for+5-year-olds"
+            },
+            {
+                "id": 48,
+                "time": "2024-07-08 17:15:55",
+                "title": "Educational games for kids - App Store",
+                "url": "https://apps.apple.com/us/app/educational-games-for-kids/id123456789"
+            },
+            {
+                "id": 49,
+                "time": "2024-07-08 18:45:33",
+                "title": "Educational videos for children - YouTube",
+                "url": "https://www.youtube.com/watch?v=exampleeducationalvideo"
+            },
+            {
+                "id": 50,
+                "time": "2024-07-08 09:15:34",
+                "title": "Understanding Machine Learning Basics - Google Search",
+                "url": "https://www.google.com/search?q=understanding+machine+learning+basics"
+            },
+            {
+                "id": 51,
+                "time": "2024-07-08 10:45:22",
+                "title": "Human-Computer Interaction Study Group Resources",
+                "url": "https://www.hci-studygroup.org/resources"
+            },
+            {
+                "id": 52,
+                "time": "2024-07-08 11:15:47",
+                "title": "Latest Research Papers on Interaction Design - Google Search",
+                "url": "https://www.google.com/search?q=latest+research+papers+on+interaction+design"
+            },
+            {
+                "id": 53,
+                "time": "2024-07-08 13:15:38",
+                "title": "Best Practices for User Interface Design",
+                "url": "https://www.uibestpractices.com/articles/best-practices-for-user-interface-design"
+            },
+            {
+                "id": 54,
+                "time": "2024-07-08 14:45:52",
+                "title": "Effective Group Project Collaboration Tools - Google Search",
+                "url": "https://www.google.com/search?q=effective+group+project+collaboration+tools"
+            },
+            {
+                "id": 55,
+                "time": "2024-07-08 15:45:13",
+                "title": "Feedback on HCI Projects from Professors",
+                "url": "https://www.hci-feedback.com/professors-feedback"
+            },
+            {
+                "id": 56,
+                "time": "2024-07-08 16:15:29",
+                "title": "Downloading Research Papers on Interaction Design",
+                "url": "https://www.researchgate.net/download-papers/interaction-design"
+            },
+            {
+                "id": 57,
+                "time": "2024-07-08 17:15:41",
+                "title": "Innovations in Human-Computer Interaction Forums",
+                "url": "https://www.hci-forums.com/innovations"
+            },
+            {
+                "id": 58,
+                "time": "2024-07-08 19:45:36",
+                "title": "Artificial Intelligence Documentaries - Google Search",
+                "url": "https://www.google.com/search?q=artificial+intelligence+documentaries"
+            },
+            {
+                "id": 59,
+                "time": "2024-07-08 21:15:18",
+                "title": "Effective Email Communication with Classmates",
+                "url": "https://www.studentcommunication.com/effective-email"
+            }
+        ],
+        "city": "South Bend",
+        "device": "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:70.0) Gecko/20100101 Firefox/70.0",
+        "education_background": "Current college student studying Human-Computer Interaction at the University of Notre Dame",
+        "first_name": "Dora",
+        "gender": "female",
+        "income": "0",
+        "job": "Unemployed",
+        "last_name": "Zhou",
+        "marital_status": "single",
+        "online_behavior": "Enjoys downloading educational resources and research papers on computer, browsing forums related to Human-Computer Interaction, using mobile apps for language learning, stays connected with classmates and professors through email and academic social networks",
+        "parental_status": "not parents",
+        "profile": "Dora Zhou is a 21-year-old Asian female living in 1336 Douglas Rd, South Bend, IN 46617. She speaks English and her education background includes being a current college student studying human-computer interaction at the University of Notre Dame. Dora's date of birth is 12/29/2002. She is not currently employed and has no income. Dora is a renter, living in student housing provided by the University. She is single and does not have children. In her free time, Dora enjoys downloading educational resources and research papers on her computer, browsing various forums related to human-computer interaction, and using mobile apps for language learning. She likes to stay connected with her classmates and professors through email and academic social networks.",
+        "race": "Asian American",
+        "schedule": [
+            {
+                "address": "Notre Dame, IN 46556",
+                "end_time": "2024-07-08 07:00:00",
+                "event": "Go for a run around the university campus",
+                "id": 0,
+                "latitude": 41.7032,
+                "longitude": -86.2399,
+                "start_time": "2024-07-08 06:00:00"
+            },
+            {
+                "address": "1336 Douglas Rd, South Bend, IN 46617",
+                "end_time": "2024-07-08 08:00:00",
+                "event": "Yoga session with housemates in the common room",
+                "id": 1,
+                "latitude": 41.684,
+                "longitude": -86.252,
+                "start_time": "2024-07-08 07:00:00"
+            },
+            {
+                "address": "1336 Douglas Rd, South Bend, IN 46617",
+                "end_time": "2024-07-08 09:00:00",
+                "event": "Cook breakfast with housemates",
+                "id": 2,
+                "latitude": 41.684,
+                "longitude": -86.252,
+                "start_time": "2024-07-08 08:00:00"
+            },
+            {
+                "address": "University of Notre Dame, Notre Dame, IN 46556",
+                "end_time": "2024-07-08 10:30:00",
+                "event": "Attend machine learning lecture at university",
+                "id": 3,
+                "latitude": 41.7032,
+                "longitude": -86.2399,
+                "start_time": "2024-07-08 09:00:00"
+            },
+            {
+                "address": "Hesburgh Library, Notre Dame, IN 46556",
+                "end_time": "2024-07-08 12:00:00",
+                "event": "Meet with human-computer interaction study group at library",
+                "id": 4,
+                "latitude": 41.7022,
+                "longitude": -86.2385,
+                "start_time": "2024-07-08 10:30:00"
+            },
+            {
+                "address": "South Dining Hall, Notre Dame, IN 46556",
+                "end_time": "2024-07-08 13:00:00",
+                "event": "Lunch with classmates",
+                "id": 5,
+                "latitude": 41.7032,
+                "longitude": -86.2399,
+                "start_time": "2024-07-08 12:00:00"
+            },
+            {
+                "address": "1336 Douglas Rd, South Bend, IN 46617",
+                "end_time": "2024-07-08 14:30:00",
+                "event": "Work on group project for user interface design class",
+                "id": 6,
+                "latitude": 41.684,
+                "longitude": -86.252,
+                "start_time": "2024-07-08 13:00:00"
+            },
+            {
+                "address": "University of Notre Dame, Notre Dame, IN 46556",
+                "end_time": "2024-07-08 15:30:00",
+                "event": "Attend professor's office hours for project feedback",
+                "id": 7,
+                "latitude": 41.7032,
+                "longitude": -86.2399,
+                "start_time": "2024-07-08 14:30:00"
+            },
+            {
+                "address": "1336 Douglas Rd, South Bend, IN 46617",
+                "end_time": "2024-07-08 17:00:00",
+                "event": "Download research papers on interaction design",
+                "id": 8,
+                "latitude": 41.684,
+                "longitude": -86.252,
+                "start_time": "2024-07-08 15:30:00"
+            },
+            {
+                "address": "1336 Douglas Rd, South Bend, IN 46617",
+                "end_time": "2024-07-08 18:00:00",
+                "event": "Browse forums on human-computer interaction innovations",
+                "id": 9,
+                "latitude": 41.684,
+                "longitude": -86.252,
+                "start_time": "2024-07-08 17:00:00"
+            },
+            {
+                "address": "1336 Douglas Rd, South Bend, IN 46617",
+                "end_time": "2024-07-08 19:30:00",
+                "event": "Cook dinner with ingredients bought from the local market",
+                "id": 10,
+                "latitude": 41.684,
+                "longitude": -86.252,
+                "start_time": "2024-07-08 18:00:00"
+            },
+            {
+                "address": "1336 Douglas Rd, South Bend, IN 46617",
+                "end_time": "2024-07-08 21:00:00",
+                "event": "Watch a documentary on artificial intelligence",
+                "id": 11,
+                "latitude": 41.684,
+                "longitude": -86.252,
+                "start_time": "2024-07-08 19:30:00"
+            },
+            {
+                "address": "1336 Douglas Rd, South Bend, IN 46617",
+                "end_time": "2024-07-08 22:00:00",
+                "event": "Email classmates about upcoming assignments",
+                "id": 12,
+                "latitude": 41.684,
+                "longitude": -86.252,
+                "start_time": "2024-07-08 21:00:00"
+            },
+            {
+                "address": "1336 Douglas Rd, South Bend, IN 46617",
+                "end_time": "2024-07-08 23:00:00",
+                "event": "Organize study materials and notes",
+                "id": 13,
+                "latitude": 41.684,
+                "longitude": -86.252,
+                "start_time": "2024-07-08 22:00:00"
+            },
+            {
+                "address": "1336 Douglas Rd, South Bend, IN 46617",
+                "end_time": "2024-07-08 23:59:59",
+                "event": "Read a book on human-computer interaction",
+                "id": 14,
+                "latitude": 41.684,
+                "longitude": -86.252,
+                "start_time": "2024-07-08 23:00:00"
+            }
+        ],
+        "short_profile": "Dora Zhou, 21, is a college student studying Human-Computer Interaction at the University of Notre Dame. She is single, lives in student housing, and enjoys educational activities online.",
+        "spoken_language": "English",
+        "state": "IN",
+        "street": "1336 Douglas Rd",
+        "userId": "6",
+        "zip_code": "46617",
+        "favourite": true,
+        "switch": {
+            "name": true,
+            "gender": true,
+            "birthday": true,
+            "race": true,
+            "address": true,
+            "job": true,
+            "income": true,
+            "education": true,
+            "spoken_language": true,
+            "marital_status": true,
+            "parental_status": true,
+            "schedule": true,
+            "browser_history": true,
+            "facebook_posts": true,
+            "twitter_posts": true
+        }
+    },
+    "success": true
+}

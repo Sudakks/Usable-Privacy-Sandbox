@@ -33,9 +33,6 @@ class Persona(BaseModel):
     profile: str
     browser: str
     device: str
-    industry: str
-    employer_size: str
-    homeownership: str
     favourite: bool
     switch: dict
 
@@ -48,44 +45,44 @@ def load_personas_from_folder(folder_path: str):
     for filename in os.listdir(folder_path):
         if filename.endswith(".json"):
             file_path = os.path.join(folder_path, filename)
-            with open(file_path, "r") as f:
-                data = json.load(f)
-                persona_info = data["data"]
-                name = f"{persona_info['first_name']} {persona_info['last_name']}"
-                birthday = datetime.strptime(persona_info['birthday'], "%m/%d/%Y").date()
-                address = f"{persona_info['street']}, {persona_info['city']}, {persona_info['state']}, {persona_info['zip_code']}"
-                persona = Persona(
-                    userId=persona_info.get("userId", 0),
-                    first_name=persona_info.get("first_name", ""),
-                    last_name=persona_info.get("last_name", ""),
-                    name=name,
-                    profileImgUrl=".." + persona_info.get("profileImgUrl", ""),
-                    age=persona_info.get("age", ""),
-                    gender=persona_info.get("gender", ""),
-                    race=persona_info.get("race", ""),
-                    street=persona_info.get("street", ""),
-                    city=persona_info.get("city", ""),
-                    state=persona_info.get("state", ""),
-                    zip_code=persona_info.get("zip_code", ""),
-                    address=address,
-                    spoken_language=persona_info.get("spoken_language", ""),
-                    education_background=persona_info.get("education_background", ""),
-                    birthday=birthday,
-                    job=persona_info.get("job", ""),
-                    income=persona_info.get("income", ""),
-                    marital_status=persona_info.get("marital_status", ""),
-                    parental_status=persona_info.get("parental_status", ""),
-                    online_behavior=persona_info.get("online_behavior", ""),
-                    profile=persona_info.get("profile", ""),
-                    browser=persona_info.get("browser", ""),
-                    device=persona_info.get("device", ""),
-                    industry=persona_info.get("industry", ""),
-                    employer_size=persona_info.get("employer_size", ""),
-                    homeownership=persona_info.get("homeownership", ""),
-                    favourite=persona_info.get("favourite", False),
-                    switch=persona_info.get("switch", [])
-                )
-                personas.append(persona)
+            try:
+                with open(file_path, "r") as f:
+                    data = json.load(f)
+                    persona_info = data["data"]
+                    name = f"{persona_info['first_name']} {persona_info['last_name']}"
+                    birthday = datetime.strptime(persona_info['birthday'], "%m/%d/%Y").date()
+                    address = f"{persona_info['street']}, {persona_info['city']}, {persona_info['state']}, {persona_info['zip_code']}"
+                    persona = Persona(
+                        userId=persona_info.get("userId", 0),
+                        first_name=persona_info.get("first_name", ""),
+                        last_name=persona_info.get("last_name", ""),
+                        name=name,
+                        profileImgUrl=".." + persona_info.get("profileImgUrl", ""),
+                        age=persona_info.get("age", ""),
+                        gender=persona_info.get("gender", ""),
+                        race=persona_info.get("race", ""),
+                        street=persona_info.get("street", ""),
+                        city=persona_info.get("city", ""),
+                        state=persona_info.get("state", ""),
+                        zip_code=persona_info.get("zip_code", ""),
+                        address=address,
+                        spoken_language=persona_info.get("spoken_language", ""),
+                        education_background=persona_info.get("education_background", ""),
+                        birthday=birthday,
+                        job=persona_info.get("job", ""),
+                        income=persona_info.get("income", ""),
+                        marital_status=persona_info.get("marital_status", ""),
+                        parental_status=persona_info.get("parental_status", ""),
+                        online_behavior=persona_info.get("online_behavior", ""),
+                        profile=persona_info.get("profile", ""),
+                        browser=persona_info.get("browser", ""),
+                        device=persona_info.get("device", ""),
+                        favourite=persona_info.get("favourite", False),
+                        switch=persona_info.get("switch", [])
+                    )
+            except:
+                continue
+            personas.append(persona)
     return personas
 
 @router.get("/loadpersona")
