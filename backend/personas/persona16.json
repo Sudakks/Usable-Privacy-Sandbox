@@ -1,0 +1,416 @@
+{
+    "code": 200,
+    "data": {
+        "age": "45",
+        "birthday": "01/09/1979",
+        "browser": "Firefox - Windows",
+        "browsing_history": [
+            {
+                "id": 0,
+                "time": "2024-07-08 07:05:12",
+                "title": "Online Medical Journals - Google Search",
+                "url": "https://www.google.com/search?q=online+medical+journals"
+            },
+            {
+                "id": 1,
+                "time": "2024-07-08 07:10:45",
+                "title": "Top Medical Journals to Follow in 2024",
+                "url": "https://www.medicaljournals.com/top-2024"
+            },
+            {
+                "id": 2,
+                "time": "2024-07-08 08:05:37",
+                "title": "How to Manage Work Emails Efficiently - Google Search",
+                "url": "https://www.google.com/search?q=how+to+manage+work+emails+efficiently"
+            },
+            {
+                "id": 3,
+                "time": "2024-07-08 08:12:54",
+                "title": "Tips for Managing Work Emails",
+                "url": "https://www.productivitytips.com/managing-work-emails"
+            },
+            {
+                "id": 4,
+                "time": "2024-07-08 12:10:23",
+                "title": "Best Lunch Spots in Springfield - Google Search",
+                "url": "https://www.google.com/search?q=best+lunch+spots+in+Springfield"
+            },
+            {
+                "id": 5,
+                "time": "2024-07-08 12:15:46",
+                "title": "Top 10 Lunch Restaurants in Springfield",
+                "url": "https://www.yelp.com/top-10-lunch-spots-springfield"
+            },
+            {
+                "id": 6,
+                "time": "2024-07-08 17:05:18",
+                "title": "Office Supplies for Healthcare Administrators - Google Search",
+                "url": "https://www.google.com/search?q=office+supplies+for+healthcare+administrators"
+            },
+            {
+                "id": 7,
+                "time": "2024-07-08 17:15:32",
+                "title": "Essential Office Supplies for Healthcare Professionals",
+                "url": "https://www.officesupplies.com/healthcare-professionals"
+            },
+            {
+                "id": 8,
+                "time": "2024-07-08 18:05:49",
+                "title": "Weekly Grocery Deals - Google Search",
+                "url": "https://www.google.com/search?q=weekly+grocery+deals"
+            },
+            {
+                "id": 9,
+                "time": "2024-07-08 18:12:37",
+                "title": "Best Grocery Deals This Week",
+                "url": "https://www.grocerydeals.com/weekly-deals"
+            },
+            {
+                "id": 10,
+                "time": "2024-07-08 08:15:23",
+                "title": "Latest Medical Journals - Google Search",
+                "url": "https://www.google.com/search?q=latest+medical+journals"
+            },
+            {
+                "id": 11,
+                "time": "2024-07-08 08:45:12",
+                "title": "Top Medical Journals to Read",
+                "url": "https://www.medicaljournals.com/top-medical-journals"
+            },
+            {
+                "id": 12,
+                "time": "2024-07-08 09:15:37",
+                "title": "Healthcare Management Meeting Agenda - Google Search",
+                "url": "https://www.google.com/search?q=healthcare+management+meeting+agenda"
+            },
+            {
+                "id": 13,
+                "time": "2024-07-08 10:45:49",
+                "title": "Quarterly Financial Report Review Tips",
+                "url": "https://www.financialreports.com/review-tips"
+            },
+            {
+                "id": 14,
+                "time": "2024-07-08 12:15:58",
+                "title": "Best Local Restaurants - Google Search",
+                "url": "https://www.google.com/search?q=best+local+restaurants"
+            },
+            {
+                "id": 15,
+                "time": "2024-07-08 13:15:27",
+                "title": "Team Brainstorming Techniques",
+                "url": "https://www.teamwork.com/brainstorming-techniques"
+            },
+            {
+                "id": 16,
+                "time": "2024-07-08 14:45:36",
+                "title": "Effective One-on-One Meetings - Google Search",
+                "url": "https://www.google.com/search?q=effective+one-on-one+meetings"
+            },
+            {
+                "id": 17,
+                "time": "2024-07-08 16:15:45",
+                "title": "New Healthcare Policies 2024",
+                "url": "https://www.healthcarepolicies.com/new-policies-2024"
+            },
+            {
+                "id": 18,
+                "time": "2024-07-08 17:15:53",
+                "title": "Best Gym Workouts for Health Professionals",
+                "url": "https://www.healthygym.com/best-workouts-for-health-professionals"
+            },
+            {
+                "id": 19,
+                "time": "2024-07-08 22:45:32",
+                "title": "Best Online Grocery Stores - Google Search",
+                "url": "https://www.google.com/search?q=best+online+grocery+stores"
+            },
+            {
+                "id": 20,
+                "time": "2024-07-08 07:15:23",
+                "title": "Best Trumpet Pieces to Practice in 2024 - Google Search",
+                "url": "https://www.google.com/search?q=best+trumpet+pieces+to+practice+in+2024"
+            },
+            {
+                "id": 21,
+                "time": "2024-07-08 09:05:47",
+                "title": "Weekly Team Meeting Agenda - Music Industry",
+                "url": "https://www.musicindustrynews.com/weekly-team-meeting-agenda"
+            },
+            {
+                "id": 22,
+                "time": "2024-07-08 10:15:36",
+                "title": "Top Rehearsal Tips for Bands - Google Search",
+                "url": "https://www.google.com/search?q=top+rehearsal+tips+for+bands"
+            },
+            {
+                "id": 23,
+                "time": "2024-07-08 12:10:58",
+                "title": "Best Restaurants for Lunch in Springfield, IL - Google Search",
+                "url": "https://www.google.com/search?q=best+restaurants+for+lunch+in+Springfield+IL"
+            },
+            {
+                "id": 24,
+                "time": "2024-07-08 15:10:12",
+                "title": "Top Professional Reviews for Trumpet Mutes",
+                "url": "https://www.musicreviews.com/trumpet-mutes"
+            },
+            {
+                "id": 25,
+                "time": "2024-07-08 16:15:44",
+                "title": "New Music Artists to Explore in 2024 - Google Search",
+                "url": "https://www.google.com/search?q=new+music+artists+to+explore+in+2024"
+            },
+            {
+                "id": 26,
+                "time": "2024-07-08 17:05:19",
+                "title": "How to Tune and Clean Your Trumpet Properly",
+                "url": "https://www.trumpetcare.com/how-to-tune-and-clean-your-trumpet"
+            },
+            {
+                "id": 27,
+                "time": "2024-07-08 18:15:33",
+                "title": "Creating a Setlist for a Gig - Tips and Tricks",
+                "url": "https://www.gigsetlist.com/creating-a-setlist-for-a-gig"
+            },
+            {
+                "id": 28,
+                "time": "2024-07-08 19:10:21",
+                "title": "Live-Streamed Concerts in July 2024 - Google Search",
+                "url": "https://www.google.com/search?q=live-streamed+concerts+in+july+2024"
+            },
+            {
+                "id": 29,
+                "time": "2024-07-08 21:15:49",
+                "title": "Top Music Forums for Performance Tips",
+                "url": "https://www.musicforums.com/top-music-forums-for-performance-tips"
+            },
+            {
+                "id": 30,
+                "time": "2024-07-08 07:15:12",
+                "title": "Healthy Breakfast Ideas - Google Search",
+                "url": "https://www.google.com/search?q=healthy+breakfast+ideas"
+            },
+            {
+                "id": 31,
+                "time": "2024-07-08 08:30:45",
+                "title": "Best Soccer Practice Drills - Google Search",
+                "url": "https://www.google.com/search?q=best+soccer+practice+drills"
+            },
+            {
+                "id": 32,
+                "time": "2024-07-08 09:45:22",
+                "title": "Effective Healthcare Department Meetings - Google Search",
+                "url": "https://www.google.com/search?q=effective+healthcare+department+meetings"
+            },
+            {
+                "id": 33,
+                "time": "2024-07-08 12:15:38",
+                "title": "Top Restaurants in Downtown Dallas - Google Search",
+                "url": "https://www.google.com/search?q=top+restaurants+in+downtown+dallas"
+            },
+            {
+                "id": 34,
+                "time": "2024-07-08 13:30:47",
+                "title": "Healthcare Policy Review Guidelines",
+                "url": "https://www.healthcarepolicies.com/guidelines"
+            },
+            {
+                "id": 35,
+                "time": "2024-07-08 15:45:53",
+                "title": "Effective Email Communication in Healthcare",
+                "url": "https://www.healthcareemails.com/effective-communication"
+            },
+            {
+                "id": 36,
+                "time": "2024-07-08 17:15:34",
+                "title": "Best Organic Food Stores in Dallas - Google Search",
+                "url": "https://www.google.com/search?q=best+organic+food+stores+in+dallas"
+            },
+            {
+                "id": 37,
+                "time": "2024-07-08 19:45:29",
+                "title": "Healthy Dinner Recipes for Families",
+                "url": "https://www.healthydinnerrecipes.com/families"
+            },
+            {
+                "id": 38,
+                "time": "2024-07-08 20:30:18",
+                "title": "Best Homework Tutoring Strategies - Google Search",
+                "url": "https://www.google.com/search?q=best+homework+tutoring+strategies"
+            },
+            {
+                "id": 39,
+                "time": "2024-07-08 22:15:09",
+                "title": "Customer Reviews for Organic Products",
+                "url": "https://www.organicreviews.com/products"
+            }
+        ],
+        "city": "Dallas",
+        "device": "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:70.0) Gecko/20100101 Firefox/70.0",
+        "education_background": "Bachelor\u2019s degree in Business Administration",
+        "first_name": "Jessica",
+        "gender": "female",
+        "income": "95,000",
+        "job": "Healthcare Administrator",
+        "last_name": "Martinez",
+        "marital_status": "married",
+        "online_behavior": "Enjoys browsing health and wellness blogs and streaming educational documentaries on mobile phone, uses a dual-monitor setup for computer navigation, likes to shop for organic food products online and reads customer reviews before making a purchase",
+        "parental_status": "parents of children",
+        "profile": "Jessica Martinez is a 45-year-old Hispanic female living in 1822 Elm Street, Dallas, TX 75201. She speaks both English and Spanish. Her education background includes a bachelor\u2019s degree in Business Administration. Jessica\u2019s date of birth is 01/09/1979. She works in the healthcare industry and has a large employer (250-10,000 employees). She is currently working as a healthcare administrator, with an annual income of $95,000. She is a homeowner. Jessica is married and has three children. She enjoys browsing health and wellness blogs and streaming educational documentaries on her mobile phone during her free time. When using her computer, she prefers a dual-monitor setup to increase productivity. On the internet, she likes to shop for organic food products and read customer reviews before making a purchase.",
+        "race": "Hispanic",
+        "schedule": [
+            {
+                "address": "1822 Elm Street, Dallas, TX 75201",
+                "end_time": "2024-07-08 07:00:00",
+                "event": "Yoga session in the living room",
+                "id": 0,
+                "latitude": 32.7767,
+                "longitude": -96.797,
+                "start_time": "2024-07-08 06:00:00"
+            },
+            {
+                "address": "1822 Elm Street, Dallas, TX 75201",
+                "end_time": "2024-07-08 08:00:00",
+                "event": "Prepare breakfast for the family",
+                "id": 1,
+                "latitude": 32.7767,
+                "longitude": -96.797,
+                "start_time": "2024-07-08 07:00:00"
+            },
+            {
+                "address": "123 Soccer Field Rd, Dallas, TX 75201",
+                "end_time": "2024-07-08 09:00:00",
+                "event": "Take children to soccer practice",
+                "id": 2,
+                "latitude": 32.782,
+                "longitude": -96.8,
+                "start_time": "2024-07-08 08:00:00"
+            },
+            {
+                "address": "456 Healthcare Blvd, Dallas, TX 75201",
+                "end_time": "2024-07-08 12:00:00",
+                "event": "Attend department meeting at the workplace",
+                "id": 3,
+                "latitude": 32.78,
+                "longitude": -96.81,
+                "start_time": "2024-07-08 09:00:00"
+            },
+            {
+                "address": "789 Downtown Ave, Dallas, TX 75201",
+                "end_time": "2024-07-08 13:00:00",
+                "event": "Lunch with a friend at a downtown restaurant",
+                "id": 4,
+                "latitude": 32.774,
+                "longitude": -96.8,
+                "start_time": "2024-07-08 12:00:00"
+            },
+            {
+                "address": "456 Healthcare Blvd, Dallas, TX 75201",
+                "end_time": "2024-07-08 15:00:00",
+                "event": "Review healthcare policies and procedures",
+                "id": 5,
+                "latitude": 32.78,
+                "longitude": -96.81,
+                "start_time": "2024-07-08 13:00:00"
+            },
+            {
+                "address": "456 Healthcare Blvd, Dallas, TX 75201",
+                "end_time": "2024-07-08 17:00:00",
+                "event": "Respond to emails from healthcare colleagues",
+                "id": 6,
+                "latitude": 32.78,
+                "longitude": -96.81,
+                "start_time": "2024-07-08 15:00:00"
+            },
+            {
+                "address": "1010 Organic Market St, Dallas, TX 75201",
+                "end_time": "2024-07-08 18:00:00",
+                "event": "Grocery shopping for organic food products",
+                "id": 7,
+                "latitude": 32.785,
+                "longitude": -96.805,
+                "start_time": "2024-07-08 17:00:00"
+            },
+            {
+                "address": "1822 Elm Street, Dallas, TX 75201",
+                "end_time": "2024-07-08 19:00:00",
+                "event": "Cooking healthy dinner for the family",
+                "id": 8,
+                "latitude": 32.7767,
+                "longitude": -96.797,
+                "start_time": "2024-07-08 18:00:00"
+            },
+            {
+                "address": "1822 Elm Street, Dallas, TX 75201",
+                "end_time": "2024-07-08 20:00:00",
+                "event": "Tutor children with their homework",
+                "id": 9,
+                "latitude": 32.7767,
+                "longitude": -96.797,
+                "start_time": "2024-07-08 19:00:00"
+            },
+            {
+                "address": "1822 Elm Street, Dallas, TX 75201",
+                "end_time": "2024-07-08 21:00:00",
+                "event": "Watch educational documentary on health care advancements",
+                "id": 10,
+                "latitude": 32.7767,
+                "longitude": -96.797,
+                "start_time": "2024-07-08 20:00:00"
+            },
+            {
+                "address": "1822 Elm Street, Dallas, TX 75201",
+                "end_time": "2024-07-08 22:00:00",
+                "event": "Reading customer reviews for organic products",
+                "id": 11,
+                "latitude": 32.7767,
+                "longitude": -96.797,
+                "start_time": "2024-07-08 21:00:00"
+            },
+            {
+                "address": "1822 Elm Street, Dallas, TX 75201",
+                "end_time": "2024-07-08 23:00:00",
+                "event": "Stream educational documentary on ancient civilizations",
+                "id": 12,
+                "latitude": 32.7767,
+                "longitude": -96.797,
+                "start_time": "2024-07-08 22:00:00"
+            },
+            {
+                "address": "1822 Elm Street, Dallas, TX 75201",
+                "end_time": "2024-07-08 23:59:59",
+                "event": "Inspect and organize home office setup",
+                "id": 13,
+                "latitude": 32.7767,
+                "longitude": -96.797,
+                "start_time": "2024-07-08 23:00:00"
+            }
+        ],
+        "short_profile": "Jessica Martinez, 45, a married healthcare administrator from Dallas, TX, with three children and a $95,000 salary.",
+        "spoken_language": "English and Spanish",
+        "state": "TX",
+        "street": "1822 Elm Street",
+        "userId": "16",
+        "zip_code": "75201",
+        "favourite": false,
+        "switch": {
+            "name": true,
+            "gender": true,
+            "birthday": true,
+            "race": true,
+            "address": true,
+            "job": false,
+            "income": true,
+            "education": true,
+            "spoken_language": true,
+            "marital_status": true,
+            "parental_status": true,
+            "schedule": true,
+            "browser_history": true,
+            "facebook_posts": true,
+            "twitter_posts": true
+        }
+    },
+    "success": true
+}

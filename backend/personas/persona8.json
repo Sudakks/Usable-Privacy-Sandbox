@@ -1,0 +1,248 @@
+{
+    "code": 200,
+    "data": {
+        "age": "27",
+        "birthday": "08/14/1996",
+        "browser": "Firefox - Windows",
+        "browsing_history": [
+            {
+                "id": 0,
+                "time": "2024-07-08 08:45:12",
+                "title": "Best Coffee Shops in Denver - Google Search",
+                "url": "https://www.google.com/search?q=best+coffee+shops+in+Denver"
+            },
+            {
+                "id": 1,
+                "time": "2024-07-08 09:10:45",
+                "title": "Effective Stand-Up Meetings - Google Search",
+                "url": "https://www.google.com/search?q=effective+stand-up+meetings"
+            },
+            {
+                "id": 2,
+                "time": "2024-07-08 09:35:23",
+                "title": "Back-End Development Best Practices - Google Search",
+                "url": "https://www.google.com/search?q=back-end+development+best+practices"
+            },
+            {
+                "id": 3,
+                "time": "2024-07-08 11:15:37",
+                "title": "GitHub - Open Source Project Contributions",
+                "url": "https://github.com/explore"
+            },
+            {
+                "id": 4,
+                "time": "2024-07-08 12:35:49",
+                "title": "Healthy Lunch Recipes - Google Search",
+                "url": "https://www.google.com/search?q=healthy+lunch+recipes"
+            },
+            {
+                "id": 5,
+                "time": "2024-07-08 14:10:56",
+                "title": "Client Presentation Tips - Google Search",
+                "url": "https://www.google.com/search?q=client+presentation+tips"
+            },
+            {
+                "id": 6,
+                "time": "2024-07-08 15:45:33",
+                "title": "Brainstorming Techniques - Google Search",
+                "url": "https://www.google.com/search?q=brainstorming+techniques"
+            },
+            {
+                "id": 7,
+                "time": "2024-07-08 16:30:27",
+                "title": "Best Tools for Remote Team Sync - Google Search",
+                "url": "https://www.google.com/search?q=best+tools+for+remote+team+sync"
+            },
+            {
+                "id": 8,
+                "time": "2024-07-08 20:45:18",
+                "title": "Machine Learning Advancements 2024 - Google Search",
+                "url": "https://www.google.com/search?q=machine+learning+advancements+2024"
+            },
+            {
+                "id": 9,
+                "time": "2024-07-08 22:15:42",
+                "title": "Top Tech Podcasts 2024 - Google Search",
+                "url": "https://www.google.com/search?q=top+tech+podcasts+2024"
+            }
+        ],
+        "city": "Denver",
+        "device": "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:70.0) Gecko/20100101 Firefox/70.0",
+        "education_background": "Bachelor's degree in Computer Science",
+        "first_name": "Maxine",
+        "gender": "female",
+        "income": "95,000",
+        "job": "Software Engineer",
+        "last_name": "Rodriguez",
+        "marital_status": "single",
+        "online_behavior": "Stays up-to-date with tech innovations, contributes to open-source projects, prefers mechanical keyboards and high-DPI mice for coding, uses productivity apps and tech podcasts on mobile phone, participates in coding forums, reads in-depth articles about machine learning advancements",
+        "parental_status": "not parents",
+        "profile": "Maxine \"Max\" Rodriguez is a 27-year-old Hispanic female living at 1422 Elm Street, Denver, CO 80220. She speaks both English and Spanish, and her education background includes a bachelor's degree in Computer Science. Maxine's date of birth is 08/14/1996. She works in the technology industry with a large employer (250-10,000 employees). She is currently employed as a software engineer, with an annual income of $95,000. She is a renter. Maxine is single and has no children. She enjoys staying up-to-date with the latest tech innovations and often contributes to open-source projects in her free time. When using her computer, she prefers mechanical keyboards and high-DPI mice for coding. On her mobile phone, she frequently uses productivity apps and listens to tech podcasts. On the internet, she likes to participate in coding forums and reads in-depth articles about machine learning advancements.",
+        "race": "Hispanic",
+        "schedule": [
+            {
+                "address": "1422 Elm Street, Denver, CO 80220",
+                "end_time": "2024-07-08 07:00:00",
+                "event": "Yoga session at home",
+                "id": 0,
+                "latitude": 39.7392,
+                "longitude": -104.9903,
+                "start_time": "2024-07-08 06:00:00"
+            },
+            {
+                "address": "1422 Elm Street, Denver, CO 80220",
+                "end_time": "2024-07-08 08:00:00",
+                "event": "Weekly meal prep at home",
+                "id": 1,
+                "latitude": 39.7392,
+                "longitude": -104.9903,
+                "start_time": "2024-07-08 07:00:00"
+            },
+            {
+                "address": "1234 Tech Avenue, Denver, CO 80220",
+                "end_time": "2024-07-08 09:00:00",
+                "event": "Coffee break with colleagues",
+                "id": 2,
+                "latitude": 39.7392,
+                "longitude": -104.9903,
+                "start_time": "2024-07-08 08:00:00"
+            },
+            {
+                "address": "1234 Tech Avenue, Denver, CO 80220",
+                "end_time": "2024-07-08 09:30:00",
+                "event": "Daily stand-up meeting at work",
+                "id": 3,
+                "latitude": 39.7392,
+                "longitude": -104.9903,
+                "start_time": "2024-07-08 09:00:00"
+            },
+            {
+                "address": "1234 Tech Avenue, Denver, CO 80220",
+                "end_time": "2024-07-08 12:00:00",
+                "event": "Back-end development sprint",
+                "id": 4,
+                "latitude": 39.7392,
+                "longitude": -104.9903,
+                "start_time": "2024-07-08 09:30:00"
+            },
+            {
+                "address": "1234 Tech Avenue, Denver, CO 80220",
+                "end_time": "2024-07-08 13:00:00",
+                "event": "Lunch break",
+                "id": 5,
+                "latitude": 39.7392,
+                "longitude": -104.9903,
+                "start_time": "2024-07-08 12:00:00"
+            },
+            {
+                "address": "1234 Tech Avenue, Denver, CO 80220",
+                "end_time": "2024-07-08 15:00:00",
+                "event": "Client presentation preparation",
+                "id": 6,
+                "latitude": 39.7392,
+                "longitude": -104.9903,
+                "start_time": "2024-07-08 13:00:00"
+            },
+            {
+                "address": "1234 Tech Avenue, Denver, CO 80220",
+                "end_time": "2024-07-08 16:00:00",
+                "event": "Team brainstorming session at work",
+                "id": 7,
+                "latitude": 39.7392,
+                "longitude": -104.9903,
+                "start_time": "2024-07-08 15:00:00"
+            },
+            {
+                "address": "1234 Tech Avenue, Denver, CO 80220",
+                "end_time": "2024-07-08 17:00:00",
+                "event": "Sync meeting with remote team",
+                "id": 8,
+                "latitude": 39.7392,
+                "longitude": -104.9903,
+                "start_time": "2024-07-08 16:00:00"
+            },
+            {
+                "address": "1234 Elm Street, Denver, CO 80220",
+                "end_time": "2024-07-08 18:00:00",
+                "event": "Grocery shopping",
+                "id": 9,
+                "latitude": 39.7392,
+                "longitude": -104.9903,
+                "start_time": "2024-07-08 17:00:00"
+            },
+            {
+                "address": "1422 Elm Street, Denver, CO 80220",
+                "end_time": "2024-07-08 19:00:00",
+                "event": "Dinner with friends at home",
+                "id": 10,
+                "latitude": 39.7392,
+                "longitude": -104.9903,
+                "start_time": "2024-07-08 18:00:00"
+            },
+            {
+                "address": "1422 Elm Street, Denver, CO 80220",
+                "end_time": "2024-07-08 20:30:00",
+                "event": "Virtual reality gaming night",
+                "id": 11,
+                "latitude": 39.7392,
+                "longitude": -104.9903,
+                "start_time": "2024-07-08 19:00:00"
+            },
+            {
+                "address": "1422 Elm Street, Denver, CO 80220",
+                "end_time": "2024-07-08 21:30:00",
+                "event": "Read articles on machine learning advancements",
+                "id": 12,
+                "latitude": 39.7392,
+                "longitude": -104.9903,
+                "start_time": "2024-07-08 20:30:00"
+            },
+            {
+                "address": "1422 Elm Street, Denver, CO 80220",
+                "end_time": "2024-07-08 23:00:00",
+                "event": "Work on open-source project",
+                "id": 13,
+                "latitude": 39.7392,
+                "longitude": -104.9903,
+                "start_time": "2024-07-08 21:30:00"
+            },
+            {
+                "address": "1422 Elm Street, Denver, CO 80220",
+                "end_time": "2024-07-08 23:59:59",
+                "event": "Watch tech podcast on mobile phone",
+                "id": 14,
+                "latitude": 39.7392,
+                "longitude": -104.9903,
+                "start_time": "2024-07-08 23:00:00"
+            }
+        ],
+        "short_profile": "Maxine \"Max\" Rodriguez, 27, Denver-based software engineer, earns $95k, tech-savvy and open-source contributor. Single, rents.",
+        "spoken_language": [
+            "English",
+            "Spanish"
+        ],
+        "state": "CO",
+        "street": "1422 Elm Street",
+        "userId": "8",
+        "zip_code": "80220",
+        "favourite": false,
+        "switch": {
+            "name": true,
+            "gender": true,
+            "birthday": true,
+            "race": true,
+            "address": true,
+            "job": true,
+            "income": true,
+            "education": true,
+            "spoken_language": true,
+            "marital_status": true,
+            "parental_status": true,
+            "schedule": true,
+            "browser_history": true,
+            "facebook_posts": true,
+            "twitter_posts": true
+        }
+    },
+    "success": true
+}

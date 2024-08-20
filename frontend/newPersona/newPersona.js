@@ -75,9 +75,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     confirmBtn.addEventListener('click', function () {
         var profile = editInput.value;
-        console.log(profile);
         if (profile) {
             chrome.runtime.sendMessage({ action: 'confirmPersona', profile: profile }, function (response) {
+                console.log('Confirming...');
                 if (response) {
                     var persona_json = response.persona_json;
                     console.log(persona_json);
@@ -86,7 +86,28 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                     else{
                         chrome.runtime.sendMessage({ action: 'savePersona', persona_json: persona_json }, function (response) {});
-                        //window.location.href = "../overview_page/overview.html";
+                        console.log('Persona json saved successfully'); 
+                        //var userId = persona_json['data']['userId'] - 1;
+                        //userId = userId.toString();
+                        //console.log(userId);         
+                        let newpersona; // 声明在外部作用域中
+                        fetch('http://localhost:8000/newpersonalocalstorage', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(persona_json) 
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            newpersona = data; // 将数据赋值给外部声明的变量
+                            console.log(newpersona);
+                            localStorage.setItem('selectedPersona', JSON.stringify(newpersona));
+                            window.location.href = "../overview_page/overview.html";
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });                    
                     }
                 } else {
                     alert('Failed to confirm persona.');
@@ -123,3 +144,18 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = "../popup.html";
     });
 });
+
+// async function loadPersona() {
+//     try {
+//         const response = await fetch('http://localhost:8000/loadpersona');
+//         const personas = await response.json(); // 等待解析为 JSON
+//         console.log(personas.length);
+//         const newPersona = personas[personas.length - 1];
+//         userId = newPersona.get('userId');
+//         console.log(userId);
+//         localStorage.setItem('selectedPersona', JSON.stringify(newPersona));
+//         //window.location.href = "../overview_page/overview.html";
+//     } catch (error) {
+//         console.error('Error loading persona:', error);
+//     }
+// }

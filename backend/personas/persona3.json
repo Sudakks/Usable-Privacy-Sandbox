@@ -3378,9 +3378,6 @@
         "profile": "Michael Johnson is a 42-year-old African American male living in 123 Oak Street, Atlanta, GA 30303. He speaks English and his education background includes a bachelor's degree in Business Administration. Michael's date of birth is 09/15/1981. He is currently working as a financial analyst, with an annual income of $70,000. Michael is single and does not have any children. He enjoys using his computer for online gaming and browsing news websites. When using his mobile phone, he prefers to use social media and watch videos. On the internet, he likes to research investment opportunities and read financial blogs.",
         "browser": "Firefox - Windows",
         "device": "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:70.0) Gecko/20100101 Firefox/70.0",
-        "industry": "finance",
-        "employer_size": "large employer (250-10,000 employees)",
-        "homeownership": "homeowners",
         "favourite": false,
         "switch": {
             "name": true,

@@ -1,0 +1,7 @@
+fastapi
+pydantic
+flask
+langchain
+langchain-openai
+dalle3
+openai
