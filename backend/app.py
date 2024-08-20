@@ -2,6 +2,7 @@
 from flask import Flask, request, jsonify
 from generate import Generator
 from completepersonajson import complete_persona_json
+from loadpersona import load_single_persona
 
 import os, json
 
@@ -61,7 +62,17 @@ def save_persona():
     save_path = "./personas/persona" + str(userId) + ".json"
     with open(save_path, 'w') as f:
         json.dump(persona_json, f, indent=4)
-    return jsonify({'persona_json': persona_json})
+    return jsonify({'message': 'Persona saved successfully.'})
+
+@app.route('/newpersona_localstorage', methods=['POST'])
+def newpersona_localstorage():
+    userId = request.data.decode('utf-8')  # 将字节流解码为字符串
+
+    try:
+        newpersona = load_single_persona(userId)
+        return newpersona
+    except Exception as e:
+        return jsonify({'message': 'Failed to load new persona.'}), 400
 
 @app.route('/generate_image', methods=['POST'])
 def generate_image():

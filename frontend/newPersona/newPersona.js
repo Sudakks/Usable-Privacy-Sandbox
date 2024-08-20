@@ -68,7 +68,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                     else{
                         chrome.runtime.sendMessage({ action: 'savePersona', persona_json: persona_json }, function (response) {});
-                        console.log('Persona json saved successfully');
+                        console.log('Persona json saved successfully'); 
+                        var userId = persona_json['data']['userId'];
+                        console.log(userId)              
+                        chrome.runtime.sendMessage({ action: 'savetolocalstorage', userId: userId }, function (response) {
+                            if (response) {
+                                var newpersona = response;
+                                console.log(newpersona);
+                                localStorage.setItem('selectedPersona', newpersona);
+                            }
+                        });                     
                         
                     }
                 } else {

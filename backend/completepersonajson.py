@@ -4,7 +4,7 @@ def complete_persona_json(persona_json):
     # 检查 "data" 域是否存在
     if 'data' in persona_json:
         # 添加 "favourite" 和 "switch" 信息
-        persona_json['data']['favourite'] = True
+        persona_json['data']['favourite'] = False
         persona_json['data']['switch'] = {
             "name": True,
             "gender": True,

@@ -71,6 +71,25 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         return true; // ������Ϣͨ���򿪣�ֱ�� sendResponse
     }
 
+    if (message.action === 'savetolocalstorage') {
+        const userId = message.userId;
+
+        fetch('http://localhost:5000/newpersona_localstorage', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'text/plain'
+            },
+            body: userId
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json(); // 解析 JSON 并返回解析后的数据
+        });
+        //return true; // ������Ϣͨ���򿪣�ֱ�� sendResponse
+    }
+
 
     if (message.action === 'generateImage') {
         const imageGuidance = message.guidance;
