@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     // 存储当前所处界面信息
     sessionStorage.setItem("currentPage", "overview");
+    setButtonVisibility();
 
     // 处理返回按钮的点击事件
     var backButton = document.querySelector(".backButton");
@@ -18,6 +19,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         getResult();
     });
+
+    var saveButton = document.querySelector(".saveButton");
+    saveButton.addEventListener("click", () => {
+        getChangedList();
+    });
+
+
 
     // 从 localStorage 中获取 persona 数据
     const personaData = localStorage.getItem('selectedPersona');

@@ -7,7 +7,8 @@ from changepersonainfo import router as changepersonainfo_router
 from changeswitch import router as changeswitch_router
 from identifychange import router as identifychange_router
 from restorelocalstorage import router as restorelocalstorage_router
-from favouritepersona import router as favouritepersona_router
+from changefavourite import router as changefavourite_router
+from deletepersona import router as deletepersona_router
 
 app = FastAPI()
 
@@ -17,7 +18,8 @@ app.include_router(changepersonainfo_router)
 app.include_router(changeswitch_router)
 app.include_router(identifychange_router)
 app.include_router(restorelocalstorage_router)
-app.include_router(favouritepersona_router)
+app.include_router(changefavourite_router)
+app.include_router(deletepersona_router)
 
 origins = ["*"]
 

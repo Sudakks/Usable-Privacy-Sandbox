@@ -1,11 +1,15 @@
 {
   "ExpandedNodes": [
     "",
+    "\\backend",
+    "\\backend\\personas",
+    "\\backend\\personas\\persona-image",
     "\\frontend",
     "\\frontend\\basicInfo_page",
     "\\frontend\\bg_page",
     "\\frontend\\others_page",
     "\\frontend\\overview_page"
   ],
+  "SelectedNode": "\\backend\\personas\\persona-image\\persona4.png",
   "PreviewInSolutionExplorer": false
 }

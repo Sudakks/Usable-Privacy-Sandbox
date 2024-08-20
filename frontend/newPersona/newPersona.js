@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     editInput.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
             updateDisplayText();
+
         }
     });
 
