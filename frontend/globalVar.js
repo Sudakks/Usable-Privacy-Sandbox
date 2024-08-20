@@ -24,9 +24,9 @@ function saveAllFiled() {
     let selectedPersona = JSON.parse(sessionStorage.getItem('selectedPersona')) || {};
     submitChanges(selectedPersona, bgModified);
     submitChanges(selectedPersona, basicInfoModified);
-    sessionStorage.setItem('basicInfoModified', {});
-    sessionStorage.setItem('bgModified', {});
-
+    /*Be careful!!! should covert it into JSON format!!!*/
+    sessionStorage.setItem('basicInfoModified', JSON.stringify({}));
+    sessionStorage.setItem('bgModified', JSON.stringify({}));
 }
 
 async function discardChanges() {
@@ -180,9 +180,6 @@ function setButtonStatus(flag) {
 
 
 
-
-
-
 function fetchChangedList() {
     let selectedPersona = JSON.parse(localStorage.getItem('selectedPersona'));
 
@@ -201,6 +198,7 @@ function fetchChangedList() {
             return response.json(); // 解析 JSON 并返回解析后的数据
         });
 }
+
 
 async function getChangedList() {
     try {

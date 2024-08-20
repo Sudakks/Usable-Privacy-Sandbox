@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+    const confirmButton = document.querySelector('.confirmButton');
+    confirmButton.style.display = 'block';
+    confirmButton.disabled = true;
+    confirmButton.style.backgroundColor = '#ccc';
+    confirmButton.style.cursor = 'not-allowed';
+    confirmButton.style.opacity = '0.6';
+
+
     var dspFrame = document.getElementById('dspFrame');
     var displayText = document.getElementById('displayText');
     var editInput = document.getElementById('editInput');
@@ -55,6 +64,13 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Please enter some guidance in the input field.');
             generateDesBtn.textContent = "Generate description"; // 确保在没有 guidance 的情况下也能恢复按钮文字
         }
+
+        //change confirm color
+        confirmButton.style.display = 'block';
+        confirmButton.disabled = false;
+        confirmButton.style.backgroundColor = '';
+        confirmButton.style.cursor = '';
+        confirmButton.style.opacity = '';
     });
 
     confirmBtn.addEventListener('click', function () {

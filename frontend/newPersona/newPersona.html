@@ -26,19 +26,20 @@
                 <div id="displayText" style="overflow:auto;">Give a brief profile and generate a new Persona description.</div>
                 <textarea type="text" id="editInput" style="display:none;" autocomplete="off"></textarea><!--用来放user输入的内容-->
             </div>
+            <button class="newButton" style="background-color: #E7F1FB; width: 15em; color: #4DA9FC" id="generateDes">Generate description </button>
+            <!--
             <div class="btnPair">
                 <button class="newButton" style="background-color: #074FB3; width:15em" id="generateDes">Generate description </button>
                 <button class="newButton" style="width: 7.5em; font-size: 0.7em;" id="Confirm">Confirm</button>
             </div>
+                -->
         </div>
         <div class="right-container">
-            <div class="header">
-                <h1>Profile Picture</h1>
-            </div>
             <div class="photoFrame" style="background-image: url('../images/profileImage.png');" id="photoFrame"></div>
-            <button class="newButton" style="width: 12em; font-size: 0.7em;" id="generateImg">Generate Image</button>
+            <button class="newButton" style="width: 12em; font-size: 0.7em; background-color: #4DA9FC; color:white" id="generateImg">Generate Image</button>
         </div>
     </div>
+    <button class="confirmButton" id="Confirm">Confirm</button>
     <script src="../overview_page/overview.js"></script>
     <script src="newPersona.js"></script>
 </body>

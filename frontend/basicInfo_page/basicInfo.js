@@ -137,16 +137,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 }
                 basicInfoModified[infoDiv.className] = newValue;
-
+                // 发送到服务器
+                saveBasicInfoChanges(persona, basicInfoModified);
 
                 // 更新 localStorage
                 updateLocalStorage(persona);
 
-                // 发送到服务器
-                saveBasicInfoChanges(persona, basicInfoModified);
             }
 
-            infoDiv.style.display = 'inline';
+            infoDiv.style.display = 'block';
             input.style.display = 'none';
         }
     }, true);
