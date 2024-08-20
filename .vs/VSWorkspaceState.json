@@ -3,8 +3,9 @@
     "",
     "\\backend\\personas\\persona-image",
     "\\frontend",
-    "\\frontend\\basicInfo_page"
+    "\\frontend\\basicInfo_page",
+    "\\frontend\\overview_page"
   ],
-  "SelectedNode": "\\frontend\\basicInfo_page\\basicInfo.js",
+  "SelectedNode": "\\frontend\\overview_page\\overview.css",
   "PreviewInSolutionExplorer": false
 }

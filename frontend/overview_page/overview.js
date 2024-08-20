@@ -2,6 +2,45 @@ document.addEventListener("DOMContentLoaded", function () {
     // 存储当前所处界面信息
     sessionStorage.setItem("currentPage", "overview");
     setButtonVisibility();
+    
+        function setButtonVisibility() {
+            const saveButtons = document.querySelectorAll('.saveButton');
+            const discardButtons = document.querySelectorAll('.discardButton');
+            const activateButtons = document.querySelectorAll('.activateButton');
+
+            const saveButtonVisible = sessionStorage.getItem('saveButtonVisible');
+            const discardButtonVisible = sessionStorage.getItem('discardButtonVisible');
+            const activateButtonDisabled = sessionStorage.getItem('activateButtonDisabled');
+
+            // 控制 saveButtons 的显示状态
+            saveButtons.forEach(button => {
+                button.style.display = saveButtonVisible === 'true' ? 'block' : 'none';
+            });
+
+            // 控制 discardButtons 的显示状态
+            discardButtons.forEach(button => {
+                button.style.display = discardButtonVisible === 'true' ? 'block' : 'none';
+            });
+
+            // 控制 activateButtons 的显示状态
+            activateButtons.forEach(button => {
+                if (activateButtonDisabled === 'true') {
+                    button.style.display = 'block';
+                    button.disabled = true;
+                    button.style.backgroundColor = '#ccc';
+                    button.style.cursor = 'not-allowed';
+                    button.style.opacity = '0.6';
+                }
+                else if (activateButtonDisabled === 'false') {
+                    button.style.display = 'block';
+                    button.disabled = false;
+                    button.style.backgroundColor = '';
+                    button.style.cursor = '';
+                    button.style.opacity = '';
+                }
+            });
+        }
+        
 
     // 处理返回按钮的点击事件
     var backButton = document.querySelector(".backButton");
@@ -21,10 +60,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     var saveButton = document.querySelector(".saveButton");
-    saveButton.addEventListener("click", () => {
-        getChangedList();
-    });
-
+    if (saveButton) {
+        saveButton.addEventListener("click", () => {
+            getChangedList();
+        });
+    }
+    
 
 
     // 从 localStorage 中获取 persona 数据
@@ -95,6 +136,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+/*
+ Code included inside $( document ).ready() will only run 
+ once the page Document Object Model (DOM) is ready for JavaScript code to execute
+ */
+/*
 $(document).ready(function () {
     function showPopupMessage(message) {
         $('#popupMessage').text(message).fadeIn();
@@ -158,3 +204,71 @@ $(document).ready(function () {
     });
 });
 
+
+document.addEventListener('DOMContentLoaded', function () {
+    function showPopupMessage(message) {
+        var popupMessage = document.getElementById('popupMessage');
+        popupMessage.textContent = message;
+        popupMessage.style.display = 'block';
+
+        setTimeout(function () {
+            popupMessage.style.display = 'none';
+            document.getElementById('saveModal').style.display = 'none';
+        }, 1000); // Message shows for 1 second
+    }
+
+    function showPopupMessageAndBack(message) {
+        var popupMessage = document.getElementById('popupMessage');
+        popupMessage.textContent = message;
+        popupMessage.style.display = 'block';
+
+        setTimeout(function () {
+            popupMessage.style.display = 'none';
+            document.getElementById('backModal').style.display = 'none';
+
+            // 在popupMessage展示后0秒立即跳转popup.html
+            setTimeout(function () {
+                window.location.href = "../popup.html";
+            }, 0);
+
+        }, 1000);  // 显示 #popupMessage 的1秒时间
+    }
+
+    function onlyExit() {
+        document.getElementById('discardModal').style.display = 'none';
+    }
+
+    function backToSelect() {
+        window.location.href = "../popup.html";
+    }
+
+    document.getElementById('saveUpdate').addEventListener('click', function () {
+        showPopupMessage('Save & Update Successful!');
+    });
+
+    document.getElementById('saveNoUpdate').addEventListener('click', function () {
+        showPopupMessage('Only Saved Changes!');
+    });
+
+    document.getElementById('Cancel').addEventListener('click', function () {
+        onlyExit();
+    });
+
+    document.getElementById('Confirm').addEventListener('click', function () {
+        onlyExit();
+    });
+
+    document.getElementById('saveUpdateBack').addEventListener('click', function () {
+        showPopupMessageAndBack('Save & Update Successful!');
+    });
+
+    document.getElementById('saveBack').addEventListener('click', function () {
+        showPopupMessageAndBack('Only Saved Changes!');
+    });
+
+    document.getElementById('discardBack').addEventListener('click', function () {
+        backToSelect();
+    });
+});
+
+*/

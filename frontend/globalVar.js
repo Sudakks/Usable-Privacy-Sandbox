@@ -247,3 +247,96 @@ async function getChangedList() {
         console.error('Error fetching changed list:', error);
     }
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    function showPopupMessage(message) {
+        var popupMessages = document.querySelectorAll(".popup-message");
+        popupMessages.forEach(popupMessage => {
+            popupMessage.textContent = message;
+            popupMessage.style.display = 'block';
+            setTimeout(function () {
+                popupMessage.style.display = 'none';
+                document.getElementById('saveModal').style.display = 'none';
+            }, 1000); // Message shows for 1 second
+        });
+    }
+
+    function showPopupMessageAndBack(message) {
+        var popupMessages = document.querySelectorAll(".popup-message");
+        popupMessages.forEach(popupMessage => {
+            popupMessage.textContent = message;
+            popupMessage.style.display = 'block';
+
+            setTimeout(function () {
+                popupMessage.style.display = 'none';
+                document.getElementById('backModal').style.display = 'none';
+
+                // 在popupMessage展示后0秒立即跳转popup.html
+                setTimeout(function () {
+                    window.location.href = "../popup.html";
+                }, 0);
+
+            }, 1000);  // 显示 #popupMessage 的1秒时间
+        });
+    }
+
+    function onlyExit() {
+        var discardModals = document.querySelectorAll(".discardModal");
+        discardModals.forEach(discardModal => {
+            discardModals.style.display = 'none';
+        });
+    }
+
+    function backToSelect() {
+        window.location.href = "../popup.html";
+    }
+
+    var saveUpdates = document.querySelectorAll(".saveUpdate");
+    saveUpdates.forEach(saveUpdate => {
+        saveUpdate.addEventListener('click', function () {
+            showPopupMessage('Save & Update Successful!');
+        });
+    });
+
+    var saveNoUpdates = document.querySelectorAll(".saveNoUpdate");
+    saveNoUpdates.forEach(saveNoUpdate => {
+        saveNoUpdate.addEventListener('click', function () {
+            showPopupMessage('Only Saved Changes!');
+        });
+    });
+
+    var Cancels = document.querySelectorAll(".Cancel");
+    Cancels.forEach(Cancel => {
+        Cancel.addEventListener('click', function () {
+            onlyExit();
+        });
+    });
+
+    var Confirms = document.querySelectorAll(".Confirm");
+    Confirms.forEach(Confirm => {
+        Confirm.addEventListener('click', function () {
+            onlyExit();
+        });
+    });
+
+    var saveUpdateBacks = document.querySelectorAll(".saveUpdateBack");
+    saveUpdateBacks.forEach(saveUpdateBack => {
+        saveUpdateBack.addEventListener('click', function () {
+            showPopupMessageAndBack('Save & Update Successful!');
+        });
+    });
+
+    var saveBacks = document.querySelectorAll(".saveBack");
+    saveBacks.forEach(saveBack => {
+        saveBack.addEventListener('click', function () {
+            showPopupMessageAndBack('Only Saved Changes!');
+        });
+    });
+    var discardBacks = document.querySelectorAll(".discardBack");
+    discardBacks.forEach(discardBack => {
+        discardBack.addEventListener('click', function () {
+            backToSelect();
+        });
+    });
+});

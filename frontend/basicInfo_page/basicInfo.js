@@ -340,7 +340,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });*/
 
-
+/*
 $(document).ready(function () {
     $('.genderInput').prepend('<option value="" selected>Select gender</option>');
 });
@@ -410,3 +410,4 @@ $(document).ready(function () {
         backToSelect();
     });
 });
+*/
