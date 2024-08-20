@@ -140,7 +140,6 @@ document.addEventListener("DOMContentLoaded", function () {
  Code included inside $( document ).ready() will only run 
  once the page Document Object Model (DOM) is ready for JavaScript code to execute
  */
-/*
 $(document).ready(function () {
     function showPopupMessage(message) {
         $('#popupMessage').text(message).fadeIn();
@@ -205,70 +204,3 @@ $(document).ready(function () {
 });
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    function showPopupMessage(message) {
-        var popupMessage = document.getElementById('popupMessage');
-        popupMessage.textContent = message;
-        popupMessage.style.display = 'block';
-
-        setTimeout(function () {
-            popupMessage.style.display = 'none';
-            document.getElementById('saveModal').style.display = 'none';
-        }, 1000); // Message shows for 1 second
-    }
-
-    function showPopupMessageAndBack(message) {
-        var popupMessage = document.getElementById('popupMessage');
-        popupMessage.textContent = message;
-        popupMessage.style.display = 'block';
-
-        setTimeout(function () {
-            popupMessage.style.display = 'none';
-            document.getElementById('backModal').style.display = 'none';
-
-            // 在popupMessage展示后0秒立即跳转popup.html
-            setTimeout(function () {
-                window.location.href = "../popup.html";
-            }, 0);
-
-        }, 1000);  // 显示 #popupMessage 的1秒时间
-    }
-
-    function onlyExit() {
-        document.getElementById('discardModal').style.display = 'none';
-    }
-
-    function backToSelect() {
-        window.location.href = "../popup.html";
-    }
-
-    document.getElementById('saveUpdate').addEventListener('click', function () {
-        showPopupMessage('Save & Update Successful!');
-    });
-
-    document.getElementById('saveNoUpdate').addEventListener('click', function () {
-        showPopupMessage('Only Saved Changes!');
-    });
-
-    document.getElementById('Cancel').addEventListener('click', function () {
-        onlyExit();
-    });
-
-    document.getElementById('Confirm').addEventListener('click', function () {
-        onlyExit();
-    });
-
-    document.getElementById('saveUpdateBack').addEventListener('click', function () {
-        showPopupMessageAndBack('Save & Update Successful!');
-    });
-
-    document.getElementById('saveBack').addEventListener('click', function () {
-        showPopupMessageAndBack('Only Saved Changes!');
-    });
-
-    document.getElementById('discardBack').addEventListener('click', function () {
-        backToSelect();
-    });
-});
-
-*/

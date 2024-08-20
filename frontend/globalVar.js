@@ -249,6 +249,7 @@ async function getChangedList() {
 }
 
 
+/*
 document.addEventListener('DOMContentLoaded', function () {
     function showPopupMessage(message) {
         var popupMessages = document.querySelectorAll(".popup-message");
@@ -340,3 +341,4 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+*/

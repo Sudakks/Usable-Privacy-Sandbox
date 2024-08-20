@@ -312,7 +312,7 @@ $(document).ready(function () {
 });
 
 
-/*
+
 $(document).ready(function () {
     function showPopupMessage(message) {
         $('#popupMessage').text(message).fadeIn();
@@ -375,4 +375,3 @@ $(document).ready(function () {
         backToSelect();
     });
 });
-*/
