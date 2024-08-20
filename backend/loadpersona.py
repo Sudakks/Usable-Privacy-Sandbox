@@ -40,8 +40,7 @@ class Persona(BaseModel):
 persona_folder_path = "./personas"
 
 # 读取单个 persona
-def load_single_persona(userId: str):
-    filename = f"persona{userId}.json"
+def load_single_persona(filename: str):
     file_path = os.path.join(persona_folder_path, filename)
     with open(file_path, "r") as file:
         data = json.load(file)

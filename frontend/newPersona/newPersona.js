@@ -64,30 +64,34 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('Confirming...');
                 if (response) {
                     var persona_json = response.persona_json;
+                    console.log(persona_json);
                     if (persona_json === "Error generating persona."){
                         alert('Fail to generate persona. Please try again.');
                     }
                     else{
                         chrome.runtime.sendMessage({ action: 'savePersona', persona_json: persona_json }, function (response) {});
                         console.log('Persona json saved successfully'); 
-                        var userId = persona_json['data']['userId'];
-                        console.log(userId)              
+                        //var userId = persona_json['data']['userId'] - 1;
+                        //userId = userId.toString();
+                        //console.log(userId);         
+                        let newpersona; // 声明在外部作用域中
                         fetch('http://localhost:8000/newpersonalocalstorage', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json'
                             },
-                            body: JSON.stringify({ userId: userId }) 
+                            body: JSON.stringify(persona_json) 
                         })
-                            .then(response => response.json())
-                            .then(data => {
-                                const newpersona = JSON.stringify(data);
-                            })
-                            .catch(error => {
-                                console.error('Error:', error);
-                            });
-                        console.log(newpersona);
-                        localStorage.setItem('selectedPersona', JSON.stringify(newpersona));                       
+                        .then(response => response.json())
+                        .then(data => {
+                            newpersona = data; // 将数据赋值给外部声明的变量
+                            console.log(newpersona);
+                            localStorage.setItem('selectedPersona', JSON.stringify(newpersona));
+                            window.location.href = "../overview_page/overview.html";
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });                    
                     }
                 } else {
                     alert('Failed to confirm persona.');
