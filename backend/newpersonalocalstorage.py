@@ -30,7 +30,7 @@ async def newpersona_localstorage(request: Request):
     del localStorage_json['browsing_history']
     del localStorage_json['schedule']
     localStorage_json['name'] = f"{localStorage_json['first_name']} {localStorage_json['last_name']}"
-    localStorage_json['address'] = f"{localStorage_json['street']} {localStorage_json['city']} {localStorage_json['state']} {localStorage_json['zip_code']}"
+    localStorage_json['address'] = f"{localStorage_json['street']}, {localStorage_json['city']}, {localStorage_json['state']}, {localStorage_json['zip_code']}"
     birthday = datetime.strptime(localStorage_json['birthday'], "%m/%d/%Y").date()
     localStorage_json['birthday'] = birthday
     return localStorage_json
