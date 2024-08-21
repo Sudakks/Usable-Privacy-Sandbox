@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, request, jsonify
-from generate import Generator
+from generator import Generator
 from completepersonajson import complete_persona_json
 from loadpersona import load_single_persona
 
@@ -42,6 +42,30 @@ def generate_persona():
     except Exception as e:
         return jsonify({'message': 'Error generating persona.'}), 400
 
+
+@app.route('/generate_img', methods=['POST'])
+def generate_img():
+    # 从 JSON 请求中获取 'guidance'
+    data = request.json
+    profile = data.get('guidance')
+
+    if not profile:
+        return jsonify({'error': 'No guidance provided'}), 400
+
+    try:
+        # 获取属性
+        attri = generator.get_attributes(profile)
+        # 生成图像
+        img = generator.get_profile_img(attri)
+
+        # 将生成的图像 URL 作为响应发送回前端
+        return jsonify({"imageUrl": img["url"]})
+    except Exception as e:
+        # 打印错误以进行调试
+        print(f"Error: {e}")
+        return jsonify({'message': 'Error generating persona.'}), 400
+
+
 @app.route('/save_persona', methods=['POST'])
 def save_persona():
     data = request.json
@@ -74,16 +98,6 @@ def newpersona_localstorage():
     # except Exception as e:
     #     return jsonify({'message': 'Failed to load new persona.'}), 400
 
-@app.route('/generate_image', methods=['POST'])
-def generate_image():
-    data = request.json
-    guidance = data.get('guidance')
-
-    if not guidance:
-        return jsonify({'error': 'No guidance provided'}), 400
-
-    image_url = generator.generate_image(guidance)
-    return jsonify({'image_url': image_url})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)  

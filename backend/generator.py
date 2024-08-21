@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import os
 import configparser
 import openai
@@ -11,22 +9,24 @@ from langchain.prompts import PromptTemplate, FewShotPromptTemplate
 from langchain_openai import ChatOpenAI
 from pydantic import BaseModel, Field
 from langchain.output_parsers import PydanticOutputParser
-from dalle3 import Dalle
-from openai import OpenAI
-
 
 import json
 from datetime import datetime
 from random import randint
 from collections import defaultdict
 import re
+import base64
 
-import uuid
-import concurrent.futures
+from openai import OpenAI
+import requests
+
+from PIL import Image
+from io import BytesIO
+
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-# ���� FutureWarning
+# 忽略 FutureWarning
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
@@ -59,24 +59,23 @@ class PrivacyAttributes(BaseModel):
     zip_code: str = Field(description='The zipcode of the persona living address')
     spoken_language: str = Field(description='The spoken language of the persona')
     education_background: str = Field(description='The education background of the persona')
-    #education_level: str = Field(description="The most suitable education level of the persona, four options: high school diploma, attending college, bachelor's degree, advanced degree")
+    education_level: str = Field(description="The most suitable education level of the persona, four options: high school diploma, attending college, bachelor's degree, advanced degree")
     birthday: str = Field(description='The birthday of the persona')
     job: str = Field(description='The job of the persona')
     income: str = Field(description='The annual income of the persona')
-    #income_level: str = Field(description='The most suitable income level of the persona, three options: high income, moderate high income, average or lower income')
+    income_level: str = Field(description='The most suitable income level of the persona, three options: high income, moderate high income, average or lower income')
     marital_status: str = Field(description='The most suitable marital status of the persona, three options: single, married, in a relationship')
     parental_status: str = Field(description='The most suitable parental status of the persona, six options: not parents, parents of infants, parents of toddlers, parents of preschoolers, parents of grade schoolers, parents of teenagers')
     online_behavior: str = Field(description='The online behavior of the persona')
-    #industry: str = Field(description='The most suitable industry of the persona, eight options: construction, education, finance, healthcare, hospitality, manufacturing, real estate, technology')
-    #employer_size: str = Field(description='The most suitable employer size of the persona, three options: small employer (1-249 employees), large employer (250-10,000 employees), very large employer (more than 10,000 employees)')
-    #homeownership: str = Field(description='The most suitable homeownership status of the persona, either renter of homeowner')
+    industry: str = Field(description='The most suitable industry of the persona, eight options: construction, education, finance, healthcare, hospitality, manufacturing, real estate, technology')
+    employer_size: str = Field(description='The most suitable employer size of the persona, three options: small employer (1-249 employees), large employer (250-10,000 employees), very large employer (more than 10,000 employees)')
+    homeownership: str = Field(description='The most suitable homeownership status of the persona, either renter of homeowner')
     short_profile: str = Field(description='A short verstion of the profile')
-    #age_type: str = Field(description='Rate this persona age as young, mid-aged, or old')
-    #gender_type: str = Field(description='Rate this persona gender as male, female, or non-binary')
-    #location_type: str = Field(description='Rate this persona location as urban, suburb, or countryside')
-    #income_type: str = Field(description='Rate this persona income as low, medium, or high')
-    #edu_type: str = Field(description='Rate this persona educational level as low, medium, high')
-    #profileImgUrl : str = Filed(description='The image of this persona')
+    age_type: str = Field(description='Rate this persona age as young, mid-aged, or old')
+    gender_type: str = Field(description='Rate this persona gender as male, female, or non-binary')
+    location_type: str = Field(description='Rate this persona location as urban, suburb, or countryside')
+    income_type: str = Field(description='Rate this persona income as low, medium, or high')
+    edu_type: str = Field(description='Rate this persona educational level as low, medium, high')
 
 class EventSet(BaseModel):
     event: list[str] = Field(description='A list of calendar event content')
@@ -108,7 +107,6 @@ class Generator:
         self._event_sets = None
         self.schedule = None
         self.browsing_history = []
-        self.profileImgUrl = None
 
     def get_persona_profile(self, guidance) -> str:
         '''
@@ -136,58 +134,13 @@ class Generator:
             example_separator="\n\n"
         )
 
-        chain = LLMChain(llm=ChatOpenAI(model_name='gpt-4o',temperature=0.9),
+        chain = LLMChain(llm=ChatOpenAI(model_name='gpt-4o-mini',temperature=0.9),
                          prompt=few_shot_prompt)
         persona_profile = chain.invoke(input={'guidance':guidance, "template":prompts["profile"]["template"]})
         self.persona_profile = persona_profile["text"]
 
         return self.persona_profile
-
-    def generate_image(self, guidance):
-        client = OpenAI()  # will use environment variable "OPENAI_API_KEY"
-
-        prompt = (
-        "Subject: ballet dancers posing on a beam. "  # use the space at end
-        "Style: romantic impressionist painting."     # this is implicit line continuation
-        )
-
-        image_params = {
-        "model": "dall-e-3",  # Defaults to dall-e-2
-        "n": 1,               # Between 2 and 10 is only for DALL-E 2
-        "size": "256x256",  # 256x256, 512x512 only for DALL-E 2 - not much cheaper
-        "prompt": prompt,     # DALL-E 3: max 4000 characters, DALL-E 2: max 1000
-        "user": "myName",     # pass a customer ID to OpenAI for abuse monitoring
-            }
-
-        # ---- START
-        # here's the actual request to API and lots of error catching
-        try:
-            images_response = client.images.generate(**image_params)
-        except openai.APIConnectionError as e:
-            print("Server connection error: {e.__cause__}")  # from httpx.
-            raise
-        except openai.RateLimitError as e:
-            print(f"OpenAI RATE LIMIT error {e.status_code}: (e.response)")
-            raise
-        except openai.APIStatusError as e:
-            print(f"OpenAI STATUS error {e.status_code}: (e.response)")
-            raise
-        except openai.BadRequestError as e:
-            print(f"OpenAI BAD REQUEST error {e.status_code}: (e.response)")
-            raise
-        except Exception as e:
-            print(f"An unexpected error occurred: {e}")
-            raise
-        
     
-
-    def _process_attribute(self, v, attr_type, profile, whole_attr, gen_persona_variant, get_attributes):
-        if v == attr_type:
-            return {"value": v, "profile": profile, "attr": whole_attr}
-        else:
-            var_profile = gen_persona_variant(profile, v)
-            return {"value": v, "profile": var_profile, "attr": get_attributes(var_profile)}
-
     
 
     def _gen_persona_variant(self, profile:str, version:str) -> str:
@@ -217,7 +170,7 @@ class Generator:
             example_separator="\n\n"
         )
 
-        chain = LLMChain(llm=ChatOpenAI(model_name='gpt-4o',temperature=0.9),
+        chain = LLMChain(llm=ChatOpenAI(model_name='gpt-4o-mini',temperature=0.9),
                          prompt=few_shot_prompt)
         persona_variant = chain.invoke(input={'persona':profile, 'version': version, "template":prompts["profile"]["template"]})
         
@@ -238,33 +191,83 @@ class Generator:
 
         attr_dict = {
             "Age": ["young", "mid-aged", "old"],
-            "Gender": ["male", "female", "non-binary"],
+            "Gender": ["male", "non-binary", "female"],
             "Location (urbanization)": ["urban", "suburb", "countryside"],
             "Income": ["low", "medium", "high"],
             "Educational level": ["low", "medium", "high"]
         }
 
-        # res = []
-        # # versions = [value for value in attr_dict[attr] if value != attr_type]
-        # for v in attr_dict[attr]:
-        #     if v == attr_type:
-        #         res.append({"value":v, "profile":profile, "attr":whole_attr})
-        #     else:
-        #         var_profile = self._gen_persona_variant(profile, v)
-        #         res.append({"value":v, 
-        #                     "profile":var_profile,
-        #                     "attr":self.get_attributes(var_profile)})
-
         res = []
-        with concurrent.futures.ThreadPoolExecutor() as executor:
-            futures = [
-                executor.submit(self._process_attribute, v, attr_type, profile, whole_attr, self._gen_persona_variant, self.get_attributes)
-                for v in attr_dict[attr]
-            ]
-            for future in concurrent.futures.as_completed(futures):
-                res.append(future.result())
-
+        # versions = [value for value in attr_dict[attr] if value != attr_type]
+        for v in attr_dict[attr]:
+            if v == attr_type:
+                res.append({"value":v, "profile":profile, "attr":whole_attr})
+            else:
+                var_profile = self._gen_persona_variant(profile, v)
+                res.append({"value":v, 
+                            "profile":var_profile,
+                            "attr":self.get_attributes(var_profile)})
+                
         return res
+    
+    def _get_persona_short_profile(self, attribute: dict) -> str:
+        short_profile = f"A {attribute['age']}-year-old {attribute['race']} {attribute['gender']} {attribute['job']}"
+        return short_profile
+    
+    def _get_profile_img_prompt(self, short_profile: str) -> str:
+        prompt_template = PromptTemplate(
+            input_variables=['short_profile'],
+            template=prompts['profile_img']['prompt']
+        )
+
+        chain = LLMChain(llm=ChatOpenAI(model_name='gpt-4o-mini',temperature=0.9), prompt=prompt_template)
+        profile_img_prompt = chain.run(short_profile=short_profile)
+
+        return profile_img_prompt
+    
+    def get_profile_img(self, attribute):
+        '''
+        Generate the persona's profile image
+        '''
+        short_profile = self._get_persona_short_profile(attribute)
+        profile_img_prompt = self._get_profile_img_prompt(short_profile)
+        print(profile_img_prompt)
+
+        
+        client = OpenAI()
+
+        response = client.images.generate(
+            model="dall-e-2",
+            prompt=profile_img_prompt,
+            size="256x256",
+            quality="standard",
+            n=1,
+        )
+        '''
+        # Get the generated image URL
+        self.profile_img_url = response.data[0].url
+
+        # Fetch and resize the image
+        response_img = requests.get(self.profile_img_url)
+        img = Image.open(BytesIO(response_img.content))
+
+        # Resize the image to 100x130
+        img_resized = img.resize((100, 130), Image.ANTIALIAS)
+
+        # Convert the resized image to base64
+        buffered = BytesIO()
+        img_resized.save(buffered, format="PNG")
+        img_base64 = base64.b64encode(buffered.getvalue())
+
+        self.profile_img = img_base64
+
+        return {"base64_json": self.profile_img.decode("utf-8"), "url": self.profile_img_url}
+        '''
+        self.profile_img_url = response.data[0].url
+        self.profile_img = base64.b64encode(requests.get(self.profile_img_url).content)
+
+        return {"base64_json":self.profile_img, "url":self.profile_img_url}
+        
 
 
         
@@ -301,7 +304,7 @@ class Generator:
             partial_variables={"format_instructions": attribute_parser.get_format_instructions()}
         )
 
-        chain = LLMChain(llm=ChatOpenAI(model_name='gpt-4o',temperature=0.9),
+        chain = LLMChain(llm=ChatOpenAI(model_name='gpt-4o-mini',temperature=0.9),
                          prompt=few_shot_prompt)
         persona_attributes = chain.invoke(input={'persona':profile})
         self.persona_attributes = persona_attributes["text"]
@@ -337,7 +340,7 @@ class Generator:
             format_instructions = event_parser.get_format_instructions()
         ).to_messages()
 
-        model = ChatOpenAI(model_name='gpt-4o',temperature=0.9)
+        model = ChatOpenAI(model_name='gpt-4o-mini',temperature=0.9)
         results = model(request)
         results_value = event_parser.parse(results.content)
         self._event_sets = results_value
@@ -357,7 +360,7 @@ class Generator:
             list: the persona's schedule
         '''
        
-        # We need to add .replace("{", "{{").replace("}", "}}") after serialising as JSON so that the curly brackets in the JSON won��t be mistaken for prompt variables by LangChain
+        # We need to add .replace("{", "{{").replace("}", "}}") after serialising as JSON so that the curly brackets in the JSON won’t be mistaken for prompt variables by LangChain
         curated_examples = []
         for i,v in enumerate(fewshot_examples['schedule']):
             curated_examples.append({"persona": v["persona"], 
@@ -384,7 +387,7 @@ class Generator:
             partial_variables={"format_instructions": schedule_parser.get_format_instructions()},
         )
 
-        chain = LLMChain(llm=ChatOpenAI(model_name='gpt-4o',temperature=0.5),
+        chain = LLMChain(llm=ChatOpenAI(model_name='gpt-4o-mini',temperature=0.5),
                          prompt=few_shot_prompt)
         generated_schedule = chain.invoke(input={
             'persona':persona, 
@@ -456,7 +459,7 @@ class Generator:
             partial_variables={"format_instructions": browsing_history_parser.get_format_instructions()},
         )
 
-        chain = LLMChain(llm=ChatOpenAI(model_name='gpt-4o',temperature=0.5),
+        chain = LLMChain(llm=ChatOpenAI(model_name='gpt-4o-mini',temperature=0.5),
                          prompt=few_shot_prompt)
         generated_browsing_hitory = chain.invoke(input={
             'persona':persona, 
@@ -502,105 +505,18 @@ class Generator:
             self.browsing_history.extend(self._get_one_day_browsing_history(persona, date, events_by_day[date]))
 
         return self.browsing_history
-    
-    def generate_persona_data(self, profile, userId):
-        """Generates a common structure of persona data."""
-        data = {"success": True, "code": 200}
-        persona_attributes = self.get_attributes(profile)
 
-        data["data"] = persona_attributes
-        data["data"]["userId"] = str(userId)
-        data["data"]["profile"] = profile
-        data["data"]["browser"] = "Firefox - Windows"
-        data["data"]["device"] = "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:70.0) Gecko/20100101 Firefox/70.0"
 
-        return data
+if __name__=="__main__":
+    gen = Generator()
 
-    def create_persona(self, start_date, end_date, profile, userId):
-        """Shared logic for creating persona data."""
-        data = self.generate_persona_data(profile, userId)
-        schedule = self.get_schedule(profile, start_date, end_date)
-        data["data"]["schedule"] = schedule
-        for i, d in enumerate(data["data"]["schedule"]):
-            d['id'] = i
-        browsing_history = self.get_browsing_history(profile, schedule, start_date, end_date)
-        data["data"]["browsing_history"] = browsing_history
-        for i, d in enumerate(data["data"]["browsing_history"]):
-            d['id'] = i
+    # guidance="a 25-year old male, the living address is in urban area"
+    # profile = gen.get_persona_profile(guidance)
+    # print(profile)
 
-        return data
-    
-# def write_persona_data(persona_id, data, varient):
-#     """Writes persona data to a JSON file."""
-#     with open(f'{persona_id}_{varient}.json', 'w') as f:
-#         json.dump(data, f)
+    # attribute = gen.get_attributes(profile)
+    # print(attribute)
 
-# def generate_persona_data(persona, persona_id):
-#     """Generates a common structure of persona data."""
-#     data = {"success": True, "code": 200}
-#     persona_attributes = gen.get_attributes(profile=persona)
-
-#     data["data"] = persona_attributes
-#     data["data"]["userId"] = str(persona_id)
-#     data["data"]["profile"] = persona
-#     data["data"]["browser"] = "Firefox - Windows"
-#     data["data"]["device"] = "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:70.0) Gecko/20100101 Firefox/70.0"
-
-#     return data
-
-# def create_persona_common(start_date, end_date, persona, persona_id, varient):
-#     """Shared logic for creating persona data."""
-#     data = generate_persona_data(persona, persona_id)
-
-#     schedule = gen.get_schedule(persona, start_date, end_date)
-#     data["data"]["schedule"] = schedule
-
-#     for i, d in enumerate(data["data"]["schedule"]):
-#         d['id'] = i
-
-#     browsing_history = gen.get_browsing_history(persona, schedule, start_date, end_date)
-#     data["data"]["browsing_history"] = browsing_history
-
-#     for i, d in enumerate(data["data"]["browsing_history"]):
-#         d['id'] = i
-
-#     write_persona_data(persona_id, data, varient)
-
-#     return data
-
-# def create_persona(persona_id, start_date, end_date, guidance):
-#     # persona_id = uuid.uuid4()
-#     persona = gen.get_persona_profile(guidance=guidance)
-#     print(persona)
-#     persona_data = create_persona_common(start_date, end_date, persona, persona_id, varient="")
-#     return persona_data
-
-# def create_persona_variant(persona_id, start_date, end_date, variant_attribute, base_persona):
-#     varient_id = uuid.uuid4()
-#     persona_variant = gen.get_persona_variant(profile=base_persona, attr=variant_attribute)
-#     print(persona_variant)
-#     persona_data = create_persona_common(start_date, end_date, persona_variant, persona_id, varient=varient_id)
-#     return persona_data
-
-# 使用示例
-# if __name__=="__main__":
-#     gen = Generator()
-
-#     # start_date = "2024-01-05"
-#     # end_date = "2024-01-08"
-
-#     guidance="a 25-year old male, the living address is in urban area"
-#     profile = gen.get_persona_profile(guidance)
-#     print(profile)
-    # persona_id = uuid.uuid4()
-
-    # base_persona = create_persona(persona_id, start_date, end_date, guidance)
-    # variant_attribute="the street is in a different suburb area"
-    # create_persona_variant(persona_id, start_date, end_date, variant_attribute, base_persona=base_persona['data']['profile'])
-    
-    # # persona_id = "5f27e23f-f012-4c0d-9448-1738d071d771"
-    # # with open('./5f27e23f-f012-4c0d-9448-1738d071d771/base.json') as jsonFile:
-    # #     base_persona = json.load(jsonFile)
-
-    # variant_attribute="the street is in a different countryside area"
-    # create_persona_variant(persona_id, start_date, end_date, variant_attribute, base_persona=base_persona['data']['profile'])
+    attribute = {'first_name': 'Michael', 'last_name': 'Johnson', 'age': '25', 'gender': 'male', 'race': 'Black', 'street': '456 Elm St', 'city': 'Atlanta', 'state': 'GA', 'zip_code': '30312', 'spoken_language': 'English', 'education_background': 'Bachelor degree in Computer Science', 'education_level': 'bachelor degree', 'birthday': '04/15/1998', 'job': 'Software Developer', 'income': '75,000', 'income_level': 'moderate income', 'marital_status': 'single', 'parental_status': 'not parents', 'online_behavior': 'Enjoys gaming and streaming content on computer; uses gaming headset and mechanical keyboard; frequently uses social media apps like Instagram and TikTok.', 'industry': 'technology', 'employer_size': 'large employer (250-10,000 employees)', 'homeownership': 'renter', 'short_profile': 'Michael Johnson, 25, is a single software developer from Atlanta, GA, earning $75,000, enjoys gaming and streaming, and stays connected through social media.', 'age_type': 'young adult', 'gender_type': 'male', 'location_type': 'urban', 'income_type': 'medium', 'edu_type': 'medium'}
+    image = gen.get_profile_img(attribute)
+    print(image["url"])

@@ -12,7 +12,7 @@
         "template": "{First name} {Last name} is a {age ranging from 18 to 70 subject to continuous uniform distribution} {race} {gender} living in {real home address with street, city, state, and zip code}. {Pronoun}'s education background is {education background}. {Pronoun} is a {job}, and the annual income is {income in dollar}. {Pronoun} is a {homeownership}. {marital status} {parental status} {detailed habit and perference when using the computer, mobile phone, and the Internet}."
     },
     "profile_img":{ 
-        "prompt": "Given the profile description, output a descriptive prompt to generate a realistic human head portrait image, only generate the human head portrait image without the whole body, the human's face should occupy 70% of the photo and generate a realistic one limit the word to 30 words: {short_profile}"
+        "prompt": "Given the profile description, output a descriptive prompt to generate a realistic human head portrait image, limit the word to 30 words: {short_profile}"
     },
     "attributes":{
         "prompt": "Given persona {persona}, return the attributes {attributes_example}",

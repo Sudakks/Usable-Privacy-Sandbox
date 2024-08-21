@@ -42,13 +42,34 @@ document.addEventListener('DOMContentLoaded', function () {
         displayText.style.display = 'block';
     }
 
+
+
+
     const generateDesBtn = document.getElementById('generateDes');
     const confirmBtn = document.getElementById('Confirm');
     const generateImgBtn = document.getElementById('generateImg');
 
+    function loadImg(imageGuidance) {
+        alert("start img");
+        chrome.runtime.sendMessage({ action: 'generateImage', guidance: imageGuidance }, function (response) {
+            if (response && response.imageUrl) {
+                const imageUrl = response.imageUrl;
+                document.getElementById("photoFrame").style.backgroundImage = `url(${imageUrl})`;
+                //alert("Image URL: " + imageUrl);
+                generateImgBtn.textContent = "Generate Image";
+            } else {
+                alert('Failed to generate image.');
+                generateImgBtn.textContent = "Generate Image";
+            }
+        });
+        alert("end img");
+
+    }
+
     generateDesBtn.addEventListener('click', function () {
         var guidance = displayText.textContent.trim();
         generateDesBtn.textContent = "Loading...";
+        //generateImgBtn.textContent = "Loading...";
         if (guidance) {
             chrome.runtime.sendMessage({ action: 'generateDescription', guidance: guidance }, function (response) {
                 if (response && response.description) {
@@ -58,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     editInput.style.display = 'none';
                     displayText.style.display = 'block';
                     generateDesBtn.textContent = "Generate description";
+                    //loadImg(response.description);
                 }
             });
         } else {
@@ -74,23 +96,27 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     confirmBtn.addEventListener('click', function () {
+        confirmBtn.textContent = "Loading...";
         var profile = editInput.value;
         if (profile) {
+            //get json format
             chrome.runtime.sendMessage({ action: 'confirmPersona', profile: profile }, function (response) {
-                console.log('Confirming...');
                 if (response) {
                     var persona_json = response.persona_json;
                     console.log(persona_json);
                     if (persona_json === "Error generating persona."){
                         alert('Fail to generate persona. Please try again.');
                     }
-                    else{
+                    else {
+                        //save as json
+                        //TODO
                         chrome.runtime.sendMessage({ action: 'savePersona', persona_json: persona_json }, function (response) {});
-                        console.log('Persona json saved successfully'); 
+                        console.log('Persona json saved successfully');
                         //var userId = persona_json['data']['userId'] - 1;
                         //userId = userId.toString();
                         //console.log(userId);         
                         let newpersona; // 声明在外部作用域中
+
                         fetch('http://localhost:8000/newpersonalocalstorage', {
                             method: 'POST',
                             headers: {
@@ -99,10 +125,11 @@ document.addEventListener('DOMContentLoaded', function () {
                             body: JSON.stringify(persona_json) 
                         })
                         .then(response => response.json())
-                        .then(data => {
+                            .then(data => {
+                                alert("1111111111111111");
                             newpersona = data; // 将数据赋值给外部声明的变量
                             console.log(newpersona);
-                            localStorage.setItem('selectedPersona', JSON.stringify(newpersona));
+                                localStorage.setItem('selectedPersona', JSON.stringify(newpersona));
                             window.location.href = "../overview_page/overview.html";
                         })
                         .catch(error => {
@@ -122,17 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
         generateImgBtn.textContent = "Loading...";
         const imageGuidance = displayText.textContent;
         if (imageGuidance) {
-            chrome.runtime.sendMessage({ action: 'generateImage', guidance: imageGuidance }, function (response) {
-                if (response && response.imageUrl) {
-                    const imageUrl = response.imageUrl;
-                    document.getElementById("photoFrame").style.backgroundImage = `url(${imageUrl})`;
-                    alert("Image URL: " + imageUrl);
-                    generateImgBtn.textContent = "Generate Image";
-                } else {
-                    alert('Failed to generate image.');
-                    generateImgBtn.textContent = "Generate Image";
-                }
-            });
+            loadImg(imageGuidance);
         } else {
             alert('Please enter some guidance in the input field.');
             generateImgBtn.textContent = "Generate Image";
@@ -144,18 +161,3 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = "../popup.html";
     });
 });
-
-// async function loadPersona() {
-//     try {
-//         const response = await fetch('http://localhost:8000/loadpersona');
-//         const personas = await response.json(); // 等待解析为 JSON
-//         console.log(personas.length);
-//         const newPersona = personas[personas.length - 1];
-//         userId = newPersona.get('userId');
-//         console.log(userId);
-//         localStorage.setItem('selectedPersona', JSON.stringify(newPersona));
-//         //window.location.href = "../overview_page/overview.html";
-//     } catch (error) {
-//         console.error('Error loading persona:', error);
-//     }
-// }

@@ -178,6 +178,9 @@ async function loadPersonas() {
             `, personaDiv, persona);
                 personaList.appendChild(personaDiv);
             }
+            else {
+                alert("can't be others!!!");
+            }
         });
         // Add a "Create New Persona" component
 

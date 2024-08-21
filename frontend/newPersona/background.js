@@ -20,7 +20,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 sendResponse({ description: 'Error generating description.' });
             });
 
-        return true; // ������Ϣͨ���򿪣�ֱ�� sendResponse ������
+        return true; 
     }
 
     if (message.action === 'confirmPersona') {
@@ -35,18 +35,16 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         })
             .then(response => response.json())
             .then(data => {
-                // �������ɵ�����
                 sendResponse({ persona_json: data.persona_json });
             })
             .catch(error => {
                 console.error('Error:', error);
-                // ���ش�����Ϣ
                 sendResponse({ persona_json: 'Error generating persona.' });
             });
         
-        return true; // ������Ϣͨ���򿪣�ֱ�� sendResponse
+        return true; 
     }
-
+    //add new attributes defined by us
     if (message.action === 'savePersona') {
         const persona_json = message.persona_json;
 
@@ -59,16 +57,14 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         })
             .then(response => response.json())
             .then(data => {
-                // �������ɵ�����
                 sendResponse({ message: data.message });
             })
             .catch(error => {
                 console.error('Error:', error);
-                // ���ش�����Ϣ
                 sendResponse({ message: 'Error saving persona.' });
             });
 
-        return true; // ������Ϣͨ���򿪣�ֱ�� sendResponse
+        return true;
     }
 
     if (message.action === 'savetolocalstorage') {
@@ -99,7 +95,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === 'generateImage') {
         const imageGuidance = message.guidance;
 
-        fetch('http://localhost:5000/generate_image', {
+        fetch('http://localhost:5000/generate_img', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -108,15 +104,12 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         })
             .then(response => response.json())
             .then(data => {
-                // �������ɵ�ͼ�� URL
                 sendResponse({ imageUrl: data.imageUrl });
             })
             .catch(error => {
                 console.error('Error:', error);
-                // ���ش�����Ϣ
                 sendResponse({ imageUrl: 'Error generating image.' });
             });
-
-        return true; // ������Ϣͨ���򿪣�ֱ�� sendResponse ������
+        return true; 
     }
 });
