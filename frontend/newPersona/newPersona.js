@@ -49,27 +49,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const confirmBtn = document.getElementById('Confirm');
     const generateImgBtn = document.getElementById('generateImg');
 
-    function loadImg(imageGuidance) {
-        alert("start img");
-        chrome.runtime.sendMessage({ action: 'generateImage', guidance: imageGuidance }, function (response) {
-            if (response && response.imageUrl) {
-                const imageUrl = response.imageUrl;
-                document.getElementById("photoFrame").style.backgroundImage = `url(${imageUrl})`;
-                //alert("Image URL: " + imageUrl);
-                generateImgBtn.textContent = "Generate Image";
-            } else {
-                alert('Failed to generate image.');
-                generateImgBtn.textContent = "Generate Image";
-            }
-        });
-        alert("end img");
-
-    }
 
     generateDesBtn.addEventListener('click', function () {
         var guidance = displayText.textContent.trim();
         generateDesBtn.textContent = "Loading...";
         generateImgBtn.textContent = "Loading...";
+        generateImgBtn.disabled = true;
+        generateImgBtn.style.display = 'block';
+        generateImgBtn.style.backgroundColor = '#ccc';
+        generateImgBtn.style.cursor = 'not-allowed';
+        generateImgBtn.style.opacity = '0.6';
         if (guidance) {
             chrome.runtime.sendMessage({ action: 'generateDescription', guidance: guidance }, function (response) {
                 if (response && response.description) {
@@ -126,7 +115,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         })
                         .then(response => response.json())
                             .then(data => {
-                                alert("1111111111111111");
                             newpersona = data; // 将数据赋值给外部声明的变量
                             console.log(newpersona);
                                 localStorage.setItem('selectedPersona', JSON.stringify(newpersona));
@@ -146,6 +134,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     
     generateImgBtn.addEventListener("click", function () {
+        generateImgBtn.disabled = true;
+        generateImgBtn.style.display = 'block';
+        generateImgBtn.style.backgroundColor = '#ccc';
+        generateImgBtn.style.cursor = 'not-allowed';
+        generateImgBtn.style.opacity = '0.6';
         generateImgBtn.textContent = "Loading...";
         const imageGuidance = displayText.textContent;
         if (imageGuidance) {
@@ -157,6 +150,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function loadImg(imageGuidance) {
+        
+
         chrome.runtime.sendMessage({ action: 'generateImage', guidance: imageGuidance }, function (response) {
             if (response && response.base64Image) {
                 //const imageUrl = response.imageUrl;
@@ -166,11 +161,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 const dataUrl = `data:image/png;base64,${base64Image}`;
                 document.getElementById("photoFrame").style.backgroundImage = `url(${dataUrl})`;
                 //document.getElementById("photoFrame").style.backgroundImage = `url(${imageUrl})`;
+                photoFrame.style.backgroundSize = 'cover'; // Ensure the image covers the frame
+                photoFrame.style.backgroundPosition = 'center'; // Center the image
+                photoFrame.style.backgroundRepeat = 'no-repeat'; // Prevent repeating the image
                 alert("Image base64: " + base64Image);
             } else {
-                alert('Failed to generate image.!!!');
+                alert('Failed to generate image!!!');
             }
             generateImgBtn.textContent = "Generate Image";
+            generateImgBtn.disabled = false;
+            generateImgBtn.style.display = 'block';
+            generateImgBtn.style.backgroundColor = '';
+            generateImgBtn.style.cursor = '';
+            generateImgBtn.style.opacity = '';
         });
     }
 

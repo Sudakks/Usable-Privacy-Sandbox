@@ -12,7 +12,7 @@
     "template": "{First name} {Last name} is a {age ranging from 18 to 70 subject to continuous uniform distribution} {race} {gender} living in {real home address with street, city, state, and zip code}. {Pronoun}'s education background is {education background}. {Pronoun} is a {job}, and the annual income is {income in dollar}. {Pronoun} is a {homeownership}. {marital status} {parental status} {detailed habit and perference when using the computer, mobile phone, and the Internet}."
   },
   "profile_img": {
-    "prompt": "Generate a realistic portrait of a human head based on the profile description. The head should take up 70% of the image. Ensure the human is realistic and not fictional or animated. Do generate a realistic human being, and should have the same features as people in real world.Limit to 30 words: {short_profile}"
+    "prompt": "Generate a realistic portrait of a human head based on the profile description strictly. The head should occupy 70% of the photo. Limit to 30 words: {short_profile}"
   },
   "attributes": {
     "prompt": "Given persona {persona}, return the attributes {attributes_example}",
