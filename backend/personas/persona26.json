@@ -1,0 +1,257 @@
+{
+    "code": 200,
+    "data": {
+        "age": "27",
+        "birthday": "08/14/1996",
+        "browser": "Firefox - Windows",
+        "browsing_history": [
+            {
+                "id": 0,
+                "time": "2024-07-08 08:15:23",
+                "title": "Best Breakfast Recipes - Google Search",
+                "url": "https://www.google.com/search?q=best+breakfast+recipes"
+            },
+            {
+                "id": 1,
+                "time": "2024-07-08 09:12:47",
+                "title": "Top Music Recording Techniques - Google Search",
+                "url": "https://www.google.com/search?q=top+music+recording+techniques"
+            },
+            {
+                "id": 2,
+                "time": "2024-07-08 09:35:50",
+                "title": "How to Record Vocals Like a Pro",
+                "url": "https://www.musicradar.com/how-to-record-vocals-like-a-pro"
+            },
+            {
+                "id": 3,
+                "time": "2024-07-08 11:15:32",
+                "title": "Best Coffee Shops in Orlando - Google Search",
+                "url": "https://www.google.com/search?q=best+coffee+shops+in+Orlando"
+            },
+            {
+                "id": 4,
+                "time": "2024-07-08 12:05:45",
+                "title": "How to Negotiate with Your Music Manager",
+                "url": "https://www.musicbusiness.com/how-to-negotiate-with-your-music-manager"
+            },
+            {
+                "id": 5,
+                "time": "2024-07-08 13:25:18",
+                "title": "Best Band Rehearsal Tips - Google Search",
+                "url": "https://www.google.com/search?q=best+band+rehearsal+tips"
+            },
+            {
+                "id": 6,
+                "time": "2024-07-08 15:10:56",
+                "title": "Effective Music Marketing Strategies - Google Search",
+                "url": "https://www.google.com/search?q=effective+music+marketing+strategies"
+            },
+            {
+                "id": 7,
+                "time": "2024-07-08 16:15:34",
+                "title": "How to Engage with Fans on TikTok",
+                "url": "https://www.socialmediaexaminer.com/how-to-engage-with-fans-on-tiktok"
+            },
+            {
+                "id": 8,
+                "time": "2024-07-08 21:12:29",
+                "title": "Latest Summer Fashion Trends 2024 - Google Search",
+                "url": "https://www.google.com/search?q=latest+summer+fashion+trends+2024"
+            },
+            {
+                "id": 9,
+                "time": "2024-07-08 22:15:48",
+                "title": "Top Music Blogs to Follow in 2024",
+                "url": "https://www.musicindustryhowto.com/top-music-blogs-to-follow-in-2024"
+            }
+        ],
+        "city": "Orlando",
+        "device": "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:70.0) Gecko/20100101 Firefox/70.0",
+        "education_background": "Bachelor's degree in Music Performance",
+        "first_name": "Lia",
+        "gender": "female",
+        "income": "75,000",
+        "job": "Professional Singer",
+        "last_name": "Rodriguez",
+        "marital_status": "single",
+        "online_behavior": "Uses smartphone to stream music and connect with fans on Instagram and TikTok; edits videos and music tracks using specialized software; loves online shopping for trendy fashion items and reading music blogs to stay updated with the latest trends in the music industry.",
+        "parental_status": "not parents",
+        "profile": "Lia Rodriguez is a 27-year-old Hispanic female living in 452 Elm Street, Orlando, FL 32801. She speaks both English and Spanish fluently. Lia's education background includes a bachelor's degree in Music Performance. Her date of birth is 08/14/1996. She works in the entertainment industry and has a medium-sized employer (50-249 employees). She is a professional singer, and the annual income is $75,000. She is a renter. Lia is single and does not have any children. In her free time, she enjoys using her smartphone to stream music and connect with her fans on social media platforms like Instagram and TikTok. When using her computer, she often edits videos and music tracks using specialized software. Lia loves online shopping for trendy fashion items and reading music blogs to stay updated with the latest trends in the music industry.",
+        "race": "Hispanic",
+        "schedule": [
+            {
+                "address": "452 Elm Street, Orlando, FL 32801",
+                "end_time": "2024-07-08 07:00:00",
+                "event": "Outdoor jogging at nearby park",
+                "id": 0,
+                "latitude": 28.5383,
+                "longitude": -81.3792,
+                "start_time": "2024-07-08 06:00:00"
+            },
+            {
+                "address": "452 Elm Street, Orlando, FL 32801",
+                "end_time": "2024-07-08 08:00:00",
+                "event": "Yoga session at home",
+                "id": 1,
+                "latitude": 28.5383,
+                "longitude": -81.3792,
+                "start_time": "2024-07-08 07:00:00"
+            },
+            {
+                "address": "452 Elm Street, Orlando, FL 32801",
+                "end_time": "2024-07-08 09:00:00",
+                "event": "Breakfast at home",
+                "id": 2,
+                "latitude": 28.5383,
+                "longitude": -81.3792,
+                "start_time": "2024-07-08 08:00:00"
+            },
+            {
+                "address": "123 Music Studio, Orlando, FL 32801",
+                "end_time": "2024-07-08 11:00:00",
+                "event": "Recording new music tracks in the studio",
+                "id": 3,
+                "latitude": 28.5383,
+                "longitude": -81.3792,
+                "start_time": "2024-07-08 09:00:00"
+            },
+            {
+                "address": "123 Music Studio, Orlando, FL 32801",
+                "end_time": "2024-07-08 12:00:00",
+                "event": "Coffee break with colleagues at workplace",
+                "id": 4,
+                "latitude": 28.5383,
+                "longitude": -81.3792,
+                "start_time": "2024-07-08 11:00:00"
+            },
+            {
+                "address": "123 Music Studio, Orlando, FL 32801",
+                "end_time": "2024-07-08 13:00:00",
+                "event": "Lunch with manager at workplace",
+                "id": 5,
+                "latitude": 28.5383,
+                "longitude": -81.3792,
+                "start_time": "2024-07-08 12:00:00"
+            },
+            {
+                "address": "123 Music Studio, Orlando, FL 32801",
+                "end_time": "2024-07-08 15:00:00",
+                "event": "Band rehearsal at workplace",
+                "id": 6,
+                "latitude": 28.5383,
+                "longitude": -81.3792,
+                "start_time": "2024-07-08 13:00:00"
+            },
+            {
+                "address": "123 Music Studio, Orlando, FL 32801",
+                "end_time": "2024-07-08 16:00:00",
+                "event": "Meeting with the marketing team at workplace",
+                "id": 7,
+                "latitude": 28.5383,
+                "longitude": -81.3792,
+                "start_time": "2024-07-08 15:00:00"
+            },
+            {
+                "address": "452 Elm Street, Orlando, FL 32801",
+                "end_time": "2024-07-08 17:00:00",
+                "event": "Reviewing fan comments on TikTok",
+                "id": 8,
+                "latitude": 28.5383,
+                "longitude": -81.3792,
+                "start_time": "2024-07-08 16:00:00"
+            },
+            {
+                "address": "452 Elm Street, Orlando, FL 32801",
+                "end_time": "2024-07-08 18:00:00",
+                "event": "Editing music videos on computer",
+                "id": 9,
+                "latitude": 28.5383,
+                "longitude": -81.3792,
+                "start_time": "2024-07-08 17:00:00"
+            },
+            {
+                "address": "789 Supermarket Lane, Orlando, FL 32801",
+                "end_time": "2024-07-08 19:00:00",
+                "event": "Grocery shopping at local supermarket",
+                "id": 10,
+                "latitude": 28.5383,
+                "longitude": -81.3792,
+                "start_time": "2024-07-08 18:00:00"
+            },
+            {
+                "address": "452 Elm Street, Orlando, FL 32801",
+                "end_time": "2024-07-08 20:00:00",
+                "event": "Cooking dinner at home",
+                "id": 11,
+                "latitude": 28.5383,
+                "longitude": -81.3792,
+                "start_time": "2024-07-08 19:00:00"
+            },
+            {
+                "address": "452 Elm Street, Orlando, FL 32801",
+                "end_time": "2024-07-08 21:00:00",
+                "event": "Livestreaming on Instagram at home",
+                "id": 12,
+                "latitude": 28.5383,
+                "longitude": -81.3792,
+                "start_time": "2024-07-08 20:00:00"
+            },
+            {
+                "address": "452 Elm Street, Orlando, FL 32801",
+                "end_time": "2024-07-08 22:00:00",
+                "event": "Online shopping for new outfits",
+                "id": 13,
+                "latitude": 28.5383,
+                "longitude": -81.3792,
+                "start_time": "2024-07-08 21:00:00"
+            },
+            {
+                "address": "452 Elm Street, Orlando, FL 32801",
+                "end_time": "2024-07-08 23:00:00",
+                "event": "Reading latest music blogs",
+                "id": 14,
+                "latitude": 28.5383,
+                "longitude": -81.3792,
+                "start_time": "2024-07-08 22:00:00"
+            },
+            {
+                "address": "452 Elm Street, Orlando, FL 32801",
+                "end_time": "2024-07-08 23:59:59",
+                "event": "Voice rest and relaxation at home",
+                "id": 15,
+                "latitude": 28.5383,
+                "longitude": -81.3792,
+                "start_time": "2024-07-08 23:00:00"
+            }
+        ],
+        "short_profile": "Lia Rodriguez, 27, single professional singer in entertainment from Orlando, FL, earns $75k, enjoys streaming music, connecting with fans, video and music editing, online shopping, and music blogs.",
+        "spoken_language": [
+            "English",
+            "Spanish"
+        ],
+        "state": "FL",
+        "street": "452 Elm Street",
+        "userId": "26",
+        "zip_code": "32801",
+        "favourite": false,
+        "switch": {
+            "name": true,
+            "gender": true,
+            "birthday": true,
+            "race": true,
+            "address": true,
+            "job": true,
+            "income": true,
+            "education": true,
+            "spoken_language": true,
+            "marital_status": true,
+            "parental_status": true,
+            "schedule": true,
+            "browser_history": true,
+            "facebook_posts": true,
+            "twitter_posts": true
+        }
+    },
+    "success": true
+}

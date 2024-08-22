@@ -1,11 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\backend\\personas\\persona-image",
+    "\\backend",
     "\\frontend",
-    "\\frontend\\basicInfo_page",
-    "\\frontend\\overview_page"
+    "\\frontend\\newPersona"
   ],
-  "SelectedNode": "\\frontend\\overview_page\\overview.css",
+  "SelectedNode": "\\manifest.json",
   "PreviewInSolutionExplorer": false
 }

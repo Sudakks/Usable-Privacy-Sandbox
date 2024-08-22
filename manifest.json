@@ -9,7 +9,8 @@
   "description": "A Chrome extension to select and activate a persona.",
   "permissions": [ "activeTab", "scripting", "storage" ],
   "host_permissions": [
-    "http://localhost:5000/"
+    "http://localhost:5000/",
+    "https://api.com/*"
   ],
   "action": {
     "default_popup": "/frontend/popup.html",

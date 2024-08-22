@@ -11,8 +11,7 @@ from langchain.prompts import PromptTemplate, FewShotPromptTemplate
 from langchain_openai import ChatOpenAI
 from pydantic import BaseModel, Field
 from langchain.output_parsers import PydanticOutputParser
-from dalle3 import Dalle
-from openai import OpenAI
+import base64
 
 
 import json
@@ -20,6 +19,8 @@ from datetime import datetime
 from random import randint
 from collections import defaultdict
 import re
+from openai import OpenAI
+import requests
 
 import uuid
 import concurrent.futures
@@ -143,43 +144,6 @@ class Generator:
 
         return self.persona_profile
 
-    def generate_image(self, guidance):
-        client = OpenAI()  # will use environment variable "OPENAI_API_KEY"
-
-        prompt = (
-        "Subject: ballet dancers posing on a beam. "  # use the space at end
-        "Style: romantic impressionist painting."     # this is implicit line continuation
-        )
-
-        image_params = {
-        "model": "dall-e-3",  # Defaults to dall-e-2
-        "n": 1,               # Between 2 and 10 is only for DALL-E 2
-        "size": "256x256",  # 256x256, 512x512 only for DALL-E 2 - not much cheaper
-        "prompt": prompt,     # DALL-E 3: max 4000 characters, DALL-E 2: max 1000
-        "user": "myName",     # pass a customer ID to OpenAI for abuse monitoring
-            }
-
-        # ---- START
-        # here's the actual request to API and lots of error catching
-        try:
-            images_response = client.images.generate(**image_params)
-        except openai.APIConnectionError as e:
-            print("Server connection error: {e.__cause__}")  # from httpx.
-            raise
-        except openai.RateLimitError as e:
-            print(f"OpenAI RATE LIMIT error {e.status_code}: (e.response)")
-            raise
-        except openai.APIStatusError as e:
-            print(f"OpenAI STATUS error {e.status_code}: (e.response)")
-            raise
-        except openai.BadRequestError as e:
-            print(f"OpenAI BAD REQUEST error {e.status_code}: (e.response)")
-            raise
-        except Exception as e:
-            print(f"An unexpected error occurred: {e}")
-            raise
-        
-    
 
     def _process_attribute(self, v, attr_type, profile, whole_attr, gen_persona_variant, get_attributes):
         if v == attr_type:
@@ -266,6 +230,44 @@ class Generator:
 
         return res
 
+    def _get_persona_short_profile(self, attribute: dict) -> str:
+        short_profile = f"A {attribute['age']}-year-old {attribute['race']} {attribute['gender']} {attribute['job']}"
+        return short_profile
+    
+    def _get_profile_img_prompt(self, short_profile: str) -> str:
+        prompt_template = PromptTemplate(
+            input_variables=['short_profile'],
+            template=prompts['profile_img']['prompt']
+        )
+
+        chain = LLMChain(llm=ChatOpenAI(model_name='gpt-4o-mini',temperature=0.9), prompt=prompt_template)
+        profile_img_prompt = chain.run(short_profile=short_profile)
+
+        return profile_img_prompt
+
+    def get_profile_img(self, attribute):
+        '''
+        Generate the persona's profile image
+        '''
+        short_profile = self._get_persona_short_profile(attribute)
+        profile_img_prompt = self._get_profile_img_prompt(short_profile)
+        print(profile_img_prompt)
+
+        
+        client = OpenAI()
+
+        response = client.images.generate(
+            model="dall-e-2",
+            prompt=profile_img_prompt,
+            size="256x256",
+            quality="standard",
+            n=1,
+        )
+
+        self.profile_img_url = response.data[0].url
+        self.profile_img = base64.b64encode(requests.get(self.profile_img_url).content)
+
+        return {"base64_json":self.profile_img, "url":self.profile_img_url}
 
         
 
@@ -301,7 +303,7 @@ class Generator:
             partial_variables={"format_instructions": attribute_parser.get_format_instructions()}
         )
 
-        chain = LLMChain(llm=ChatOpenAI(model_name='gpt-4o',temperature=0.9),
+        chain = LLMChain(llm=ChatOpenAI(model_name='gpt-4o-mini',temperature=0.9),
                          prompt=few_shot_prompt)
         persona_attributes = chain.invoke(input={'persona':profile})
         self.persona_attributes = persona_attributes["text"]

@@ -1,0 +1,245 @@
+{
+    "code": 200,
+    "data": {
+        "age": "27",
+        "birthday": "08/17/1996",
+        "browser": "Firefox - Windows",
+        "browsing_history": [
+            {
+                "id": 0,
+                "time": "2024-07-08 07:15:45",
+                "title": "Best Gym Workout Routines for Vocalists - Google Search",
+                "url": "https://www.google.com/search?q=best+gym+workout+routines+for+vocalists"
+            },
+            {
+                "id": 1,
+                "time": "2024-07-08 08:30:21",
+                "title": "Healthy Breakfast Recipes for Singers - Google Search",
+                "url": "https://www.google.com/search?q=healthy+breakfast+recipes+for+singers"
+            },
+            {
+                "id": 2,
+                "time": "2024-07-08 09:15:37",
+                "title": "Best Rehearsal Studios in Nashville - Google Search",
+                "url": "https://www.google.com/search?q=best+rehearsal+studios+in+nashville"
+            },
+            {
+                "id": 3,
+                "time": "2024-07-08 12:15:53",
+                "title": "Top Restaurants Near Music Blvd - Google Search",
+                "url": "https://www.google.com/search?q=top+restaurants+near+music+blvd"
+            },
+            {
+                "id": 4,
+                "time": "2024-07-08 13:45:12",
+                "title": "How to Prepare for a Virtual Band Meeting - Google Search",
+                "url": "https://www.google.com/search?q=how+to+prepare+for+a+virtual+band+meeting"
+            },
+            {
+                "id": 5,
+                "time": "2024-07-08 14:20:44",
+                "title": "Top Music Editing Software 2024 - Google Search",
+                "url": "https://www.google.com/search?q=top+music+editing+software+2024"
+            },
+            {
+                "id": 6,
+                "time": "2024-07-08 15:10:39",
+                "title": "Latest Audio Equipment Webinars - Google Search",
+                "url": "https://www.google.com/search?q=latest+audio+equipment+webinars"
+            },
+            {
+                "id": 7,
+                "time": "2024-07-08 16:30:27",
+                "title": "How to Grow Your Band's TikTok Following - Google Search",
+                "url": "https://www.google.com/search?q=how+to+grow+your+bands+tiktok+following"
+            },
+            {
+                "id": 8,
+                "time": "2024-07-08 19:15:56",
+                "title": "Top Tech Blogs for Audio Equipment - Google Search",
+                "url": "https://www.google.com/search?q=top+tech+blogs+for+audio+equipment"
+            },
+            {
+                "id": 9,
+                "time": "2024-07-08 22:15:33",
+                "title": "Best Music Software Reviews 2024 - Google Search",
+                "url": "https://www.google.com/search?q=best+music+software+reviews+2024"
+            }
+        ],
+        "city": "Nashville",
+        "device": "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:70.0) Gecko/20100101 Firefox/70.0",
+        "education_background": "Bachelor's degree in Music Production",
+        "first_name": "Han",
+        "gender": "male",
+        "income": "110,000",
+        "job": "Leading Vocalist",
+        "last_name": "Martinez",
+        "marital_status": "single",
+        "online_behavior": "Uses laptop to edit music tracks and manage band's social media accounts on Instagram and TikTok; streams live concerts and music videos on mobile phone; follows tech blogs to stay updated on audio equipment and software.",
+        "parental_status": "not parents",
+        "profile": "Han Martinez is a 27-year-old Hispanic male living in 2101 Church Street, Nashville, TN 37203. He speaks English and Spanish. His education background includes a bachelor's degree in Music Production. Han's date of birth is 08/17/1996. He works in the entertainment industry and has a midsize employer (50-250 employees). He is a leading vocalist in a rock band, and the annual income is $110,000. He is a renter. Han is single and does not have children. He enjoys using his laptop to edit music tracks and manages his band's social media accounts on platforms like Instagram and TikTok. He often streams live concerts and music videos on his mobile phone and follows tech blogs to stay updated on the latest audio equipment and software.",
+        "race": "Hispanic",
+        "schedule": [
+            {
+                "address": "2101 Church Street, Nashville, TN 37203",
+                "end_time": "2024-07-08 07:00:00",
+                "event": "Practicing vocal exercises at home",
+                "id": 0,
+                "latitude": 36.1627,
+                "longitude": -86.7816,
+                "start_time": "2024-07-08 06:00:00"
+            },
+            {
+                "address": "123 Fitness Ave, Nashville, TN 37203",
+                "end_time": "2024-07-08 08:00:00",
+                "event": "Gym workout session",
+                "id": 1,
+                "latitude": 36.1651,
+                "longitude": -86.7843,
+                "start_time": "2024-07-08 07:00:00"
+            },
+            {
+                "address": "2101 Church Street, Nashville, TN 37203",
+                "end_time": "2024-07-08 09:00:00",
+                "event": "Breakfast at home",
+                "id": 2,
+                "latitude": 36.1627,
+                "longitude": -86.7816,
+                "start_time": "2024-07-08 08:00:00"
+            },
+            {
+                "address": "456 Music Blvd, Nashville, TN 37203",
+                "end_time": "2024-07-08 12:00:00",
+                "event": "Band rehearsal at the studio",
+                "id": 3,
+                "latitude": 36.1662,
+                "longitude": -86.7833,
+                "start_time": "2024-07-08 09:00:00"
+            },
+            {
+                "address": "789 Dining St, Nashville, TN 37203",
+                "end_time": "2024-07-08 13:00:00",
+                "event": "Lunch with a friend at a nearby restaurant",
+                "id": 4,
+                "latitude": 36.1678,
+                "longitude": -86.785,
+                "start_time": "2024-07-08 12:00:00"
+            },
+            {
+                "address": "2101 Church Street, Nashville, TN 37203",
+                "end_time": "2024-07-08 14:00:00",
+                "event": "Virtual meeting with band manager",
+                "id": 5,
+                "latitude": 36.1627,
+                "longitude": -86.7816,
+                "start_time": "2024-07-08 13:00:00"
+            },
+            {
+                "address": "2101 Church Street, Nashville, TN 37203",
+                "end_time": "2024-07-08 15:00:00",
+                "event": "Editing music tracks on laptop",
+                "id": 6,
+                "latitude": 36.1627,
+                "longitude": -86.7816,
+                "start_time": "2024-07-08 14:00:00"
+            },
+            {
+                "address": "2101 Church Street, Nashville, TN 37203",
+                "end_time": "2024-07-08 16:00:00",
+                "event": "Attending a tech webinar on audio equipment",
+                "id": 7,
+                "latitude": 36.1627,
+                "longitude": -86.7816,
+                "start_time": "2024-07-08 15:00:00"
+            },
+            {
+                "address": "2101 Church Street, Nashville, TN 37203",
+                "end_time": "2024-07-08 17:00:00",
+                "event": "Managing band's TikTok account",
+                "id": 8,
+                "latitude": 36.1627,
+                "longitude": -86.7816,
+                "start_time": "2024-07-08 16:00:00"
+            },
+            {
+                "address": "2101 Church Street, Nashville, TN 37203",
+                "end_time": "2024-07-08 18:00:00",
+                "event": "Cooking dinner at home",
+                "id": 9,
+                "latitude": 36.1627,
+                "longitude": -86.7816,
+                "start_time": "2024-07-08 17:00:00"
+            },
+            {
+                "address": "2101 Church Street, Nashville, TN 37203",
+                "end_time": "2024-07-08 19:00:00",
+                "event": "Cleaning the apartment",
+                "id": 10,
+                "latitude": 36.1627,
+                "longitude": -86.7816,
+                "start_time": "2024-07-08 18:00:00"
+            },
+            {
+                "address": "2101 Church Street, Nashville, TN 37203",
+                "end_time": "2024-07-08 20:00:00",
+                "event": "Reading tech blog updates",
+                "id": 11,
+                "latitude": 36.1627,
+                "longitude": -86.7816,
+                "start_time": "2024-07-08 19:00:00"
+            },
+            {
+                "address": "2101 Church Street, Nashville, TN 37203",
+                "end_time": "2024-07-08 21:00:00",
+                "event": "Watching a music video premiere",
+                "id": 12,
+                "latitude": 36.1627,
+                "longitude": -86.7816,
+                "start_time": "2024-07-08 20:00:00"
+            },
+            {
+                "address": "2101 Church Street, Nashville, TN 37203",
+                "end_time": "2024-07-08 22:00:00",
+                "event": "Live streaming concert on Instagram",
+                "id": 13,
+                "latitude": 36.1627,
+                "longitude": -86.7816,
+                "start_time": "2024-07-08 21:00:00"
+            },
+            {
+                "address": "2101 Church Street, Nashville, TN 37203",
+                "end_time": "2024-07-08 23:59:59",
+                "event": "Reviewing latest music software",
+                "id": 14,
+                "latitude": 36.1627,
+                "longitude": -86.7816,
+                "start_time": "2024-07-08 22:00:00"
+            }
+        ],
+        "short_profile": "Han Martinez, 27, is a Nashville-based leading vocalist in a rock band, earning $110k. Enjoys editing music, managing social media, and following tech blogs. Single, rents an apartment.",
+        "spoken_language": "English and Spanish",
+        "state": "TN",
+        "street": "2101 Church Street",
+        "userId": "28",
+        "zip_code": "37203",
+        "favourite": false,
+        "switch": {
+            "name": true,
+            "gender": true,
+            "birthday": true,
+            "race": true,
+            "address": true,
+            "job": true,
+            "income": true,
+            "education": true,
+            "spoken_language": true,
+            "marital_status": true,
+            "parental_status": true,
+            "schedule": true,
+            "browser_history": true,
+            "facebook_posts": true,
+            "twitter_posts": true
+        }
+    },
+    "success": true
+}

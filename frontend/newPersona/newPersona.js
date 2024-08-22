@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
     generateDesBtn.addEventListener('click', function () {
         var guidance = displayText.textContent.trim();
         generateDesBtn.textContent = "Loading...";
+        generateImgBtn.textContent = "Loading...";
         if (guidance) {
             chrome.runtime.sendMessage({ action: 'generateDescription', guidance: guidance }, function (response) {
                 if (response && response.description) {
@@ -58,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     editInput.style.display = 'none';
                     displayText.style.display = 'block';
                     generateDesBtn.textContent = "Generate description";
+                    loadImg(guidance);
                 }
             });
         } else {
@@ -74,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     confirmBtn.addEventListener('click', function () {
+        confirmButton.textContent = "Loading...";
         var profile = editInput.value;
         if (profile) {
             chrome.runtime.sendMessage({ action: 'confirmPersona', profile: profile }, function (response) {
@@ -107,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         })
                         .catch(error => {
                             console.error('Error:', error);
-                        });                    
+                        });
                     }
                 } else {
                     alert('Failed to confirm persona.');
@@ -117,27 +120,36 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Please generate a description first.');
         }
     });
-
+    
     generateImgBtn.addEventListener("click", function () {
         generateImgBtn.textContent = "Loading...";
         const imageGuidance = displayText.textContent;
         if (imageGuidance) {
-            chrome.runtime.sendMessage({ action: 'generateImage', guidance: imageGuidance }, function (response) {
-                if (response && response.imageUrl) {
-                    const imageUrl = response.imageUrl;
-                    document.getElementById("photoFrame").style.backgroundImage = `url(${imageUrl})`;
-                    alert("Image URL: " + imageUrl);
-                    generateImgBtn.textContent = "Generate Image";
-                } else {
-                    alert('Failed to generate image.');
-                    generateImgBtn.textContent = "Generate Image";
-                }
-            });
+            loadImg(imageGuidance);
         } else {
             alert('Please enter some guidance in the input field.');
             generateImgBtn.textContent = "Generate Image";
         }
     });
+
+    function loadImg(imageGuidance) {
+        chrome.runtime.sendMessage({ action: 'generateImage', guidance: imageGuidance }, function (response) {
+            if (response && response.base64Image) {
+                //const imageUrl = response.imageUrl;
+                const base64Image = response.base64Image;
+
+                // Set the image URL as background image
+                const dataUrl = `data:image/png;base64,${base64Image}`;
+                document.getElementById("photoFrame").style.backgroundImage = `url(${dataUrl})`;
+                //document.getElementById("photoFrame").style.backgroundImage = `url(${imageUrl})`;
+                alert("Image base64: " + base64Image);
+            } else {
+                alert('Failed to generate image.!!!');
+            }
+            generateImgBtn.textContent = "Generate Image";
+        });
+    }
+
 
     var backButton = document.querySelector(".backButton");
     backButton.addEventListener("click", function () {
@@ -145,17 +157,3 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// async function loadPersona() {
-//     try {
-//         const response = await fetch('http://localhost:8000/loadpersona');
-//         const personas = await response.json(); // 等待解析为 JSON
-//         console.log(personas.length);
-//         const newPersona = personas[personas.length - 1];
-//         userId = newPersona.get('userId');
-//         console.log(userId);
-//         localStorage.setItem('selectedPersona', JSON.stringify(newPersona));
-//         //window.location.href = "../overview_page/overview.html";
-//     } catch (error) {
-//         console.error('Error loading persona:', error);
-//     }
-// }
