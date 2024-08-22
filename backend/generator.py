@@ -9,13 +9,15 @@ from langchain.prompts import PromptTemplate, FewShotPromptTemplate
 from langchain_openai import ChatOpenAI
 from pydantic import BaseModel, Field
 from langchain.output_parsers import PydanticOutputParser
+import base64
 
 import json
 from datetime import datetime
 from random import randint
 from collections import defaultdict
 import re
-import base64
+from openai import OpenAI
+import requests
 
 from openai import OpenAI
 import requests
@@ -140,7 +142,15 @@ class Generator:
         self.persona_profile = persona_profile["text"]
 
         return self.persona_profile
-    
+
+
+    def _process_attribute(self, v, attr_type, profile, whole_attr, gen_persona_variant, get_attributes):
+        if v == attr_type:
+            return {"value": v, "profile": profile, "attr": whole_attr}
+        else:
+            var_profile = gen_persona_variant(profile, v)
+            return {"value": v, "profile": var_profile, "attr": get_attributes(var_profile)}
+
     
 
     def _gen_persona_variant(self, profile:str, version:str) -> str:
@@ -209,7 +219,7 @@ class Generator:
                             "attr":self.get_attributes(var_profile)})
                 
         return res
-    
+
     def _get_persona_short_profile(self, attribute: dict) -> str:
         short_profile = f"A {attribute['age']}-year-old {attribute['race']} {attribute['gender']} {attribute['job']}"
         return short_profile
@@ -224,7 +234,7 @@ class Generator:
         profile_img_prompt = chain.run(short_profile=short_profile)
 
         return profile_img_prompt
-    
+
     def get_profile_img(self, attribute):
         '''
         Generate the persona's profile image
@@ -243,32 +253,11 @@ class Generator:
             quality="standard",
             n=1,
         )
-        '''
-        # Get the generated image URL
-        self.profile_img_url = response.data[0].url
 
-        # Fetch and resize the image
-        response_img = requests.get(self.profile_img_url)
-        img = Image.open(BytesIO(response_img.content))
-
-        # Resize the image to 100x130
-        img_resized = img.resize((100, 130), Image.ANTIALIAS)
-
-        # Convert the resized image to base64
-        buffered = BytesIO()
-        img_resized.save(buffered, format="PNG")
-        img_base64 = base64.b64encode(buffered.getvalue())
-
-        self.profile_img = img_base64
-
-        return {"base64_json": self.profile_img.decode("utf-8"), "url": self.profile_img_url}
-        '''
         self.profile_img_url = response.data[0].url
         self.profile_img = base64.b64encode(requests.get(self.profile_img_url).content)
 
         return {"base64_json":self.profile_img, "url":self.profile_img_url}
-        
-
 
         
 

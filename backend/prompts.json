@@ -1,34 +1,34 @@
 {
-    "profile":{
-        "prompt": "The format of the generated result should look like the following examples: {persona}.",
-        "prefix": "Return a realistic profile. This year is 2024. The income should be in dollar. The home address must include street, city, and zip code and be as real as possible. The city should be a real city in USA. The birthday should be in the MM/DD/YYYY format. The demographic of this person should represent the US population sample. The generated profile should match the following guidance: {guidance}. Fit into the braces in the template: {template}.",
-        "suffix": "Return the profile in only one paragraph.",
-        "template": "{First name} {Last name} is a {age ranging from 18 to 70 subject to continuous uniform distribution} {race} {gender} living in {real home address with street, city, state, and zip code}. {Pronoun} speaks {spoken language}. {Pronoun}'s education background is {education background}. {Pronoun}'s date of birth is {date of birth}. {Pronoun} works in {industry} and has {employer scale and employees number}. {Pronoun} is a {job}, and the annual income is {income in dollar}. {Pronoun} is a {homeownership}. {marital status} {parental status} {detailed habit and perference when using the computer, mobile phone, and the Internet}."
-    },
-    "profile_variant":{
-        "prompt": "Given a fictional user's description: {persona} Modify the description to make it more like a {version} version of the person. Do not change age, gender, location, income, educational level except for {version}. Only make necessary modification: {variant}. In the result the information about {version} must appear.",
-        "prefix": "Return a realistic profile. This year is 2024. The income should be in dollar. The home address must include street, city, and zip code and be as real as possible. The city should be a real city in USA. The birthday should be in the MM/DD/YYYY format. The demographic of this person should represent the US population sample. Fit into the braces in the template: {template}.",
-        "suffix": "Modify the description of a fictional user: {persona}. Make it more like a {version} version of the person. The result must show location, income, and educational level. Do not change age, gender, location, income, educational level except for {version}. Only make necessary modification. If {version} is income then high income means 200k annual income, low income means 20k annual income, medium income means 70k annual income. If {version} is educational level, then high education means doctorate, low education means high school diploma, medium means bachelor. Return the profile in only one paragraph. ",
-        "template": "{First name} {Last name} is a {age ranging from 18 to 70 subject to continuous uniform distribution} {race} {gender} living in {real home address with street, city, state, and zip code}. {Pronoun}'s education background is {education background}. {Pronoun} is a {job}, and the annual income is {income in dollar}. {Pronoun} is a {homeownership}. {marital status} {parental status} {detailed habit and perference when using the computer, mobile phone, and the Internet}."
-    },
-    "profile_img":{ 
-        "prompt": "Given the profile description, output a descriptive prompt to generate a realistic human head portrait image, only generate the human head portrait image without the whole body, the human's face should occupy 70% of the photo and generate a realistic one limit the word to 30 words: {short_profile}"
-    },
-    "attributes":{
-        "prompt": "Given persona {persona}, return the attributes {attributes_example}",
-        "suffix": "Given persona {persona}, return the attributes"
-    },
-    "event":{
-        "prompt": "Given this fictional person's profile, generate 30 calendar events as diverse as possible for this person in a week. Events should contain things happen at home, happen at workplace, and happen during weekend. No time information should appear in the event."
-    },
-    "schedule":{
-        "prompt":"Given the profile of a fiction user: {persona} \n, and a event set: {event_example}, \n provide ideas for this person to write schedule. Refer to the event set to generate events. Every day event should be as different as possible. \n {schedule_example}",
-        "prefix":"",
-        "suffix":"Given the profile of a fiction user: {persona} \n, and a event set: {event_example}, return a reasonable and complete schedule for this person from {start_date} to {end_date}. Based on the event set to generate events. Every day event should be as different as possible. No time information should appear in the event. The person usually works during workdays from 9 am to 5 pm and does not work during weekend. All the time beteen 06:00:00 to 23:59:59 for each day should have event. The number of events for each day should be more than 7. The address should contain valid street, city, state, and zip code. The latitude and longitude should not be corresponding to the address. {format_instructions}"
-    },
-    "browsing_history":{
-        "prompt":"Given the profile of a fiction user: {persona} \n, and the persona's schedule list: {schedule}, \n generate browser history entries: \n {browsing_history_example}",
-        "prefix":"",
-        "suffix":"Given the profile of a fiction user: {persona} \n, and the persona's schedule list: {schedule}, \n generate {num} browser history entries on {date}. No browsing history between 00:00:00 and 07:00:00 or after 22:30:00. The webpage title should reflect the content in the webpage url. The webpage be reasonable and related with the the schedule event. The webpage should at least include {num} times 1/3 of google search in this format: '<search content> - Google Search'. Don't add address of schedule into webpage title. The datetime should be realistic and associate with the webpage content. The datetime second should not be 0. The datetime should be dispense in each day. You can generate fake but reasonable data that is consistent with the profile and schedule. {format_instructions}"
-    }
+  "profile": {
+    "prompt": "The format of the generated result should look like the following examples: {persona}.",
+    "prefix": "Return a realistic profile. This year is 2024. The income should be in dollar. The home address must include street, city, and zip code and be as real as possible. The city should be a real city in USA. The birthday should be in the MM/DD/YYYY format. The demographic of this person should represent the US population sample. The generated profile should match the following guidance: {guidance}. Fit into the braces in the template: {template}.",
+    "suffix": "Return the profile in only one paragraph.",
+    "template": "{First name} {Last name} is a {age ranging from 18 to 70 subject to continuous uniform distribution} {race} {gender} living in {real home address with street, city, state, and zip code}. {Pronoun} speaks {spoken language}. {Pronoun}'s education background is {education background}. {Pronoun}'s date of birth is {date of birth}. {Pronoun} works in {industry} and has {employer scale and employees number}. {Pronoun} is a {job}, and the annual income is {income in dollar}. {Pronoun} is a {homeownership}. {marital status} {parental status} {detailed habit and perference when using the computer, mobile phone, and the Internet}."
+  },
+  "profile_variant": {
+    "prompt": "Given a fictional user's description: {persona} Modify the description to make it more like a {version} version of the person. Do not change age, gender, location, income, educational level except for {version}. Only make necessary modification: {variant}. In the result the information about {version} must appear.",
+    "prefix": "Return a realistic profile. This year is 2024. The income should be in dollar. The home address must include street, city, and zip code and be as real as possible. The city should be a real city in USA. The birthday should be in the MM/DD/YYYY format. The demographic of this person should represent the US population sample. Fit into the braces in the template: {template}.",
+    "suffix": "Modify the description of a fictional user: {persona}. Make it more like a {version} version of the person. The result must show location, income, and educational level. Do not change age, gender, location, income, educational level except for {version}. Only make necessary modification. If {version} is income then high income means 200k annual income, low income means 20k annual income, medium income means 70k annual income. If {version} is educational level, then high education means doctorate, low education means high school diploma, medium means bachelor. Return the profile in only one paragraph. ",
+    "template": "{First name} {Last name} is a {age ranging from 18 to 70 subject to continuous uniform distribution} {race} {gender} living in {real home address with street, city, state, and zip code}. {Pronoun}'s education background is {education background}. {Pronoun} is a {job}, and the annual income is {income in dollar}. {Pronoun} is a {homeownership}. {marital status} {parental status} {detailed habit and perference when using the computer, mobile phone, and the Internet}."
+  },
+  "profile_img": {
+    "prompt": "Generate a realistic portrait of a human head based on the profile description. The head should take up 70% of the image. Ensure the human is realistic and not fictional or animated. Do generate a realistic human being, and should have the same features as people in real world.Limit to 30 words: {short_profile}"
+  },
+  "attributes": {
+    "prompt": "Given persona {persona}, return the attributes {attributes_example}",
+    "suffix": "Given persona {persona}, return the attributes"
+  },
+  "event": {
+    "prompt": "Given this fictional person's profile, generate 30 calendar events as diverse as possible for this person in a week. Events should contain things happen at home, happen at workplace, and happen during weekend. No time information should appear in the event."
+  },
+  "schedule": {
+    "prompt": "Given the profile of a fiction user: {persona} \n, and a event set: {event_example}, \n provide ideas for this person to write schedule. Refer to the event set to generate events. Every day event should be as different as possible. \n {schedule_example}",
+    "prefix": "",
+    "suffix": "Given the profile of a fiction user: {persona} \n, and a event set: {event_example}, return a reasonable and complete schedule for this person from {start_date} to {end_date}. Based on the event set to generate events. Every day event should be as different as possible. No time information should appear in the event. The person usually works during workdays from 9 am to 5 pm and does not work during weekend. All the time beteen 06:00:00 to 23:59:59 for each day should have event. The number of events for each day should be more than 7. The address should contain valid street, city, state, and zip code. The latitude and longitude should not be corresponding to the address. {format_instructions}"
+  },
+  "browsing_history": {
+    "prompt": "Given the profile of a fiction user: {persona} \n, and the persona's schedule list: {schedule}, \n generate browser history entries: \n {browsing_history_example}",
+    "prefix": "",
+    "suffix": "Given the profile of a fiction user: {persona} \n, and the persona's schedule list: {schedule}, \n generate {num} browser history entries on {date}. No browsing history between 00:00:00 and 07:00:00 or after 22:30:00. The webpage title should reflect the content in the webpage url. The webpage be reasonable and related with the the schedule event. The webpage should at least include {num} times 1/3 of google search in this format: '<search content> - Google Search'. Don't add address of schedule into webpage title. The datetime should be realistic and associate with the webpage content. The datetime second should not be 0. The datetime should be dispense in each day. You can generate fake but reasonable data that is consistent with the profile and schedule. {format_instructions}"
+  }
 }

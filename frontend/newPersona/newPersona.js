@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
     generateDesBtn.addEventListener('click', function () {
         var guidance = displayText.textContent.trim();
         generateDesBtn.textContent = "Loading...";
-        //generateImgBtn.textContent = "Loading...";
+        generateImgBtn.textContent = "Loading...";
         if (guidance) {
             chrome.runtime.sendMessage({ action: 'generateDescription', guidance: guidance }, function (response) {
                 if (response && response.description) {
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     editInput.style.display = 'none';
                     displayText.style.display = 'block';
                     generateDesBtn.textContent = "Generate description";
-                    //loadImg(response.description);
+                    loadImg(guidance);
                 }
             });
         } else {
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     confirmBtn.addEventListener('click', function () {
-        confirmBtn.textContent = "Loading...";
+        confirmButton.textContent = "Loading...";
         var profile = editInput.value;
         if (profile) {
             //get json format
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         })
                         .catch(error => {
                             console.error('Error:', error);
-                        });                    
+                        });
                     }
                 } else {
                     alert('Failed to confirm persona.');
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Please generate a description first.');
         }
     });
-
+    
     generateImgBtn.addEventListener("click", function () {
         generateImgBtn.textContent = "Loading...";
         const imageGuidance = displayText.textContent;
@@ -156,8 +156,28 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    function loadImg(imageGuidance) {
+        chrome.runtime.sendMessage({ action: 'generateImage', guidance: imageGuidance }, function (response) {
+            if (response && response.base64Image) {
+                //const imageUrl = response.imageUrl;
+                const base64Image = response.base64Image;
+
+                // Set the image URL as background image
+                const dataUrl = `data:image/png;base64,${base64Image}`;
+                document.getElementById("photoFrame").style.backgroundImage = `url(${dataUrl})`;
+                //document.getElementById("photoFrame").style.backgroundImage = `url(${imageUrl})`;
+                alert("Image base64: " + base64Image);
+            } else {
+                alert('Failed to generate image.!!!');
+            }
+            generateImgBtn.textContent = "Generate Image";
+        });
+    }
+
+
     var backButton = document.querySelector(".backButton");
     backButton.addEventListener("click", function () {
         window.location.href = "../popup.html";
     });
 });
+

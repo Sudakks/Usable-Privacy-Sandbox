@@ -1,0 +1,272 @@
+{
+    "code": 200,
+    "data": {
+        "age": "45",
+        "birthday": "07/15/1978",
+        "browser": "Firefox - Windows",
+        "browsing_history": [
+            {
+                "id": 0,
+                "time": "2024-07-08 07:10:23",
+                "title": "Best Health and Fitness Apps - Google Search",
+                "url": "https://www.google.com/search?q=Best+Health+and+Fitness+Apps"
+            },
+            {
+                "id": 1,
+                "time": "2024-07-08 07:25:12",
+                "title": "Top Health and Fitness Apps of 2024",
+                "url": "https://www.healthline.com/health/fitness-exercise/top-health-fitness-apps"
+            },
+            {
+                "id": 2,
+                "time": "2024-07-08 07:45:37",
+                "title": "Weekly Grocery List Template - Google Search",
+                "url": "https://www.google.com/search?q=Weekly+Grocery+List+Template"
+            },
+            {
+                "id": 3,
+                "time": "2024-07-08 08:15:45",
+                "title": "Latest Medical Journal Articles - Google Search",
+                "url": "https://www.google.com/search?q=Latest+Medical+Journal+Articles"
+            },
+            {
+                "id": 4,
+                "time": "2024-07-08 08:50:33",
+                "title": "Recent Advances in Healthcare Administration",
+                "url": "https://www.healthcaremanagement.com/recent-advances"
+            },
+            {
+                "id": 5,
+                "time": "2024-07-08 12:15:48",
+                "title": "How to Review Budget Reports - Google Search",
+                "url": "https://www.google.com/search?q=How+to+Review+Budget+Reports"
+            },
+            {
+                "id": 6,
+                "time": "2024-07-08 13:30:27",
+                "title": "Effective Email Management for Healthcare Administrators",
+                "url": "https://www.healthcareemailmanagement.com/effective-email-management"
+            },
+            {
+                "id": 7,
+                "time": "2024-07-08 17:10:52",
+                "title": "Best Local Markets for Fresh Produce - Google Search",
+                "url": "https://www.google.com/search?q=Best+Local+Markets+for+Fresh+Produce"
+            },
+            {
+                "id": 8,
+                "time": "2024-07-08 21:45:19",
+                "title": "Modern Home Decor Ideas - Google Search",
+                "url": "https://www.google.com/search?q=Modern+Home+Decor+Ideas"
+            },
+            {
+                "id": 9,
+                "time": "2024-07-08 22:15:31",
+                "title": "Top Home Decor Trends of 2024",
+                "url": "https://www.homedecortrends.com/top-trends-2024"
+            }
+        ],
+        "city": "San Francisco",
+        "device": "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:70.0) Gecko/20100101 Firefox/70.0",
+        "education_background": "Master's degree in Business Administration",
+        "first_name": "Alice",
+        "gender": "female",
+        "income": "95,000",
+        "job": "Healthcare Administrator",
+        "last_name": "Johnson",
+        "marital_status": "married",
+        "online_behavior": "Enjoys online shopping for home decor and gadgets; prefers a dual monitor setup for multitasking; uses health and fitness apps on mobile; browses medical journals to stay updated in her field.",
+        "parental_status": "parent of one child",
+        "profile": "Alice Johnson is a 45-year-old Caucasian female living at 780 Pine Street, San Francisco, CA 94108. She speaks English, and her education background includes a master's degree in Business Administration. Alice's date of birth is 07/15/1978. She works in the healthcare industry and has a medium-sized employer (50-250 employees). She is currently employed as a healthcare administrator, with an annual income of $95,000. She is a homeowner. Alice is married and has one child. She enjoys online shopping, particularly for home decor and gadgets. When using her computer, she prefers a dual monitor setup for multitasking efficiently. On her mobile phone, she likes to use health and fitness apps to track her workouts and diet. She also spends time browsing through medical journals and articles to stay updated in her field.",
+        "race": "Caucasian",
+        "schedule": [
+            {
+                "address": "780 Pine Street, San Francisco, CA 94108",
+                "end_time": "2024-07-08 07:00:00",
+                "event": "Morning yoga session at home",
+                "id": 0,
+                "latitude": 37.7749,
+                "longitude": -122.4194,
+                "start_time": "2024-07-08 06:00:00"
+            },
+            {
+                "address": "780 Pine Street, San Francisco, CA 94108",
+                "end_time": "2024-07-08 07:30:00",
+                "event": "Health and fitness app update",
+                "id": 1,
+                "latitude": 37.7749,
+                "longitude": -122.4194,
+                "start_time": "2024-07-08 07:00:00"
+            },
+            {
+                "address": "780 Pine Street, San Francisco, CA 94108",
+                "end_time": "2024-07-08 08:00:00",
+                "event": "Weekly grocery list preparation",
+                "id": 2,
+                "latitude": 37.7749,
+                "longitude": -122.4194,
+                "start_time": "2024-07-08 07:30:00"
+            },
+            {
+                "address": "780 Pine Street, San Francisco, CA 94108",
+                "end_time": "2024-07-08 09:00:00",
+                "event": "Review latest medical journal articles",
+                "id": 3,
+                "latitude": 37.7749,
+                "longitude": -122.4194,
+                "start_time": "2024-07-08 08:00:00"
+            },
+            {
+                "address": "123 Healthcare Ave, San Francisco, CA 94108",
+                "end_time": "2024-07-08 10:00:00",
+                "event": "Team meeting at the workplace",
+                "id": 4,
+                "latitude": 37.7749,
+                "longitude": -122.4194,
+                "start_time": "2024-07-08 09:00:00"
+            },
+            {
+                "address": "123 Healthcare Ave, San Francisco, CA 94108",
+                "end_time": "2024-07-08 11:00:00",
+                "event": "Client consultation at the workplace",
+                "id": 5,
+                "latitude": 37.7749,
+                "longitude": -122.4194,
+                "start_time": "2024-07-08 10:00:00"
+            },
+            {
+                "address": "123 Healthcare Ave, San Francisco, CA 94108",
+                "end_time": "2024-07-08 12:00:00",
+                "event": "Administrative meeting with department heads at work",
+                "id": 6,
+                "latitude": 37.7749,
+                "longitude": -122.4194,
+                "start_time": "2024-07-08 11:00:00"
+            },
+            {
+                "address": "123 Healthcare Ave, San Francisco, CA 94108",
+                "end_time": "2024-07-08 13:00:00",
+                "event": "Review budget reports for the department",
+                "id": 7,
+                "latitude": 37.7749,
+                "longitude": -122.4194,
+                "start_time": "2024-07-08 12:00:00"
+            },
+            {
+                "address": "123 Healthcare Ave, San Francisco, CA 94108",
+                "end_time": "2024-07-08 14:00:00",
+                "event": "Checking and replying to work emails",
+                "id": 8,
+                "latitude": 37.7749,
+                "longitude": -122.4194,
+                "start_time": "2024-07-08 13:00:00"
+            },
+            {
+                "address": "123 Healthcare Ave, San Francisco, CA 94108",
+                "end_time": "2024-07-08 15:00:00",
+                "event": "Medical software training session at work",
+                "id": 9,
+                "latitude": 37.7749,
+                "longitude": -122.4194,
+                "start_time": "2024-07-08 14:00:00"
+            },
+            {
+                "address": "123 Healthcare Ave, San Francisco, CA 94108",
+                "end_time": "2024-07-08 16:00:00",
+                "event": "Strategy planning meeting at work",
+                "id": 10,
+                "latitude": 37.7749,
+                "longitude": -122.4194,
+                "start_time": "2024-07-08 15:00:00"
+            },
+            {
+                "address": "123 Healthcare Ave, San Francisco, CA 94108",
+                "end_time": "2024-07-08 17:00:00",
+                "event": "Meeting with healthcare suppliers",
+                "id": 11,
+                "latitude": 37.7749,
+                "longitude": -122.4194,
+                "start_time": "2024-07-08 16:00:00"
+            },
+            {
+                "address": "456 Market St, San Francisco, CA 94108",
+                "end_time": "2024-07-08 18:00:00",
+                "event": "Grocery shopping at the local market",
+                "id": 12,
+                "latitude": 37.7749,
+                "longitude": -122.4194,
+                "start_time": "2024-07-08 17:00:00"
+            },
+            {
+                "address": "780 Pine Street, San Francisco, CA 94108",
+                "end_time": "2024-07-08 19:00:00",
+                "event": "Dinner with family at home",
+                "id": 13,
+                "latitude": 37.7749,
+                "longitude": -122.4194,
+                "start_time": "2024-07-08 18:00:00"
+            },
+            {
+                "address": "780 Pine Street, San Francisco, CA 94108",
+                "end_time": "2024-07-08 20:00:00",
+                "event": "Making a new recipe for dinner",
+                "id": 14,
+                "latitude": 37.7749,
+                "longitude": -122.4194,
+                "start_time": "2024-07-08 19:00:00"
+            },
+            {
+                "address": "780 Pine Street, San Francisco, CA 94108",
+                "end_time": "2024-07-08 21:30:00",
+                "event": "Family movie night at home",
+                "id": 15,
+                "latitude": 37.7749,
+                "longitude": -122.4194,
+                "start_time": "2024-07-08 20:00:00"
+            },
+            {
+                "address": "780 Pine Street, San Francisco, CA 94108",
+                "end_time": "2024-07-08 23:00:00",
+                "event": "Online shopping for home decor",
+                "id": 16,
+                "latitude": 37.7749,
+                "longitude": -122.4194,
+                "start_time": "2024-07-08 21:30:00"
+            },
+            {
+                "address": "780 Pine Street, San Francisco, CA 94108",
+                "end_time": "2024-07-08 23:59:59",
+                "event": "Review latest medical journal articles",
+                "id": 17,
+                "latitude": 37.7749,
+                "longitude": -122.4194,
+                "start_time": "2024-07-08 23:00:00"
+            }
+        ],
+        "short_profile": "Alice Johnson, 45, is a married healthcare administrator from San Francisco, CA, with a $95,000 salary and one child.",
+        "spoken_language": "English",
+        "state": "CA",
+        "street": "780 Pine Street",
+        "userId": "29",
+        "zip_code": "94108",
+        "favourite": false,
+        "switch": {
+            "name": true,
+            "gender": true,
+            "birthday": true,
+            "race": true,
+            "address": true,
+            "job": true,
+            "income": true,
+            "education": true,
+            "spoken_language": true,
+            "marital_status": true,
+            "parental_status": true,
+            "schedule": true,
+            "browser_history": true,
+            "facebook_posts": true,
+            "twitter_posts": true
+        }
+    },
+    "success": true
+}

@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, request, jsonify
-from generator import Generator
+from flask_cors import CORS  # Import Flask-CORS
+
+from generate import Generator
 from completepersonajson import complete_persona_json
 from loadpersona import load_single_persona
 
 import os, json
 
 app = Flask(__name__)
+CORS(app)  # Initialize CORS for the entire application
 generator = Generator()
 
 @app.route('/generate', methods=['POST'])
@@ -97,6 +100,22 @@ def newpersona_localstorage():
     return jsonify(newpersona)
     # except Exception as e:
     #     return jsonify({'message': 'Failed to load new persona.'}), 400
+
+
+@app.route('/generate_image', methods=['POST'])
+def generate_image():
+    data = request.get_json()
+    guidance = data.get('guidance')
+
+    if not guidance:
+        return jsonify({"error": "Guidance not provided"}), 400
+
+    try:
+        attri = generator.get_attributes(guidance)
+        profile_img_url = generator.get_profile_img(attri)
+        return jsonify({"base64_json": profile_img_url["base64_json"].decode('utf-8'), "url": profile_img_url["url"]})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 if __name__ == '__main__':

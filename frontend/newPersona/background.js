@@ -87,29 +87,64 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 // ���ش�����Ϣ
                 sendResponse({ newpersona: 'Error saving persona.' });
             });
-        
-        return true; // ������Ϣͨ���򿪣�ֱ�� sendResponse
+
+        return true;
     }
 
 
+    /*
     if (message.action === 'generateImage') {
         const imageGuidance = message.guidance;
-
-        fetch('http://localhost:5000/generate_img', {
+                fetch('http://localhost:5000/generate_image', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ guidance: imageGuidance })
+                    body: JSON.stringify({ attribute: imageGuidance })
         })
             .then(response => response.json())
             .then(data => {
-                sendResponse({ imageUrl: data.imageUrl });
+                if (data && data.url && data.base64_json) {
+                    sendResponse({ imageUrl: data.url, base64Image: data.base64_json });
+                } else {
+                    sendResponse({ imageUrl: null, base64Image: null });
+                }
             })
             .catch(error => {
                 console.error('Error:', error);
-                sendResponse({ imageUrl: 'Error generating image.' });
+                sendResponse({ imageUrl: null, base64Image: null });
             });
-        return true; 
+        // Keep the message channel open until `sendResponse` is called
+        return true;
+    }*/
+});
+
+
+
+// background.js
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request.action === 'generateImage') {
+        const { guidance } = request;
+        fetch('http://localhost:5000/generate_image', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ guidance })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.url && data.base64_json) {
+                    sendResponse({ imageUrl: data.url, base64Image: data.base64_json });
+                } else {
+                    sendResponse({ imageUrl: null, base64Image: null });
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                sendResponse({ imageUrl: null, base64Image: null });
+            });
+        // Keep the message channel open until `sendResponse` is called
+        return true;
     }
 });
