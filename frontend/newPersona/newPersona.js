@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const generateDesBtn = document.getElementById('generateDes');
     const confirmBtn = document.getElementById('Confirm');
     const generateImgBtn = document.getElementById('generateImg');
+    let img_base64;
 
 
     generateDesBtn.addEventListener('click', function () {
@@ -88,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
         confirmButton.textContent = "Loading...";
         var profile = editInput.value;
         if (profile) {
-            //get json format
+            //convert profile text into json
             chrome.runtime.sendMessage({ action: 'confirmPersona', profile: profile }, function (response) {
                 if (response) {
                     var persona_json = response.persona_json;
@@ -99,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     else {
                         //save as json
                         //TODO
-                        chrome.runtime.sendMessage({ action: 'savePersona', persona_json: persona_json }, function (response) {});
+                        chrome.runtime.sendMessage({ action: 'savePersona', persona_json: persona_json, img_base64: img_base64 }, function (response) { });
                         console.log('Persona json saved successfully');
                         //var userId = persona_json['data']['userId'] - 1;
                         //userId = userId.toString();
@@ -154,6 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (response && response.base64Image) {
                 //const imageUrl = response.imageUrl;
                 const base64Image = response.base64Image;
+                img_base64 = response.base64Image;
 
                 // Set the image URL as background image
                 const dataUrl = `data:image/png;base64,${base64Image}`;

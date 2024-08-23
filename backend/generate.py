@@ -255,7 +255,7 @@ class Generator:
         )
 
         self.profile_img_url = response.data[0].url
-        self.profile_img = base64.b64encode(requests.get(self.profile_img_url).content)
+        self.profile_img = base64.b64encode(requests.get(self.profile_img_url).content) 
 
         return {"base64_json":self.profile_img, "url":self.profile_img_url}
 
@@ -514,6 +514,7 @@ class Generator:
         data = self.generate_persona_data(profile, userId)
         schedule = self.get_schedule(profile, start_date, end_date)
         data["data"]["schedule"] = schedule
+        #imgurl
         for i, d in enumerate(data["data"]["schedule"]):
             d['id'] = i
         browsing_history = self.get_browsing_history(profile, schedule, start_date, end_date)

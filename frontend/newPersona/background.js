@@ -47,13 +47,13 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     //add new attributes defined by us
     if (message.action === 'savePersona') {
         const persona_json = message.persona_json;
-
+        const img_base64 = message.img_base64;
         fetch('http://localhost:5000/save_persona', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ persona_json: persona_json })
+            body: JSON.stringify({ persona_json: persona_json, img_base64: img_base64 })
         })
             .then(response => response.json())
             .then(data => {

@@ -46,33 +46,12 @@ def generate_persona():
         return jsonify({'message': 'Error generating persona.'}), 400
 
 
-@app.route('/generate_img', methods=['POST'])
-def generate_img():
-    # 从 JSON 请求中获取 'guidance'
-    data = request.json
-    profile = data.get('guidance')
-
-    if not profile:
-        return jsonify({'error': 'No guidance provided'}), 400
-
-    try:
-        # 获取属性
-        attri = generator.get_attributes(profile)
-        # 生成图像
-        img = generator.get_profile_img(attri)
-
-        # 将生成的图像 URL 作为响应发送回前端
-        return jsonify({"imageUrl": img["url"]})
-    except Exception as e:
-        # 打印错误以进行调试
-        print(f"Error: {e}")
-        return jsonify({'message': 'Error generating persona.'}), 400
-
 
 @app.route('/save_persona', methods=['POST'])
 def save_persona():
     data = request.json
     persona_json = data.get('persona_json')
+    img_base64 = data.get('img_base64')
 
     # 获取 userId
     config_file_path = "../config/config.json"
@@ -83,13 +62,14 @@ def save_persona():
     # 重新保存 config 文件
     with open(config_file_path, 'w') as f:
         json.dump(config, f, indent=4)
-    # 修改persona_json
-    persona_json = complete_persona_json(persona_json)
+    # 修改persona_json, new add: img_url
+    persona_json = complete_persona_json(persona_json, img_base64)
     # 保存 persona_json 到后端
     save_path = "./personas/persona" + str(userId) + ".json"
     with open(save_path, 'w') as f:
         json.dump(persona_json, f, indent=4)
-    return jsonify({'message': 'Persona saved successfully.'})
+    #return jsonify({'message': 'Persona saved successfully.'})
+    return jsonify(persona_json)
 
 @app.route('/newpersona_localstorage', methods=['POST'])
 def newpersona_localstorage():
