@@ -117,7 +117,8 @@ async function loadPersonas() {
             // Create a div for each persona
             const personaDiv = document.createElement('div');
             personaDiv.id = `persona${index + 1}`;
-            alert("img Url = " + persona.profileImgUrl);
+            const base64Prefix = 'data:image/png;base64,';
+            //alert("img Url = " + base64Prefix + persona.profileImgUrl);
             let loadInfo = `
                 <img src="${base64Prefix}${persona.profileImgUrl}" alt="${persona.name}" class="avatar">
                     <div class="persona-info">

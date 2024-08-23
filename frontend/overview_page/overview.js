@@ -82,7 +82,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 设置 persona 数据到页面元素
         //personaImage.src = "../" + persona.profileImgUrl;
-        personaImage.src = persona.profile_img;
+        const base64Prefix = 'data:image/png;base64,';
+        personaImage.src = base64Prefix + persona.profileImgUrl;
         briefInfo.innerHTML = `
             <p><span class="bold">${persona.name}</span>&middot ${persona.age}</p>
             <p>${persona.job} &middot ${persona.city}</p>
