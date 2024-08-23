@@ -22,18 +22,21 @@ async def delete_persona(request: Request):
 
         # 构造文件路径
         persona_file_path = os.path.join(persona_folder_path, f"persona{user_id}.json")
-        persona_img_path = os.path.join(persona_folder_path, f"persona-image/persona{user_id}.png")
+        #persona_img_path = os.path.join(persona_folder_path, f"persona-image/persona{user_id}.png")
 
         # 检查文件是否存在
+        
         if os.path.exists(persona_file_path):
             os.remove(persona_file_path)
         else:
             raise HTTPException(status_code=404, detail="Persona file not found")
-
+        
+        '''
         if os.path.exists(persona_img_path):
             os.remove(persona_img_path)
         else:
             raise HTTPException(status_code=404, detail="Persona image not found")
+        '''
 
         return {"message": "Persona deleted successfully"}
 
