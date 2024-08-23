@@ -4,7 +4,7 @@ def complete_persona_json(persona_json, img_base64):
     # 检查 "data" 域是否存在
     if 'data' in persona_json:
         # 添加 "favourite" 和 "switch" 信息
-        persona_json['data']['profile_img'] = img_base64
+        persona_json['data']['profileImgUrl'] = img_base64
         persona_json['data']['favourite'] = False
         persona_json['data']['switch'] = {
             "name": True,

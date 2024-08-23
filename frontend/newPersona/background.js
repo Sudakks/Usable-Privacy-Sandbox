@@ -57,13 +57,12 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         })
             .then(response => response.json())
             .then(data => {
-                sendResponse({ message: data.message });
+                sendResponse({ data:data });
             })
             .catch(error => {
                 console.error('Error:', error);
                 sendResponse({ message: 'Error saving persona.' });
             });
-
         return true;
     }
 

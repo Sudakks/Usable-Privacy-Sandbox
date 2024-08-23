@@ -28,7 +28,7 @@ async def newpersona_localstorage(request: Request):
         persona_json = await request.json()
     except JSONDecodeError:
         raise HTTPException(status_code=400, detail="Invalid JSON payload")
-    persona_json = complete_persona_json(persona_json)
+    #persona_json = complete_persona_json(persona_json)
     localStorage_json = persona_json.get('data')
     del localStorage_json['browsing_history']
     del localStorage_json['schedule']

@@ -81,7 +81,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const naturalInfo = document.querySelector('.naturalInfo');
 
         // 设置 persona 数据到页面元素
-        personaImage.src = "../" + persona.profileImgUrl;
+        //personaImage.src = "../" + persona.profileImgUrl;
+        personaImage.src = persona.profile_img;
         briefInfo.innerHTML = `
             <p><span class="bold">${persona.name}</span>&middot ${persona.age}</p>
             <p>${persona.job} &middot ${persona.city}</p>

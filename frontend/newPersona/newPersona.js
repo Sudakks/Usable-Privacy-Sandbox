@@ -100,29 +100,33 @@ document.addEventListener('DOMContentLoaded', function () {
                     else {
                         //save as json
                         //TODO
-                        chrome.runtime.sendMessage({ action: 'savePersona', persona_json: persona_json, img_base64: img_base64 }, function (response) { });
-                        console.log('Persona json saved successfully');
-                        //var userId = persona_json['data']['userId'] - 1;
-                        //userId = userId.toString();
-                        //console.log(userId);         
-                        let newpersona; // 声明在外部作用域中
+                        chrome.runtime.sendMessage({ action: 'savePersona', persona_json: persona_json, img_base64: img_base64 }, function (response) {
+                            if (response.data) {
+                                console.log('Persona json saved successfully');        
+                                let newpersona; // 声明在外部作用域中
+                                const persona_json = response.data;
 
-                        fetch('http://localhost:8000/newpersonalocalstorage', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(persona_json) 
-                        })
-                        .then(response => response.json())
-                            .then(data => {
-                            newpersona = data; // 将数据赋值给外部声明的变量
-                            console.log(newpersona);
-                                localStorage.setItem('selectedPersona', JSON.stringify(newpersona));
-                            window.location.href = "../overview_page/overview.html";
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
+                                fetch('http://localhost:8000/newpersonalocalstorage', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(persona_json)
+                                })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        newpersona = data; // 将数据赋值给外部声明的变量
+                                        console.log(newpersona);
+                                        localStorage.setItem('selectedPersona', JSON.stringify(newpersona));
+                                        window.location.href = "../overview_page/overview.html";
+                                    })
+                                    .catch(error => {
+                                        console.error('Error:', error);
+                                    });
+                            }
+                            else {
+                                console.error('Error: ', response.message);
+                            }
                         });
                     }
                 } else {

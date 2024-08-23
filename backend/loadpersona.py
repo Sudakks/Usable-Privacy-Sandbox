@@ -36,6 +36,7 @@ class Persona(BaseModel):
     favourite: bool
     switch: dict
 
+
 # 文件夹路径
 persona_folder_path = "./personas"
 
@@ -53,7 +54,8 @@ def load_single_persona(filename: str):
             first_name=persona_info.get("first_name", ""),
             last_name=persona_info.get("last_name", ""),
             name=name,
-            profileImgUrl=".." + persona_info.get("profileImgUrl", ""),
+            #profileImgUrl=".." + persona_info.get("profileImgUrl", ""),
+            profileImgUrl=persona_info.get("profileImgUrl", ""),
             age=persona_info.get("age", ""),
             gender=persona_info.get("gender", ""),
             race=persona_info.get("race", ""),
