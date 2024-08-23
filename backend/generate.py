@@ -496,6 +496,32 @@ class Generator:
         return self.browsing_history
 
 
+    def generate_persona_data(self, profile, userId):
+        """Generates a common structure of persona data."""
+        data = {"success": True, "code": 200}
+        persona_attributes = self.get_attributes(profile)
+
+        data["data"] = persona_attributes
+        data["data"]["userId"] = str(userId)
+        data["data"]["profile"] = profile
+        data["data"]["browser"] = "Firefox - Windows"
+        data["data"]["device"] = "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:70.0) Gecko/20100101 Firefox/70.0"
+
+        return data
+
+    def create_persona(self, start_date, end_date, profile, userId):
+        """Shared logic for creating persona data."""
+        data = self.generate_persona_data(profile, userId)
+        schedule = self.get_schedule(profile, start_date, end_date)
+        data["data"]["schedule"] = schedule
+        for i, d in enumerate(data["data"]["schedule"]):
+            d['id'] = i
+        browsing_history = self.get_browsing_history(profile, schedule, start_date, end_date)
+        data["data"]["browsing_history"] = browsing_history
+        for i, d in enumerate(data["data"]["browsing_history"]):
+            d['id'] = i
+
+        return data
 if __name__=="__main__":
     gen = Generator()
 

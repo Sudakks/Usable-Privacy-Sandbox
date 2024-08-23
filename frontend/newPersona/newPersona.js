@@ -150,8 +150,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function loadImg(imageGuidance) {
-        
-
         chrome.runtime.sendMessage({ action: 'generateImage', guidance: imageGuidance }, function (response) {
             if (response && response.base64Image) {
                 //const imageUrl = response.imageUrl;
