@@ -1,4 +1,4 @@
-# Usabel Privacy Sandbox
+# Usable Privacy Sandbox
 ## Overview
 Privacy has long been a concern for users when browsing the internet. To prevent personal information of users from leakage, we proposed a privacy sandbox so that users can browse the Internet with a new persona, either a selected one from our predefined personas or a new one. We also hope that users can gain knowledge concerning privacy after using our sandbox. 
 
